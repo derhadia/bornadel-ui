@@ -8,7 +8,7 @@ export default function Academy() {
 
     return (
         <>
-            <Grid container container direction="column" justify="flex-start" item xs={2} className={classes.MarginTop}>
+            <Grid container container direction="column" justify="flex-start" item xs={3} className={classes.MarginTop}>
                 <Typography className={classes.CourseDetailAcademyTitle}>آموزشگاه</Typography>
                 <Grid container className={classes.CourseDetailAcademyNameContainer}>
                     <span className={classes.CourseDetailteacherNameTitle}>آموزشگاه : </span>

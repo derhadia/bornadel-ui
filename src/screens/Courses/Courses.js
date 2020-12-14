@@ -17,6 +17,7 @@ import MyPagination from '../../components/Pagination/pagination'
 import { CoursesContext } from '../../contexts/CoursesContext'
 import { useParams } from "react-router-dom";
 import Apis from '../../constants/Api'
+import animateScrollTo from 'animated-scroll-to';
 
 
 export default function Courses() {
@@ -25,7 +26,8 @@ export default function Courses() {
     const [fixed, setFixed] = useState(false)
     let { coursesData, setCoursesData, page, itemPerPage, minPrice, maxPrice, minTime,
         maxTime, selectedTeacher, selectedAcademy, checkedDegreeSwith, sortType
-        , checkedReadyClasses, level } = useContext(CoursesContext)
+        , checkedReadyClasses, level, nothingMessage, setnothingMessage,
+        setAcademy,setLevelData,setTeacher1,setFilterAcademy } = useContext(CoursesContext)
 
     let { id, title, type } = useParams()
 
@@ -69,10 +71,72 @@ export default function Courses() {
         fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
             setCoursesData(responseJSON.data)
         })
-    }, [id, sortType])
+    }, [sortType])
+    useEffect(() => {
+        let body = {
+            "record_ID": id,
+            "record_Name": title && title.length > 0 ? title : "",
+            "record_Type": type && type.length > 0 ? type : 1,
+            "sort_Type": 1,
+            "educationSubject_ID": 0,
+            "teacher_ID_List": "",
+            "academy_ID_List": "",
+            "classRoomLevel_ID_List": "",
+            "startTime_From": "",
+            "startTime_To": "",
+            "price_From": 0,
+            "price_To": 0,
+            "haveDocument": false,
+            "isActive": false
+        }
+        fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
+            setCoursesData(responseJSON.data)
+        })
+        let body1 = {
+            "classRoomLevel_ID": 0
+        }
+        fetchPost(Apis.Get_GetAllClassroomLevel, body1).then(({ responseJSON, status }) => {
+            setLevelData(responseJSON.data)
+        })
+        let body2 = {
+            "teacher_ID": 0,
+            "teacher_Academy_Ref": 0,
+            "teacher_AspNetUsers_Ref": 0
+        }
+        fetchPost(Apis.Get_GetAllTeacher, body2).then(({ responseJSON, status }) => {
+            setTeacher1(responseJSON.data)
+            // setFilterTeacher(responseJSON.data)
+        })
+        let body3 = {
+            "academy_ID": 0,
+            "academy_AspNetUsers_Ref": 0,
+            "academy_Name": ""
+        }
+        let approveEnum = 1
+        fetchPost(Apis.Get_GetAllAcademy + "?approveEnum=" + approveEnum, body3).then(({ responseJSON, status }) => {
+            setAcademy(responseJSON.data)
+            setFilterAcademy(responseJSON.data)
+        })
+    }, [id])
 
 
     let ApplyFilter = () => {
+        if(maxTime<minTime){
+            let Options = {
+                speed: 100,
+                maxDuration: 2000,
+                minDuration: 2000,
+            }
+            animateScrollTo(875, Options);           
+             return
+        }
+        let Options = {
+            speed: 100,
+            maxDuration: 3000,
+            minDuration: 2000,
+
+        }
+        animateScrollTo(0, Options);
         let body = {
             "record_ID": id,
             "record_Name": title && title.length > 0 ? title : "",
@@ -90,7 +154,9 @@ export default function Courses() {
             "isActive": checkedReadyClasses
         }
         fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
-            setCoursesData(responseJSON.data)
+            if (status === 200) {
+                setCoursesData(responseJSON.data)
+            }
         })
     }
     return (
@@ -190,14 +256,17 @@ export default function Courses() {
                                     </Grid>
                                 )
                             })
-                            : null
+                            :
+                            <Grid item container justify="center" alignItems="center" className={classes.nothingMessage} >دوره ای وجود ندارد</Grid>
                     }
+
                     {coursesData && coursesData.length > 0 ?
                         <Grid item container justify="center" alignItems="center" className={classes.CoursesContainerLeftHeader} >
                             <MyPagination />
                         </Grid>
                         : null
                     }
+
                 </Grid>
             </Grid>
         </Grid >

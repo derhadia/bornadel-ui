@@ -8,7 +8,7 @@ export default function Teacher() {
 
     return (
         <>
-            <Grid container direction="column" justify="flex-start" item xs={2} className={classes.MarginTop}>
+            <Grid container direction="column" justify="flex-start" item xs={3} className={classes.MarginTop}>
                 <Typography className={classes.CourseDetailClassTitle}>مدرس</Typography>
                 <Grid container className={classes.CourseDetailteacherNameContainer}>
                     <span className={classes.CourseDetailteacherNameTitle}>مدرس : </span>

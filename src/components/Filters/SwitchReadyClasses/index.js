@@ -12,7 +12,7 @@ export default function ReadyClasses() {
     let {checkedReadyClasses, setCheckedReadyClasses}=useContext(CoursesContext)
 
     return (
-        <Grid item container justify="center" alignItems="center" className={classes.swich1}>
+        <Grid item container justify="flex-end" alignItems="center" className={classes.swich1}>
             <Grid item><Typography className={classes.switchText}>کلاس های آماده برگزاری</Typography></Grid>
             <Grid item>
                 <Switch

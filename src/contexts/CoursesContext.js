@@ -46,44 +46,17 @@ export default function CoursesContextProvider({ children }) {
     const [sortType, setSortType] = useState(1)
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(100)
-
+    const [nothingMessage,setnothingMessage] = useState(false)
 
     useEffect(() => {
-        let body1 = {
-            "classRoomLevel_ID": 0
-        }
-        fetchPost(Apis.Get_GetAllClassroomLevel, body1).then(({ responseJSON, status }) => {
-            setLevelData(responseJSON.data)
-        })
-        let body2 = {
-            "teacher_ID": 0,
-            "teacher_Academy_Ref": 0,
-            "teacher_AspNetUsers_Ref": 0
-        }
-        fetchPost(Apis.Get_GetAllTeacher, body2).then(({ responseJSON, status }) => {
-            setTeacher1(responseJSON.data)
-            // setFilterTeacher(responseJSON.data)
-        })
-        let body3 = {
-            "academy_ID": 0,
-            "academy_AspNetUsers_Ref": 0,
-            "academy_Name": ""
-        }
-        let approveEnum = 1
-        fetchPost(Apis.Get_GetAllAcademy + "?approveEnum=" + approveEnum, body3).then(({ responseJSON, status }) => {
-            setAcademy(responseJSON.data)
-            setFilterAcademy(responseJSON.data)
-        })
-    }, [])
-    useEffect(() => {
-        setDataPriceSort(coursesData.map((item) => { return item.last_Price ? item.last_Price : item.classRoom_Price }))
+        setDataPriceSort(coursesData&&coursesData.length>0?coursesData.map((item) => { return item.last_Price ? item.last_Price : item.classRoom_Price }):"")
     }, [coursesData])
 
     //=================merg teacher name & last name==================
 
     useEffect(() => {
-        setTeacher2(teacher1.map((item) => { return [`${item.teacher_ID}`, `${item.teacher_Name + " " + item.teacher_LastName}`] }))
-        setFilterTeacher(teacher1.map((item) => { return [item.teacher_ID, `${item.teacher_Name + " " + item.teacher_LastName}`] }))
+        setTeacher2(teacher1&&teacher1.map((item) => { return [`${item.teacher_ID}`, `${item.teacher_Name + " " + item.teacher_LastName}`] }))
+        setFilterTeacher(teacher1&&teacher1.map((item) => { return [item.teacher_ID, `${item.teacher_Name + " " + item.teacher_LastName}`] }))
     }, [teacher1])
 
 
@@ -145,14 +118,33 @@ export default function CoursesContextProvider({ children }) {
         }
     }
 
+    let DeleteFilter=()=>{
+        setCoursesData([])
+        setFilterTeacher([])
+        setFilterAcademy([])
+        setSelectedTeacher([])
+        setSelectedAcademy([])
+        setMinTime('')
+        setMaxTime('')
+        setMinPrice(0)
+        setMaxPrice(0)
+        setCheckedReadyClasses(false)
+        setCheckedDegreeSwith(false)
+        setLevel([])
+        setSortType(1)
+        setMinValue(0)
+        setMaxValue(100)
+    }
+    
     return (
         <CoursesContext.Provider value={{
             coursesData, setCoursesData, teacher2, minPrice, setMinPrice, maxPrice, setMaxPrice,
-            page, setPage, itemPerPage, filteTeacher, setFilterTeacher
+            page, setPage, itemPerPage, filteTeacher, setFilterTeacher,nothingMessage,setnothingMessage
             , selectedTeacher, setSelectedTeacher, sortType, setSortType, level, setLevel,
             minTime, setMinTime, maxTime, setMaxTime, academy, setAcademy, filteAcademy, setFilterAcademy,
             selectedAcademy, setSelectedAcademy, checkedReadyClasses, setCheckedReadyClasses, selectLE,
-            checkedDegreeSwith, setCheckedDegreeSwith, minValue, maxValue, levelData, selectAC, selectTH
+            checkedDegreeSwith, setCheckedDegreeSwith, minValue, maxValue, levelData, selectAC, selectTH,
+            DeleteFilter,setLevelData,setTeacher1,setFilterAcademy
         }} >
             {children}
         </CoursesContext.Provider>

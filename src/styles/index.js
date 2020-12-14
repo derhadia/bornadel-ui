@@ -376,9 +376,10 @@ const useStyles = makeStyles((theme) => ({
     },
     classList: {
         cursor: "default",
-        marginRight: 32,
+        marginRight: 10,
         position: "relative",
         marginLeft: 14,
+        paddingRight: 25,
         "&::before": {
             content: `''`,
             width: 20,
@@ -1130,7 +1131,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "50%",
         margin: "auto",
         position: "relative",
-        top: -2,
+        top: -4,
         clipPath: "Polygon(0% 0%,100% 0%,100% 50% ,0% 50%)"
     },
     circleinRect: {
@@ -1255,7 +1256,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 7,
     },
     CoursesPrice: {
-        marginBottom: 10
+        marginBottom: 5
 
     },
     aloneCursesComponentMain: {
@@ -1422,7 +1423,7 @@ const useStyles = makeStyles((theme) => ({
     },
     groupFilterHeaderText: {
         fontWeight: 700,
-        fontSize:13
+        fontSize: 13
     },
     groupFilterHeader: {
         fontSize: 12,
@@ -1446,7 +1447,7 @@ const useStyles = makeStyles((theme) => ({
     treelableText: {
         textDecoration: "none",
         color: "#000",
-        fontSize:12
+        fontSize: 12
     },
     treeselected: {
         backgroundColor: "#fff  !important",
@@ -1487,11 +1488,11 @@ const useStyles = makeStyles((theme) => ({
     },
     FormControllContainer: {
         height: 25,
-        cursor:"pointer",
-        marginBottom:5
+        cursor: "pointer",
+        marginBottom: 5
     },
-    FormControllText:{
-        fontSize:12
+    FormControllText: {
+        fontSize: 12
     },
     checkBoxFormControl: {
         padding: 10
@@ -1521,7 +1522,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#424750"
     },
     searchInputteacherFilter: {
-        height: 24,
+        height: 35,
         width: "90%",
         borderRadius: 4,
         borderTopLeftRadius: 0,
@@ -1552,7 +1553,7 @@ const useStyles = makeStyles((theme) => ({
     },
     searchiconFilter: {
         width: 25,
-        height: 24,
+        height: 35,
         borderRadius: 4,
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0,
@@ -1563,8 +1564,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-end",
         marginRight: 1,
         backgroundImage: `url(${Icons})`,
-        backgroundSize: 1100,
-        backgroundPosition: "-280px -46px",
+        backgroundSize: 1422,
+        backgroundPosition: "-365px -57px",
     },
     teacherFilterBox: {
         minHeight: 280,
@@ -1633,7 +1634,7 @@ const useStyles = makeStyles((theme) => ({
     CHhidden: {
         visibility: "hidden",
         // position:"absolute",
-        zIndex:2
+        zIndex: 2
     },
     checkboxSpan: {
         cursor: "pointer",
@@ -1718,7 +1719,7 @@ const useStyles = makeStyles((theme) => ({
     priceFilterHead: {
         fontWeight: 700,
         borderBottom: "1px solid #dedede",
-        fontSize:13
+        fontSize: 13
     },
     priceFilterBox: {
         height: 80,
@@ -1745,7 +1746,10 @@ const useStyles = makeStyles((theme) => ({
         padding: "0px 10px",
         backgroundColor: "#fff",
         marginBottom: 5,
-        border: "1px solid #dedede"
+        border: "1px solid #dedede",
+        paddingRight: window.innerWidth > 1366 && window.innerWidth < 1401 ? "11%" :
+         window.innerWidth > 1400&& window.innerWidth < 1451 ? "16%" : window.innerWidth > 1450&&window.innerWidth < 1501 ? "18%" :
+         window.innerWidth > 1500&&window.innerWidth<1700 ? "20%" : window.innerWidth > 1160&&window.innerWidth < 1500?"10%":window.innerWidth < 1161?"5%":"25%",
 
     },
     thumbReadyClasses: {
@@ -1762,7 +1766,9 @@ const useStyles = makeStyles((theme) => ({
         padding: "0px 10px",
         backgroundColor: "#fff",
         marginBottom: 5,
-        paddingRight: 39,
+        paddingRight:  window.innerWidth > 1366 && window.innerWidth < 1401 ? "11%" :
+        window.innerWidth > 1400&& window.innerWidth < 1451 ? "16%" : window.innerWidth > 1450&&window.innerWidth < 1501 ? "18%" :
+        window.innerWidth > 1500&&window.innerWidth<1700 ? "20%" : window.innerWidth > 1160&&window.innerWidth < 1500?"10%":window.innerWidth < 1161?"5%":"25%",
         border: "1px solid #dedede"
 
     },
@@ -1801,7 +1807,7 @@ const useStyles = makeStyles((theme) => ({
     },
     coursesComponentDetailItem: {
         paddingBottom: 15,
-        minWidth: window.innerWidth > 1680 ? 200 :window.innerWidth > 1360 ? 180 : window.innerWidth > 1265 && window.innerWidth < 1361 ? 180 :
+        minWidth: window.innerWidth > 1680 ? 200 : window.innerWidth > 1360 ? 180 : window.innerWidth > 1265 && window.innerWidth < 1361 ? 180 :
             window.innerWidth > 1100 && window.innerWidth < 1266 ? 166 : window.innerWidth > 1022 && window.innerWidth < 1101 ? 166 : 166
     },
     leftheaderIcon: {
@@ -1843,6 +1849,10 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
+    },
+    nothingMessage: {
+        fontSize: 25,
+        marginTop: 50
     },
 
     // ======================================CoursesDetail page=======================================
@@ -2475,19 +2485,20 @@ const useStyles = makeStyles((theme) => ({
     FarsiNumber: {
         display: "inline-block",
         fontFamily: "IRANSansNUMNumber",
+        fontSize: 14
 
     },
     FarsiNumber1: {
         display: "inline-block",
         fontFamily: "IRANSansNUMNumber",
         fontWeight: 700,
-        fontSize:20
+        fontSize: 17
 
     },
     CoursesPriceText: {
         fontWeight: 100,
         color: "#000",
-        fontSize:17
+        fontSize: 17
     },
     FarsiNumberFooterText: {
         fontSize: 14,

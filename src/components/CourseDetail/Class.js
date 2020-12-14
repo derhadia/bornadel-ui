@@ -8,7 +8,7 @@ export default function Class() {
 
     return (
         <>
-            <Grid container direction="column" justify="flex-start" item xs={2} className={classes.MarginTop}>
+            <Grid container direction="column" justify="flex-start" item xs={3} className={classes.MarginTop}>
                 <Typography className={classes.CourseDetailClassTitle}>کلاس</Typography>
                 <Grid container className={classes.CourseDetailClassNameContainer}>
                     <span className={classes.CourseDetailClassNameTitle}>ساعت و روز برگزاری : </span>
