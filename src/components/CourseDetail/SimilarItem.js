@@ -4,6 +4,7 @@ import useStyles from '../../styles'
 import Apis from '../../constants/Api'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 import CoursesComponent from '../../components/CoursesComponent/CoursesComponent'
+<<<<<<< HEAD
 //davad یس
 =======
 //javad bayat
