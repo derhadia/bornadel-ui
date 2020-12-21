@@ -1,7 +1,6 @@
 // //---------------------------------------------------------
 // const BaseUrl = "http://192.168.1.191/api/v1/"
-// const BaseImageUrl="http://192.168.1.191/" jj2
-// const BaseImageUrl="http://192.168.1.191/" jj1
+// const BaseImageUrl="http://192.168.1.191/" jj3
 // -----------------------------------------------------
 const BaseImageUrl = "https://api.bornadel.com/"
 const BaseUrl = "https://api.bornadel.com/api/v1/"
