@@ -5,6 +5,9 @@ import Apis from '../../constants/Api'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 import CoursesComponent from '../../components/CoursesComponent/CoursesComponent'
 //davad یس
+=======
+//javad bayat
+>>>>>>> 55a151987ab6339b25ee32945ab22b107e22b644
 export default function SimilarItem() {
     let { similarItem } = useContext(CourseDetailContext)
     const classes = useStyles();
