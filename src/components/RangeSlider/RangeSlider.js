@@ -230,16 +230,16 @@ export default function RangeSlider() {
     return (
         <div>
 
-            <div class="middle" dir="rtl">
-                <div class="multi-range-slider">
+            <div className="middle" dir="rtl">
+                <div className="multi-range-slider">
                     <input type="range" id="input-right" min="1" max="100" value={minPrice1} />
                     <input type="range" id="input-left" min="1" max="100" value={maxPrice1} />
 
-                    <div class="slider">
-                        <div class="track"></div>
-                        <div class="range"></div>
-                        <div class="thumb right"></div>
-                        <div class="thumb left"></div>
+                    <div className="slider">
+                        <div className="track"></div>
+                        <div className="range"></div>
+                        <div className="thumb right"></div>
+                        <div className="thumb left"></div>
                     </div>
                 </div>
             </div>

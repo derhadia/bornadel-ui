@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
         position: "fixed",
         backgroundColor: "#ffffff",
         zIndex: 99,
-
     },
     HeaderMobileSize: {
         width: "100%",
@@ -1079,7 +1078,7 @@ const useStyles = makeStyles((theme) => ({
         borderBottomRightRadius: 7,
         cursor: "pointer",
         backgroundImage: `url(${Icons})`,
-        backgroundPosition: "-319px -2x12p"
+        backgroundPosition: "-319px -212px"
     },
     aloneCursesComponentContainer: {
         display: "flex",
@@ -1748,8 +1747,8 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 5,
         border: "1px solid #dedede",
         paddingRight: window.innerWidth > 1366 && window.innerWidth < 1401 ? "11%" :
-         window.innerWidth > 1400&& window.innerWidth < 1451 ? "16%" : window.innerWidth > 1450&&window.innerWidth < 1501 ? "18%" :
-         window.innerWidth > 1500&&window.innerWidth<1700 ? "20%" : window.innerWidth > 1160&&window.innerWidth < 1500?"10%":window.innerWidth < 1161?"5%":"25%",
+            window.innerWidth > 1400 && window.innerWidth < 1451 ? "16%" : window.innerWidth > 1450 && window.innerWidth < 1501 ? "18%" :
+                window.innerWidth > 1500 && window.innerWidth < 1700 ? "20%" : window.innerWidth > 1160 && window.innerWidth < 1500 ? "10%" : window.innerWidth < 1161 ? "5%" : "25%",
 
     },
     thumbReadyClasses: {
@@ -1766,9 +1765,9 @@ const useStyles = makeStyles((theme) => ({
         padding: "0px 10px",
         backgroundColor: "#fff",
         marginBottom: 5,
-        paddingRight:  window.innerWidth > 1366 && window.innerWidth < 1401 ? "11%" :
-        window.innerWidth > 1400&& window.innerWidth < 1451 ? "16%" : window.innerWidth > 1450&&window.innerWidth < 1501 ? "18%" :
-        window.innerWidth > 1500&&window.innerWidth<1700 ? "20%" : window.innerWidth > 1160&&window.innerWidth < 1500?"10%":window.innerWidth < 1161?"5%":"25%",
+        paddingRight: window.innerWidth > 1366 && window.innerWidth < 1401 ? "11%" :
+            window.innerWidth > 1400 && window.innerWidth < 1451 ? "16%" : window.innerWidth > 1450 && window.innerWidth < 1501 ? "18%" :
+                window.innerWidth > 1500 && window.innerWidth < 1700 ? "20%" : window.innerWidth > 1160 && window.innerWidth < 1500 ? "10%" : window.innerWidth < 1161 ? "5%" : "25%",
         border: "1px solid #dedede"
 
     },
@@ -1891,12 +1890,22 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 12,
         color: "#000"
     },
+    CourseDetailClassNameTitle1: {
+        fontSize: 12,
+        color: "#787878"
+    },
     CourseDetailClassNameContainer: {
-        marginTop: 20
+        marginTop: 15,
+        marginBottom:10
+    },
+    CourseDetailClassNameContainer1: {
+        marginTop: 15,
+        marginBottom:0
     },
     CourseDetailClassName: {
         fontSize: 12,
-        color: "#787878"
+        color: "#787878",
+        padding: "0 3px",
     },
     CourseDetailClassNameNUM: {
         fontFamily: "IRANSansNUMNumber",
@@ -2011,7 +2020,7 @@ const useStyles = makeStyles((theme) => ({
         height: 20,
         backgroundImage: `url(${Icons})`,
         backgroundSize: 1000,
-        backgroundPosition: "-204px 59px",
+        backgroundPosition: "-204px -251px",
         position: "absolute",
         right: 5
     },
@@ -2020,7 +2029,7 @@ const useStyles = makeStyles((theme) => ({
         height: 20,
         backgroundImage: `url(${Icons})`,
         backgroundSize: 1000,
-        backgroundPosition: "-257px 59px",
+        backgroundPosition: "-257px -251px",
         position: "absolute",
         right: 5,
         top: 27
