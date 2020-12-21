@@ -9,6 +9,8 @@ import CoursesComponent from '../../components/CoursesComponent/CoursesComponent
 =======
 //javad bayat
 >>>>>>> 55a151987ab6339b25ee32945ab22b107e22b644
+
+//davad یس111
 export default function SimilarItem() {
     let { similarItem } = useContext(CourseDetailContext)
     const classes = useStyles();
