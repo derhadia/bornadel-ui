@@ -4,13 +4,9 @@ import useStyles from '../../styles'
 import Apis from '../../constants/Api'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 import CoursesComponent from '../../components/CoursesComponent/CoursesComponent'
-<<<<<<< HEAD
-//davad یس
-=======
-//javad bayat
->>>>>>> 55a151987ab6339b25ee32945ab22b107e22b644
 
-//davad یس111
+//davad یس
+
 export default function SimilarItem() {
     let { similarItem } = useContext(CourseDetailContext)
     const classes = useStyles();
