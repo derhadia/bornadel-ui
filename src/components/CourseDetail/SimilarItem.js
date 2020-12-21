@@ -4,7 +4,7 @@ import useStyles from '../../styles'
 import Apis from '../../constants/Api'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 import CoursesComponent from '../../components/CoursesComponent/CoursesComponent'
-
+//davad
 export default function SimilarItem() {
     let { similarItem } = useContext(CourseDetailContext)
     const classes = useStyles();
