@@ -1,0 +1,233 @@
+
+@font-face {
+    font-family: 'BYekan';
+    font-style: normal;
+    font-weight: normal;
+    src: local('BYekan'), url('../fonts/Yekan/Yekan.woff') format('woff');
+  }
+
+  :root {
+    --pinkish-grey: #bababa;  
+  }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-card {
+    width: 330px;
+    height: 413px;
+    margin: 40px 0 0px 0px;
+    padding: 13px 11px 10px 12px;
+    border-radius: 7px;
+    border: solid 1px var(--pinkish-grey);
+    background-color: #f4f5f7;
+  }
+  .rectangle-login {
+    width: 307px;
+    height: 302px;
+    margin: 21px 0 0;
+    padding: 15px 8px 9px 15px;
+    border-radius: 7px;
+    border: solid 1px var(--pinkish-grey);
+    background-color: #ffffff;
+  }
+
+.security-card{
+  width: 330px;
+  height: 272px;
+  margin: 40px 0 0px 0px;
+  padding: 13px 11px 10px 12px;
+  border-radius: 7px;
+  border: solid 1px var(--pinkish-grey);
+  background-color: #f4f5f7;
+}
+.rectangle-security{
+  width: 307px;
+    height: 153px;
+    margin: 21px 0 0;
+    padding: 15px 8px 9px 15px;
+    border-radius: 7px;
+    border: solid 1px var(--pinkish-grey);
+    background-color: #ffffff;
+}
+
+  .enter-username-card  {
+    width: 330px;
+    height: 272px;
+    margin: 40px 0 0px 0px;
+    padding: 13px 11px 10px 12px;
+    border-radius: 7px;
+    border: solid 1px var(--pinkish-grey);
+    background-color: #f4f5f7;
+  }
+  .rectangle-enter-username{
+    width: 307px;
+    height: 153px;
+    margin: 21px 0 0;
+    padding: 15px 8px 9px 15px;
+    border-radius: 7px;
+    border: solid 1px var(--pinkish-grey);
+    background-color: #ffffff;
+  }
+
+
+
+  
+  .login-card label {
+    font-size: 13px;
+    /* width: 52px;
+    height: 11px; */
+    margin: 3px 17px 0px 9px;
+    font-family: BYekan;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #1c1c1c;
+}
+
+.login-card .form-control {
+    font-size: 12.5px;
+    width: 276px;
+  height: 31px;
+  margin: 2px 8px 6px 0;
+  padding: 9px 9px 10px 40px;
+  border-radius: 7px;
+  border: solid 1px var(--pinkish-grey);
+  background-color: #ffffff;
+}
+.login-card .form-check-input {
+  margin-top: 8px;
+}
+
+
+
+  .enter-username-card label {
+    font-size: 13px;
+    /* width: 52px;
+    height: 11px; */
+    margin: 3px 17px 0px 9px;
+    font-family: BYekan;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #1c1c1c;
+}
+
+.enter-username-card  .form-control {
+    font-size: 12.5px;
+    width: 276px;
+  height: 31px;
+  margin: 2px 8px 6px 0;
+  padding: 9px 9px 10px 40px;
+  border-radius: 7px;
+  border: solid 1px var(--pinkish-grey);
+  background-color: #ffffff;
+}
+.enter-username-card .form-check-input {
+  margin-top: 8px;
+}
+
+
+
+
+
+.security-card label {
+  font-size: 13px;
+  /* width: 52px;
+  height: 11px; */
+  margin: 3px 17px 0px 9px;
+  font-family: BYekan;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #1c1c1c;
+}
+
+.security-card .form-control {
+  font-size: 12.5px;
+  width: 276px;
+height: 31px;
+margin: 2px 8px 6px 0;
+padding: 9px 9px 10px 40px;
+border-radius: 7px;
+border: solid 1px var(--pinkish-grey);
+background-color: #ffffff;
+}
+.security-card .form-check-input {
+margin-top: 8px;
+}
+
+
+
+ 
+
+.login-title {
+    /* width: 22px;
+     height: 8px; */
+     margin: 0 0 5px 0px;
+     font-family: BYekan;
+     font-size: 13px;
+     font-weight: normal;
+     font-stretch: normal;
+     font-style: normal;
+     line-height: normal;
+     letter-spacing: normal;
+     text-align: center;
+     color: #1c1c1c;
+   }
+
+.form-control::placeholder { 
+color: var(--pinkish-grey);
+    opacity: 1; 
+}
+
+
+
+.btn {
+    color: #fff;
+    background-color: #ef394f;
+    border-color: #bdc4cc;
+    height: 25px;
+    font-size: 13px;
+    width: 135px;
+    border-radius: 7px;
+    border: 0px;
+}
+.btn:hover ,.btn:focus , .btn:visited, .btn:active {
+    background-color: #f04d60;
+    outline: 0;
+  }
+
+
+a:not([href]):not([class]) {
+    text-decoration: underline;
+    color: #3dbffc;
+    font-size: 13px;
+}
+a:hover{
+    text-decoration: none;
+}
+hr{
+    color: #3dbffc;
+    margin-top: 0px;
+    border-top: 1px solid #3dbffc;
+}
+
+.bornaLogo{
+  background-image: url("../../assets/images/iconfinal.svg");
+  background-position: "-33px -28px";
+  width: 40;
+  height: 40;
+  background-size:'950px';
+}
