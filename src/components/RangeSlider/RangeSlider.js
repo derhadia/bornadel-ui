@@ -94,12 +94,12 @@ export default function RangeSlider() {
     const [maxPrice1, setMaxPrice1] = useState(100)
     let miP = minValue
     let maP = maxValue
-
-    useEffect(() => {
-        setMinPrice1(0)
-        setMaxPrice1(100)
+//bayat
+    // useEffect(() => {
+    //     setMinPrice1(0)
+    //     setMaxPrice1(100)
     
-    }, [coursesData])
+    // }, [coursesData])
     
     useEffect(() => {
 

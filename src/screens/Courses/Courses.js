@@ -24,10 +24,11 @@ export default function Courses() {
     const classes = useStyles()
     const [widthAllcourses, setWidthAllcourses] = useState(0)
     const [fixed, setFixed] = useState(false)
+    const [nothingData, setNothingData] = useState(false)
     let { coursesData, setCoursesData, page, itemPerPage, minPrice, maxPrice, minTime,
         maxTime, selectedTeacher, selectedAcademy, checkedDegreeSwith, sortType
         , checkedReadyClasses, level, nothingMessage, setnothingMessage,
-        setAcademy,setLevelData,setTeacher1,setFilterAcademy } = useContext(CoursesContext)
+        setAcademy, setLevelData, setTeacher1, setFilterAcademy ,setDataPriceSort} = useContext(CoursesContext)
 
     let { id, title, type } = useParams()
 
@@ -38,14 +39,13 @@ export default function Courses() {
         let filterButtun = document.querySelector('#filterButtun')
         let CoursesContainerLeft = document.querySelector('#CoursesContainerLeft')
         window.addEventListener('scroll', (e) => {
-
-            if (window.pageYOffset + window.innerHeight - 110 === CoursesContainerLeft.offsetHeight || window.pageYOffset + window.innerHeight - 110 > CoursesContainerLeft.offsetHeight) {
-                setFixed(false)
+            console.log(window.pageYOffset + window.innerHeight - 110);
+            if (window.pageYOffset + window.innerHeight - 110 === 1590 || window.pageYOffset + window.innerHeight - 110 > 1590) {
+                setFixed(true)
                 return
             }
-            if (window.pageYOffset + window.innerHeight - 110 === 1496 || window.pageYOffset + window.innerHeight - 110 > 1496) {
-                // setFixed(true)
-                // FilterConteiner.style.width = `${window.innerWidth - CoursesContainerLeft.offsetWidth - 75}px`
+            if (window.pageYOffset + window.innerHeight - 110 < 1600) {
+                setFixed(false)
                 return
             }
         })
@@ -69,7 +69,11 @@ export default function Courses() {
             "isActive": checkedReadyClasses
         }
         fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
-            setCoursesData(responseJSON.data)
+            if (status === 200) {
+                responseJSON.data.length === 0 ? setNothingData(true) : setNothingData(false)
+                setCoursesData(responseJSON.data)
+
+            }
         })
     }, [sortType])
     useEffect(() => {
@@ -90,7 +94,12 @@ export default function Courses() {
             "isActive": false
         }
         fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
-            setCoursesData(responseJSON.data)
+            if (status == 200) {
+                responseJSON.data.length === 0 ? setNothingData(true) : setNothingData(false)
+                setDataPriceSort(responseJSON.data.length > 0 ? responseJSON.data.map((item) => { return item.last_Price ? item.last_Price : item.classRoom_Price }) : "")
+
+                setCoursesData(responseJSON.data)
+            }
         })
         let body1 = {
             "classRoomLevel_ID": 0
@@ -121,14 +130,14 @@ export default function Courses() {
 
 
     let ApplyFilter = () => {
-        if(maxTime<minTime){
+        if (maxTime < minTime) {
             let Options = {
                 speed: 100,
                 maxDuration: 2000,
                 minDuration: 2000,
             }
-            animateScrollTo(875, Options);           
-             return
+            animateScrollTo(875, Options);
+            return
         }
         let Options = {
             speed: 100,
@@ -162,8 +171,7 @@ export default function Courses() {
     return (
         <Grid container className={classes.CoursesContainer}>
             <Grid item container direction="column" className={classes.CoursesContainerRight}>
-                <Grid item container direction="column" id="CoursesContainerRight"
-                    style={{ position: fixed ? "fixed" : "static", top: "auto", bottom: 15 }}>
+                <Grid item container direction="column" id="CoursesContainerRight">
                     <GroupFilter />
                     <LevelFilter />
                     <TeacherFilter />
@@ -172,10 +180,18 @@ export default function Courses() {
                     <AcademyFilter />
                     <ReadyClassesSwitch />
                     <DegreeSwith />
-                    <Grid item container justify="center" className={classes.filterButtunContainer}>
-                        <Button variant="contained" color="primary"
+                    <Grid item
+                        container
+                        justify="center"
+                        className={classes.filterButtunContainer}
+                        style={{ position: fixed ? "static" : "fixed", top: "auto", bottom: 15, }}
+                    >
+                        <Button variant="contained"
+                            color="primary"
                             id="filterButtun"
-                            className={classes.filterButtun} onClick={() => ApplyFilter()}
+                            className={classes.filterButtun}
+                            onClick={() => ApplyFilter()}
+
                         >
                             اعمال فیلتر ها
                     </Button>
@@ -257,7 +273,9 @@ export default function Courses() {
                                 )
                             })
                             :
-                            <Grid item container justify="center" alignItems="center" className={classes.nothingMessage} >دوره ای وجود ندارد</Grid>
+                            nothingData ?
+                                <Grid item container justify="center" alignItems="center" className={classes.nothingMessage} >دوره ای وجود ندارد</Grid>
+                                : null
                     }
 
                     {coursesData && coursesData.length > 0 ?

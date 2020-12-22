@@ -2,11 +2,9 @@ import React, { useContext,useEffect } from 'react'
 import { MasteLayoutContext } from '../../contexts/MasteLayoutContext'
 import useStyles from '../../styles'
 import { Grid } from '@material-ui/core'
-import {useHistory} from "react-router-dom"
 
 export default function Navbar() {
     const classes = useStyles();
-const history=useHistory()
 
     let { setElement, linwWidth, underLinePlace, HandleHiddenMenu, HandleShowMenu, ShowCloseIcon,
         underLuneScale, HandelUndeiLineEnter, HandleUndeLineExit, SetSearchText, setShowSearchBox,
@@ -16,11 +14,6 @@ const history=useHistory()
         var line = document.getElementById("redUnderLuneMenu")
         setElement(line);
     }, [])
-
-
-    const handleClickMenu=(page)=>{
-        history.push(`/${page}`)
-    }
 
     return (
         <Grid container className={classes.headerNavbar}>
@@ -47,7 +40,6 @@ const history=useHistory()
                 <Grid className={`${classes.news} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
-                    onClick={()=>handleClickMenu("News")}
                 >اخبار</Grid>
                 <Grid className={`${classes.provision} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
