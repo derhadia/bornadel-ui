@@ -1777,11 +1777,13 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 700
     },
     filterButtunContainer: {
-        minWidth: "100%",
-        maxWidth: "100%",
+        minWidth: "235px",
+        maxWidth: "235px",
         height: 29,
         borderRadius: 4,
         marginTop: 20,
+        position:"fixed",
+        
     },
     filterButtun: {
         width: "80%",

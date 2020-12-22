@@ -5,8 +5,6 @@ import Apis from '../../constants/Api'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 import CoursesComponent from '../../components/CoursesComponent/CoursesComponent'
 
-//davad یس
-
 export default function SimilarItem() {
     let { similarItem } = useContext(CourseDetailContext)
     const classes = useStyles();
@@ -58,7 +56,7 @@ export default function SimilarItem() {
                     <Grid item container className={classes.ReceneViewSlider} wrap="nowrap"
                         style={{ transform: `translateX(${trs * (Math.ceil(sliderWidth / count))}px)`, transition: "all 2s" }}>
                         {
-                             similarItem && similarItem.length > 0 ? similarItem[0].map((data, index) => {
+                            similarItem && similarItem.length > 0 ? similarItem[0].map((data, index) => {
                                 return (
                                     <Grid container item justify="center" key={index} className={classes.sliderItem}
                                         style={{ minWidth: Math.ceil(Math.ceil(sliderWidth) / count) }} >
