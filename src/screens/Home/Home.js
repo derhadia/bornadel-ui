@@ -14,6 +14,7 @@ import x1 from '../../assets/images/1x.jpg'
 import x2 from '../../assets/images/2x.jpg'
 import x3 from '../../assets/images/3x.jpg'
 import comersial from '../../assets/images/comersial.jpg'
+import {Link} from "react-router-dom";
 
 
 
@@ -35,7 +36,7 @@ export default function Home() {
 
 
     return (
-        < >
+        <>
             <Grid container justify="center">
                 <Grid container justify="center" className={classes.banneImages}>
                     <Grid item xs={3} container direction="column" justify="space-between" className={classes.ImagesIntopHome}
@@ -151,7 +152,7 @@ export default function Home() {
                         <Grid item xs={12} container direction="column" className={classes.ArticleContainer}>
                             <Grid container justify="space-between" item className={classes.ArticleHeader}>
                                 <Typography className={classes.ArticleHeaderText}>مقالات</Typography>
-                                <Typography className={classes.ArticleHeaderText2}>همه
+                                <Typography className={classes.ArticleHeaderText2}><Link to="/ArticlesList">همه</Link>
                             <span className={classes.articleNewsArrow} />
                                     <span className={classes.articleNewsArrow} />
                                 </Typography>

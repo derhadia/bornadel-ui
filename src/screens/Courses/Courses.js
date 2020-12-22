@@ -144,7 +144,7 @@ export default function Courses() {
                                                                                                 window.innerWidth > 820 && window.innerWidth < 1021 && (index + 1) % 3 === 0 ? 0 :
                                                                                                     window.innerWidth > 820 && window.innerWidth < 1021 && (index + 1) % 3 !== 0 ? (((widthAllcourses) - (3 * 166)) / 2) / 2 :
                                                                                                         window.innerWidth > 600 && window.innerWidth < 821 && (index + 1) % 2 === 0 ? 0 :
-                                                                                                            (((widthAllcourses) - (2 * 166)) / 1) / 2
+                                                                                                            (((widthAllcourses) - (2 * 166))) / 2
 
 
                                             ,

@@ -388,7 +388,6 @@ const useStylesAp = makeStyles((theme) => ({
         height: 1,
         width: 200,
         backgroundColor: "#000",
-        width: "252px",
         marginLeft: 22,
         position: "relative",
         bottom: 10,
@@ -996,18 +995,6 @@ const useStylesAp = makeStyles((theme) => ({
     CollapseItemContainer2: {
         margin: "0px 10px",
         flex: 2
-    },
-    CollapseItem: {
-        width: "100%",
-        height: 25,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        fontSize: 13,
-        backgroundColor: "#ffffff",
-        borderRadius: 6,
-        padding: "0 10px",
-        fontFamily: "IRANSansNUMNumber",
     },
     CollapseItem: {
         width: "100%",

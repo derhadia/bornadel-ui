@@ -8,6 +8,7 @@ import AlertContextProvider from './contexts/AlertContext'
 import CoursesContextProvider from './contexts/CoursesContext'
 import HomePageContextProvider from './contexts/HomePageContext'
 import CourseDetailContextProvider from './contexts/CourseDetailContext'
+import ArticleContextProvider from "./contexts/ArticlesContext";
 
 export default function App() {
   return (
@@ -18,8 +19,10 @@ export default function App() {
             <CoursesContextProvider>
               <HomePageContextProvider>
                 <CourseDetailContextProvider>
-                  <CssBaseline />
-                  <MasterLayout />
+                  <ArticleContextProvider>
+                    <CssBaseline />
+                    <MasterLayout />
+                  </ArticleContextProvider>
                 </CourseDetailContextProvider>
               </HomePageContextProvider>
             </CoursesContextProvider>

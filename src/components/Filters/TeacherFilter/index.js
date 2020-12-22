@@ -23,7 +23,7 @@ export default function TeacherFilter() {
                     }}
                 />
             </Grid>
-            <Grid item direction="column" className={`${classes.teacherFilterBox} CustomScroll`}>
+            <Grid container item direction="column" className={`${classes.teacherFilterBox} CustomScroll`}>
                 {filteTeacher && filteTeacher.length > 0 ? filteTeacher.map((data, index) => {
                     return (
                         <Grid key={index} item container className={classes.FormControllContainer} >

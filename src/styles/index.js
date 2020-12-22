@@ -79,11 +79,6 @@ const useStyles = makeStyles((theme) => ({
         }
 
     },
-    verticalLine: {
-        width: 1,
-        height: 13,
-        backgroundColor: "#d9d8da"
-    },
     searchResult: {
         paddingTop: 40,
         backgroundColor: "#fff",
@@ -342,7 +337,6 @@ const useStyles = makeStyles((theme) => ({
         height: 33,
         borderRadius: 4,
         marginRight: 14,
-        borderRadius: "4px",
         backgroundColor: "#c59428",
         border: "1px solid #eaeaea",
         backgroundImage: `url(${Icons})`,
@@ -766,8 +760,6 @@ const useStyles = makeStyles((theme) => ({
 
         fontFamily: "IRANSans",
         color: "#fff",
-        fontFamily: "IRANSans",
-        color: "#fff",
     },
     homeUnderBanner: {
         height: 194,
@@ -1120,10 +1112,6 @@ const useStyles = makeStyles((theme) => ({
         position: "relative",
         zIndex: 2
     },
-    CoursesContainer: {
-        display: "flex",
-        justifyContent: "center"
-    },
     circleinRectContainer: {
         width: 85,
         height: 85,
@@ -1405,6 +1393,8 @@ const useStyles = makeStyles((theme) => ({
     CoursesContainer: {
         padding: "25px 30px 35px 30px ",
         backgroundColor: "#f5f5f5",
+        display: "flex",
+        justifyContent: "center"
         // maxWidth: 1366
     },
     groupFilter: {
@@ -1412,7 +1402,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "100%",
         minHeight: 200,
         borderRadius: 8,
-        padding: "12px 10px",
         maxHeight: 200,
         backgroundColor: "#fff",
         marginBottom: 15,
@@ -1510,9 +1499,8 @@ const useStyles = makeStyles((theme) => ({
         padding: "10px 10px",
         backgroundColor: "#fff",
         marginBottom: 15,
-        overflow: "hidden",
+        overflow: "scroll",
         border: "1px solid #dedede"
-
 
     },
     teacherFilterTitle: {
@@ -1676,7 +1664,6 @@ const useStyles = makeStyles((theme) => ({
         minWidth: "100%",
         maxWidth: "100%",
         height: 350,
-        borderRadius: 4,
         padding: "12px 10px",
         backgroundColor: "#fff",
         marginBottom: 15,
