@@ -50,16 +50,16 @@
 	left: 25%;
 	transform: translate(-15px, -10px);
 	background-image: url('../../assets/images/iconfinal.svg');
-	background-position: 135px -131px;
-	background-size: 1200px;
+	background-position: 47px 183px;
+	background-size: 900px;
 }
 
 .slider>.thumb.right {
 	right: 25%;
 	transform: translate(15px, -10px);
 	background-image: url('../../assets/images/iconfinal.svg');
-	background-position: 161px -131px;
-	background-size: 1200px;
+	background-position: 30px 183px;
+	background-size: 900px;
 }
 
 .slider>.thumb.hover {

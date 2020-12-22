@@ -27,7 +27,7 @@ export default function CoursesComponent({ data, id, teacherName, educationSubje
             return x1 + x2;
         }
     }
-    let newDate = date&&date.length>0?date.substr(0, 11):""
+    let newDate = date.substr(0, 11)
     return (
         <Grid item xs={12}
             className={classes.coursesComponentContainer}

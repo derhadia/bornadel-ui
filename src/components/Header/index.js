@@ -7,12 +7,12 @@ import Drawer from '@material-ui/core/Drawer';
 import Navbar from './Navbar';
 import SearchBox from './SearchBox';
 import DrawerInside from './DrawerInside'
-import { CoursesContext } from '../../contexts/CoursesContext'
+
 
 export default function Header() {
     const classes = useStyles();
     const [mobileOpen, setMobileOpen] = useState(false);
-    const {DeleteFilter} = useContext(CoursesContext)
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -28,8 +28,7 @@ export default function Header() {
                         <Grid item container className={classes.headerTop}>
                             <Grid item container className={classes.InsideheaderTop}>
                                 <Grid item container alignItems="center" className={classes.headerTopRight} xs={8}>
-                                    <Grid item className={classes.Bornadellogo} component={Link} to="/" onClick={() => DeleteFilter()}>
-                                    </Grid>
+                                    <Grid item className={classes.Bornadellogo} component={Link} to="/" ></Grid>
                                     <SearchBox />
                                 </Grid>
                                 <Grid item container className={classes.headerTopLeft} justify="flex-end" xs={4}>
@@ -52,7 +51,7 @@ export default function Header() {
             <Hidden mdUp>
                 <Grid container className={classes.HeaderMobileSize}>
                     <Drawer
-                        container={window.document.body}
+                        container={window.document.body }
                         variant="temporary"
                         // anchor={theme.direction === 'rtl' ? 'right' : 'left'}
                         open={mobileOpen}

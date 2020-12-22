@@ -3,24 +3,35 @@ import { fetchPost } from '../config/Utils'
 import Apis from '../constants/Api'
 
 const CourseDetailContext = createContext({
-    courseDetailData: [],
-    setCourseDetailData: () => { },
-
+    articles: [],
+    setArticles: () => { },
+    bestAcademy: [],
+    setBestAcademy: () => { },
+    news: [],
+    setNews: () => { },
+    underLuneScale: [],
 })
 
 export { CourseDetailContext }
 
 
 export default function CourseDetailContextProvider({ children }) {
-
+    const [articles, setArticles] = useState("")
+    const [bestAcademy, setBestAcademy] = useState([])
+    const [news, setNews] = useState([])
+    const [recentView, setRecentView] = useState([])
     const [courseDetailData, setCourseDetailData] = useState([])
-    const [weekDay, setWeekDay] = useState([])
-    const [fiveLastCourse, setFiveLastCourse] = useState([])
-    const [similarItem,setSimilarItem]=useState([])
+
+    localStorage.setItem("ClassRoomIDList", "1")
+    let ClassRoomIDList = localStorage.getItem("ClassRoomIDList")
+
+    useEffect(() => {
+       
+       
+    }, [])
     return (
         <CourseDetailContext.Provider value={{
-            courseDetailData, setCourseDetailData, weekDay, setWeekDay, fiveLastCourse, setFiveLastCourse,
-            similarItem,setSimilarItem,
+            bestAcademy, recentView, news, articles,courseDetailData, setCourseDetailData
         }} >
             {children}
         </CourseDetailContext.Provider>

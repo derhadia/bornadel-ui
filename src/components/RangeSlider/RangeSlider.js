@@ -85,38 +85,30 @@ import './style.css'
 import useStyles from '../../styles'
 import { CoursesContext } from '../../contexts/CoursesContext'
 import { Grid } from '@material-ui/core'
-import ErrorOutlineOutlinedIcon from '@material-ui/icons/ErrorOutlineOutlined';
 
 export default function RangeSlider() {
-    let { minPrice, setMinPrice, maxPrice, setMaxPrice, minValue, maxValue, coursesData } = useContext(CoursesContext)
+    let { minPrice, setMinPrice, maxPrice, setMaxPrice,minValue,maxValue } = useContext(CoursesContext)
     const classes = useStyles()
     const [minPrice1, setMinPrice1] = useState(0)
     const [maxPrice1, setMaxPrice1] = useState(100)
     let miP = minValue
     let maP = maxValue
-//bayat
-    // useEffect(() => {
-    //     setMinPrice1(0)
-    //     setMaxPrice1(100)
-    
-    // }, [coursesData])
     
     useEffect(() => {
-
-        if (minPrice1 === 0) {
-            setMinPrice(miP)
+        
+        if(minPrice1===0){
+            setMinPrice(miP)  
             return
         }
-        console.log(minPrice,miP,maP);
-        setMinPrice(Math.ceil((miP+((maP - miP) / 100) * minPrice1)))
+        setMinPrice(Math.ceil(((maP - miP) / 100) * minPrice1))
     }, [minPrice1])
     useEffect(() => {
-
-        if (maxPrice1 === 100) {
+        
+        if(maxPrice1===100){
             setMaxPrice(maP)
             return
         }
-        setMaxPrice(Math.ceil((miP+((maP - miP) / 100) * maxPrice1)))
+        setMaxPrice(Math.ceil(((maP - miP) / 100) * maxPrice1))
     }, [maxPrice1])
     useEffect(() => {
         let inputLeft = document.getElementById("input-left");
@@ -230,23 +222,19 @@ export default function RangeSlider() {
     return (
         <div>
 
-            <div className="middle" dir="rtl">
-                <div className="multi-range-slider">
+            <div class="middle" dir="rtl">
+                <div class="multi-range-slider">
                     <input type="range" id="input-right" min="1" max="100" value={minPrice1} />
                     <input type="range" id="input-left" min="1" max="100" value={maxPrice1} />
 
-                    <div className="slider">
-                        <div className="track"></div>
-                        <div className="range"></div>
-                        <div className="thumb right"></div>
-                        <div className="thumb left"></div>
+                    <div class="slider">
+                        <div class="track"></div>
+                        <div class="range"></div>
+                        <div class="thumb right"></div>
+                        <div class="thumb left"></div>
                     </div>
                 </div>
             </div>
-            {maxPrice<minPrice?
-                <ErrorOutlineOutlinedIcon color="error" />
-                :null
-            }
             <span className={classes.startHoursFilterText}> از </span>
             <span className={classes.priceFilterSearch}>{separateNum(minPrice)}</span>
             <span className={classes.startHoursFilterText}>تا  </span>

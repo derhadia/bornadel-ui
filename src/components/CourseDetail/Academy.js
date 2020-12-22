@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import useStyles from '../../styles'
-import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 
 export default function Academy() {
+
     const classes = useStyles();
-    let { courseDetailData } = useContext(CourseDetailContext)
 
     return (
         <>
@@ -13,18 +12,19 @@ export default function Academy() {
                 <Typography className={classes.CourseDetailAcademyTitle}>آموزشگاه</Typography>
                 <Grid container className={classes.CourseDetailAcademyNameContainer}>
                     <span className={classes.CourseDetailteacherNameTitle}>آموزشگاه : </span>
-                    <span className={classes.CourseDetailteacherName}>{courseDetailData.academy_Name}</span>
+                    <span className={classes.CourseDetailteacherName}>هجرت</span>
                 </Grid>
                 <Grid container className={classes.CourseDetailteacherNameContainer}>
                     <span className={classes.CourseDetailteacherNameTitle}>امتیاز آموزشگاه : </span>
-                    <span className={classes.CourseDetailteacherNameNUM1}>{courseDetailData.academy_Score}</span>
+                    <span className={classes.CourseDetailteacherNameNUM1}>365</span>
                 </Grid>
                 <Grid container className={classes.CourseDetailteacherNameContainer}>
                     <span className={classes.CourseDetailteacherNameTitle}>مدرک : </span>
-                    <span className={classes.CourseDetailteacherName}> {courseDetailData.academy_HaveDocument === 0 ? "ندارد" : "دارد"} </span>
+                    <span className={classes.CourseDetailteacherName}> دارد </span>
                 </Grid>
                 <Grid container className={classes.CourseDetailAcademyImageContainer}>
                     <span className={classes.CourseDetailَAcademyImage}></span>
+
                 </Grid>
             </Grid>
         </>

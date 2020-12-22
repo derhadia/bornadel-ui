@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { fetchPost } from '../../config/Utils'
 
 export default function CircleMenu(titleArraynew, idArraynew) {
 
     // const history = useHistory()
+
 
     document.FillMenuContent = function (titleArray, idArray, afterDownCallBack) {
 

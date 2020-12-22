@@ -9,11 +9,11 @@ export default function TeacherFilter() {
 
     return (
         <Grid item className={classes.teacherFilter}>
-            <Typography className={classes.teacherFilterTitle}>مدرس</Typography>
+            <Typography className={classes.teacherFilterTitle}>استاد</Typography>
             <Grid item container wrap="nowrap" className={classes.inputGrid2}>
                 <Grid item className={classes.searchiconFilter}>
                 </Grid>
-                <input type="text" placeholder="جستجو مدرس ..." className={classes.searchInputteacherFilter}
+                <input type="text" placeholder="جستجو استاد ..." className={classes.searchInputteacherFilter}
                     onChange={(e) => {
                         var val = e.target.value.replace('\\', '\\\\')
                         var regex = new RegExp(val, 'i')
@@ -23,7 +23,7 @@ export default function TeacherFilter() {
                     }}
                 />
             </Grid>
-            <Grid item direction="column" className={`${classes.teacherFilterBox} CustomScroll`}>
+            <Grid container item direction="column" className={`${classes.teacherFilterBox} CustomScroll`}>
                 {filteTeacher && filteTeacher.length > 0 ? filteTeacher.map((data, index) => {
                     return (
                         <Grid key={index} item container className={classes.FormControllContainer} >

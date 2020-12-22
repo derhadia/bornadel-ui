@@ -2,6 +2,7 @@ import React, { useContext,useEffect } from 'react'
 import { MasteLayoutContext } from '../../contexts/MasteLayoutContext'
 import useStyles from '../../styles'
 import { Grid } from '@material-ui/core'
+import {Link} from "react-router-dom";
 
 export default function Navbar() {
     const classes = useStyles();
@@ -19,7 +20,12 @@ export default function Navbar() {
         <Grid container className={classes.headerNavbar}>
             <Grid container item xs={12} wrap="nowrap" className={classes.headerInsideNavbar}>
                 <Grid className={classes.redUnderLuneMenu} id="redUnderLuneMenu"
-                    style={{ width: `${linwWidth}px`, left: `${underLinePlace}px`, transform: `scale(${underLuneScale})`, transition: "all 0.3s" }}></Grid>
+                    style={{
+                        width: `${linwWidth}px`,
+                        left: `${underLinePlace}px`,
+                        transform: `scale(${underLuneScale})`,
+                        transition: "all 0.3s"
+                    }}/>
                 <Grid className={`${classes.classList} ${classes.headerMenu}`}
                     onMouseEnter={(e) => {
                         HandleShowMenu()
@@ -36,7 +42,10 @@ export default function Navbar() {
                 <Grid className={`${classes.articles} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
-                >مقالات</Grid>
+                >
+                    مقالات
+
+                </Grid>
                 <Grid className={`${classes.news} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
