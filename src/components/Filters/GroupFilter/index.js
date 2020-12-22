@@ -14,18 +14,14 @@ export default function GroupFilter() {
     const classes = useStyles()
     const [treeData, setTreeData] = useState([])
     useEffect(() => {
-        if (id){
-            let body = {
-                "record_ID": id,
-                "record_Name": "",
-                "record_Type": 1
-            }
-            fetchPost(Apis.Get_GetAllInClassRoomList, body).then(({ responseJSON, status }) => {
-                setTreeData(responseJSON.data)
-                console.log(responseJSON.data,'data')
-            })
+        let body = {
+            "record_ID": id,
+            "record_Name": "",
+            "record_Type": 1
         }
-
+        fetchPost(Apis.Get_GetAllInClassRoomList, body).then(({ responseJSON, status }) => {
+            setTreeData(responseJSON.data)
+        })
     }, [id])
 
     return (

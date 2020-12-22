@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
         position: "fixed",
         backgroundColor: "#ffffff",
         zIndex: 99,
-
     },
     HeaderMobileSize: {
         width: "100%",
@@ -78,6 +77,11 @@ const useStyles = makeStyles((theme) => ({
 
         }
 
+    },
+    verticalLine: {
+        width: 1,
+        height: 13,
+        backgroundColor: "#d9d8da"
     },
     searchResult: {
         paddingTop: 40,
@@ -337,6 +341,7 @@ const useStyles = makeStyles((theme) => ({
         height: 33,
         borderRadius: 4,
         marginRight: 14,
+        borderRadius: "4px",
         backgroundColor: "#c59428",
         border: "1px solid #eaeaea",
         backgroundImage: `url(${Icons})`,
@@ -370,9 +375,10 @@ const useStyles = makeStyles((theme) => ({
     },
     classList: {
         cursor: "default",
-        marginRight: 32,
+        marginRight: 10,
         position: "relative",
         marginLeft: 14,
+        paddingRight: 25,
         "&::before": {
             content: `''`,
             width: 20,
@@ -760,6 +766,8 @@ const useStyles = makeStyles((theme) => ({
 
         fontFamily: "IRANSans",
         color: "#fff",
+        fontFamily: "IRANSans",
+        color: "#fff",
     },
     homeUnderBanner: {
         height: 194,
@@ -1070,7 +1078,7 @@ const useStyles = makeStyles((theme) => ({
         borderBottomRightRadius: 7,
         cursor: "pointer",
         backgroundImage: `url(${Icons})`,
-        backgroundPosition: "-319px -2x12p"
+        backgroundPosition: "-319px -212px"
     },
     aloneCursesComponentContainer: {
         display: "flex",
@@ -1112,13 +1120,17 @@ const useStyles = makeStyles((theme) => ({
         position: "relative",
         zIndex: 2
     },
+    CoursesContainer: {
+        display: "flex",
+        justifyContent: "center"
+    },
     circleinRectContainer: {
         width: 85,
         height: 85,
         borderRadius: "50%",
         margin: "auto",
         position: "relative",
-        top: -2,
+        top: -4,
         clipPath: "Polygon(0% 0%,100% 0%,100% 50% ,0% 50%)"
     },
     circleinRect: {
@@ -1243,7 +1255,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 7,
     },
     CoursesPrice: {
-        marginBottom: 10
+        marginBottom: 5
 
     },
     aloneCursesComponentMain: {
@@ -1393,8 +1405,6 @@ const useStyles = makeStyles((theme) => ({
     CoursesContainer: {
         padding: "25px 30px 35px 30px ",
         backgroundColor: "#f5f5f5",
-        display: "flex",
-        justifyContent: "center"
         // maxWidth: 1366
     },
     groupFilter: {
@@ -1402,6 +1412,7 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "100%",
         minHeight: 200,
         borderRadius: 8,
+        padding: "12px 10px",
         maxHeight: 200,
         backgroundColor: "#fff",
         marginBottom: 15,
@@ -1411,7 +1422,7 @@ const useStyles = makeStyles((theme) => ({
     },
     groupFilterHeaderText: {
         fontWeight: 700,
-        fontSize:13
+        fontSize: 13
     },
     groupFilterHeader: {
         fontSize: 12,
@@ -1435,7 +1446,7 @@ const useStyles = makeStyles((theme) => ({
     treelableText: {
         textDecoration: "none",
         color: "#000",
-        fontSize:12
+        fontSize: 12
     },
     treeselected: {
         backgroundColor: "#fff  !important",
@@ -1476,11 +1487,11 @@ const useStyles = makeStyles((theme) => ({
     },
     FormControllContainer: {
         height: 25,
-        cursor:"pointer",
-        marginBottom:5
+        cursor: "pointer",
+        marginBottom: 5
     },
-    FormControllText:{
-        fontSize:12
+    FormControllText: {
+        fontSize: 12
     },
     checkBoxFormControl: {
         padding: 10
@@ -1499,8 +1510,9 @@ const useStyles = makeStyles((theme) => ({
         padding: "10px 10px",
         backgroundColor: "#fff",
         marginBottom: 15,
-        overflow: "scroll",
+        overflow: "hidden",
         border: "1px solid #dedede"
+
 
     },
     teacherFilterTitle: {
@@ -1509,7 +1521,7 @@ const useStyles = makeStyles((theme) => ({
         color: "#424750"
     },
     searchInputteacherFilter: {
-        height: 24,
+        height: 35,
         width: "90%",
         borderRadius: 4,
         borderTopLeftRadius: 0,
@@ -1540,7 +1552,7 @@ const useStyles = makeStyles((theme) => ({
     },
     searchiconFilter: {
         width: 25,
-        height: 24,
+        height: 35,
         borderRadius: 4,
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0,
@@ -1551,8 +1563,8 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-end",
         marginRight: 1,
         backgroundImage: `url(${Icons})`,
-        backgroundSize: 1100,
-        backgroundPosition: "-280px -46px",
+        backgroundSize: 1422,
+        backgroundPosition: "-365px -57px",
     },
     teacherFilterBox: {
         minHeight: 280,
@@ -1621,7 +1633,7 @@ const useStyles = makeStyles((theme) => ({
     CHhidden: {
         visibility: "hidden",
         // position:"absolute",
-        zIndex:2
+        zIndex: 2
     },
     checkboxSpan: {
         cursor: "pointer",
@@ -1664,6 +1676,7 @@ const useStyles = makeStyles((theme) => ({
         minWidth: "100%",
         maxWidth: "100%",
         height: 350,
+        borderRadius: 4,
         padding: "12px 10px",
         backgroundColor: "#fff",
         marginBottom: 15,
@@ -1705,7 +1718,7 @@ const useStyles = makeStyles((theme) => ({
     priceFilterHead: {
         fontWeight: 700,
         borderBottom: "1px solid #dedede",
-        fontSize:13
+        fontSize: 13
     },
     priceFilterBox: {
         height: 80,
@@ -1732,7 +1745,10 @@ const useStyles = makeStyles((theme) => ({
         padding: "0px 10px",
         backgroundColor: "#fff",
         marginBottom: 5,
-        border: "1px solid #dedede"
+        border: "1px solid #dedede",
+        paddingRight: window.innerWidth > 1366 && window.innerWidth < 1401 ? "11%" :
+            window.innerWidth > 1400 && window.innerWidth < 1451 ? "16%" : window.innerWidth > 1450 && window.innerWidth < 1501 ? "18%" :
+                window.innerWidth > 1500 && window.innerWidth < 1700 ? "20%" : window.innerWidth > 1160 && window.innerWidth < 1500 ? "10%" : window.innerWidth < 1161 ? "5%" : "25%",
 
     },
     thumbReadyClasses: {
@@ -1749,7 +1765,9 @@ const useStyles = makeStyles((theme) => ({
         padding: "0px 10px",
         backgroundColor: "#fff",
         marginBottom: 5,
-        paddingRight: 39,
+        paddingRight: window.innerWidth > 1366 && window.innerWidth < 1401 ? "11%" :
+            window.innerWidth > 1400 && window.innerWidth < 1451 ? "16%" : window.innerWidth > 1450 && window.innerWidth < 1501 ? "18%" :
+                window.innerWidth > 1500 && window.innerWidth < 1700 ? "20%" : window.innerWidth > 1160 && window.innerWidth < 1500 ? "10%" : window.innerWidth < 1161 ? "5%" : "25%",
         border: "1px solid #dedede"
 
     },
@@ -1759,11 +1777,13 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 700
     },
     filterButtunContainer: {
-        minWidth: "100%",
-        maxWidth: "100%",
+        minWidth: "235px",
+        maxWidth: "235px",
         height: 29,
         borderRadius: 4,
         marginTop: 20,
+        position:"fixed",
+        
     },
     filterButtun: {
         width: "80%",
@@ -1788,7 +1808,7 @@ const useStyles = makeStyles((theme) => ({
     },
     coursesComponentDetailItem: {
         paddingBottom: 15,
-        minWidth: window.innerWidth > 1680 ? 200 :window.innerWidth > 1360 ? 180 : window.innerWidth > 1265 && window.innerWidth < 1361 ? 180 :
+        minWidth: window.innerWidth > 1680 ? 200 : window.innerWidth > 1360 ? 180 : window.innerWidth > 1265 && window.innerWidth < 1361 ? 180 :
             window.innerWidth > 1100 && window.innerWidth < 1266 ? 166 : window.innerWidth > 1022 && window.innerWidth < 1101 ? 166 : 166
     },
     leftheaderIcon: {
@@ -1831,6 +1851,10 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         justifyContent: "center"
     },
+    nothingMessage: {
+        fontSize: 25,
+        marginTop: 50
+    },
 
     // ======================================CoursesDetail page=======================================
 
@@ -1868,12 +1892,22 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 12,
         color: "#000"
     },
+    CourseDetailClassNameTitle1: {
+        fontSize: 12,
+        color: "#787878"
+    },
     CourseDetailClassNameContainer: {
-        marginTop: 20
+        marginTop: 15,
+        marginBottom:10
+    },
+    CourseDetailClassNameContainer1: {
+        marginTop: 15,
+        marginBottom:0
     },
     CourseDetailClassName: {
         fontSize: 12,
-        color: "#787878"
+        color: "#787878",
+        padding: "0 3px",
     },
     CourseDetailClassNameNUM: {
         fontFamily: "IRANSansNUMNumber",
@@ -1988,7 +2022,7 @@ const useStyles = makeStyles((theme) => ({
         height: 20,
         backgroundImage: `url(${Icons})`,
         backgroundSize: 1000,
-        backgroundPosition: "-204px 59px",
+        backgroundPosition: "-204px -251px",
         position: "absolute",
         right: 5
     },
@@ -1997,7 +2031,7 @@ const useStyles = makeStyles((theme) => ({
         height: 20,
         backgroundImage: `url(${Icons})`,
         backgroundSize: 1000,
-        backgroundPosition: "-257px 59px",
+        backgroundPosition: "-257px -251px",
         position: "absolute",
         right: 5,
         top: 27
@@ -2462,19 +2496,20 @@ const useStyles = makeStyles((theme) => ({
     FarsiNumber: {
         display: "inline-block",
         fontFamily: "IRANSansNUMNumber",
+        fontSize: 14
 
     },
     FarsiNumber1: {
         display: "inline-block",
         fontFamily: "IRANSansNUMNumber",
         fontWeight: 700,
-        fontSize:20
+        fontSize: 17
 
     },
     CoursesPriceText: {
         fontWeight: 100,
         color: "#000",
-        fontSize:17
+        fontSize: 17
     },
     FarsiNumberFooterText: {
         fontSize: 14,

@@ -1,9 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Rotate90DegreesCcw } from '@material-ui/icons';
 import Icons from '../assets/images/iconfinal.svg'
 
 const useStylesAp = makeStyles((theme) => ({
-    //===================================Sidebar====================================
+//===================================Sidebar====================================
     AcademyPanelContainer: {
         maxWidth: "220px",
         minWidth: "180px",
@@ -388,6 +387,7 @@ const useStylesAp = makeStyles((theme) => ({
         height: 1,
         width: 200,
         backgroundColor: "#000",
+        width: "252px",
         marginLeft: 22,
         position: "relative",
         bottom: 10,
@@ -995,6 +995,18 @@ const useStylesAp = makeStyles((theme) => ({
     CollapseItemContainer2: {
         margin: "0px 10px",
         flex: 2
+    },
+    CollapseItem: {
+        width: "100%",
+        height: 25,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        fontSize: 13,
+        backgroundColor: "#ffffff",
+        borderRadius: 6,
+        padding: "0 10px",
+        fontFamily: "IRANSansNUMNumber",
     },
     CollapseItem: {
         width: "100%",
