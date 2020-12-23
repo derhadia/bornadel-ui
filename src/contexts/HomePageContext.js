@@ -37,7 +37,7 @@ export default function HomePageContextProvider({ children }) {
         fetchPost(Apis.GET_GetAllNEWHOMEPAFE).then(({ responseJSON, status }) => {
             setNews(responseJSON.data);
         })
-    }, [ClassRoomIDList])
+    }, [])
 
     return (
         <HomePageContext.Provider value={{

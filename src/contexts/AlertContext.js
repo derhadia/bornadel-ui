@@ -1,5 +1,4 @@
-import React, { createContext, useState } from 'react';
-
+import React, { createContext, useState } from 'react'
 const AlertContext = createContext({
     handleOpenAlert: (type,message) => { },
     type:"",
