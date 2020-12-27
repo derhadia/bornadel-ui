@@ -18,8 +18,7 @@ const MobileArticlesList = ({handleFiltering}) => {
     const classes = useStyle();
 
     const {
-        setTeacher1, fromDate, toDate, setData, data,
-        selectedTeacher, setItems, items, setIds, ids
+         data, items, setIds, ids
     } = useContext(ArticlesContext);
 
     const toggleDrawer = (anchor, open) => (event) => {

@@ -28,4 +28,5 @@ export default {
     Get_GetClassRoomDetailWeekDay: BaseUrl + "ClassRoom/GetClassRoomDetailWeekDay",
     Get_Get5PreviouseTeacherClassRoom: BaseUrl + "ClassRoom/Get5PreviouseTeacherClassRoom",
     Get_GetSimilarClassRooms: BaseUrl + "ClassRoom/GetSimilarClassRooms",
+    Get_ArticleGetAllWithFilters: BaseUrl + "Article/GetAllWithFilters",
 }
