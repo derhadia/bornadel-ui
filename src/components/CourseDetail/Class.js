@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import useStyles from '../../styles'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
-//server
-//server
-export default function Class() {//local
+
+
+export default function Class() {
     const classes = useStyles();
     let { courseDetailData, weekDay } = useContext(CourseDetailContext)
 
