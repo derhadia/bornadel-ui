@@ -4,7 +4,7 @@ import useStyles from '../../styles'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 
 //server
-export default function Class() {
+export default function Class() {//local
     const classes = useStyles();
     let { courseDetailData, weekDay } = useContext(CourseDetailContext)
 
