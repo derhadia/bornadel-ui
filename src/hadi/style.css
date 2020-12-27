@@ -34,7 +34,7 @@
 }
 
 .MuiCheckbox-colorSecondary.Mui-checked {
-    color: #2fc98e !important
+    color: #00bfd6 !important
 }
 
 
@@ -129,6 +129,17 @@
 
 .MuiDrawer-paperAnchorLeft {
     width: 100%;
+}
+
+
+/********************************* Calender *****************************/
+
+.date-input-with-dialog-empty {
+    display: none !important;
+}
+
+.date-input-with-dialog-calendar {
+    left: 0.5em !important;
 }
 
 

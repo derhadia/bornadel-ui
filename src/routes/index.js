@@ -13,6 +13,8 @@ export default function Index() {
             <Route path="/Courses/:id" component={Courses} />
             <Route path="/CourseDetail/:id/:title" component={CourseDetail} />
             <Route path="/AcademyPanel" component={AcademyPanel} />
+            <Route path="/ArticleList" component={ArticlesList} />
+            <Route path="/ArticleDetail/:id" component={ArticleDetail} />
         </Switch>
     )
 }
