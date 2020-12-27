@@ -2,7 +2,10 @@ import React, { useContext, useEffect } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import useStyles from '../../styles'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
+<<<<<<< HEAD
 //local2
+
+>>>>>>> 93d025d085ef4fda047e41666c5afcd38c7220b6
 
 export default function Class() {
     const classes = useStyles();
