@@ -30,7 +30,7 @@ const TreeLevel = ({items, setIds, ids}) => {
                                 return (
                                     <TreeItem
                                         key={index}
-                                        classes={{ label: classes.treelabel, selected: classes.treeselected }}
+                                        classes={{label: classes.treelabel, selected: classes.treeselected}}
                                         nodeId={`${item.educationSubject_ID}`}
                                         label={
 
@@ -39,6 +39,7 @@ const TreeLevel = ({items, setIds, ids}) => {
                                                 value={item.educationSubject_ID}
                                                 control={<Checkbox color="primary"/>}
                                                 label={item.educationSubject_Name}
+                                                style={{fontSize: "14px"}}
                                             />
                                         }
                                     >
@@ -47,16 +48,19 @@ const TreeLevel = ({items, setIds, ids}) => {
                                                     if (second.educationSubject_EducationSubject_Ref === item.educationSubject_ID) {
                                                         return (
                                                             <TreeItem
-                                                                classes={{ label: classes.treelabel, selected: classes.treeselected }}
+                                                                classes={{
+                                                                    label: classes.treelabel,
+                                                                    selected: classes.treeselected
+                                                                }}
                                                                 key={index}
                                                                 nodeId={`${second.educationSubject_ID}`}
                                                                 label={
-                                                                      <FormControlLabel
-                                                                          onClick={() => handleCheck(second.educationSubject_ID)}
-                                                                          value={second.educationSubject_ID}
-                                                                          control={<Checkbox color="primary"/>}
-                                                                          label={second.educationSubject_Name}
-                                                                      />
+                                                                    <FormControlLabel
+                                                                        onClick={() => handleCheck(second.educationSubject_ID)}
+                                                                        value={second.educationSubject_ID}
+                                                                        control={<Checkbox color="primary"/>}
+                                                                        label={second.educationSubject_Name}
+                                                                    />
                                                                 }
                                                             >
                                                                 {
@@ -64,16 +68,20 @@ const TreeLevel = ({items, setIds, ids}) => {
                                                                             if (third.educationSubject_EducationSubject_Ref === second.educationSubject_ID) {
                                                                                 return (
                                                                                     <TreeItem
-                                                                                        classes={{ label: classes.treelabel, selected: classes.treeselected }}
+                                                                                        classes={{
+                                                                                            label: classes.treelabel,
+                                                                                            selected: classes.treeselected
+                                                                                        }}
                                                                                         key={index}
                                                                                         nodeId={`${third.educationSubject_ID}`}
                                                                                         label={
-                                                                                              <FormControlLabel
-                                                                                                  onClick={() => handleCheck(third.educationSubject_ID)}
-                                                                                                  value={third.educationSubject_ID}
-                                                                                                  control={<Checkbox color="primary"/>}
-                                                                                                  label={third.educationSubject_Name}
-                                                                                              />
+                                                                                            <FormControlLabel
+                                                                                                onClick={() => handleCheck(third.educationSubject_ID)}
+                                                                                                value={third.educationSubject_ID}
+                                                                                                control={<Checkbox
+                                                                                                    color="primary"/>}
+                                                                                                label={third.educationSubject_Name}
+                                                                                            />
                                                                                         }>
 
                                                                                     </TreeItem>

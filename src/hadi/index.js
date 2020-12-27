@@ -59,7 +59,7 @@ const useStyle = makeStyles((theme) => ({
         maxWidth: "100%",
         minHeight: "unset",
         borderRadius: 8,
-        maxHeight: 200,
+        height: 350,
         backgroundColor: "#fff",
         marginBottom: 15,
         padding: "10px 10px",
@@ -165,8 +165,8 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     yellowBox: {
-        width: "100%",
-        height: "70px",
+        width: "124px",
+        height: "124px",
         margin: "32px 0",
         borderRadius: "4px",
         [theme.breakpoints.down("md")]: {
@@ -257,8 +257,9 @@ const useStyle = makeStyles((theme) => ({
     },
     filterButtonContainer: {
         minWidth: "235px",
-        maxWidth: "235px",
-        height: 29,
+        maxWidth: 321,
+        width: "100%",
+        height: 35,
         borderRadius: 4,
         marginTop: 20,
         position:"fixed",

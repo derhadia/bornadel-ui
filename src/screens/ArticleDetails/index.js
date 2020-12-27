@@ -30,6 +30,9 @@ export default function ArticleDetail(props) {
     const data = props.location.state.data;
     const dataDetail = props.location.state.item;
 
+    console.log(dataDetail,'detail')
+    console.log(data,'data')
+
     const img = Apis.SHOWIMAGE + (data ? data : dataDetail).article_PhotoLink;
 
     useEffect(() => {
@@ -55,7 +58,7 @@ export default function ArticleDetail(props) {
                     item
                     container
                     className={classes.NewsContainer}
-                    style={{height: "755px"}}
+                    style={{height: "fit-content"}}
                 >
                    <Grid item md={12} className={classes.boxDetailProf}>
                        <Grid style={{padding: "0 15px"}}>
@@ -91,6 +94,10 @@ export default function ArticleDetail(props) {
                            </Grid>
                            <Grid item className={`${classes.articleDate} ${classes.shareIconBig}`}/>
                        </Grid>
+                       <Grid
+                           className="description"
+                           dangerouslySetInnerHTML={{__html: (data ? data : dataDetail).article_Des}}
+                       />
                    </Grid>
                 </Grid>
                 <Grid item container style={{marginTop: "37px", alignItems: "center"}}>

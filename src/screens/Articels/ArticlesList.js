@@ -141,7 +141,7 @@ const ArticlesList = () => {
                             />
                             {/*<TreeCheckbox items={items} />*/}
                             <ArticleTeacherFilter />
-                            <Grid item className={classes.groupFilter}>
+                            <Grid item style={{height: "unset"}} className={classes.groupFilter}>
                                 <Grid item className={classes.groupFilterHeader} >
                                     <Typography className={classes.groupFilterHeaderText}>تاریخ مقاله</Typography>
                                 </Grid>
@@ -152,7 +152,7 @@ const ArticlesList = () => {
                                 item
                                 justify="center"
                                 className={classes.filterButtonContainer}
-                                style={{ position: fixed ? "static" : "fixed", top: "auto", bottom: 15, width: 250 }}
+                                style={{ position: fixed ? "static" : "fixed", top: "auto", bottom: 15, width: "100%" }}
                             >
                                 <Button
                                     className={classes.filterButton}
@@ -209,15 +209,15 @@ const ArticlesList = () => {
                                 />
                             </Grid>
                             <Grid className={`${classes.NewsContainer} ${classes.yellowBoxArticleList}`}/>
-                            <Grid className={classes.headBar}>
-                                <PaginateArticle
-                                    itemsCount={20}
-                                    pageSize={4}
-                                    onPageChange={handlePage}
-                                    current={current}
-                                    setCurrent={setCurrent}
-                                />
-                            </Grid>
+                            {/*<Grid className={classes.headBar}>*/}
+                            {/*    <PaginateArticle*/}
+                            {/*        itemsCount={20}*/}
+                            {/*        pageSize={4}*/}
+                            {/*        onPageChange={handlePage}*/}
+                            {/*        current={current}*/}
+                            {/*        setCurrent={setCurrent}*/}
+                            {/*    />*/}
+                            {/*</Grid>*/}
                         </Grid>
                     </Grid> :
                     <MobileArticlesList

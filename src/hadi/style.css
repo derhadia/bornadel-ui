@@ -143,3 +143,33 @@
 }
 
 
+
+/*********************************other styles******************************/
+
+
+.description .image {
+    width: 100%;
+    margin: 0;
+}
+
+.description img {
+    width: 100%;
+}
+
+.description li img {
+    width: unset;
+}
+
+.datePicker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.datePicker .popo {
+    margin: 3px 0;
+    padding-right: 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

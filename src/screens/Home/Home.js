@@ -32,7 +32,7 @@ export default function Home() {
         setBannerContainerWidth(BannerContainer.offsetWidth)
         setImageWidth(ImageWidthState.offsetWidth)
     }, [])
-    
+
 
 
     return (
@@ -173,7 +173,20 @@ export default function Home() {
                                                 <Grid  item className={classes.ArticleLeft}>
                                                     <Grid item className={classes.ArticleTitle}>{item.article_Title}</Grid>
                                                     <Grid container><Typography className={classes.ArticleTextField}>{item.article_Summary}</Typography></Grid>
-                                                    <Grid container justify="flex-end"><Typography className={classes.ReadMore} >ادامه مطلب <span className={classes.threeArrow}></span></Typography></Grid>
+                                                    <Grid container justify="flex-end">
+                                                        <Typography className={classes.ReadMore} >
+                                                            <Link
+                                                                style={{color: "inherit"}}
+                                                                to={{
+                                                                    pathname: `ArticleDetail/${item.article_ID}`,
+                                                                    state: {item}
+                                                                }}
+                                                            >
+                                                                ادامه مطلب
+                                                                <span className={classes.threeArrow}></span>
+                                                            </Link>
+                                                        </Typography>
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
                                         )

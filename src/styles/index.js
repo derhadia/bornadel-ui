@@ -5,7 +5,7 @@ import BGcircleMenu from '../assets/images/bluebackmotion.png'
 const useStyles = makeStyles((theme) => ({
     // -----------------------------------------------------------------------------------------
     //                                      header Style
-    // -----------------------------------------------------------------------------------------  
+    // -----------------------------------------------------------------------------------------
     header: {
         width: "100%",
         height: 108,
@@ -1491,7 +1491,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 5
     },
     FormControllText: {
-        fontSize: 12
+        fontSize: 14
     },
     checkBoxFormControl: {
         padding: 10
@@ -1783,7 +1783,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 4,
         marginTop: 20,
         position:"fixed",
-        
+
     },
     filterButtun: {
         width: "80%",
@@ -2335,7 +2335,7 @@ const useStyles = makeStyles((theme) => ({
 
     // -----------------------------------------------------------------------------------------
     //                                      footer Style
-    // -----------------------------------------------------------------------------------------   
+    // -----------------------------------------------------------------------------------------
     footer: {
         width: "100%",
         backgroundColor: "#f5f5f5"
