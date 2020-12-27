@@ -3,7 +3,7 @@ import { Grid, Typography } from '@material-ui/core'
 import useStyles from '../../styles'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 
-
+//server
 export default function Class() {
     const classes = useStyles();
     let { courseDetailData, weekDay } = useContext(CourseDetailContext)
