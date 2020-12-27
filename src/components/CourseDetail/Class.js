@@ -2,7 +2,11 @@ import React, { useContext, useEffect } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import useStyles from '../../styles'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
+<<<<<<< Updated upstream
 //server
+=======
+//local
+>>>>>>> Stashed changes
 
 export default function Class() {
     const classes = useStyles();
