@@ -23,6 +23,8 @@ import animateScrollTo from 'animated-scroll-to';
 export default function Courses() {
     const classes = useStyles()
     const [widthAllcourses, setWidthAllcourses] = useState(0)
+    const [applyFilterPosirion, setApplyFilterPosirion] = useState(0)
+    const [apllyFilterWidth, setApllyFilterWidth] = useState(0)
     const [fixed, setFixed] = useState(false)
     const [nothingData, setNothingData] = useState(false)
     let { coursesData, setCoursesData, page, itemPerPage, minPrice, maxPrice, minTime,
@@ -38,8 +40,9 @@ export default function Courses() {
         let FilterConteiner = document.querySelector('#CoursesContainerRight')
         let filterButtun = document.querySelector('#filterButtun')
         let CoursesContainerLeft = document.querySelector('#CoursesContainerLeft')
+        setApllyFilterWidth(FilterConteiner.offsetWidth-20)
+        setApplyFilterPosirion((FilterConteiner.offsetWidth-20)/2)
         window.addEventListener('scroll', (e) => {
-            console.log(window.pageYOffset + window.innerHeight - 110);
             if (window.pageYOffset + window.innerHeight - 110 === 1590 || window.pageYOffset + window.innerHeight - 110 > 1590) {
                 setFixed(true)
                 return
@@ -50,6 +53,7 @@ export default function Courses() {
             }
         })
     }, [])
+
 
     useEffect(() => {
         let body = {
@@ -165,6 +169,8 @@ export default function Courses() {
         fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
             if (status === 200) {
                 setCoursesData(responseJSON.data)
+                responseJSON.data.length === 0 ? setNothingData(true) : setNothingData(false)
+
             }
         })
     }
@@ -184,12 +190,15 @@ export default function Courses() {
                         container
                         justify="center"
                         className={classes.filterButtunContainer}
-                        style={{ position: fixed ? "static" : "fixed", top: "auto", bottom: 15, }}
+                        style={{width:apllyFilterWidth>0&&apllyFilterWidth}}
+                        style={{ position: fixed ? "static" : "sticky", top: "auto", bottom: 15, }}
                     >
                         <Button variant="contained"
                             color="primary"
                             id="filterButtun"
                             className={classes.filterButtun}
+                            // style={{right:applyFilterPosirion>0&&applyFilterPosirion,
+                            // width:window.innerWidth<1280?150:null}}
                             onClick={() => ApplyFilter()}
 
                         >

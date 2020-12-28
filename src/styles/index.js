@@ -46,6 +46,32 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: `url(${Icons})`,
         backgroundPosition: "-43px -39px"
     },
+    MobileBornadellogoContainer:{
+        borderBottom:"1px solid #c59428",
+        marginLeft:18,
+        marginRight:22
+
+    },
+    MobileBornadellogo: {
+        width: 112,
+        height: 42,
+        marginRight: 13,
+        cursor: "pointer",
+        marginLeft: 14,
+        backgroundSize: 1200,
+        backgroundImage: `url(${Icons})`,
+        backgroundPosition: "-905px -441px"
+    },
+    MobileBornadellogo2: {
+        width: 75,
+        height: 42,
+        marginRight: 13,
+        marginBottom:10,
+        cursor: "pointer",
+        backgroundSize: 1200,
+        backgroundImage: `url(${Icons})`,
+        backgroundPosition: "-905px -441px"
+    },
     searchBox: {
         wifth: 465,
         maxWidth: 465,
@@ -354,10 +380,12 @@ const useStyles = makeStyles((theme) => ({
             backgroundPosition: "-160px -40px",
         },
     },
+  
     headerMenu: {
         fontSize: 14,
         fontWeight: 500
     },
+    
     headerNavbar: {
         height: 44,
         boxShadow: "0 7px 8px 0 rgba(0,0,0,.04)",
@@ -509,12 +537,271 @@ const useStyles = makeStyles((theme) => ({
             backgroundPosition: "-433px -61px",
         }
     },
+    
     blackBackgroundOnWindow: {
         width: window.innerWidth,
         height: window.innerHeight,
         backgroundColor: "#00000038",
         position: "absolute"
     },
+    //mobile Header---------------------------------
+    HeaderMobileSize: {
+        backgroundColor: "#fafafa",
+        padding: "15px 25px"
+    },
+    DrawerInsideContainer: {
+        minWidth: 240,
+        maxWidth: 245,
+        // padding: "20px 0px",
+        overflow: "scroll",
+        "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "red",
+            width: "6px",
+        },
+        "&::-webkit-scrollbar": {
+            display: "none",
+            position: "absolute",
+            backgroundColor: "transparent"
+        }
+
+    },
+    MobilearrowMenuItem: {
+        width: 20,
+        height: 20,
+        display: "inline-block",
+        backgroundImage: `url(${Icons})`,
+        backgroundSize: 900,
+        backgroundPosition: "-139px -143px",
+    },
+    MobilearrowDownMenuItem: {
+        width: 20,
+        height: 20,
+        transform: "rotate(90deg)",
+        marginLeft: "auto",
+        display: "inline-block",
+        backgroundImage: `url(${Icons})`,
+        backgroundSize: 900,
+        backgroundPosition: "-139px -143px",
+    },
+    MobilearrowUpMenuItem: {
+        width: 20,
+        height: 20,
+        transform: "rotate(270deg)",
+        marginLeft: "auto",
+        display: "inline-block",
+        backgroundImage: `url(${Icons})`,
+        backgroundSize: 900,
+        backgroundPosition: "-135px -143px",
+    },
+    backgroundCollapse: {
+        backgroundColor: "#f0f0f1",
+        width: "100%",
+        padding: "5px 20px 5px 15px"
+    },
+    MobileMenuItemText: {
+        fontSize: 13,
+        fontWeight: 500,
+        color: "#81858b",
+        padding: "10px 0",
+        textDecoration: "none",
+    },
+    MobileMenuItemText2: {
+        fontSize: 13,
+        fontWeight: 500,
+        color: "#81858b",
+        textDecoration: "none",
+    },
+    MobileMenuItem: {
+        fontSize: 13,
+        color: "#81858b",
+        padding: "0px 21px 5px 10px",
+        cursor: "pointer",
+        textDecoration: "none",
+    },
+    MobilethirdLayercontainer: {
+        display: "flex",
+        fleWrap: "wrap",
+        padding: "10px 10px",
+        cursor: "pointer",
+        color: "#000",
+        textDecoration: "none",
+        "&:hover": {
+            color: "#ef394e",
+            background: "#f9f9f9",
+
+        }
+    },
+    horizantalLine: {
+        height: 1,
+        backgroundColor: "#ccc",
+        margin: "10px 0"
+    },
+    MobilebasketIconBtn: {
+        padding: 0,
+        minWidth: 0,
+        width: 33,
+        height: 33,
+        borderRadius: 4,
+        borderRadius: "4px",
+        backgroundColor: "transparent",
+        border: "none",
+        backgroundImage: `url(${Icons})`,
+        backgroundSize: 1100,
+        backgroundPosition: "-1002px -411px",
+    },
+    MobileLoginBtn:{
+        padding: 0,
+        minWidth: 0,
+        width: 30,
+        height: 33,
+        borderRadius: 4,
+        borderRadius: "4px",
+        backgroundColor: "transparent",
+        border: "none",
+        backgroundImage: `url(${Icons})`,
+        backgroundSize: 1100,
+        backgroundPosition: "-953px -411px",
+    }, 
+    MobileVerticalLine:{
+        width:1,
+        height:20,
+        backgroundColor:"#aaa",
+        position:"relative",
+        top:5
+    },
+    MobileHeaderMenu:{
+        fontSize: 14,
+        fontWeight: 500,
+        marginBottom:20 
+    },
+    MobileclassList: {
+        cursor: "default",
+        marginRight: 10,
+        position: "relative",
+        marginLeft: 14,
+        paddingRight: 10,
+        "&::before": {
+            content: `''`,
+            width: 20,
+            height: 20,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            top: 0,
+            marginRight: 6,
+            backgroundImage: `url(${Icons})`,
+            // backgroundSize: 1000,
+            backgroundPosition: "-730px -61px",
+
+        },
+       
+    },
+    Mobileprovision: {
+        cursor: "pointer",
+        padding: "0 15px",
+        "&::before": {
+            content: `''`,
+            width: 20,
+            height: 20,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            top: 0,
+            marginRight: 6,
+            backgroundImage: `url(${Icons})`,
+            // backgroundSize: 800,
+            backgroundPosition: "-655px -61px",
+
+
+        }
+    },
+    Mobilearticles: {
+        cursor: "pointer",
+        padding: "0 15px",
+        "&::before": {
+            content: `''`,
+            width: 20,
+            height: 20,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            top: 0,
+            marginRight: 6,
+            backgroundImage: `url(${Icons})`,
+            backgroundSize: 1000,
+            backgroundPosition: "-99px -204px",
+        }
+    },
+    Mobilenews: {
+        cursor: "pointer",
+        padding: "0 15px",
+        "&::before": {
+            content: `''`,
+            width: 20,
+            height: 20,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            top: 0,
+            marginRight: 6,
+            backgroundImage: `url(${Icons})`,
+            backgroundSize: 1000,
+            backgroundPosition: "-37px -204px",
+        }
+    },
+    MobilecommonQuestion: {
+        cursor: "pointer",
+        padding: "0 15px",
+        "&::before": {
+            content: `''`,
+            width: 21,
+            height: 20,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            top: 0,
+            marginRight: 7,
+            backgroundImage: `url(${Icons})`,
+            // backgroundSize: 800,
+            backgroundPosition: "-581px -61px",
+        }
+    },
+    MobileAboutUs: {
+        cursor: "pointer",
+        padding: "0 15px",
+        "&::before": {
+            content: `''`,
+            width: 20,
+            height: 20,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            top: 0,
+            marginRight: 7,
+            backgroundImage: `url(${Icons})`,
+            // backgroundSize: 800,
+            backgroundPosition: "-507px -61px",
+        }
+    },
+    MobilecontactUs: {
+        cursor: "pointer",
+        padding: "0 15px",
+        "&::before": {
+            content: `''`,
+            width: 20,
+            height: 20,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            top: 0,
+            marginRight: 7,
+            backgroundImage: `url(${Icons})`,
+            // backgroundSize: 800,
+            backgroundPosition: "-433px -61px",
+        }
+    },
+
+
     //    -------------------------------------Menu-------------------------------------------
     MenuContainer: {
         marginTop: 44,
@@ -1422,7 +1709,7 @@ const useStyles = makeStyles((theme) => ({
     },
     groupFilterHeaderText: {
         fontWeight: 700,
-        fontSize: 13
+        fontSize: 14
     },
     groupFilterHeader: {
         fontSize: 12,
@@ -1446,7 +1733,7 @@ const useStyles = makeStyles((theme) => ({
     treelableText: {
         textDecoration: "none",
         color: "#000",
-        fontSize: 12
+        fontSize: 13
     },
     treeselected: {
         backgroundColor: "#fff  !important",
@@ -1477,7 +1764,7 @@ const useStyles = makeStyles((theme) => ({
     },
     levelFilterTitle: {
         color: "#424750",
-        fontSize: 13,
+        fontSize: 14,
         fontWeight: 700,
         borderBottom: "1px solid #dedede"
     },
@@ -1491,7 +1778,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 5
     },
     FormControllText: {
-        fontSize: 14
+        fontSize: 13
     },
     checkBoxFormControl: {
         padding: 10
@@ -1516,7 +1803,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     teacherFilterTitle: {
-        fontSize: 13,
+        fontSize: 14,
         fontWeight: 700,
         color: "#424750"
     },
@@ -1599,7 +1886,7 @@ const useStyles = makeStyles((theme) => ({
     },
     startHoursFilterTitle: {
         height: 24,
-        fontSize: 13,
+        fontSize: 14,
         width: "100%",
         borderBottom: "1px solid #dedede",
         fontWeight: 700,
@@ -1620,7 +1907,7 @@ const useStyles = makeStyles((theme) => ({
     },
     startHoursFilterText: {
         padding: "0 3px",
-        fontSize: 12,
+        fontSize: 13,
         color: "#424750",
 
     },
@@ -1685,7 +1972,7 @@ const useStyles = makeStyles((theme) => ({
 
     },
     AcademyFilterTitle: {
-        fontSize: 13,
+        fontSize: 14,
         fontWeight: 700,
         color: "#424750"
     },
@@ -1718,7 +2005,7 @@ const useStyles = makeStyles((theme) => ({
     priceFilterHead: {
         fontWeight: 700,
         borderBottom: "1px solid #dedede",
-        fontSize: 13
+        fontSize: 14
     },
     priceFilterBox: {
         height: 80,
@@ -1773,21 +2060,24 @@ const useStyles = makeStyles((theme) => ({
     },
     switchText: {
         color: " #424750",
-        fontSize: 13,
+        fontSize: 14,
         fontWeight: 700
     },
     filterButtunContainer: {
-        minWidth: "235px",
-        maxWidth: "235px",
+        // minWidth: "235px",
+        // maxWidth: "235px",
         height: 29,
         borderRadius: 4,
         marginTop: 20,
-        position:"fixed",
+        position: "sticky",
+        zIndex: 2,
+        // left:"3%"
 
     },
     filterButtun: {
-        width: "80%",
-        height: "100%",
+        width: "90%",
+        height: "35px",
+        fontSize: 15
     },
     CoursesContainerRight: {
         flex: 1
@@ -1820,26 +2110,27 @@ const useStyles = makeStyles((theme) => ({
 
     },
     leftheaderTitle: {
-        fontSize: 13,
+        fontSize: 14,
         color: "#424750",
         marginLeft: 10
     },
     leftheaderText: {
-        width: 73,
+        width: 80,
         cursor: "pointer",
-        fontSize: 13,
+        fontSize: 14,
         color: "#424750",
         marginLeft: 12,
         borderRadius: 4,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        userSelect: "none",
         "&:hover": {
             backgroundColor: "#ebf7f2"
         }
     },
     activeFilterHeaderLeft: {
-        width: 68,
+        width: 75,
         cursor: "pointer",
         height: 20,
         backgroundColor: "#2fc98e",
@@ -1849,7 +2140,8 @@ const useStyles = makeStyles((theme) => ({
         textAlign: "center",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        userSelect: "none"
     },
     nothingMessage: {
         fontSize: 25,
@@ -1898,11 +2190,11 @@ const useStyles = makeStyles((theme) => ({
     },
     CourseDetailClassNameContainer: {
         marginTop: 15,
-        marginBottom:10
+        marginBottom: 10
     },
     CourseDetailClassNameContainer1: {
         marginTop: 15,
-        marginBottom:0
+        marginBottom: 0
     },
     CourseDetailClassName: {
         fontSize: 12,
@@ -2340,6 +2632,7 @@ const useStyles = makeStyles((theme) => ({
         width: "100%",
         backgroundColor: "#f5f5f5"
     },
+
     Insidefooter: {
         maxWidth: 1450,
         margin: "auto",
@@ -2564,6 +2857,135 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 8,
 
     },
+    //mobile footer---------------------------
+    Mobilefooter: {
+        width: "100%",
+        backgroundColor: "#ebebeb",
+        borderTop: "1px solid #c2c2c2"
+    },
+    MobilefooterBottomLeftRect: {
+        marginLeft: 5,
+        display: "inline-block",
+        width: window.innerWidth < 355 ? 80 : 109,
+        height: 31,
+        borderRadius: 5,
+        backgroundColor: "black",
+        cursor: "pointer",
+    },
+    MobileFooterImage: {
+        width: window.innerWidth < 355 ? 80 : 109,
+        height: 31,
+        borderRadius: 8,
+    },
+    MobilefooterBottomLeft: {
+        padding: "10px 0",
+        borderBottom: "1px solid #c2c2c2"
+
+    },
+    MobilefooterSocial: {
+        padding: "10px 0",
+        borderBottom: "1px solid #c2c2c2"
+    },
+    MobilefooterTopLeftBottom: {
+        maxWidth: 400
+    },
+    MobilefooterTopRight: {
+        padding: "10px 0",
+        borderBottom: "1px solid #c2c2c2"
+    },
+    MobilefooterTopRightText: {
+        fontSize: 16,
+        color: "#4b4b4b",
+        textAlign: "center"
+
+    },
+    MobileBigImageContainer: {
+        padding: "10px 15px",
+        borderBottom: "1px solid #c2c2c2"
+    },
+    MobilefooterMainBigImage: {
+        width: "100%",
+        flex: 1,
+        backgroundColor: "#8c8888",
+        paddingLeft: 10,
+        borderRadius: 10
+    },
+    MobileTagFooter: {
+        backgroundColor: "#006daa",
+        borderRadius: 5,
+        color: "#fff",
+        fontSize: 8,
+        maxWidth: 100,
+        minWidth: 80,
+        textAlign: "center"
+    },
+    MobileTagFooterContainer: {
+        padding: 5,
+        textAlign: "center"
+
+    },
+    MobilefooterBottomRightInsider: {
+        width: "100%"
+    },
+    MobileAddressText: {
+        fontSize: 12,
+        color: "#5f5f5f",
+        // flex: 1
+    },
+    MobilefooterBottomRight: {
+        padding: 5,
+        borderBottom: "1px solid #c2c2c2"
+
+    },
+    MobileFarsiNumberFooterText:{
+        fontSize:12,
+        color: "#5f5f5f",
+        fontFamily: "IRANSansNUMNumber",
+    },
+    MobileemalText:{
+        fontFamily: "TimesNewRomanPSMT",
+        fontSize: 12,
+        color: "#5f5f5f"
+    },
+    MobileNavigationIcon:{
+        display: "inline-block",
+        width: 20,
+        height: 19,
+        marginRight: 3,
+        marginTop:1,
+        backgroundImage: `url(${Icons})`,
+        backgroundSize: 1000,
+        backgroundPosition: "-518px -105px",
+    },
+    MobilefooterMainSmallImage: {
+        width: 120,
+        height: 120,
+        display: "inline-block",
+        backgroundColor: "#ffffff",
+        borderRadius: 5
+    },
+    MobilefooterMainSmallImageRight: {
+        width: 120,
+        height: 120,
+        marginRight:15,
+        display: "inline-block",
+        backgroundColor: "#ffffff",
+        borderRadius: 5
+    },
+    Mobilenamad:{
+        width: 120,
+        height: 120,
+        borderRadius:8
+    },
+    MobileresaneDigital:{
+        width: 120,
+        height: 120,
+        borderRadius:8
+    },
+    MobileSmalImageContainer:{
+        padding:10
+    },
+
 }));
 export default useStyles
 

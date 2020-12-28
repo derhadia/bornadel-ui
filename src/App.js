@@ -1,4 +1,5 @@
 import React from 'react'
+import '../node_modules/bootstrap-v4-rtl/dist/css/bootstrap.min.css'
 import Rtl from './components/RTL'
 import ThemeProvider from './components/ThemeProvider'
 import { BrowserRouter } from 'react-router-dom'
@@ -8,6 +9,11 @@ import AlertContextProvider from './contexts/AlertContext'
 import CoursesContextProvider from './contexts/CoursesContext'
 import HomePageContextProvider from './contexts/HomePageContext'
 import CourseDetailContextProvider from './contexts/CourseDetailContext'
+import toastr from 'toastr';
+import './assets/styles/toastr.css';
+toastr.options = {
+  "positionClass": "toast-bottom-left"
+}
 import ArticleContextProvider from "./contexts/ArticlesContext";
 
 export default function App() {

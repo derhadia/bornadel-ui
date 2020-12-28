@@ -29,4 +29,10 @@ export default {
     Get_Get5PreviouseTeacherClassRoom: BaseUrl + "ClassRoom/Get5PreviouseTeacherClassRoom",
     Get_GetSimilarClassRooms: BaseUrl + "ClassRoom/GetSimilarClassRooms",
     Get_ArticleGetAllWithFilters: BaseUrl + "Article/GetAllWithFilters",
+    RegisterUser : `${BaseUrl}Users/RegisterUser`,
+    Login: `${BaseUrl}Users/Login`,
+    ConfirmMobileOrEmail:`${BaseUrl}Users/ConfirmMobileOrEmail`,
+    ForgetPassword:`${BaseUrl}Users/ForgetPassword`,
+    SetUserRole:`${BaseUrl}Users/SetUserRole`
+    
 }
