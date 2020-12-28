@@ -13,7 +13,7 @@
     width: 307px;
     height: 302px;
     margin: 21px 0 0;
-    padding: 15px 8px 9px 15px;
+    padding: 5px 8px 9px 15px;
     border-radius: 7px;
     border: solid 1px var(--pinkish-grey);
     background-color: #ffffff;
@@ -23,7 +23,7 @@
     width: 330px;
     height: 333px;
     margin: 40px 0 0px 0px;
-    padding: 13px 11px 10px 12px;
+    padding: 4px 11px 10px 12px;
     border-radius: 7px;
     border: solid 1px var(--pinkish-grey);
     background-color: #f4f5f7;
@@ -31,7 +31,7 @@
   .rectangle-role {
     width: 307px;
     height: 250px;
-    margin: 21px 0 0;
+    margin: 3px 0 0;
     padding: 15px 8px 9px 15px;
     border-radius: 7px;
     border: solid 1px var(--pinkish-grey);

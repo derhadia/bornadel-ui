@@ -10,6 +10,7 @@
     --pinkish-grey: #bababa;  
   }
 
+
 .center {
     display: flex;
     justify-content: center;
@@ -28,7 +29,7 @@
     width: 307px;
     height: 302px;
     margin: 21px 0 0;
-    padding: 15px 8px 9px 15px;
+    padding: 5px 8px 9px 15px;
     border-radius: 7px;
     border: solid 1px var(--pinkish-grey);
     background-color: #ffffff;
@@ -175,9 +176,9 @@ margin-top: 8px;
 .login-title {
     /* width: 22px;
      height: 8px; */
-     margin: 0 0 5px 0px;
+     margin: 0 0 0px 0px;
      font-family: BYekan;
-     font-size: 13px;
+     font-size: 16.5px;
      font-weight: normal;
      font-stretch: normal;
      font-style: normal;
@@ -213,7 +214,7 @@ color: var(--pinkish-grey);
 a:not([href]):not([class]) {
     text-decoration: underline;
     color: #3dbffc;
-    font-size: 13px;
+    font-size: 13.5px;
 }
 a:hover{
     text-decoration: none;

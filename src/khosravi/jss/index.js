@@ -27,9 +27,9 @@ const styles = makeStyles((theme) => ({
     },
     bornaLogo:{
         backgroundImage: `url(${Icons})`,
-        backgroundPosition: "-33px -28px",
-        width: 40,
-        height: 40,
+        backgroundPosition: "-595px  -340px",
+        width: 110,
+        height: 64,
         backgroundSize:'950px'
     }
 

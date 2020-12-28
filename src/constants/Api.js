@@ -24,4 +24,10 @@ export default {
     Get_GetAllClassroomLevel: BaseUrl + "ClassRoomLevel/GetAll",
     Get_GetAllTeacher: BaseUrl + "Teacher/GetAll",
     Get_GetAllAcademy: BaseUrl + "Academy/GetAll",
+    RegisterUser : `${BaseUrl}Users/RegisterUser`,
+    Login: `${BaseUrl}Users/Login`,
+    ConfirmMobileOrEmail:`${BaseUrl}Users/ConfirmMobileOrEmail`,
+    ForgetPassword:`${BaseUrl}Users/ForgetPassword`,
+    SetUserRole:`${BaseUrl}Users/SetUserRole`
+    
 }

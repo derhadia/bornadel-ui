@@ -9,6 +9,12 @@ import AlertContextProvider from './contexts/AlertContext'
 import CoursesContextProvider from './contexts/CoursesContext'
 import HomePageContextProvider from './contexts/HomePageContext'
 import CourseDetailContextProvider from './contexts/CourseDetailContext'
+import toastr from 'toastr';
+import './assets/styles/toastr.css';
+
+toastr.options = {
+  "positionClass": "toast-bottom-left"
+}
 
 export default function App() {
   return (

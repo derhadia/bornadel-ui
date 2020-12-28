@@ -11,7 +11,7 @@
     "@testing-library/user-event": "^7.2.1",
     "animate.css": "^4.1.1",
     "animated-scroll-to": "^2.0.12",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "bootstrap-v4-rtl": "^4.5.2-1",
     "jss-rtl": "^0.3.0",
     "react": "^16.14.0",
@@ -21,7 +21,8 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-slick": "^0.27.12",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "toastr": "^2.1.4"
   },
   "scripts": {
     "start": " react-scripts start",
