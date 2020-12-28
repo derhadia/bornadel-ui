@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Grid, Typography } from '@material-ui/core';
 import useStyles from '../../../styles'
 import TreeView from '@material-ui/lab/TreeView';
@@ -8,10 +8,12 @@ import TreeItem from '@material-ui/lab/TreeItem';
 import { useParams, Link } from "react-router-dom";
 import { fetchPost } from '../../../config/Utils'
 import Apis from '../../../constants/Api'
+import { CoursesContext } from '../../../contexts/CoursesContext';
 
 export default function GroupFilter() {
     let { id } = useParams()
     const classes = useStyles()
+    let { DeleteFilter } = useContext(CoursesContext)
     const [treeData, setTreeData] = useState([])
     useEffect(() => {
         let body = {
@@ -22,6 +24,7 @@ export default function GroupFilter() {
         fetchPost(Apis.Get_GetAllInClassRoomList, body).then(({ responseJSON, status }) => {
             setTreeData(responseJSON.data)
         })
+        DeleteFilter()
     }, [id])
 
     return (

@@ -8,11 +8,11 @@ import Navbar from './Navbar';
 import SearchBox from './SearchBox';
 import DrawerInside from './DrawerInside'
 import { CoursesContext } from '../../contexts/CoursesContext'
+import MenuIcon from '@material-ui/icons/Menu';
 
 export default function Header() {
     const classes = useStyles();
-    const [mobileOpen, setMobileOpen] = useState(false);
-    const {DeleteFilter} = useContext(CoursesContext)
+    const { mobileOpen, setMobileOpen,DeleteFilter } = useContext(CoursesContext)
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
@@ -50,22 +50,31 @@ export default function Header() {
                 </header>
             </Hidden>
             <Hidden mdUp>
-                <Grid container className={classes.HeaderMobileSize}>
+                <Grid container justify="space-between" alignItems="center" className={classes.HeaderMobileSize}>
                     <Drawer
                         container={window.document.body}
                         variant="temporary"
-                        // anchor={theme.direction === 'rtl' ? 'right' : 'left'}
                         open={mobileOpen}
                         onClose={handleDrawerToggle}
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
                         ModalProps={{
-                            keepMounted: true, // Better open performance on mobile.
+                            keepMounted: true,
                         }}
                     >
                         <DrawerInside />
                     </Drawer>
+                    <Grid container item xs={2}>
+                        <MenuIcon onClick={() => setMobileOpen(true)} />
+                    </Grid>
+                    <Grid container justify="center" item xs={6}>
+                        <Grid item className={classes.MobileBornadellogo} component={Link} to="/" onClick={() => DeleteFilter()}></Grid>
+
+                    </Grid>
+                    <Grid container justify="flex-end" item xs={4} >
+                        <Grid component={Link} to="/login" className={ classes.MobileLoginBtn } ></Grid>
+                        <Grid className={ classes.MobileVerticalLine } ></Grid>
+                        <Grid className={ classes.MobilebasketIconBtn } ></Grid>
+                    </Grid>
+
                 </Grid>
             </Hidden>
         </>

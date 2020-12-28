@@ -94,21 +94,21 @@ export default function RangeSlider() {
     const [maxPrice1, setMaxPrice1] = useState(100)
     let miP = minValue
     let maP = maxValue
-//bayat
+    //bayat
     // useEffect(() => {
     //     setMinPrice1(0)
     //     setMaxPrice1(100)
-    
+
     // }, [coursesData])
-    
+
     useEffect(() => {
 
         if (minPrice1 === 0) {
             setMinPrice(miP)
             return
         }
-        console.log(minPrice,miP,maP);
-        setMinPrice(Math.ceil((miP+((maP - miP) / 100) * minPrice1)))
+        console.log(minPrice, miP, maP);
+        setMinPrice(Math.ceil((miP + ((maP - miP) / 100) * minPrice1)))
     }, [minPrice1])
     useEffect(() => {
 
@@ -116,7 +116,7 @@ export default function RangeSlider() {
             setMaxPrice(maP)
             return
         }
-        setMaxPrice(Math.ceil((miP+((maP - miP) / 100) * maxPrice1)))
+        setMaxPrice(Math.ceil((miP + ((maP - miP) / 100) * maxPrice1)))
     }, [maxPrice1])
     useEffect(() => {
         let inputLeft = document.getElementById("input-left");
@@ -243,15 +243,17 @@ export default function RangeSlider() {
                     </div>
                 </div>
             </div>
-            {maxPrice<minPrice?
+            {maxPrice < minPrice ?
                 <ErrorOutlineOutlinedIcon color="error" />
-                :null
+                : null
             }
-            <span className={classes.startHoursFilterText}> از </span>
-            <span className={classes.priceFilterSearch}>{separateNum(minPrice)}</span>
-            <span className={classes.startHoursFilterText}>تا  </span>
-            <span className={classes.priceFilterSearch}>{separateNum(maxPrice)}</span>
-            <span className={classes.startHoursFilterText}>تومان  </span>
+            <Grid container justify="center">
+                <span className={classes.startHoursFilterText}> از </span>
+                <span className={classes.priceFilterSearch}>{separateNum(minPrice)}</span>
+                <span className={classes.startHoursFilterText}>تا  </span>
+                <span className={classes.priceFilterSearch}>{separateNum(maxPrice)}</span>
+                <span className={classes.startHoursFilterText}>تومان  </span>
+            </Grid>
         </div>
     )
 }

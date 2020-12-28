@@ -47,6 +47,7 @@ export default function CoursesContextProvider({ children }) {
     const [minValue, setMinValue] = useState(0)
     const [maxValue, setMaxValue] = useState(100)
     const [nothingMessage, setnothingMessage] = useState(false)
+    const [mobileOpen, setMobileOpen] = useState(false);
 
 
 
@@ -124,11 +125,11 @@ export default function CoursesContextProvider({ children }) {
         setSelectedAcademy([])
         setMinTime('')
         setMaxTime('')
-        setMinPrice(0)
-        setMaxPrice(0)
+        // setMinPrice(0)
+        // setMaxPrice(0)
         setCheckedReadyClasses(false)
         setCheckedDegreeSwith(false)
-        setLevel([])
+        setLevelData([])
         setSortType(1)
         setMinValue(0)
         setMaxValue(100)
@@ -142,7 +143,7 @@ export default function CoursesContextProvider({ children }) {
             minTime, setMinTime, maxTime, setMaxTime, academy, setAcademy, filteAcademy, setFilterAcademy,
             selectedAcademy, setSelectedAcademy, checkedReadyClasses, setCheckedReadyClasses, selectLE,
             checkedDegreeSwith, setCheckedDegreeSwith, minValue, maxValue, levelData, selectAC, selectTH,
-            DeleteFilter, setLevelData, setTeacher1, setFilterAcademy, setDataPriceSort
+            DeleteFilter, setLevelData, setTeacher1, setFilterAcademy, setDataPriceSort, mobileOpen, setMobileOpen
         }} >
             {children}
         </CoursesContext.Provider>

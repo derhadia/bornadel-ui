@@ -32,7 +32,7 @@ export default function AcademyFilter() {
                 {filteAcademy && filteAcademy.length > 0 ? filteAcademy.map((data, index) => {
                     return (
                         <Grid key={index} item container className={classes.FormControllContainer} >
-                            <CheckBox id={data.academy_ID} name={data.academy_Name} setItem={selectAC} />
+                            <CheckBox checked={filteAcademy&&filteAcademy.includes(data.academy_ID)}  id={data.academy_ID} name={data.academy_Name} setItem={selectAC} />
                         </Grid>
                     )
                 }) : null}
