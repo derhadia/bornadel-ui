@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React, {useContext, useState} from 'react';
 import {Grid} from "@material-ui/core";
 import useStyle from "../../hadi";
 import Button from "@material-ui/core/Button";
@@ -7,16 +7,22 @@ import clsx from 'clsx';
 import Drawer from '@material-ui/core/Drawer';
 import ArticleBox from "../Articels/articleBox/ArticleBox";
 import DrawerFilter from "./DrawerFilter";
+import {ArticlesContext} from "../../contexts/ArticlesContext";
 
 
 
-const MobileArticlesList = () => {
+const MobileArticlesList = ({handleFiltering}) => {
     const [state, setState] = useState({
         drawer: false,
     });
     const classes = useStyle();
 
+    const {
+         data, items, setIds, ids
+    } = useContext(ArticlesContext);
+
     const toggleDrawer = (anchor, open) => (event) => {
+        handleFiltering()
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
@@ -33,7 +39,14 @@ const MobileArticlesList = () => {
             // onClick={toggleDrawer(anchor, false)}
             // onKeyDown={toggleDrawer(anchor, false)}
         >
-            <DrawerFilter toggleDrawer={toggleDrawer} anchor={anchor} />
+            <DrawerFilter
+                toggleDrawer={toggleDrawer}
+                anchor={anchor}
+                ids={ids}
+                setIds={setIds}
+                items={items}
+                handleFiltering={handleFiltering}
+            />
         </div>
     );
 
@@ -54,12 +67,9 @@ const MobileArticlesList = () => {
                 <Typography>آموزش PHP</Typography>
             </Grid>
             <Grid>
-                <ArticleBox />
-                <ArticleBox />
-                <ArticleBox />
-                <ArticleBox />
-                <ArticleBox />
-                <ArticleBox />
+                <ArticleBox
+                    data={data}
+                />
             </Grid>
             <Grid style={{padding: "10px", width: "100%"}}>
                 <div className={classes.redBoxArticle}/>

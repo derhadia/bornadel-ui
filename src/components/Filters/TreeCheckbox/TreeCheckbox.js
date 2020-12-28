@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -13,200 +13,88 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControl from '@material-ui/core/FormControl';
 
 
-export default function TreeCheckbox() {
-    const classes = useStyles()
+export default function TreeCheckbox({items}) {
+    const classes = useStyles();
+    const [data, setData] = useState([]);
 
     return (
-        <Grid item className={classes.teacherFilter}>
+        <Grid style={{overflow: "scroll"}} item className={classes.teacherFilter}>
             <Typography className={classes.teacherFilterTitle}>دسته بندی</Typography>
-            <Accordion style={{boxShadow: "unset"}}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-label="Expand"
-                    aria-controls="additional-actions1-content"
-                    id="additional-actions1-header"
-                >
-                    <FormControlLabel
-                        aria-label="Acknowledge"
-                        onClick={(event) => event.stopPropagation()}
-                        onFocus={(event) => event.stopPropagation()}
-                        control={<Checkbox />}
-                        label="کسب و کار"
-                    />
-                </AccordionSummary>
-                <AccordionDetails>
-                    <FormControl component="fieldset">
-                        <FormGroup aria-label="position" row>
-                            <FormControlLabel
-                                value="start"
-                                control={<Checkbox color="primary" />}
-                                label="کسب و کار"
-                                labelPlacement="end"
-                            />
-                        </FormGroup>
-                    </FormControl>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion style={{boxShadow: "unset"}}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-label="Expand"
-                    aria-controls="additional-actions2-content"
-                    id="additional-actions2-header"
-                >
-                    <FormControlLabel
-                        aria-label="Acknowledge"
-                        onClick={(event) => event.stopPropagation()}
-                        onFocus={(event) => event.stopPropagation()}
-                        control={<Checkbox />}
-                        label="صنعت چاپ"
-                    />
-                </AccordionSummary>
-                <AccordionDetails>
-                    <FormControl component="fieldset">
-                        <FormGroup aria-label="position" row>
-                            <FormControlLabel
-                                value="start"
-                                control={<Checkbox color="primary" />}
-                                label="سابلیمیشن"
-                                labelPlacement="end"
-                            />
-                        </FormGroup>
-                    </FormControl>
-                    <FormControl component="fieldset">
-                        <FormGroup aria-label="position" row>
-                            <FormControlLabel
-                                value="start"
-                                control={<Checkbox color="primary" />}
-                                label="افست"
-                                labelPlacement="end"
-                            />
-                        </FormGroup>
-                    </FormControl>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion style={{boxShadow: "unset"}}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-label="Expand"
-                    aria-controls="additional-actions3-content"
-                    id="additional-actions3-header"
-                >
-                    <FormControlLabel
-                        aria-label="Acknowledge"
-                        onClick={(event) => event.stopPropagation()}
-                        onFocus={(event) => event.stopPropagation()}
-                        control={<Checkbox />}
-                        label="صنایع دستی"
-                    />
-                </AccordionSummary>
-                <AccordionDetails>
-                    <FormControl component="fieldset">
-                        <FormGroup aria-label="position" row>
-                            <FormControlLabel
-                                value="start"
-                                control={<Checkbox color="primary" />}
-                                label="فرشبافی"
-                                labelPlacement="end"
-                            />
-                        </FormGroup>
-                    </FormControl>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion style={{boxShadow: "unset"}}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-label="Expand"
-                    aria-controls="additional-actions1-content"
-                    id="additional-actions1-header"
-                >
-                    <FormControlLabel
-                        aria-label="Acknowledge"
-                        onClick={(event) => event.stopPropagation()}
-                        onFocus={(event) => event.stopPropagation()}
-                        control={<Checkbox />}
-                        label="کسب و کار"
-                    />
-                </AccordionSummary>
-                <AccordionDetails>
-                    <FormControl component="fieldset">
-                        <FormGroup aria-label="position" row>
-                            <FormControlLabel
-                                value="start"
-                                control={<Checkbox color="primary" />}
-                                label="کسب و کار"
-                                labelPlacement="end"
-                            />
-                        </FormGroup>
-                    </FormControl>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion style={{boxShadow: "unset"}}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-label="Expand"
-                    aria-controls="additional-actions2-content"
-                    id="additional-actions2-header"
-                >
-                    <FormControlLabel
-                        aria-label="Acknowledge"
-                        onClick={(event) => event.stopPropagation()}
-                        onFocus={(event) => event.stopPropagation()}
-                        control={<Checkbox />}
-                        label="صنعت چاپ"
-                    />
-                </AccordionSummary>
-                <AccordionDetails>
-                    <FormControl component="fieldset">
-                        <FormGroup aria-label="position" row>
-                            <FormControlLabel
-                                value="start"
-                                control={<Checkbox color="primary" />}
-                                label="سابلیمیشن"
-                                labelPlacement="end"
-                            />
-                        </FormGroup>
-                    </FormControl>
-                    <FormControl component="fieldset">
-                        <FormGroup aria-label="position" row>
-                            <FormControlLabel
-                                value="start"
-                                control={<Checkbox color="primary" />}
-                                label="افست"
-                                labelPlacement="end"
-                            />
-                        </FormGroup>
-                    </FormControl>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion style={{boxShadow: "unset"}}>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-label="Expand"
-                    aria-controls="additional-actions3-content"
-                    id="additional-actions3-header"
-                >
-                    <FormControlLabel
-                        aria-label="Acknowledge"
-                        onClick={(event) => event.stopPropagation()}
-                        onFocus={(event) => event.stopPropagation()}
-                        control={<Checkbox />}
-                        label="صنایع دستی"
-                    />
-                </AccordionSummary>
-                <AccordionDetails>
-                    <FormControl component="fieldset">
-                        <FormGroup aria-label="position" row>
-                            <FormControlLabel
-                                value="start"
-                                control={<Checkbox color="primary" />}
-                                label="فرشبافی"
-                                labelPlacement="end"
-                            />
-                        </FormGroup>
-                    </FormControl>
-                </AccordionDetails>
-            </Accordion>
+            {
+                items.map((item, index) => {
+                    if (item.educationSubject_EducationSubject_Ref === null) {
+                        return (
+                            <Accordion key={index} style={{boxShadow: "unset"}}>
+                                <AccordionSummary
+                                    expandIcon={<ExpandMoreIcon/>}
+                                    aria-label="Expand"
+                                    aria-controls="additional-actions1-content"
+                                    id="additional-actions1-header"
+                                >
+                                    <FormControlLabel
+                                        aria-label="Acknowledge"
+                                        onClick={(event) => event.stopPropagation()}
+                                        onFocus={(event) => event.stopPropagation()}
+                                        control={<Checkbox/>}
+                                        label={`${(item.educationSubject_Name)}`}
+                                    />
+                                    {
+                                        items.map((second, index) => {
+                                            if (second.educationSubject_EducationSubject_Ref === item.educationSubject_ID) {
+                                                return (
+                                                    <Accordion key={index} style={{boxShadow: "unset"}}>
+                                                        <AccordionSummary
+                                                            expandIcon={<ExpandMoreIcon/>}
+                                                            aria-label="Expand"
+                                                            aria-controls="additional-actions1-content"
+                                                            id="additional-actions1-header"
+                                                        >
+                                                            <FormControlLabel
+                                                                aria-label="Acknowledge"
+                                                                onClick={(event) => event.stopPropagation()}
+                                                                onFocus={(event) => event.stopPropagation()}
+                                                                control={<Checkbox/>}
+                                                                label={`${(second.educationSubject_Name)}`}
+                                                            />
+                                                        </AccordionSummary>
+                                                        <AccordionDetails>
+                                                            <FormControl component="fieldset">
+                                                                <FormGroup aria-label="position" row>
+                                                                    <FormControlLabel
+                                                                        value="start"
+                                                                        control={<Checkbox color="primary"/>}
+                                                                        label={
+                                                                            `${second.educationSubject_Name}`
+                                                                        }
+                                                                        labelPlacement="end"
+                                                                    />
+                                                                </FormGroup>
+                                                            </FormControl>
+                                                        </AccordionDetails>
+                                                    </Accordion>
+                                                )}
+                                        })
+                                    }
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                    <FormControl component="fieldset">
+                                        <FormGroup aria-label="position" row>
+                                            <FormControlLabel
+                                                value="start"
+                                                control={<Checkbox color="primary"/>}
+                                                label={
+                                                    `${item.educationSubject_Name}`
+                                                }
+                                                labelPlacement="end"
+                                            />
+                                        </FormGroup>
+                                    </FormControl>
+                                </AccordionDetails>
+                            </Accordion>
+                        )
+                    }})
+
+            }
         </Grid>
     );
 }

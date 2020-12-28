@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Button, Grid, Typography} from "@material-ui/core";
 import useStyles from "../../hadi";
 import Divider from "@material-ui/core/Divider";
 import {Link} from "react-router-dom";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Draft from "./draft/Draft";
+import Apis from "../../constants/Api";
+import {fetchPost} from "../../config/Utils";
 
 //
 // const MyBlock = (props) => {
@@ -20,8 +22,31 @@ import Draft from "./draft/Draft";
 // }
 
 
-export default function ArticleDetail() {
+export default function ArticleDetail(props) {
     const classes = useStyles();
+    const [items, setItems] = useState([])
+
+
+    const data = props.location.state.data;
+    const dataDetail = props.location.state.item;
+
+    console.log(dataDetail,'detail')
+    console.log(data,'data')
+
+    const img = Apis.SHOWIMAGE + (data ? data : dataDetail).article_PhotoLink;
+
+    useEffect(() => {
+        let body = {
+            "teacher_ID_List": "",
+            "educationSubject_ID": "",
+            "date_From": "",
+            "date_To": ""
+        }
+        fetchPost(Apis.Get_ArticleGetAllWithFilters + "?sortTypeEnum=1",body).then(({responseJSON, status}) => {
+            setItems(responseJSON.data,'data')
+        })
+    },[])
+
     return (
         <Grid
             container
@@ -33,32 +58,46 @@ export default function ArticleDetail() {
                     item
                     container
                     className={classes.NewsContainer}
-                    style={{height: "755px"}}
+                    style={{height: "fit-content"}}
                 >
                    <Grid item md={12} className={classes.boxDetailProf}>
                        <Grid style={{padding: "0 15px"}}>
                            <Typography component="h3" variant="h3">
-                               احتمال حمله اکثریت ، نقطه ضعفی برای سازوکار اثبات سهام در اتریوم 2.2
+                               {(data ? data : dataDetail).article_Title}
                            </Typography>
                        </Grid>
-                       <Grid item className={classes.detailProf}>
-                           <Grid item className={classes.circleinRect2}>
-                               {/*<img src={} className={classes.coursesIconCicle} />*/}
-                           </Grid>
+                       <Grid
+                           item
+                           className={classes.detailProf}
+                           style={{
+                               backgroundImage: `url(${img})`,
+                               backgroundSize: "cover",
+                               backgroundPosition: "center"
+                           }}
+                       >
+                           <img
+                               src={Apis.SHOWIMAGE + (data ? data : dataDetail).teacher_PhotoLink}
+                               className={classes.circleinRect2}
+                               alt=""
+                           />
                        </Grid>
                        <Grid item>
                            <Typography component="h3" variant="h3">
-                               محمد حسین ابراهیمی
+                               {(data ? data : dataDetail).teacher_FullName}
                            </Typography>
                        </Grid>
                        <Grid className={classes.dateBox} item>
                            <Grid item className={classes.articleDate}>
                                <Typography className={classes.calendarIcon}>
-                                   تاریخ انتشار : 1399/05/06
+                                   تاریخ انتشار : {(data ? data : dataDetail).article_DateTime}
                                </Typography>
                            </Grid>
                            <Grid item className={`${classes.articleDate} ${classes.shareIconBig}`}/>
                        </Grid>
+                       <Grid
+                           className="description"
+                           dangerouslySetInnerHTML={{__html: (data ? data : dataDetail).article_Des}}
+                       />
                    </Grid>
                 </Grid>
                 <Grid item container style={{marginTop: "37px", alignItems: "center"}}>
@@ -233,117 +272,55 @@ export default function ArticleDetail() {
                     <Grid style={{borderBottom: "1px solid #b9b9b9", width: "100%"}}>
                         <Typography className={classes.ArticleHeaderText}>آخرین مطالب</Typography>
                     </Grid>
-                        <Grid container>
-                            <Grid>
-                                <Typography component="h3" variant="h3">
-                                    <Link style={{color: "inherit"}} to="/articleDetail">موج سوم کرونا چه تأثیری میتواند بر کشور داشته باشد؟ </Link>
-                                </Typography>
-                            </Grid>
-                            <Grid
-                                container
-                                direction="row"
-                                className={classes.detailNews}
-                            >
-                                <Grid item style={{display: "flex", alignItems: "center"}}>
-                                    <span className={classes.tinyCircle}/>
-                                    <Typography className={classes.userStyle} >مصطفی کاظمی</Typography>
+                    {
+                        items.map((item, index) => (
+                            <Grid key={index} container>
+                                <Grid>
+                                    <Typography component="h3" variant="h3">
+                                        <Link
+                                            style={{color: "inherit"}}
+                                            to={{
+                                                pathname: `ArticleDetail/${item.article_ID}`,
+                                                state: {item}
+                                            }}
+                                        >
+                                            {item.article_Title}
+                                        </Link>
+                                    </Typography>
                                 </Grid>
-                                <Grid item>
-                                    <Typography style={{color: "#dcdcdc", fontSize: "12px"}}>یکشنبه 26/6/1397</Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>
-                                </Grid>
-                            </Grid>
-                            <Grid>
-                                <Typography style={{fontSize: "14.5px", color: "#646464"}}>
-                                    دور از انتظار نیست که جو بایدن در انتخا  دور از انتظار نیست که جو بایدن در انتخاب دور از انتظار نیست که جو بایدن دور از انتظار نیست که
-                                    جو بایدن در انتخا  دور از انتظار نیست که جو بایدن در انتخاب دور از انتظار نیست که جو بایدن
-                                </Typography>
-                            </Grid>
-                            <Grid style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>
-                                <Typography
-                                    className={classes.multiArrow}
+                                <Grid
+                                    container
+                                    direction="row"
+                                    className={classes.detailNews}
                                 >
-                                    ادامه خبر
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Divider style={{width :"100%", margin: "10px 0"}} variant="middle" />
-                        <Grid container>
-                        <Grid>
-                            <Typography component="h3" variant="h3">
-                                <Link style={{color: "inherit"}} to="/articleDetail">موج سوم کرونا چه تأثیری میتواند بر کشور داشته باشد؟ </Link>
-                            </Typography>
-                        </Grid>
-                        <Grid
-                            container
-                            direction="row"
-                            className={classes.detailNews}
-                        >
-                            <Grid item style={{display: "flex", alignItems: "center"}}>
-                                <span className={classes.tinyCircle}/>
-                                <Typography className={classes.userStyle} >مصطفی کاظمی</Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography style={{color: "#dcdcdc", fontSize: "12px"}}>یکشنبه 26/6/1397</Typography>
-                            </Grid>
-                            <Grid item>
-                                <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid>
-                            <Typography style={{fontSize: "14.5px", color: "#646464"}}>
-                                دور از انتظار نیست که جو بایدن در انتخا  دور از انتظار نیست که جو بایدن در انتخاب دور از انتظار نیست که جو بایدن دور از انتظار نیست که
-                                جو بایدن در انتخا  دور از انتظار نیست که جو بایدن در انتخاب دور از انتظار نیست که جو بایدن
-                            </Typography>
-                        </Grid>
-                        <Grid style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>
-                            <Typography
-                                className={classes.multiArrow}
-                            >
-                                ادامه خبر
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                        <Divider style={{width :"100%", margin: "10px 0"}} variant="middle" />
-                        <Grid container>
-                            <Grid>
-                                <Typography component="h3" variant="h3">
-                                    <Link style={{color: "inherit"}} to="/articleDetail">موج سوم کرونا چه تأثیری میتواند بر کشور داشته باشد؟ </Link>
-                                </Typography>
-                            </Grid>
-                            <Grid
-                                container
-                                direction="row"
-                                className={classes.detailNews}
-                            >
-                                <Grid item style={{display: "flex", alignItems: "center"}}>
-                                    <span className={classes.tinyCircle}/>
-                                    <Typography className={classes.userStyle} >مصطفی کاظمی</Typography>
+                                    <Grid item style={{display: "flex", alignItems: "center"}}>
+                                        <img className={classes.tinyCircle} src={Apis.SHOWIMAGE + item.teacher_PhotoLink} alt=""/>
+                                        <Typography className={classes.userStyle} >{item.teacher_FullName}</Typography>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography style={{color: "#dcdcdc", fontSize: "12px"}}>{item.article_DateTime}</Typography>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <Typography style={{color: "#dcdcdc", fontSize: "12px"}}>یکشنبه 26/6/1397</Typography>
+                                <Grid>
+                                    <Typography style={{fontSize: "14.5px", color: "#646464"}}>
+                                        {item.article_Summary}
+                                    </Typography>
                                 </Grid>
-                                <Grid item>
-                                    <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>
+                                <Grid style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>
+                                    <Typography
+                                        className={classes.multiArrow}
+                                    >
+                                        ادامه خبر
+                                    </Typography>
                                 </Grid>
                             </Grid>
-                            <Grid>
-                                <Typography style={{fontSize: "14.5px", color: "#646464"}}>
-                                    دور از انتظار نیست که جو بایدن در انتخا  دور از انتظار نیست که جو بایدن در انتخاب دور از انتظار نیست که جو بایدن دور از انتظار نیست که
-                                    جو بایدن در انتخا  دور از انتظار نیست که جو بایدن در انتخاب دور از انتظار نیست که جو بایدن
-                                </Typography>
-                            </Grid>
-                            <Grid style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>
-                                <Typography
-                                    className={classes.multiArrow}
-                                >
-                                    ادامه خبر
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                    </Grid>
+                        ))
+                    }
+
+                </Grid>
             </Grid>
 
 

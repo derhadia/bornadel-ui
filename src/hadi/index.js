@@ -40,12 +40,12 @@ const useStyle = makeStyles((theme) => ({
     circleinRect2: {
         width: 102,
         height: 102,
-        backgroundColor: "#ffff00",
         borderRadius: "50%",
-        margin: "auto",
+        margin: "0 auto",
         position: "relative",
         top: 261,
-        overflow: "hidden"
+        overflow: "hidden",
+        display: "block"
     },
     coursesIconCicle: {
         width: "100%",
@@ -59,12 +59,12 @@ const useStyle = makeStyles((theme) => ({
         maxWidth: "100%",
         minHeight: "unset",
         borderRadius: 8,
-        maxHeight: 200,
+        height: 350,
         backgroundColor: "#fff",
         marginBottom: 15,
         padding: "10px 10px",
-        border: "1px solid #dedede"
-
+        border: "1px solid #dedede",
+        overflow: "scroll !important"
     },
     groupFilterHeaderText: {
         fontWeight: 700,
@@ -165,9 +165,8 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     yellowBox: {
-        width: "100%",
-        height: "70px",
-        backgroundColor: "#ffff00",
+        width: "124px",
+        height: "124px",
         margin: "32px 0",
         borderRadius: "4px",
         [theme.breakpoints.down("md")]: {
@@ -184,7 +183,6 @@ const useStyle = makeStyles((theme) => ({
     tinyCircle: {
         width: "27px",
         height: "27px",
-        backgroundColor: "#ffff00",
         display: "inline-block",
         borderRadius: "50px"
     },
@@ -252,6 +250,47 @@ const useStyle = makeStyles((theme) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-end"
+    },
+    filterButton: {
+        width: "80%",
+        height: "100%",
+    },
+    filterButtonContainer: {
+        minWidth: "235px",
+        maxWidth: 321,
+        width: "100%",
+        height: 35,
+        borderRadius: 4,
+        marginTop: 20,
+        position:"fixed",
+
+    },
+    activeFilterHeaderLeft: {
+        width: 68,
+        cursor: "pointer",
+        height: 20,
+        backgroundColor: "#2fc98e",
+        borderRadius: 4,
+        marginLeft: 12,
+        color: "#fff",
+        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    leftHeaderText: {
+        width: 73,
+        cursor: "pointer",
+        fontSize: 13,
+        color: "#424750",
+        marginLeft: 12,
+        borderRadius: 4,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        "&:hover": {
+            backgroundColor: "#ebf7f2"
+        }
     },
 
     // style for mobile size
