@@ -1,19 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Grid, Typography} from "@material-ui/core";
 import TreeView from "@material-ui/lab/TreeView";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import TreeItem from "@material-ui/lab/TreeItem";
 import useStyles from "../../../hadi/index";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+import "../../../hadi/style.css"
+import CheckBox from "../../CheckBox";
 
 const TreeLevel = ({items, setIds, ids}) => {
     const classes = useStyles();
 
-    const handleCheck = id => {
-        setIds(ids.concat(id))
+    const handleCheck = (active, id) => {
+        if (!active) {
+            setIds([...ids, id])
+        } else {
+            setIds(ids.filter((sr) => {
+                return sr !== id;
+            }))
+        }
     }
+
 
     return (
         <Grid item className={classes.groupFilter}>
@@ -33,14 +40,29 @@ const TreeLevel = ({items, setIds, ids}) => {
                                         classes={{label: classes.treelabel, selected: classes.treeselected}}
                                         nodeId={`${item.educationSubject_ID}`}
                                         label={
-
-                                            <FormControlLabel
-                                                onClick={() => handleCheck(item.educationSubject_ID)}
-                                                value={item.educationSubject_ID}
-                                                control={<Checkbox color="primary"/>}
-                                                label={item.educationSubject_Name}
-                                                style={{fontSize: "14px"}}
-                                            />
+                                            <label className={classes.checkboxArticle} htmlFor="item">
+                                                {/*<input*/}
+                                                {/*    onClick={() => handleCheck(item.educationSubject_ID)}*/}
+                                                {/*    type="checkbox"*/}
+                                                {/*    name={item.educationSubject_Name}*/}
+                                                {/*    checked={check[item.educationSubject_Name]}*/}
+                                                {/*    onChange={handleChange}*/}
+                                                {/*/>*/}
+                                                {/*<span className="checkmark" />*/}
+                                                <CheckBox
+                                                    id={item.educationSubject_ID}
+                                                    name={item.educationSubject_Name}
+                                                    setItem={handleCheck}
+                                                />
+                                            </label>
+                                            // <FormControlLabel
+                                            //     onClick={() => handleCheck(item.educationSubject_ID)}
+                                            //     value={item.educationSubject_ID}
+                                            //     control={<Checkbox color="primary"/>}
+                                            //     label={<Typography
+                                            //         className={classes.treeLableText}>{item.educationSubject_Name}</Typography>}
+                                            //
+                                            // />
                                         }
                                     >
                                         {
@@ -55,12 +77,27 @@ const TreeLevel = ({items, setIds, ids}) => {
                                                                 key={index}
                                                                 nodeId={`${second.educationSubject_ID}`}
                                                                 label={
-                                                                    <FormControlLabel
-                                                                        onClick={() => handleCheck(second.educationSubject_ID)}
-                                                                        value={second.educationSubject_ID}
-                                                                        control={<Checkbox color="primary"/>}
-                                                                        label={second.educationSubject_Name}
-                                                                    />
+                                                                    // <FormControlLabel
+                                                                    //     onClick={() => handleCheck(second.educationSubject_ID)}
+                                                                    //     value={second.educationSubject_ID}
+                                                                    //     control={<Checkbox color="primary"/>}
+                                                                    //     label={<Typography className={classes.treeLableText}>{second.educationSubject_Name}</Typography>}
+                                                                    // />
+                                                                    <label className={classes.checkboxArticle} htmlFor="second">
+                                                                        {/*<input*/}
+                                                                        {/*    onClick={() => handleCheck(second.educationSubject_ID)}*/}
+                                                                        {/*    type="checkbox"*/}
+                                                                        {/*    name={second.educationSubject_Name}*/}
+                                                                        {/*    checked={check[second.educationSubject_Name]}*/}
+                                                                        {/*    onChange={handleChange}*/}
+                                                                        {/*/>*/}
+                                                                        {/*<span className="checkmark" />*/}
+                                                                        <CheckBox
+                                                                            id={second.educationSubject_ID}
+                                                                            name={second.educationSubject_Name}
+                                                                            setItem={handleCheck}
+                                                                        />
+                                                                    </label>
                                                                 }
                                                             >
                                                                 {
@@ -75,13 +112,29 @@ const TreeLevel = ({items, setIds, ids}) => {
                                                                                         key={index}
                                                                                         nodeId={`${third.educationSubject_ID}`}
                                                                                         label={
-                                                                                            <FormControlLabel
-                                                                                                onClick={() => handleCheck(third.educationSubject_ID)}
-                                                                                                value={third.educationSubject_ID}
-                                                                                                control={<Checkbox
-                                                                                                    color="primary"/>}
-                                                                                                label={third.educationSubject_Name}
-                                                                                            />
+                                                                                            // <FormControlLabel
+                                                                                            //     onClick={() => handleCheck(third.educationSubject_ID)}
+                                                                                            //     value={third.educationSubject_ID}
+                                                                                            //     control={<Checkbox
+                                                                                            //         color="primary"/>}
+                                                                                            //     label={<Typography
+                                                                                            //         className={classes.treeLableText}>{third.educationSubject_Name}</Typography>}
+                                                                                            // />
+                                                                                            <label className={classes.checkboxArticle} htmlFor="third">
+                                                                                                {/*<input*/}
+                                                                                                {/*    onClick={() => handleCheck(third.educationSubject_ID)}*/}
+                                                                                                {/*    type="checkbox"*/}
+                                                                                                {/*    name={third.educationSubject_Name}*/}
+                                                                                                {/*    checked={check[third.educationSubject_Name]}*/}
+                                                                                                {/*    onChange={handleChange}*/}
+                                                                                                {/*/>*/}
+                                                                                                {/*<span className="checkmark" />*/}
+                                                                                                <CheckBox
+                                                                                                    id={third.educationSubject_ID}
+                                                                                                    name={third.educationSubject_Name}
+                                                                                                    setItem={handleCheck}
+                                                                                                />
+                                                                                            </label>
                                                                                         }>
 
                                                                                     </TreeItem>

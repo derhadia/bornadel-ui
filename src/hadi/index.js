@@ -13,6 +13,7 @@ const useStyle = makeStyles((theme) => ({
         boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)",
         backgroundColor: "#fff",
         borderRadius: 8,
+        marginBottom: 15,
     },
     ArticlesNews: {
         padding: "0",
@@ -33,7 +34,6 @@ const useStyle = makeStyles((theme) => ({
         padding: 13,
         backgroundColor: "#fff",
         boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)",
-        marginTop: "20px",
         flexDirection: "column",
         alignItems: "center"
     },
@@ -81,7 +81,7 @@ const useStyle = makeStyles((theme) => ({
     boxDetail: {
         width: "100%",
         height: 142,
-        margin: "19px 0",
+        marginBottom: "19px",
         borderRadius: 9,
         backgroundColor: "#ffff00"
     },
@@ -153,7 +153,7 @@ const useStyle = makeStyles((theme) => ({
         alignItems: "center",
     },
     detailNews: {
-        width: "70%",
+        width: "100%",
         justifyContent: "space-between",
         alignItems: "center",
         margin: "10px 0",
@@ -244,7 +244,8 @@ const useStyle = makeStyles((theme) => ({
         color: "#fff",
         width: "80px",
         height: "22px",
-        fontSize: "12px"
+        fontSize: "12px",
+        marginTop: 18,
     },
     viewAllComment: {
         display: "flex",
@@ -257,7 +258,7 @@ const useStyle = makeStyles((theme) => ({
     },
     filterButtonContainer: {
         minWidth: "235px",
-        maxWidth: 321,
+        maxWidth: 287,
         width: "100%",
         height: 35,
         borderRadius: 4,
@@ -291,6 +292,30 @@ const useStyle = makeStyles((theme) => ({
         "&:hover": {
             backgroundColor: "#ebf7f2"
         }
+    },
+
+    ArticlesContainer: {
+        padding: "25px 30px 35px 30px ",
+        backgroundColor: "#f5f5f5",
+        display: "flex",
+        justifyContent: "center"
+    },
+    ArticlesContainerRight: {
+        flex: 1
+    },
+    ArticlesContainerLeft: {
+        paddingLeft: 25,
+        // width: window.innerWidth - 300
+        flex: 4
+
+    },
+    treeLableText: {
+        fontSize: 14
+    },
+    checkboxArticle: {
+        display: "flex",
+        flexDirection: "row-reverse",
+        justifyContent: "flex-end"
     },
 
     // style for mobile size
@@ -373,7 +398,7 @@ const useStyle = makeStyles((theme) => ({
             backgroundImage: `url(${Icons})`,
             backgroundPosition: "-289px -358px",
         },
-        color: "#dcdcdc",
+        color: "rgb(190, 190, 190)",
         fontSize: "12px",
         display: "flex"
     },
@@ -411,12 +436,12 @@ const useStyle = makeStyles((theme) => ({
         fontSize: "15px"
     },
     calendarIcon: {
-        cursor: "pointer",
         padding: "0 15px",
         "&::before": {
             content: `''`,
             width: 41,
             height: 35,
+            marginRight: 25,
             display: "inline-block",
             position: "relative",
             border: "none",

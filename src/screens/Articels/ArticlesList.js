@@ -1,16 +1,15 @@
-import React, {useState, useEffect, useContext, useCallback, createRef} from 'react';
+import React, {useState, useEffect, useContext, useCallback} from 'react';
 import {Grid, Typography} from "@material-ui/core";
 import useStyles from "../../hadi";
 import Button from "@material-ui/core/Button";
 import ArticleBox from "./articleBox/ArticleBox";
 import ArticleTeacherFilter from "../../components/Filters/ArtcileTeacherFilter";
-import PaginateArticle from "../../components/Pagination/PaginateArticle";
 import MobileArticlesList from "../MobileArticles/MobileArticlesList";
 import {fetchPost} from "../../config/Utils";
 import Apis from "../../constants/Api";
 import {ArticlesContext} from "../../contexts/ArticlesContext";
-import DatePickerT from "./DatePicker/DatePickerT";
 import TreeLevel from "../../components/Filters/TreeCheckbox/TreeLevel";
+import DatePicker from "./DatePicker/DatePicker";
 
 
 
@@ -22,9 +21,11 @@ const ArticlesList = () => {
     const [fixed, setFixed] = useState(false);
 
     const {
-        setTeacher1, fromDate, toDate, setData, data,
-        selectedTeacher, setItems, items, setIds, ids
+        setTeacher1, toDate, setData, data, setCheck,
+        selectedTeacher, setItems, items, setIds, ids,
+        state, fromDate, check
     } = useContext(ArticlesContext);
+
 
 
     const handlePage = page => setCurrent(page);
@@ -116,28 +117,24 @@ const ArticlesList = () => {
 
     const isMobile = width < 960;
 
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    },[])
-
     return (
         <>
             {
                 !isMobile ?
                     <Grid
                         container
-                        style={{marginTop: "25px", padding: "0"}}
                         item
                         justify="center"
-                        className={classes.ArticlesNews}
+                        className={classes.ArticlesContainer}
                     >
-                        <Grid item xs={3} className={classes.ArticleContainerBox}>
+                        <Grid item className={classes.ArticlesContainerRight}>
                             {/*<ControlledTreeView items={items}/>*/}
                             <TreeLevel
                                 items={items}
                                 setIds={setIds}
                                 ids={ids}
+                                setCheck={setCheck}
+                                check={check}
                             />
                             {/*<TreeCheckbox items={items} />*/}
                             <ArticleTeacherFilter />
@@ -145,7 +142,7 @@ const ArticlesList = () => {
                                 <Grid item className={classes.groupFilterHeader} >
                                     <Typography className={classes.groupFilterHeaderText}>تاریخ مقاله</Typography>
                                 </Grid>
-                                <DatePickerT />
+                                <DatePicker state={state} />
                             </Grid>
                             <Grid
                                 container
@@ -164,7 +161,7 @@ const ArticlesList = () => {
                                 </Button>
                             </Grid>
                         </Grid>
-                        <Grid item xs={9} container direction="column" style={{padding: "0 10px"}}>
+                        <Grid item container direction="column" className={classes.ArticlesContainerLeft}>
                             <Grid item className={classes.headBar}>
                                 <Grid className={classes.sortIcon}/>
                                 <Grid>مرتب سازی براساس:</Grid>

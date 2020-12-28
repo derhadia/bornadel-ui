@@ -171,22 +171,24 @@ export default function Home() {
                                                     <img src={Apis.SHOWIMAGE + item.article_PhotoLink} style={{ display: "block", height: "100%", objectFit: "cover", width: "100%", }} />
                                                 </Grid>
                                                 <Grid  item className={classes.ArticleLeft}>
-                                                    <Grid item className={classes.ArticleTitle}>{item.article_Title}</Grid>
-                                                    <Grid container><Typography className={classes.ArticleTextField}>{item.article_Summary}</Typography></Grid>
-                                                    <Grid container justify="flex-end">
-                                                        <Typography className={classes.ReadMore} >
-                                                            <Link
-                                                                style={{color: "inherit"}}
-                                                                to={{
-                                                                    pathname: `ArticleDetail/${item.article_ID}`,
-                                                                    state: {item}
-                                                                }}
-                                                            >
-                                                                ادامه مطلب
-                                                                <span className={classes.threeArrow}></span>
-                                                            </Link>
-                                                        </Typography>
-                                                    </Grid>
+                                                    <Link
+                                                        style={{color: "inherit"}}
+                                                        to={{
+                                                            pathname: `ArticleDetail/${item.article_ID}`,
+                                                            state: {item}
+                                                        }}
+                                                    >
+                                                        <Grid item className={classes.ArticleTitle}>{item.article_Title}</Grid>
+                                                        <Grid container><Typography className={classes.ArticleTextField}>{item.article_Summary}</Typography></Grid>
+                                                        <Grid container justify="flex-end">
+                                                            <Typography className={classes.ReadMore} >
+
+                                                                    ادامه مطلب
+                                                                    <span className={classes.threeArrow}></span>
+
+                                                            </Typography>
+                                                        </Grid>
+                                                    </Link>
                                                 </Grid>
                                             </Grid>
                                         )

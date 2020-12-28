@@ -21,8 +21,15 @@ export { ArticlesContext }
 
 
 export default function ArticleContextProvider({ children }) {
-    const [fromDate, setFromDate] = useState("");
-    const [toDate, setToDate] = useState("");
+    const [state, setState] = useState({
+        toDate: "",
+        toDateFormatted: ""
+    });
+
+    const [item, setItem] = useState({
+        fromDate: "",
+        fromDateFormatted: "",
+    })
     const [teacher1, setTeacher1] = useState([]);
     const [teacher2, setTeacher2] = useState([]);
     const [filteTeacher, setFilterTeacher] = useState([]);
@@ -30,7 +37,8 @@ export default function ArticleContextProvider({ children }) {
     const [sortType, setSortType] = useState(1);
     const [data, setData] = useState([]);
     const [items, setItems] = useState([]);
-    const [ids, setIds] = useState([]);
+    const [ids, setIds] = useState("");
+    const [check, setCheck] = useState({})
 
     useEffect(() => {
         let body2 = {
@@ -66,15 +74,30 @@ export default function ArticleContextProvider({ children }) {
         }
     };
 
+    const handleChangeDate = (event) => {
+        const newState = {};
+        const t = event.target;
+        newState[t.name] = t.value;
+        newState[t.name+'Formatted'] = t.formatted ? t.formatted : '';
+        setState(newState);
+    };
+
+    const handleChangeFrom = (event) => {
+        const newState = {};
+        const t = event.target;
+        newState[t.name] = t.value;
+        newState[t.name+'Formatted'] = t.formatted ? t.formatted : '';
+        setItem(newState);
+    };
 
 
 
     return (
         <ArticlesContext.Provider value={{
-            fromDate, setFromDate, toDate, setToDate, teacher2,
-            filteTeacher, setFilterTeacher,setIds, ids,
+            teacher2, filteTeacher, setFilterTeacher,setIds, ids,
             setTeacher1, selectTH, sortType, setSortType, setData, data,
-            selectedTeacher, items, setItems
+            selectedTeacher, items, setItems, handleChangeDate, state,
+            handleChangeFrom, item, setCheck, check
         }} >
             {children}
         </ArticlesContext.Provider>
