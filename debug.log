@@ -101,3 +101,14 @@
 [1211/140529.952:ERROR:process_info.cc(329)] VirtualQueryEx: Access is denied. (0x5)
 [1211/140529.952:ERROR:process_info.cc(556)] ReadMemoryInfo failed
 [1211/140529.952:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1224/011723.067:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1226/094922.250:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1226/215518.935:ERROR:process_info.cc(329)] VirtualQueryEx: Access is denied. (0x5)
+[1226/215518.935:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[1226/215518.935:ERROR:process_memory_win.cc(39)] Failed to initialize ProcessInfo.
+[1226/215518.935:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1227/003649.398:ERROR:settings.cc(320)] Settings magic is not 1129342067
+[1227/004649.464:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1227/005947.820:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1227/111439.068:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1227/154402.261:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

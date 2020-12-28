@@ -14,6 +14,7 @@ import x1 from '../../assets/images/1x.jpg'
 import x2 from '../../assets/images/2x.jpg'
 import x3 from '../../assets/images/3x.jpg'
 import comersial from '../../assets/images/comersial.jpg'
+import {Link} from "react-router-dom";
 
 
 
@@ -31,11 +32,11 @@ export default function Home() {
         setBannerContainerWidth(BannerContainer.offsetWidth)
         setImageWidth(ImageWidthState.offsetWidth)
     }, [])
-    
+
 
 
     return (
-        < >
+        <>
             <Grid container justify="center">
                 <Grid container justify="center" className={classes.banneImages}>
                     <Grid item xs={3} container direction="column" justify="space-between" className={classes.ImagesIntopHome}
@@ -151,10 +152,12 @@ export default function Home() {
                         <Grid item xs={12} container direction="column" className={classes.ArticleContainer}>
                             <Grid container justify="space-between" item className={classes.ArticleHeader}>
                                 <Typography className={classes.ArticleHeaderText}>مقالات</Typography>
-                                <Typography className={classes.ArticleHeaderText2}>همه
-                            <span className={classes.articleNewsArrow} />
-                                    <span className={classes.articleNewsArrow} />
-                                </Typography>
+                                <Link to="/ArticleList">
+                                    <Typography className={classes.ArticleHeaderText2}>همه
+                                        <span className={classes.articleNewsArrow} />
+                                        <span className={classes.articleNewsArrow} />
+                                    </Typography>
+                                </Link>
                             </Grid>
                             <Grid container direction="column" justify="space-between" item className={classes.ArticleNewsContainer} >
                                 {
@@ -170,7 +173,20 @@ export default function Home() {
                                                 <Grid  item className={classes.ArticleLeft}>
                                                     <Grid item className={classes.ArticleTitle}>{item.article_Title}</Grid>
                                                     <Grid container><Typography className={classes.ArticleTextField}>{item.article_Summary}</Typography></Grid>
-                                                    <Grid container justify="flex-end"><Typography className={classes.ReadMore} >ادامه مطلب <span className={classes.threeArrow}></span></Typography></Grid>
+                                                    <Grid container justify="flex-end">
+                                                        <Typography className={classes.ReadMore} >
+                                                            <Link
+                                                                style={{color: "inherit"}}
+                                                                to={{
+                                                                    pathname: `ArticleDetail/${item.article_ID}`,
+                                                                    state: {item}
+                                                                }}
+                                                            >
+                                                                ادامه مطلب
+                                                                <span className={classes.threeArrow}></span>
+                                                            </Link>
+                                                        </Typography>
+                                                    </Grid>
                                                 </Grid>
                                             </Grid>
                                         )

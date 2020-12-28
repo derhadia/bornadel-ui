@@ -6,14 +6,14 @@ import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 import CoursesComponent from '../../components/CoursesComponent/CoursesComponent'
 
 export default function SimilarItem() {
-    let { recentView } = useContext(CourseDetailContext)
+    let { similarItem } = useContext(CourseDetailContext)
     const classes = useStyles();
     const [sliderWidth, setSliderWidth] = useState(0)
-    const count = window.innerWidth > 1300 ? 7 : window.innerWidth > 1220 ? 6 :
-        window.innerWidth > 960 ? 5 : window.innerWidth > 800 ? 4 : 3
+    const count = window.innerWidth > 1220 ? 6 : window.innerWidth > 1030 ? 5 : 4
     const [trs, setTrs] = useState(0)
-
-
+    const a = similarItem[0] ? Math.floor(similarItem[0].length / count) : 0
+    const b = similarItem[0] ? similarItem[0].length % count : 0
+    const [x, setX] = useState(1)
     useEffect(() => {
         let SliderContainer = document.getElementById('SliderContainer')
         setSliderWidth(SliderContainer.offsetWidth);
@@ -22,14 +22,24 @@ export default function SimilarItem() {
 
     let ChangeTRS = (condition) => {
         if (condition === 1) {
-            if (trs > 5) {
-                setTrs(8)
+            if(x===0)setX(1)
+            setX(prev => x > a ? setX(a) : setX(prev + 1))
+            if (similarItem[0].length - trs < count + 1) {
                 return
             }
-            setTrs((prev) => setTrs(prev + count))
+            if (x === a) {
+                if (b !== 0) {
+                    setTrs(prev => setTrs(prev + b))
+                    return
+                }
+            } else {
+                setTrs((prev) => setTrs(prev + count))
+            }
+            console.log(x);
         }
         if (condition === -1) {
-            if (trs < 1) {
+            setX(prev => x < 1 ? setX(1) : setX(prev - 1))
+            if (trs < count) {
                 setTrs(0)
                 return
             }
@@ -46,7 +56,7 @@ export default function SimilarItem() {
                     <Grid item container className={classes.ReceneViewSlider} wrap="nowrap"
                         style={{ transform: `translateX(${trs * (Math.ceil(sliderWidth / count))}px)`, transition: "all 2s" }}>
                         {
-                            recentView && recentView.length > 0 ? recentView.map((data, index) => {
+                            similarItem && similarItem.length > 0 ? similarItem[0].map((data, index) => {
                                 return (
                                     <Grid container item justify="center" key={index} className={classes.sliderItem}
                                         style={{ minWidth: Math.ceil(Math.ceil(sliderWidth) / count) }} >

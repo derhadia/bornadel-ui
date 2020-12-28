@@ -1,0 +1,175 @@
+/**************************treeCheckbox articles styles***************************/
+
+.MuiAccordion-root:before {
+    background-color: unset !important;
+}
+
+.MuiAccordionSummary-expandIcon {
+    display: flex;
+    order: -1;
+}
+
+.MuiIconButton-root {
+    padding-left: 12px !important;
+}
+
+.MuiAccordionDetails-root .MuiFormControl-root{
+    margin-right: 50px;
+}
+
+.MuiAccordionDetails-root {
+    flex-direction: column;
+}
+
+.MuiAccordionSummary-content {
+    margin: unset !important;
+}
+
+.MuiAccordionSummary-expandIcon .MuiSvgIcon-root {
+    color: #2fc98e
+}
+
+.MuiAccordionSummary-root.Mui-expanded {
+    min-height: 48px !important;
+}
+
+.MuiCheckbox-colorSecondary.Mui-checked {
+    color: #00bfd6 !important
+}
+
+
+/*******************************pagination articles******************************/
+
+* {
+    list-style: none;
+    text-decoration: none;
+}
+
+.article {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.paginateArticle {
+    display: flex;
+
+}
+
+.paginateArticle li {
+    width: 20px;
+    height: 20px;
+    border: solid 1px #e6e6e6;
+    margin: 1px 8px 2px 7px;
+    padding: 5px 5px 5px 6px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.paginateArticle li:last-child {
+    border: unset;
+    width: unset;
+    height: unset;
+    padding: unset;
+}
+
+
+/****************************draft*************************/
+
+.rdw-editor-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.rdw-text-align-wrapper, .rdw-list-wrapper,
+.rdw-fontfamily-wrapper, .rdw-fontsize-wrapper,
+.rdw-colorpicker-wrapper, .rdw-link-wrapper,
+.rdw-embedded-wrapper, .rdw-emoji-wrapper,
+.rdw-remove-wrapper, .rdw-history-wrapper,
+.rdw-inline-wrapper .rdw-option-wrapper:nth-child(4),
+ .rdw-option-wrapper:nth-child(6),
+.rdw-option-wrapper:nth-child(7), .rdw-block-wrapper{
+    display: none !important;
+    border: none;
+}
+
+.rdw-editor-toolbar, .rdw-inline-wrapper
+.rdw-option-wrapper:nth-child(1),
+.rdw-option-wrapper:nth-child(2),
+.rdw-option-wrapper:nth-child(3),
+.rdw-option-wrapper:nth-child(5),
+.rdw-image-wrapper .rdw-option-wrapper{
+    background-color: #dcdcdc !important;
+    border: none;
+    margin: unset !important;
+}
+
+.rdw-editor-toolbar {
+    flex-direction: row-reverse;
+    margin: unset !important;
+    padding: unset !important;
+}
+
+.rdw-editor-main {
+    background-color: #fff;
+    height: 72px!important;
+    border: solid 1px #dcdcdc;
+}
+
+.rdw-image-wrapper {
+    margin: unset !important;
+}
+
+.DraftEditor-editorContainer {
+    font-size: 14px;
+}
+
+.MuiDrawer-paperAnchorLeft {
+    width: 100%;
+}
+
+
+/********************************* Calender *****************************/
+
+.date-input-with-dialog-empty {
+    display: none !important;
+}
+
+.date-input-with-dialog-calendar {
+    left: 0.5em !important;
+}
+
+
+
+/*********************************other styles******************************/
+
+
+.description .image {
+    width: 100%;
+    margin: 0;
+}
+
+.description img {
+    width: 100%;
+}
+
+.description li img {
+    width: unset;
+}
+
+.datePicker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.datePicker .popo {
+    margin: 3px 0;
+    padding-right: 10px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}

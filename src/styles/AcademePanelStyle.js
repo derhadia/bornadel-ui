@@ -1,9 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { Rotate90DegreesCcw } from '@material-ui/icons';
 import Icons from '../assets/images/iconfinal.svg'
 
 const useStylesAp = makeStyles((theme) => ({
-    //===================================Sidebar====================================
+//===================================Sidebar====================================
     AcademyPanelContainer: {
         maxWidth: "220px",
         minWidth: "180px",

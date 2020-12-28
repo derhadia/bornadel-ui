@@ -52,7 +52,7 @@ export default function LevelFilter() {
                 {levelData && levelData.length > 0 ? levelData.map((data, index) => {
                     return (
                         <Grid key={index} item container className={classes.FormControllContainer} >
-                            <CheckBox id={data.classRoomLevel_ID} name={data.classRoomLevel_Name} setItem={selectLE} />
+                            <CheckBox checked={levelData && levelData.includes(data.classRoomLevel_ID)} id={data.classRoomLevel_ID} name={data.classRoomLevel_Name} setItem={selectLE} />
                         </Grid>
                     )
                 }) : null}

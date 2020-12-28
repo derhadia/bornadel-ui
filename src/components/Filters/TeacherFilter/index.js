@@ -3,10 +3,10 @@ import useStyles from '../../../styles'
 import { Grid, Typography } from '@material-ui/core'
 import CheckBox from '../../CheckBox';
 import { CoursesContext } from '../../../contexts/CoursesContext'
+
 export default function TeacherFilter() {
     const classes = useStyles()
     let { teacher2, filteTeacher, setFilterTeacher, selectTH } = useContext(CoursesContext)
-
     return (
         <Grid item className={classes.teacherFilter}>
             <Typography className={classes.teacherFilterTitle}>مدرس</Typography>
