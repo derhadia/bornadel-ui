@@ -386,8 +386,7 @@ const useStyle = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
         [theme.breakpoints.down("md")]: {
-            height: "100%",
-            alignItems: "center"
+            display: "none"
         }
     },
     parentBoxComment: {
