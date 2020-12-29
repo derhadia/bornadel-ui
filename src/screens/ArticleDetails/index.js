@@ -1,20 +1,24 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Grid, Typography} from "@material-ui/core";
 import useStyles from "../../hadi";
-import Divider from "@material-ui/core/Divider";
+import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import {Link} from "react-router-dom";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Draft from "./draft/Draft";
 import Apis from "../../constants/Api";
 import {fetchPost} from "../../config/Utils";
 import {convertToPersian} from "../../hadi/functions"
+import {green} from "@material-ui/core/colors";
 
+const theme = createMuiTheme({
+    palette: {
+        primary: green,
+    },
+});
 
 export default function ArticleDetail(props) {
     const classes = useStyles();
     const [items, setItems] = useState([]);
-
-
 
     const data = props.location.state.data;
     const dataDetail = props.location.state.item;
@@ -41,7 +45,7 @@ export default function ArticleDetail(props) {
             justify="space-between"
             className={classes.ArticlesContainer}
         >
-            <Grid md={8} className={classes.ArticlesContainerRight} container item >
+            <Grid xl={8} lg={8} md={8} sm={12} xs={12} className={classes.ArticlesContainerRight} container item >
                 <Grid
                     item
                     container
@@ -88,18 +92,25 @@ export default function ArticleDetail(props) {
                        />
                    </Grid>
                 </Grid>
-                <Grid item container style={{marginTop: "37px", alignItems: "center"}}>
-                    <Grid item md={2} style={{display: "flex", justifyContent: "center"}}>
+                <Grid item container className={classes.parentBoxComment}>
+                    <Grid item md={2} className={classes.parentYellowCircle}>
                         <div className={classes.circleArticle}/>
                     </Grid>
-                    <Grid item md={10}>
+                    <Grid item md={10} style={{width: "100%"}}>
                         <Draft />
-                        <Grid md={4} item >
+                        <Grid md={4} item className="comment">
                             {/*<input className={classes.formControl} placeholder="نام و نام خانوادگی" type="text"/>*/}
                             {/*<input className={classes.formControl} placeholder="ایمیل" type="text"/>*/}
-                            <Button className={classes.btnSendComment}>
-                                ارسال دیدگاه
-                            </Button>
+                            <ThemeProvider theme={theme}>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    className={classes.btnSendComment}
+                                    style={{outline: "none", fontFamily: "yekan"}}
+                                >
+                                    ارسال دیدگاه
+                                </Button>
+                            </ThemeProvider>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -244,6 +255,10 @@ export default function ArticleDetail(props) {
                 item
                 className={classes.ArticlesContainerLeft}
                 md={4}
+                sm={12}
+                xs={12}
+                lg={4}
+                xl={4}
             >
                 <Grid
                     container
@@ -287,7 +302,7 @@ export default function ArticleDetail(props) {
                                             <Typography className={classes.userStyle} >{item.teacher_FullName}</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography style={{color: "rgb(190,190,190)", fontSize: "12px"}}>{convertToPersian(item.article_DateTime)}</Typography>
+                                            <Typography style={{color: "rgb(190,190,190)", fontSize: "12px"}}>{convertToPersian((item.article_DateTime).substr(0,10))}</Typography>
                                         </Grid>
                                         <Grid item>
                                             <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>

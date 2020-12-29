@@ -10,7 +10,15 @@ import Apis from "../../constants/Api";
 import {ArticlesContext} from "../../contexts/ArticlesContext";
 import TreeLevel from "../../components/Filters/TreeCheckbox/TreeLevel";
 import DatePicker from "./DatePicker/DatePicker";
+import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
+import {green} from "@material-ui/core/colors";
 
+
+const theme = createMuiTheme({
+    palette: {
+        primary: green,
+    },
+});
 
 
 const ArticlesList = () => {
@@ -151,14 +159,17 @@ const ArticlesList = () => {
                                 className={classes.filterButtonContainer}
                                 style={{ position: fixed ? "static" : "fixed", top: "auto", bottom: 15, width: "100%" }}
                             >
-                                <Button
-                                    className={classes.filterButton}
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={handleFiltering}
-                                >
-                                    اعمال فیلتر
-                                </Button>
+                                <ThemeProvider theme={theme}>
+                                    <Button
+                                        className={classes.filterButton}
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={handleFiltering}
+                                        style={{outline: "none", fontFamily: "yekan"}}
+                                    >
+                                        اعمال فیلتر
+                                    </Button>
+                                </ThemeProvider>
                             </Grid>
                         </Grid>
                         <Grid item container direction="column" className={classes.ArticlesContainerLeft}>

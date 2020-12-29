@@ -122,7 +122,7 @@
     border: none;
 }
 
-.rdw-editor-toolbar, .rdw-inline-wrapper
+.rdw-editor-toolbar, .rdw-inline-wrapper,
 .rdw-option-wrapper:nth-child(1),
 .rdw-option-wrapper:nth-child(2),
 .rdw-option-wrapper:nth-child(3),
@@ -208,3 +208,10 @@
     width: unset;
 }
 
+.MuiButton-root-414 {
+    padding: 0 !important;
+}
+
+.comment button {
+    padding: 0 !important;
+}

@@ -21,7 +21,6 @@ const useStyle = makeStyles((theme) => ({
             maxWidth: "1366px"
     },
     btnHeadBar: {
-        backgroundColor: "#2fc98e",
         margin: "0 14px 0 20px",
         padding: "3px 5px 4px",
         color: "white",
@@ -99,7 +98,10 @@ const useStyle = makeStyles((theme) => ({
         borderRadius: 4,
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
+        [theme.breakpoints.down("sm")]: {
+            width: "100%"
+        }
     },
     articleDate: {
         display: "flex",
@@ -151,6 +153,9 @@ const useStyle = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        [theme.breakpoints.down("sm")]: {
+            width: "100%"
+        }
     },
     detailNews: {
         width: "100%",
@@ -165,8 +170,8 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     yellowBox: {
-        width: "124px",
-        height: "124px",
+        width: "100%",
+        height: "auto",
         margin: "32px 0",
         borderRadius: "4px",
         [theme.breakpoints.down("md")]: {
@@ -246,6 +251,10 @@ const useStyle = makeStyles((theme) => ({
         height: "22px",
         fontSize: "12px",
         marginTop: 18,
+        outline: "none",
+        "&:hover": {
+            backgroundColor: "#2ec88c !important"
+        }
     },
     viewAllComment: {
         display: "flex",
@@ -253,8 +262,13 @@ const useStyle = makeStyles((theme) => ({
         justifyContent: "flex-end"
     },
     filterButton: {
+        backgroundColor: "#2ec88c",
+        color: "#fff",
         width: "80%",
         height: "100%",
+        "&:hover": {
+            backgroundColor: "#2ec88c !important"
+        }
     },
     filterButtonContainer: {
         minWidth: "235px",
@@ -298,7 +312,10 @@ const useStyle = makeStyles((theme) => ({
         padding: "25px 30px 35px 30px ",
         backgroundColor: "#f5f5f5",
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column"
+        }
     },
     ArticlesContainerRight: {
         flex: 1
@@ -365,6 +382,21 @@ const useStyle = makeStyles((theme) => ({
         backgroundColor: "#fe243d",
         color: "white"
     },
+    parentYellowCircle: {
+        display: "flex",
+        justifyContent: "center",
+        [theme.breakpoints.down("md")]: {
+            height: "100%",
+            alignItems: "center"
+        }
+    },
+    parentBoxComment: {
+        marginTop: "37px",
+        alignItems: "center",
+        [theme.breakpoints.down("md")]: {
+            flexWrap: "nowrap"
+        }
+    },
 
     // icons
 
@@ -400,7 +432,10 @@ const useStyle = makeStyles((theme) => ({
         },
         color: "rgb(190, 190, 190)",
         fontSize: "12px",
-        display: "flex"
+        display: "flex",
+        [theme.breakpoints.down("sm")]: {
+            padding: "unset"
+        }
     },
     arrowIconPaginate: {
         cursor: "pointer",
