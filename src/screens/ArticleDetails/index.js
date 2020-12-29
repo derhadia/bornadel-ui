@@ -58,45 +58,47 @@ export default function ArticleDetail(props) {
                                {(data ? data : dataDetail).article_Title}
                            </Typography>
                        </Grid>
-                       <Grid
-                           item
-                           className={classes.detailProf}
-                           style={{
-                               backgroundImage: `url(${img})`,
-                               backgroundSize: "cover",
-                               backgroundPosition: "center"
-                           }}
-                       >
-                           <img
-                               src={Apis.SHOWIMAGE + (data ? data : dataDetail).teacher_PhotoLink}
-                               className={classes.circleinRect2}
-                               alt=""
-                           />
-                       </Grid>
-                       <Grid item>
-                           <Typography component="h3" variant="h3">
-                               {(data ? data : dataDetail).teacher_FullName}
-                           </Typography>
-                       </Grid>
-                       <Grid className={classes.dateBox} item>
-                           <Grid item className={classes.articleDate}>
-                               <Typography className={classes.calendarIcon}>
-                                   تاریخ انتشار : {convertToPersian((data ? data : dataDetail).article_DateTime)}
-                               </Typography>
-                           </Grid>
-                           <Grid item className={`${classes.articleDate} ${classes.shareIconBig}`}/>
-                       </Grid>
-                       <Grid
-                           className="description"
-                           dangerouslySetInnerHTML={{__html: (data ? data : dataDetail).article_Des}}
-                       />
+                      <Grid className={classes.boxDetailMobileSize}>
+                          <Grid
+                              item
+                              className={classes.detailProf}
+                              style={{
+                                  backgroundImage: `url(${img})`,
+                                  backgroundSize: "cover",
+                                  backgroundPosition: "center"
+                              }}
+                          >
+                              <img
+                                  src={Apis.SHOWIMAGE + (data ? data : dataDetail).teacher_PhotoLink}
+                                  className={classes.circleinRect2}
+                                  alt=""
+                              />
+                          </Grid>
+                          <Grid item>
+                              <Typography component="h3" variant="h3">
+                                  {(data ? data : dataDetail).teacher_FullName}
+                              </Typography>
+                          </Grid>
+                          <Grid className={classes.dateBox} item>
+                              <Grid item className={classes.articleDate}>
+                                  <Typography className={classes.calendarIcon}>
+                                      تاریخ انتشار : {convertToPersian((data ? data : dataDetail).article_DateTime)}
+                                  </Typography>
+                              </Grid>
+                              <Grid item className={`${classes.articleDate} ${classes.shareIconBig}`}/>
+                          </Grid>
+                          <Grid
+                              className="description"
+                              dangerouslySetInnerHTML={{__html: (data ? data : dataDetail).article_Des}}
+                          />
+                      </Grid>
                    </Grid>
                 </Grid>
                 <Grid item container className={classes.parentBoxComment}>
                     <Grid item md={2} className={classes.parentYellowCircle}>
                         <div className={classes.circleArticle}/>
                     </Grid>
-                    <Grid item md={10} style={{width: "100%"}}>
+                    <Grid item md={10} style={{width: "100%", minWidth: "100%"}}>
                         <Draft />
                         <Grid md={4} item className="comment">
                             {/*<input className={classes.formControl} placeholder="نام و نام خانوادگی" type="text"/>*/}

@@ -44,7 +44,10 @@ const useStyle = makeStyles((theme) => ({
         position: "relative",
         top: 261,
         overflow: "hidden",
-        display: "block"
+        display: "block",
+        [theme.breakpoints.down("md")]: {
+            top: 356
+        }
     },
     coursesIconCicle: {
         width: "100%",
@@ -75,7 +78,10 @@ const useStyle = makeStyles((theme) => ({
         margin: "17px 0 69px",
         borderRadius: 9,
         backgroundColor: "#bbbbbb",
-        justifyContent: "center"
+        justifyContent: "center",
+        [theme.breakpoints.down("md")]: {
+            margin: "17px 0 175px"
+        }
     },
     boxDetail: {
         width: "100%",
@@ -100,8 +106,9 @@ const useStyle = makeStyles((theme) => ({
         justifyContent: "space-between",
         alignItems: "center",
         [theme.breakpoints.down("sm")]: {
-            width: "100%"
-        }
+            width: "100%",
+            order: 1
+        },
     },
     articleDate: {
         display: "flex",
@@ -395,6 +402,11 @@ const useStyle = makeStyles((theme) => ({
         [theme.breakpoints.down("md")]: {
             flexWrap: "nowrap"
         }
+    },
+    boxDetailMobileSize: {
+      display: "flex",
+      flexDirection: "column",
+        alignItems: "center"
     },
 
     // icons
