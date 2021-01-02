@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Grid } from '@material-ui/core'
 import Form from 'react-bootstrap/Form';
 import '../../../node_modules/animate.css/animate.min.css';
 import styles from '../jss';
 import './login.css'
-import { fetchPost } from '../../config/Utils';
+import { fetchGet, fetchPost } from '../../config/Utils';
 import Api from '../../constants/Api';
 import toastr from 'toastr';
 
@@ -16,34 +16,57 @@ const LoginComponent = (props) => {
         mobileOrEmail: '',
         password: '',
         confirmCode: '',
-        userType: "Student"
+        userType: "Student",
+        captcha: '',
+        question: '',
+        answer: 0
     });
     const [loginCard, setLoginCard] = useState("login");
     const classes = styles();
 
+    useEffect(() => {
+        getCaptcha();
+    }, []);
+
     const loginUser = (e) => {
+        console.log(parseInt(state.captcha));
+        console.log(state.answer);
         e.preventDefault();
+        if (parseInt(state.captcha) === state.answer) {
 
-        fetchPost(`${Api.Login}?mobileOrEmail=${state.mobileOrEmail}&pass=${state.password}`, null).then(response => {
-            if (response.success) {
-                let res = response.responseJSON;
-                if(res.access_token){
-                    localStorage.setItem("token", res.access_token);
-                    res.userType ? props.history.push('/AcademyPanel') : setLoginCard("roleUser");
-                }else{
-                    toastr.error(res.message);
+            fetchPost(`${Api.Login}?mobileOrEmail=${state.mobileOrEmail}&pass=${state.password}&Captcha=${state.captcha}`, null).then(response => {
+                if (response.success) {
+                    let res = response.responseJSON;
+                    if (res.access_token) {
+                        localStorage.setItem("token", res.access_token);
+                        localStorage.setItem("username" , res.userName);
+                        res.userType ? props.history.push('/AcademyPanel') : setLoginCard("roleUser");
+                    } else {
+                        toastr.error(res.message);
+                        setState(prevState => ({ ...prevState, captcha: '' }));
+                        getCaptcha();
+                    }
+
+
                 }
-                
 
-            }
-
-        })
+            })
+        } else {
+            toastr.error("جواب صحیح نمی باشد");
+            setState(prevState => ({ ...prevState, captcha: '' }));
+            getCaptcha();
+        }
     }
     const forgetPassword = (e) => {
         setLoginCard("forgetpassword");
         setState(prevState => ({ ...prevState, mobileOrEmail: '' }));
         e.preventDefault();
     }
+    const returnLogin = (e) => {
+        setLoginCard("login");
+        e.preventDefault();
+    }
+
     const resetPassword = (e) => {
         e.preventDefault();
         fetchPost(`${Api.ForgetPassword}?MobileOrEmail=${state.mobileOrEmail}`, null).then(response => {
@@ -52,11 +75,11 @@ const LoginComponent = (props) => {
                 if (res.isSuccess) {
                     toastr.success(res.data);
                     setLoginCard("login");
-                }else{
+                } else {
                     toastr.error(!res.message ? "خطا در برقراری ارتباط با سرور" : res.message);
                 }
             }
-           
+
         })
     }
     const securityCode = (e) => {
@@ -77,6 +100,18 @@ const LoginComponent = (props) => {
     const handleRadio = (e) => {
         const { value } = e.target;
         setState(prevState => ({ ...prevState, userType: value }));
+    }
+    const getCaptcha = () => {
+
+        fetchGet(`${Api.GetCaptcha}`).then(response => {
+            if (response.success) {
+                let res = response.responseJSON;
+                setState(prevState => ({
+                    ...prevState, question: ` = ${Object.keys(res.data)[0]}`,
+                    answer: res.data[Object.keys(res.data)[0]]
+                }))
+            }
+        });
     }
 
     const userRoleRegister = () => {
@@ -102,7 +137,7 @@ const LoginComponent = (props) => {
         <>
             {
                 loginCard === "login" ?
-                    <div className="login-card animate__animated animate__fadeIn animate__delay-1s">
+                    <div className="login-card animate__animated animate__fadeIn">
                         <Grid item md={12} className="d-flex justify-content-center align-items-center">
                             <div className={classes.bornaLogo}></div>
                         </Grid>
@@ -125,12 +160,18 @@ const LoginComponent = (props) => {
                                     <Form.Check label="مرا به خاطر بسپار" type="checkbox" />
                                 </Form.Group>
                                 <Form.Group className="mb-1" >
-                                    <Grid container spacing={1} className="m-0">
+                                    <Grid container spacing={1} className="m-0 rtl">
                                         <Grid item md={6} className="p-0">
-                                            <Form.Control type="password" style={{ width: "134px" }} />
+                                            <Form.Label>جواب تصویر امنیتی :</Form.Label>
+                                            <Form.Control type="text" style={{ width: "134px" }} name="captcha" value={state.captcha} onChange={handleChange} />
                                         </Grid>
                                         <Grid item md={6} className="p-0">
-                                            <Form.Control type="password" style={{ width: "134px", backgroundColor: "#c7c7c7" }} />
+                                            <Grid item md={12} className={`${classes.questionCaptcha} d-flex justify-content-center`}>
+                                                {state.question}
+                                            </Grid>
+
+                                            {/* <Form.Control type="text" disabled style={{ width: "134px", backgroundColor: "#c7c7c7" }}  
+                                            value={state.question}/> */}
                                         </Grid>
                                     </Grid>
                                 </Form.Group>
@@ -170,6 +211,9 @@ const LoginComponent = (props) => {
                                         </Button>
                                 </div>
                             </Form>
+                            <div className="d-flex justify-content-end mt-2">
+                                <span onClick={returnLogin} style={{ cursor: "pointer", color: "#3dbffc", borderBottom: "1px solid", fontSize: "13.5px" }}> بازگشت  </span>
+                            </div>
                         </div>
                     </div>
                     :
@@ -177,16 +221,16 @@ const LoginComponent = (props) => {
             }
             {
                 loginCard === "securitycode" ?
-                    <div className="security-card animate__animated animate__fadeIn animate__delay-1s">
+                    <div className="security-card animate__animated animate__fadeIn">
                         <Grid item md={12} className="d-flex justify-content-center align-items-center">
                             <div className={classes.bornaLogo}></div>
                         </Grid>
                         <div className="rectangle-security">
                             <Form onSubmit={securityCode}>
                                 <Form.Group className="mb-0" >
-                                    <Form.Control type="password" name="confirmCode"
+                                    <Form.Control type="text" name="confirmCode"
                                         value={state.confirmCode} onChange={handleChange}
-                                        placeholder="کد 5 رقمی را وارد کنید" />
+                                        placeholder="کد تایید ارسال شده را وارد کنید " />
                                 </Form.Group>
 
                                 <div className="center mt-4">
@@ -206,7 +250,7 @@ const LoginComponent = (props) => {
             }
             {
                 loginCard === "roleUser" ?
-                    <div className="role-card animate__animated animate__fadeIn animate__delay-1s">
+                    <div className="role-card animate__animated animate__fadeIn">
                         <Grid item md={12} className="d-flex justify-content-center align-items-center">
                             <div className={classes.bornaLogo}></div>
                         </Grid>

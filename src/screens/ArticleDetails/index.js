@@ -4,6 +4,7 @@ import useStyles from "../../hadi";
 import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import {Link, useHistory} from "react-router-dom";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Draft from "./draft/Draft";
 import Apis from "../../constants/Api";
 import {fetchPost} from "../../config/Utils";
@@ -47,9 +48,7 @@ export default function ArticleDetail(props) {
             .then(responseJSON => {
                 setComments(responseJSON.data.data)
         })
-    },[url])
-
-
+    },[url]);
 
     const img = Apis.SHOWIMAGE + (data ? data : dataDetail).article_PhotoLink;
 

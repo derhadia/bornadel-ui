@@ -360,6 +360,19 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 12,
         color: "#707070",
     },
+    profileBtn: {
+        width: 60,
+        height: 33,
+        padding: 0,
+        marginLeft: 5
+    },
+    profileIcon: {
+        backgroundSize: 950,
+        width:35,
+        height:35,
+        backgroundImage: `url(${Icons})`,
+        backgroundPosition: "-494px -324px"
+    },
     basketIconBtn: {
         padding: 0,
         minWidth: 0,
@@ -2985,6 +2998,10 @@ const useStyles = makeStyles((theme) => ({
     MobileSmalImageContainer:{
         padding:10
     },
+    menuDropdown:{
+        top:'53px !important',
+        right:'30px !important'
+    }
 
 }));
 export default useStyles

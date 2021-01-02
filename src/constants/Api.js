@@ -34,6 +34,6 @@ export default {
     ConfirmMobileOrEmail:`${BaseUrl}Users/ConfirmMobileOrEmail`,
     ForgetPassword:`${BaseUrl}Users/ForgetPassword`,
     SetUserRole:`${BaseUrl}Users/SetUserRole`,
-    Get_AllQuestion: `${BaseUrl}Question/GetAll`
-
+    GetCaptcha:`${BaseUrl}Users/GetCaptcha`,
+    GetAllQuestion: `${BaseUrl}Question/GetAll`,
 }
