@@ -12,6 +12,7 @@ import CourseDetailContextProvider from './contexts/CourseDetailContext'
 import toastr from 'toastr';
 import './assets/styles/toastr.css';
 import ArticleContextProvider from "./contexts/ArticlesContext";
+import NewsContextProvider from "./contexts/NewsContext"
 toastr.options = {
   "positionClass": "toast-bottom-left"
 }
@@ -26,8 +27,10 @@ export default function App() {
               <HomePageContextProvider>
                 <CourseDetailContextProvider>
                   <ArticleContextProvider>
-                    <CssBaseline />
-                    <MasterLayout />
+                    <NewsContextProvider>
+                      <CssBaseline />
+                      <MasterLayout />
+                    </NewsContextProvider>
                   </ArticleContextProvider>
                 </CourseDetailContextProvider>
               </HomePageContextProvider>

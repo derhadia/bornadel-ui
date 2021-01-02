@@ -1,14 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {Button, Grid, Typography} from "@material-ui/core";
 import useStyles from "../../hadi";
 import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Draft from "./draft/Draft";
 import Apis from "../../constants/Api";
 import {fetchPost} from "../../config/Utils";
 import {convertToPersian} from "../../hadi/functions"
 import {green} from "@material-ui/core/colors";
+import axios from "axios";
 
 const theme = createMuiTheme({
     palette: {
@@ -18,10 +19,35 @@ const theme = createMuiTheme({
 
 export default function ArticleDetail(props) {
     const classes = useStyles();
+    const history = useHistory();
     const [items, setItems] = useState([]);
+    const [comments, setComments] = useState([]);
 
     const data = props.location.state.data;
     const dataDetail = props.location.state.item;
+
+    const url = Apis.Get_AllQuestion
+
+    useEffect(() => {
+        let body = {
+            question_ID: 0,
+            question_Student_Ref: 0,
+            question_ClassRoom_Ref: 0,
+            question_Academy_Ref: 0,
+            question_Teacher_Ref: 0,
+            question_Article_Ref: 0
+        }
+        axios(`${url}?approveEnum=Approve&archiveEnum=All&questionEnum=All&haveAnswerEnum=All`, {
+            method: "POST",
+            headers: {
+                'Authorization': 'Bearer eyJhbGciOiJBMTI4S1ciLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwidHlwIjoiSldUIn0.yGMUd55Uqhprx3XGiqePLZdJdZ65RrBYAZm4iKv2evR7KOghYIl5tA.avhBi-0t6eg_E7EnxXz2ZQ.au1SsUg4iVEyJJQgFctlsHhzKvcSpWtfN7Lk8e-lupeNMPCgsC9_DaKLDG10uLCxWF-9o4_Nxm_T9TBWI6q1SFC-9pT2LzjTppEsZ83nLXi0SYYK52QP0P9zNu7Vl9HkHvhSvtZIytIzaLWdL1Z-u680VxP9k5hIJRzifcFUdUbDd7tbpIVrEE8S40KlJBa4F1BbpOOW0gcrsBg6iSdwN865vSNLf2LaSFRGRYYfGsiEjoHr2DWDjEF7TuVXlSyiedRsHqwv1FBy-6i4Rd4WLXWQ1-zqr0tYRp7M7cstpkBYPAUO8-3ossRyDZQVYXgS0bxu4IUOvdPGg0spR4eDLMf2Zb_NgHeEHhQHEz2aKvnHJqC2oiuabICaYdrf-yg29p5T8-llHRaSDXwUpjMnJROBHqOAjBSEZgB8JcybZx1Y-xjXeId5S5S1EtEfMXkPoW7_ZV8_NfniBriHdA3_j9Ca7-sYLBKX2n7Ibs2Drb_k0yfr4r7mdu94k2uQ4SJ6tV70UHP_jtKSymyvJm1Dqtv25QDs5-TU-hcP8HvgNiJsCqyht2RqLw3wcUrJC510eGSPkrZVEAgIIW2sHvJ6xW2LPCaB0z8GCQJzcce22XjTK2Zq0mFjUFFmfMx-clMsiNrjW29Y1x1xzHax9IAWAqcmRYHPtlsbgkBhewYa57s.f61ClpezVgBaT34Mvh9e9w'
+            },
+            data: body
+        })
+            .then(responseJSON => {
+                setComments(responseJSON.data.data)
+        })
+    },[url])
 
 
 
@@ -37,7 +63,14 @@ export default function ArticleDetail(props) {
         fetchPost(Apis.Get_ArticleGetAllWithFilters + "?sortTypeEnum=1",body).then(({responseJSON, status}) => {
             setItems(responseJSON.data,'data')
         })
-    },[])
+    },[]);
+
+    const handleSendComment = useCallback(() => {
+        const logIn = localStorage.getItem("token")
+        if (!logIn) {
+            history.push("/login")
+        }
+    },[history])
 
     return (
         <Grid
@@ -82,7 +115,7 @@ export default function ArticleDetail(props) {
                           <Grid className={classes.dateBox} item>
                               <Grid item className={classes.articleDate}>
                                   <Typography className={classes.calendarIcon}>
-                                      تاریخ انتشار : {convertToPersian((data ? data : dataDetail).article_DateTime)}
+                                      تاریخ انتشار : {convertToPersian((data ? data : dataDetail).article_DateTime).substr(0,10)}
                                   </Typography>
                               </Grid>
                               <Grid item className={`${classes.articleDate} ${classes.shareIconBig}`}/>
@@ -109,6 +142,7 @@ export default function ArticleDetail(props) {
                                     color="primary"
                                     className={classes.btnSendComment}
                                     style={{outline: "none", fontFamily: "yekan"}}
+                                    onClick={handleSendComment}
                                 >
                                     ارسال دیدگاه
                                 </Button>
@@ -120,41 +154,45 @@ export default function ArticleDetail(props) {
                     <Grid style={{borderBottom: "1px solid #b9b9b9", width: "100%"}}>
                         <Typography className={classes.ArticleHeaderText}>دیدگاه ها</Typography>
                     </Grid>
-                    <Grid
-                        container
-                        item
-                        className={classes.NewsContainer}
-                        style={{flexDirection: "row", minHeight: "unset"}}
-                    >
-                        <Grid container style={{flexDirection: "row", minHeight: "unset"}} >
-                            <Grid item md={1}>
-                                <div className={classes.cirTinyArticle}/>
-                            </Grid>
-                            <Grid md={11} item>
-                                <Typography component="h3" variant="h3">علیرضا سروستانی</Typography>
-                                <Typography
-                                    style={{
-                                        fontSize: "13.5px"
-                                    }}
-                                >
-                                    ویتالیک اگر 16 درصد از اتر ها را داشته باشد و فرضاً به شبکه حمله کنه بیشترین ضرر رو خودش میکنه
-                                    ویتالیک اگر 16 درصد از اتر ها را داشته باشد و فرضاً به شبکه حمله کنه بیشترین ضرر رو خودش میکنه
-                                    ویتالیک اگر 16 درصد از اتر ها را داشته باشد و فرضاً به شبکه حمله کنه بیشترین ضرر رو خودش میکنه
-                                </Typography>
-                            </Grid>
-                        </Grid>
-                        <Grid container justify="space-between">
-                            <Grid item md={3} style={{display: "flex", alignItems: "center"}}>
-                                <Typography className={`${classes.typoComment} ${classes.thumbUp}`}>25</Typography>
-                                <span className={classes.lineSpan}/>
-                                <Typography className={`${classes.typoComment} ${classes.thumbDown}`}>25</Typography>
-                            </Grid>
-                            <Grid item md={3} className={classes.viewAllComment}>
-                                <Typography className={`${classes.typoComment} ${classes.arrowDownIcon}`}>مشاهده همه دیدگاه ها</Typography>
-                            </Grid>
-                        </Grid>
+                    {
+                        comments.map((comment, index) => (
+                            <Grid
+                                key={index}
+                                container
+                                item
+                                className={classes.NewsContainer}
+                                style={{flexDirection: "row", minHeight: "unset"}}
+                            >
+                                <Grid container style={{flexDirection: "row", minHeight: "unset"}} >
+                                    <Grid item md={1}>
+                                        <div className={classes.cirTinyArticle}/>
+                                    </Grid>
+                                    <Grid md={11} item>
+                                        <Typography component="h3" variant="h3">علیرضا سروستانی</Typography>
+                                        <Typography
+                                            style={{
+                                                fontSize: "13.5px"
+                                            }}
+                                        >
+                                            {comment.article_Summary}
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
+                                <Grid container justify="space-between">
+                                    <Grid item md={3} style={{display: "flex", alignItems: "center"}}>
+                                        <Typography className={`${classes.typoComment} ${classes.thumbUp}`}>{comment.question_Like}</Typography>
+                                        <span className={classes.lineSpan}/>
+                                        <Typography className={`${classes.typoComment} ${classes.thumbDown}`}>{comment.question_DisLike}</Typography>
+                                    </Grid>
+                                    <Grid item md={3} className={classes.viewAllComment}>
+                                        <Typography className={`${classes.typoComment} ${classes.arrowDownIcon}`}>مشاهده همه دیدگاه ها</Typography>
+                                    </Grid>
+                                </Grid>
 
-                    </Grid>
+                            </Grid>
+                        ))
+                    }
+
                 </Grid>
                 <Grid container className={classes.redBoxArticle}/>
                 {/*<Grid container style={{alignItems: "flex-start"}} className={classes.NewsContainer}>*/}
