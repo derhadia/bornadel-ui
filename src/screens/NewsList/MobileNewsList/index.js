@@ -12,7 +12,7 @@ import SortPopup from "../../components/SortPopup/SortPopup";
 
 
 
-const MobileArticlesList = ({handleFiltering, handleMostVisited, handleNewest}) => {
+const MobileNewsList = ({handleFiltering, handleMostVisited, handleNewest}) => {
     const [state, setState] = useState({
         drawer: false,
     });
@@ -20,7 +20,7 @@ const MobileArticlesList = ({handleFiltering, handleMostVisited, handleNewest}) 
     const classes = useStyle();
 
     const {
-         data, items, setIds, ids
+        data, items, setIds, ids
     } = useContext(ArticlesContext);
 
     const handleClickOpen = () => {
@@ -109,4 +109,4 @@ const MobileArticlesList = ({handleFiltering, handleMostVisited, handleNewest}) 
     );
 };
 
-export default MobileArticlesList;
+export default MobileNewsList;

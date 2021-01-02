@@ -7,8 +7,6 @@ const DatePicker = () => {
 
     const {state, handleChangeDate, handleChangeFrom, item} = useContext(ArticlesContext)
 
-    console.log(item.fromDateFormatted,'from')
-
 
     return (
         <>

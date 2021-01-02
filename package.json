@@ -19,7 +19,7 @@
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
+    "react-scripts": "^3.4.3",
     "react-slick": "^0.27.12",
     "slick-carousel": "^1.8.1",
     "swiper": "^6.4.5",
@@ -45,5 +45,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@material-ui/pickers": "^3.2.10",
+    "jalali-moment": "^3.3.9",
+    "prop-types": "^15.7.2",
+    "react-hichestan-datetimepicker": "^2.0.23"
   }
 }

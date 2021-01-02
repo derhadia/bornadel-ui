@@ -191,6 +191,16 @@
     border: none !important;
 }
 
+.date-input-with-dialog-main {
+    height: unset !important;
+}
+
+@media screen and (max-width: 959px){
+    .JDatePicker {
+        z-index: 9999!important;
+    }
+}
+
 
 /*********************************other styles******************************/
 
@@ -214,4 +224,31 @@
 
 .comment button {
     padding: 0 !important;
+}
+
+
+
+
+/**************************************mobile size***********************************/
+.MuiDialog-paper {
+    margin: 60px 0 0 !important;
+    width: 250px;
+    max-height: unset !important;
+    padding: 16px 16px 0 16px;
+}
+
+.MuiDialog-paper .MuiFormControl-root {
+    width: 100% !important;
+}
+
+.MuiDivider-inset {
+    margin-right: 0 !important;
+}
+
+.MuiRadio-colorSecondary.Mui-checked {
+    color: #fe243d !important;
+}
+
+.MuiDrawer-paper::-webkit-scrollbar {
+    width: 5px !important;
 }

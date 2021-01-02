@@ -6,10 +6,16 @@ import TreeLevel from "../../components/Filters/TreeCheckbox/TreeLevel";
 import DatePicker from "../Articels/DatePicker/DatePicker";
 import ArticleTeacherFilter from "../../components/Filters/ArtcileTeacherFilter";
 
-const DrawerFilter = ({anchor, toggleDrawer, ids, setIds, items, handleFiltering}) => {
+const DrawerFilter = ({anchor, toggleDrawer, ids, setIds, items, handleFiltering, setState}) => {
     const classes = useStyle();
     return (
         <Grid container>
+            <span
+                onClick={() => setState({drawer: false})}
+                className={classes.closeDrawer}
+            >
+                X
+            </span>
             <TreeLevel
                 items={items}
                 setIds={setIds}

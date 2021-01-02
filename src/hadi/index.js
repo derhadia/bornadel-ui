@@ -34,7 +34,10 @@ const useStyle = makeStyles((theme) => ({
         backgroundColor: "#fff",
         boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)",
         flexDirection: "column",
-        alignItems: "center"
+        alignItems: "center",
+        [theme.breakpoints.down("md")]: {
+            height: "unset !important"
+        }
     },
     circleinRect2: {
         width: 102,
@@ -278,14 +281,11 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     filterButtonContainer: {
-        minWidth: "235px",
-        maxWidth: 287,
-        width: "100%",
+        width: 191,
         height: 35,
         borderRadius: 4,
         marginTop: 20,
         position:"fixed",
-
     },
     activeFilterHeaderLeft: {
         width: 68,
@@ -325,13 +325,19 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     ArticlesContainerRight: {
-        flex: 1
+        flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+
     },
     ArticlesContainerLeft: {
-        paddingLeft: 25,
+        // paddingLeft: 25,
         // width: window.innerWidth - 300
-        flex: 4
-
+        flex: 4,
+        [theme.breakpoints.up("md")]: {
+            paddingLeft: 25
+        }
     },
     treeLableText: {
         fontSize: 14
@@ -348,12 +354,20 @@ const useStyle = makeStyles((theme) => ({
         borderTop: "2px solid #e8e8e8",
         borderBottom: "2px solid #e8e8e8",
         width: "100%",
-        padding: "10px"
+        padding: "10px",
+        display: "flex"
     },
     btnFilterMobile: {
         backgroundColor: "#646464",
         height: "40px",
-        color: "#fff"
+        marginRight: 10,
+        color: "#fff",
+        "&:focus": {
+            outline: "none"
+        },
+        "&:hover": {
+            backgroundColor: "#646464 !important"
+        }
     },
     routeFilter: {
         backgroundColor: "#f0f0f0",
@@ -387,7 +401,9 @@ const useStyle = makeStyles((theme) => ({
     handleBtnFilter: {
         width: "100%",
         backgroundColor: "#fe243d",
-        color: "white"
+        color: "white",
+        position: "fixed",
+        bottom: 1,
     },
     parentYellowCircle: {
         display: "flex",
@@ -404,10 +420,31 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     boxDetailMobileSize: {
-      display: "flex",
-      flexDirection: "column",
+        display: "flex",
+        flexDirection: "column",
         alignItems: "center"
     },
+    closeDrawer: {
+        width: 20,
+        height: 20,
+        backgroundColor: "#ccc",
+        borderRadius: 50,
+        color: "#1a1a1a",
+        position: "fixed",
+        top: 13,
+        right: 20,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: 14,
+        fontFamily: "monospace",
+        fontWeight: 500
+    },
+    dialogSort: {
+        width: "100%",
+        height: 145
+    },
+
 
     // icons
 
@@ -576,6 +613,20 @@ const useStyle = makeStyles((theme) => ({
             border: "none",
             backgroundImage: `url(${Icons})`,
             backgroundPosition: "-167px -572px",
+        },
+    },
+    sortingIcon: {
+        cursor: "pointer",
+        padding: "0 15px",
+        "&::after": {
+            content: `''`,
+            width: 56,
+            height: 32,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-75px -572px",
         },
     },
     arrowLeftIcon: {
