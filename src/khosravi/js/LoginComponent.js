@@ -39,7 +39,11 @@ const LoginComponent = (props) => {
                     let res = response.responseJSON;
                     if (res.access_token) {
                         localStorage.setItem("token", res.access_token);
-                        localStorage.setItem("username" , res.userName);
+                        let userInfo = {
+                            username : res.userName,
+                            userType : res.userType
+                        };
+                        localStorage.setItem("userInfo" , userInfo);
                         res.userType ? props.history.push('/AcademyPanel') : setLoginCard("roleUser");
                     } else {
                         toastr.error(res.message);

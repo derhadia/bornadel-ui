@@ -30,7 +30,9 @@ export default function Header(props) {
     };
     useEffect(() => {
         const container = window !== undefined ? () => window().document.body : undefined;
-        setUsername(localStorage.getItem("username"));
+        if(localStorage.getItem("userInfo")){
+            setUsername(localStorage.getItem("userInfo").username);
+        }
     }, []);
 
 
