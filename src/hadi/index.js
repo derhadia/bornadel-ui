@@ -13,6 +13,7 @@ const useStyle = makeStyles((theme) => ({
         boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)",
         backgroundColor: "#fff",
         borderRadius: 8,
+        marginBottom: 15,
     },
     ArticlesNews: {
         padding: "0",
@@ -20,7 +21,6 @@ const useStyle = makeStyles((theme) => ({
             maxWidth: "1366px"
     },
     btnHeadBar: {
-        backgroundColor: "#2fc98e",
         margin: "0 14px 0 20px",
         padding: "3px 5px 4px",
         color: "white",
@@ -33,7 +33,6 @@ const useStyle = makeStyles((theme) => ({
         padding: 13,
         backgroundColor: "#fff",
         boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)",
-        marginTop: "20px",
         flexDirection: "column",
         alignItems: "center"
     },
@@ -45,7 +44,10 @@ const useStyle = makeStyles((theme) => ({
         position: "relative",
         top: 261,
         overflow: "hidden",
-        display: "block"
+        display: "block",
+        [theme.breakpoints.down("md")]: {
+            top: 356
+        }
     },
     coursesIconCicle: {
         width: "100%",
@@ -76,12 +78,15 @@ const useStyle = makeStyles((theme) => ({
         margin: "17px 0 69px",
         borderRadius: 9,
         backgroundColor: "#bbbbbb",
-        justifyContent: "center"
+        justifyContent: "center",
+        [theme.breakpoints.down("md")]: {
+            margin: "17px 0 175px"
+        }
     },
     boxDetail: {
         width: "100%",
         height: 142,
-        margin: "19px 0",
+        marginBottom: "19px",
         borderRadius: 9,
         backgroundColor: "#ffff00"
     },
@@ -99,7 +104,11 @@ const useStyle = makeStyles((theme) => ({
         borderRadius: 4,
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
+        [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            order: 1
+        },
     },
     articleDate: {
         display: "flex",
@@ -151,9 +160,12 @@ const useStyle = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        [theme.breakpoints.down("sm")]: {
+            width: "100%"
+        }
     },
     detailNews: {
-        width: "70%",
+        width: "100%",
         justifyContent: "space-between",
         alignItems: "center",
         margin: "10px 0",
@@ -165,8 +177,8 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     yellowBox: {
-        width: "124px",
-        height: "124px",
+        width: "100%",
+        height: "auto",
         margin: "32px 0",
         borderRadius: "4px",
         [theme.breakpoints.down("md")]: {
@@ -244,7 +256,12 @@ const useStyle = makeStyles((theme) => ({
         color: "#fff",
         width: "80px",
         height: "22px",
-        fontSize: "12px"
+        fontSize: "12px",
+        marginTop: 18,
+        outline: "none",
+        "&:hover": {
+            backgroundColor: "#2ec88c !important"
+        }
     },
     viewAllComment: {
         display: "flex",
@@ -252,12 +269,17 @@ const useStyle = makeStyles((theme) => ({
         justifyContent: "flex-end"
     },
     filterButton: {
+        backgroundColor: "#2ec88c",
+        color: "#fff",
         width: "80%",
         height: "100%",
+        "&:hover": {
+            backgroundColor: "#2ec88c !important"
+        }
     },
     filterButtonContainer: {
         minWidth: "235px",
-        maxWidth: 321,
+        maxWidth: 287,
         width: "100%",
         height: 35,
         borderRadius: 4,
@@ -291,6 +313,33 @@ const useStyle = makeStyles((theme) => ({
         "&:hover": {
             backgroundColor: "#ebf7f2"
         }
+    },
+
+    ArticlesContainer: {
+        padding: "25px 30px 35px 30px ",
+        backgroundColor: "#f5f5f5",
+        display: "flex",
+        justifyContent: "center",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column"
+        }
+    },
+    ArticlesContainerRight: {
+        flex: 1
+    },
+    ArticlesContainerLeft: {
+        paddingLeft: 25,
+        // width: window.innerWidth - 300
+        flex: 4
+
+    },
+    treeLableText: {
+        fontSize: 14
+    },
+    checkboxArticle: {
+        display: "flex",
+        flexDirection: "row-reverse",
+        justifyContent: "flex-end"
     },
 
     // style for mobile size
@@ -340,6 +389,25 @@ const useStyle = makeStyles((theme) => ({
         backgroundColor: "#fe243d",
         color: "white"
     },
+    parentYellowCircle: {
+        display: "flex",
+        justifyContent: "center",
+        [theme.breakpoints.down("md")]: {
+            display: "none"
+        }
+    },
+    parentBoxComment: {
+        marginTop: "37px",
+        alignItems: "center",
+        [theme.breakpoints.down("md")]: {
+            flexWrap: "nowrap"
+        }
+    },
+    boxDetailMobileSize: {
+      display: "flex",
+      flexDirection: "column",
+        alignItems: "center"
+    },
 
     // icons
 
@@ -373,9 +441,12 @@ const useStyle = makeStyles((theme) => ({
             backgroundImage: `url(${Icons})`,
             backgroundPosition: "-289px -358px",
         },
-        color: "#dcdcdc",
+        color: "rgb(190, 190, 190)",
         fontSize: "12px",
-        display: "flex"
+        display: "flex",
+        [theme.breakpoints.down("sm")]: {
+            padding: "unset"
+        }
     },
     arrowIconPaginate: {
         cursor: "pointer",
@@ -411,12 +482,12 @@ const useStyle = makeStyles((theme) => ({
         fontSize: "15px"
     },
     calendarIcon: {
-        cursor: "pointer",
         padding: "0 15px",
         "&::before": {
             content: `''`,
             width: 41,
             height: 35,
+            marginRight: 25,
             display: "inline-block",
             position: "relative",
             border: "none",
