@@ -9,10 +9,12 @@
     border: solid 1px var(--pinkish-grey);
     background-color: #f4f5f7;
   }
+
+
   .rectangle-register {
     width: 307px;
-    height: 302px;
-    margin: 21px 0 0;
+    height: 325px;
+    margin: 1px 0 0;
     padding: 5px 8px 9px 15px;
     border-radius: 7px;
     border: solid 1px var(--pinkish-grey);
@@ -68,7 +70,7 @@
 
   
   .register-card label {
-    font-size: 13px;
+    font-size: 15px;
     /* width: 52px;
     height: 11px; */
     margin: 3px 17px 0px 9px;

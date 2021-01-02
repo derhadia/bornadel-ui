@@ -6,32 +6,37 @@ const styles = makeStyles((theme) => ({
 
     knowledgeLogo: {
         backgroundImage: `url(${Icons})`,
-        backgroundPosition: "242px -29px;",
+        backgroundPosition: "815px -392px",
         backgroundSize: '850px',
         height: '30px',
         width: '30px'
     },
     teacherLogo: {
         backgroundImage: `url(${Icons})`,
-        backgroundPosition: "158px -29px",
+        backgroundPosition: "738px -392px",
         backgroundSize: '850px',
         height: '30px',
         width: '30px'
     },
-    academicLogo:{
+    academicLogo: {
         backgroundImage: `url(${Icons})`,
-        backgroundPosition: "202px -29px",
+        backgroundPosition: "775px -396px",
         backgroundSize: '850px',
         height: '30px',
         width: '30px'
     },
-    bornaLogo:{
+    bornaLogo: {
         backgroundImage: `url(${Icons})`,
         backgroundPosition: "-595px  -340px",
         width: 110,
         height: 64,
-        backgroundSize:'950px'
-    }
+        backgroundSize: '950px'
+    },
+    questionCaptcha: {
+        fontFamily: 'Rage',
+        fontSize: '48px'
+    },
+    
 
 }));
 

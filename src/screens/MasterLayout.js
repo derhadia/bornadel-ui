@@ -16,7 +16,7 @@ export default function MasterLayout() {
     <AcademyPanelContextProvider>
       <MasteLayoutContextProvider>
         <Grid container direction="column">
-          <Header />
+          <Header/>
           <main className={classes.main} >
             <Grid container justify="center" className={classes.Insidermain}>
               <Index />

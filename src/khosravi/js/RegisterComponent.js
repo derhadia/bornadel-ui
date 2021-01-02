@@ -39,7 +39,6 @@ const RegisterComponent = (props) => {
                 }
             }
         });
-
     }
     const securityCodeFunc = (e) => {
         e.preventDefault();
@@ -48,13 +47,16 @@ const RegisterComponent = (props) => {
                 let res = response.responseJSON;
                 if (res.access_token) {
                     toastr.success("عملیات با موفقیت انجام شد");
-                    localStorage.setItem("token", res.access_token);
+                    let data = {
+                        userName : res.userName,
+                        token : res.access_token
+                    };
+                    localStorage.setItem("data", data);
                     res.userType ? props.history.push('/AcademyPanel') : setRegisterCard("roleUser");
                 } else {
                     toastr.error(res.message);
                 }
             }
-
         })
     }
 
@@ -69,7 +71,6 @@ const RegisterComponent = (props) => {
     const handleRadio = (e) => {
         const value = e.target.value;
         setState(prevState => ({ ...prevState, userType: value }));
-
     }
 
     const userRoleRegister = (e) => {
@@ -89,7 +90,7 @@ const RegisterComponent = (props) => {
         <>
             {
                 registerCard === "register" ?
-                    <div className="register-card animate__animated animate__fadeIn animate__delay-1s">
+                    <div className="register-card animate__animated animate__fadeIn">
                         <Grid item md={12} className="d-flex justify-content-center align-items-center">
                             <div className={classes.bornaLogo}></div>
                         </Grid>
@@ -110,6 +111,7 @@ const RegisterComponent = (props) => {
                                         value={state.password} placeholder="کلمه عبور" onChange={handleChange} />
                                 </Form.Group>
                                 <Form.Group className="mb-0">
+                                <Form.Label> تکرار کلمه عبور :</Form.Label>
                                     <Form.Control type="password" name="repeatPassword"
                                         placeholder="تکرار کلمه عبور "
                                         value={state.repeatPassword} onChange={handleChange} />
@@ -142,16 +144,16 @@ const RegisterComponent = (props) => {
 
             {
                 registerCard === "securityCode" ?
-                    <div className="security-card animate__animated animate__fadeIn animate__delay-1s">
+                    <div className="security-card animate__animated animate__fadeIn">
                         <Grid item md={12} className="d-flex justify-content-center align-items-center">
                             <div className={classes.bornaLogo}></div>
                         </Grid>
                         <div className="rectangle-security">
                             <Form onSubmit={securityCodeFunc}>
                                 <Form.Group className="mb-0" >
-                                    <Form.Control type="password" name="confirmCode"
+                                    <Form.Control type="text" name="confirmCode"
                                         value={state.confirmCode} onChange={handleChange}
-                                        placeholder="کد 5 رقمی را وارد کنید" />
+                                        placeholder="کد تایید ارسال شده را وارد کنید " />
                                 </Form.Group>
 
                                 <div className="center mt-4">
@@ -168,7 +170,7 @@ const RegisterComponent = (props) => {
             }
             {
                 registerCard === "roleUser" ?
-                    <div className="role-card animate__animated animate__fadeIn animate__delay-1s">
+                    <div className="role-card animate__animated animate__fadeIn">
                         <Grid item md={12} className="d-flex justify-content-center align-items-center">
                             <div className={classes.bornaLogo}></div>
                         </Grid>

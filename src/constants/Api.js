@@ -33,6 +33,7 @@ export default {
     Login: `${BaseUrl}Users/Login`,
     ConfirmMobileOrEmail:`${BaseUrl}Users/ConfirmMobileOrEmail`,
     ForgetPassword:`${BaseUrl}Users/ForgetPassword`,
-    SetUserRole:`${BaseUrl}Users/SetUserRole`
+    SetUserRole:`${BaseUrl}Users/SetUserRole`,
+    GetCaptcha:`${BaseUrl}Users/GetCaptcha`
     
 }
