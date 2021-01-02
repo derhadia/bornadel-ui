@@ -11,9 +11,7 @@ import HomePageContextProvider from './contexts/HomePageContext'
 import CourseDetailContextProvider from './contexts/CourseDetailContext'
 import toastr from 'toastr';
 import './assets/styles/toastr.css';
-
 import ArticleContextProvider from "./contexts/ArticlesContext";
-
 toastr.options = {
   "positionClass": "toast-bottom-left"
 }
