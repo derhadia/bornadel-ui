@@ -29,4 +29,10 @@ export default {
     Get_Get5PreviouseTeacherClassRoom: BaseUrl + "ClassRoom/Get5PreviouseTeacherClassRoom",
     Get_GetSimilarClassRooms: BaseUrl + "ClassRoom/GetSimilarClassRooms",
     Get_ArticleGetAllWithFilters: BaseUrl + "Article/GetAllWithFilters",
+    Get_TeacherGetAll:BaseUrl+"Teacher/GetAll",
+    Get_TeacherDiplomaGetAll:BaseUrl+"TeacherDiploma/GetAll",
+    Get_TeacherDocGetAll:BaseUrl+"TeacherDoc/GetAll",
+    Get_AcademyGetAll:BaseUrl+"Academy/GetAll",
+    Get_QuestionGetAll:BaseUrl+"Question/GetAll",
+    Get_ClassRoomDoc:BaseUrl+"ClassRoomDoc/GetAll",
 }

@@ -46,10 +46,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: `url(${Icons})`,
         backgroundPosition: "-43px -39px"
     },
-    MobileBornadellogoContainer:{
-        borderBottom:"1px solid #c59428",
-        marginLeft:18,
-        marginRight:22
+    MobileBornadellogoContainer: {
+        borderBottom: "1px solid #c59428",
+        marginLeft: 18,
+        marginRight: 22
 
     },
     MobileBornadellogo: {
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
         width: 75,
         height: 42,
         marginRight: 13,
-        marginBottom:10,
+        marginBottom: 10,
         cursor: "pointer",
         backgroundSize: 1200,
         backgroundImage: `url(${Icons})`,
@@ -380,12 +380,12 @@ const useStyles = makeStyles((theme) => ({
             backgroundPosition: "-160px -40px",
         },
     },
-  
+
     headerMenu: {
         fontSize: 14,
         fontWeight: 500
     },
-    
+
     headerNavbar: {
         height: 44,
         boxShadow: "0 7px 8px 0 rgba(0,0,0,.04)",
@@ -537,7 +537,7 @@ const useStyles = makeStyles((theme) => ({
             backgroundPosition: "-433px -61px",
         }
     },
-    
+
     blackBackgroundOnWindow: {
         width: window.innerWidth,
         height: window.innerHeight,
@@ -550,8 +550,8 @@ const useStyles = makeStyles((theme) => ({
         padding: "15px 25px"
     },
     DrawerInsideContainer: {
-        minWidth: 240,
-        maxWidth: 245,
+        minWidth: 280,
+        maxWidth: 285,
         // padding: "20px 0px",
         overflow: "scroll",
         "&::-webkit-scrollbar-thumb": {
@@ -649,7 +649,7 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: 1100,
         backgroundPosition: "-1002px -411px",
     },
-    MobileLoginBtn:{
+    MobileLoginBtn: {
         padding: 0,
         minWidth: 0,
         width: 30,
@@ -661,24 +661,26 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: `url(${Icons})`,
         backgroundSize: 1100,
         backgroundPosition: "-953px -411px",
-    }, 
-    MobileVerticalLine:{
-        width:1,
-        height:20,
-        backgroundColor:"#aaa",
-        position:"relative",
-        top:5
     },
-    MobileHeaderMenu:{
+    MobileVerticalLine: {
+        width: 1,
+        height: 20,
+        backgroundColor: "#aaa",
+        position: "relative",
+        top: 5
+    },
+    MobileHeaderMenu: {
         fontSize: 14,
         fontWeight: 500,
-        marginBottom:20 
+        // marginBottom: 20
     },
     MobileclassList: {
         cursor: "default",
         marginRight: 10,
         position: "relative",
         marginLeft: 14,
+        paddingTop: 14,
+        paddingBottom: 14,
         paddingRight: 10,
         "&::before": {
             content: `''`,
@@ -694,11 +696,11 @@ const useStyles = makeStyles((theme) => ({
             backgroundPosition: "-730px -61px",
 
         },
-       
+
     },
     Mobileprovision: {
         cursor: "pointer",
-        padding: "0 15px",
+        padding: "14px 15px",
         "&::before": {
             content: `''`,
             width: 20,
@@ -717,7 +719,7 @@ const useStyles = makeStyles((theme) => ({
     },
     Mobilearticles: {
         cursor: "pointer",
-        padding: "0 15px",
+        padding: "14px 15px",
         "&::before": {
             content: `''`,
             width: 20,
@@ -734,7 +736,7 @@ const useStyles = makeStyles((theme) => ({
     },
     Mobilenews: {
         cursor: "pointer",
-        padding: "0 15px",
+        padding: "14px 15px",
         "&::before": {
             content: `''`,
             width: 20,
@@ -751,7 +753,7 @@ const useStyles = makeStyles((theme) => ({
     },
     MobilecommonQuestion: {
         cursor: "pointer",
-        padding: "0 15px",
+        padding: "14px 15px",
         "&::before": {
             content: `''`,
             width: 21,
@@ -768,7 +770,7 @@ const useStyles = makeStyles((theme) => ({
     },
     MobileAboutUs: {
         cursor: "pointer",
-        padding: "0 15px",
+        padding: "14px 15px",
         "&::before": {
             content: `''`,
             width: 20,
@@ -785,7 +787,7 @@ const useStyles = makeStyles((theme) => ({
     },
     MobilecontactUs: {
         cursor: "pointer",
-        padding: "0 15px",
+        padding: "14px 15px",
         "&::before": {
             content: `''`,
             width: 20,
@@ -2168,33 +2170,251 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 22,
         color: "#00000"
     },
+    TabDatas: {
+
+    },
+    teacherImageTabs: {
+        width: 120,
+        height: 140,
+        borderRadius: 6,
+        margin: "20px 40px 20px 80px"
+    },
+    teacherImageTabsItem: {
+        width: "100%",
+        height: "100%",
+        borderRadius: 6
+    },
+    teacherNameTabs: {
+        fontSize: 19,
+        textAlign: "center",
+        marginBottom: 30
+    },
+    teacherScoreTabs: {
+        fontSize: 19,
+        backgroundColor: "#00134c",
+        color: "#fff",
+        borderRadius: 20,
+        minWidth: 100,
+        textAlign: "center",
+        fontFamily: "IRANSansNUMNumber"
+    },
+    diplomaTitle: {
+        backgroundColor: "#3d3d3d",
+        fontSize: 21,
+        color: "#fff",
+        minWidth: 140,
+        borderRadius: 30,
+        textAlign: "center",
+        margin: "42px 25px 25px 67px"
+
+    },
+    doclomaTitle: {
+        backgroundColor: "#3d3d3d",
+        fontSize: 21,
+        color: "#fff",
+        minWidth: 140,
+        borderRadius: 30,
+        textAlign: "center",
+        margin: "42px 25px 25px 67px"
+
+    },
+    doplomaText: {
+        marginLeft: "67px",
+        fontSize: 19,
+        marginBottom: 20
+    },
+    doclomaText: {
+        marginLeft: "67px",
+        fontSize: 19,
+        marginBottom: 60
+    },
+    downloadLink: {
+        color: "#fff",
+        backgroundColor: "#2fc98d",
+        borderRadius: 15,
+        fontSize: 19,
+        height: 30,
+        minWidth: 90,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        marginLeft: 20
+    },
+    academyDisable: {
+        color: "#ddd"
+    },
+    academyManagerName: {
+        fontSize: 19
+    },
+    academyManagementTab: {
+        padding: "15px 30px"
+    },
+    academyManagerNameText: {
+        fontSize: 19,
+        color: '#00134c',
+        paddingLeft: 5
+    },
     MarginTop: {
         paddingTop: 25
+    },
+    questionContainer: {
+        padding: "20px 30px"
+    },
+    commentContainer: {
+        padding: "20px 30px"
+    },
+    userImageQues: {
+        width: 91,
+        height: 91,
+        borderRadius: "100%",
+        backgroundColor: "#0f0",
+        border: "1px solid #00134c"
+    },
+    userImageQues2: {
+        width: 60,
+        height: 60,
+        borderRadius: "100%",
+        backgroundColor: "#0f0",
+        border: "1px solid #00134c"
+    },
+    imageProfile:{
+        width:"100%"
+    },
+    typingRect: {
+        flex: 1
+    },
+    typingFieldBox: {
+        resize: "none",
+        marginLeft: 20,
+        border: "1px solid #dcdcdc",
+        height: 150,
+        width: "68%",
+        padding: "10px 15px",
+        outline: "none",
+        "&::placeholder": {
+            fontFamily: "IRANSansNUMNumber",
+            color: "#aaa"
+        },
+        "&:focus": {
+            outline: 'none'
+        },
+    },
+
+    inputGridQuestions: {
+        border: "1px solid #dcdcdc",
+        borderRadius: 5,
+        padding: "5px 10px",
+        marginLeft: 20,
+        "&::placeholder": {
+            fontFamily: "IRANSansNUMNumber",
+            color: "#aaa"
+        },
+        "&:focus": {
+            outline: 'none'
+        },
+    },
+    sendQuestion: {
+        width: "68%"
+    },
+    sendQuestions: {
+        height: 40,
+        fontSize: 20,
+        marginLeft: 20
+    },
+    questions: {
+        marginTop: 70
+    },
+    comments: {
+        marginTop: 70
+    },
+    answer: {
+        marginTop: 40
+    },
+    typingClass:{
+        marginTop:30
+    },
+    questionsTextContainer: {
+        maxWidth: "60%",
+        border: "1px solid #dcdcdc",
+        padding: 15,
+        display: "flex",
+        backgroundColor: "#fff"
+    },
+    commentTextContainer: {
+        maxWidth: "60%",
+        border: "1px solid #dcdcdc",
+        padding: 15,
+        display: "flex",
+        backgroundColor: "#fff"
+    },
+    answerTextContainer: {
+        maxWidth: "60%",
+        border: "1px solid #dcdcdc",
+        padding: 15,
+        display: "flex",
+        backgroundColor: "#fffcdf"
+    },
+    questionWriter: {
+        color: "#03126d"
+    },
+    questionsTextRect: {
+        flex: 1,
+        paddingLeft: 15,
+        fontSize: 16
+    },
+    questionDate: {
+        color: '#b0b0b0',
+        fontSize: 16,
+        marginTop: 30
     },
     CourseDetailClassTitle: {
         backgroundColor: "#2f6c81",
         color: "#ffff",
         padding: "0 14px",
         borderTopRightRadius: 15,
-        width: 58,
-        height: 23,
+        width: 75,
+        height: 33,
+        fontSize: 19,
         textAlign: "center"
     },
+    CourseDetailClassName4: {
+        fontSize: 16,
+        color: "#787878"
+
+    },
     CourseDetailClassNameTitle: {
-        fontSize: 12,
+        fontSize: 16,
         color: "#000"
     },
     CourseDetailClassNameTitle1: {
-        fontSize: 12,
+        fontSize: 16,
         color: "#787878"
     },
+    CourseDetailClassNameTitle6: {
+        fontSize: 16,
+        color: "#000",
+        paddingLeft: 15
+    },
     CourseDetailClassNameContainer: {
-        marginTop: 15,
+        marginLeft: "15px",
         marginBottom: 10
     },
     CourseDetailClassNameContainer1: {
         marginTop: 15,
         marginBottom: 0
+    },
+    CourseDetailClassNameContainer2: {
+        marginBottom: 10,
+        marginLeft: 20
+    },
+    CourseDetailClassNameContainer3: {
+        marginBottom: 10,
+    },
+    classPadding: {
+        padding: "0 20px 0 0"
+    },
+    classBorderBottom: {
+        borderBottom: "1px solid #b4b4b4",
     },
     CourseDetailClassName: {
         fontSize: 12,
@@ -2204,41 +2424,69 @@ const useStyles = makeStyles((theme) => ({
     CourseDetailClassNameNUM: {
         fontFamily: "IRANSansNUMNumber",
         paddingLeft: 3,
-        fontSize: 12,
+        fontSize: 16,
         color: "#787878"
     },
     CourseDetailteacherNameContainer: {
-        marginTop: 20
+        marginTop: 20,
+        flexWrap: "nowrap"
+    },
+    CourseDetailteacherNameContainer8: {
+        marginTop: 20,
+        flexWrap: "nowrap",
+        borderBottom: "1px solid #b4b4b4"
+    },
+    CourseDetailteacherNameContainer9: {
+        marginTop: 20,
+        flexWrap: "nowrap",
+        marginRight: 15
+    },
+    CourseDetailteacherNameContainer5: {
+        paddingLeft: 20,
+        marginTop: "20px",
+
     },
     CourseDetailClassSUMhousrs: {
         marginTop: 20
     },
     CourseDetailteacherNameContainer2: {
-        marginTop: 0
+        marginTop: 0,
+        marginBottom: 10,
+        display: "flex",
+        flexWrap: "wrap"
+
     },
     CourseDetailteacherNameTitle: {
-        fontSize: 12,
+        fontSize: 16,
         color: "#000"
     },
+    CourseDetailteacherNameTitle7: {
+        fontSize: 16,
+        color: "#000",
+        minWidth: 109
+    },
     CourseDetailteacherName: {
-        fontSize: 12,
+        fontSize: 16,
         color: "#787878"
     },
     CourseDetailteacherNameNUM1: {
         fontFamily: "IRANSansNUMNumber",
         paddingLeft: 3,
-        fontSize: 12,
+        fontSize: 16,
         color: "#c59428"
     },
     CourseDetailteacherNameNUM2: {
         fontFamily: "IRANSansNUMNumber",
         paddingLeft: 3,
-        fontSize: 12,
+        fontSize: 16,
         color: "#000"
     },
     CourseDetailteacherFiveCourse: {
         color: "#0a7f51",
-        cursor: "pointer"
+        cursor: "pointer",
+        fontSize: 16,
+        paddingLeft: 20,
+        paddingRight: 20
     },
     verticalLine: {
         maxWidth: 1,
@@ -2251,13 +2499,22 @@ const useStyles = makeStyles((theme) => ({
     CourseDetailAcademyNameContainer: {
         marginTop: 15,
     },
+    CourseDetailAcademyNameContainer3: {
+        marginTop: 20,
+        marginRight: 15
+    },
+    AcademyBoxContainer: {
+        marginTop: 20,
+
+    },
     CourseDetailAcademyTitle: {
         backgroundColor: "#2f6c81",
         color: "#ffff",
         padding: "0 14px",
         borderTopRightRadius: 15,
-        width: 71,
-        height: 23,
+        width: 95,
+        height: 33,
+        fontSize: 19,
         textAlign: "center"
     },
     CourseDetailَAcademyImage: {
@@ -2268,7 +2525,8 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 8,
     },
     CourseDetailAcademyImageContainer: {
-        marginTop: 3
+        marginTop: 10,
+        marginRight: 15
     },
     CourseLogoANDregisterBox: {
         width: 230,
@@ -2329,7 +2587,7 @@ const useStyles = makeStyles((theme) => ({
         top: 27
     },
     teacherANDAcademyDetail: {
-        height: 125,
+        // height: 125,
         backgroundColor: "#fff",
         marginTop: 20,
     },
@@ -2914,8 +3172,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundColor: "#006daa",
         borderRadius: 5,
         color: "#fff",
-        fontSize: 8,
-        maxWidth: 100,
+        fontSize: 11,
+        height: 25,
+        maxWidth: 110,
         minWidth: 80,
         textAlign: "center"
     },
@@ -2937,22 +3196,22 @@ const useStyles = makeStyles((theme) => ({
         borderBottom: "1px solid #c2c2c2"
 
     },
-    MobileFarsiNumberFooterText:{
-        fontSize:12,
+    MobileFarsiNumberFooterText: {
+        fontSize: 12,
         color: "#5f5f5f",
         fontFamily: "IRANSansNUMNumber",
     },
-    MobileemalText:{
+    MobileemalText: {
         fontFamily: "TimesNewRomanPSMT",
         fontSize: 12,
         color: "#5f5f5f"
     },
-    MobileNavigationIcon:{
+    MobileNavigationIcon: {
         display: "inline-block",
         width: 20,
         height: 19,
         marginRight: 3,
-        marginTop:1,
+        marginTop: 1,
         backgroundImage: `url(${Icons})`,
         backgroundSize: 1000,
         backgroundPosition: "-518px -105px",
@@ -2967,23 +3226,23 @@ const useStyles = makeStyles((theme) => ({
     MobilefooterMainSmallImageRight: {
         width: 120,
         height: 120,
-        marginRight:15,
+        marginRight: 15,
         display: "inline-block",
         backgroundColor: "#ffffff",
         borderRadius: 5
     },
-    Mobilenamad:{
+    Mobilenamad: {
         width: 120,
         height: 120,
-        borderRadius:8
+        borderRadius: 8
     },
-    MobileresaneDigital:{
+    MobileresaneDigital: {
         width: 120,
         height: 120,
-        borderRadius:8
+        borderRadius: 8
     },
-    MobileSmalImageContainer:{
-        padding:10
+    MobileSmalImageContainer: {
+        padding: 10
     },
 
 }));

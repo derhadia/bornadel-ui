@@ -53,5 +53,6 @@
     "@material-ui/pickers": "^3.2.10",
     "jalali-moment": "^3.3.9",
     "react-hichestan-datetimepicker": "^2.0.23"
-  }
+  },
+  "homepage": "./"
 }
