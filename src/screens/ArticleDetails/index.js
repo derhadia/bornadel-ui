@@ -3,7 +3,7 @@ import {Button, Grid, Typography} from "@material-ui/core";
 import useStyles from "../../hadi";
 import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import {Link, useHistory} from "react-router-dom";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
+// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 // import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import Draft from "./draft/Draft";
 import Apis from "../../constants/Api";

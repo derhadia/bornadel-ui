@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Index from '../routes'
 import { Grid, Hidden, Typography, Button } from '@material-ui/core'
 import { Link } from 'react-router-dom'
@@ -13,6 +13,8 @@ import ScrollToTop from "../components/ScrollToTop";
 export default function MasterLayout() {
   const classes = useStyles();
 
+
+ 
   return (
     <AcademyPanelContextProvider>
       <MasteLayoutContextProvider>

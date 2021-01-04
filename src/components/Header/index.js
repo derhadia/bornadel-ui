@@ -31,7 +31,8 @@ export default function Header(props) {
     useEffect(() => {
         const container = window !== undefined ? () => window().document.body : undefined;
         if(localStorage.getItem("userInfo")){
-            setUsername(localStorage.getItem("userInfo").username);
+            console.log(JSON.parse(localStorage.getItem("userInfo")).username);
+            setUsername(JSON.parse(localStorage.getItem("userInfo")).username);
         }
     }, []);
 
@@ -46,7 +47,7 @@ export default function Header(props) {
 
     const exit = () => {
             localStorage.removeItem('token');
-            localStorage.removeItem('username');
+            localStorage.removeItem('userInfo');
             // props.history.push('/login');
             window.location.href = '/login';
     }
@@ -69,7 +70,7 @@ export default function Header(props) {
 
                                             <Button component={Link} to="/login" variant="outlined"
                                                 className={classes.loginButton}>
-                                                <span className={classes.loginIcon}></span>
+                                                {/* <span className={classes.loginIcon}></span> */}
                                                 <span className={classes.loginText1}>ورود</span>
                                                 <span className={classes.verticalLineLogin}></span>
                                                 <span className={classes.loginText2}>ثبت نام</span>

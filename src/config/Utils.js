@@ -23,6 +23,7 @@ async function fetchPost(url, body = {}, isAuth) {
 
             })
             .catch(() => {
+                console.log("inji");
                 console.log("error shod");
                 toastr.error("خطای ارتباط با سرور")
                 res({ responseJSON: [], status: 500, success: false })

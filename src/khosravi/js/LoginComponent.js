@@ -29,12 +29,9 @@ const LoginComponent = (props) => {
     }, []);
 
     const loginUser = (e) => {
-        console.log(parseInt(state.captcha));
-        console.log(state.answer);
         e.preventDefault();
         if (parseInt(state.captcha) === state.answer) {
-
-            fetchPost(`${Api.Login}?mobileOrEmail=${state.mobileOrEmail}&pass=${state.password}&Captcha=${state.captcha}`, null).then(response => {
+            fetchPost(`${Api.Login}?mobileOrEmail=${state.mobileOrEmail}&pass=${state.password}&Captcha=${parseInt(state.captcha)}`, null).then(response => {
                 if (response.success) {
                     let res = response.responseJSON;
                     if (res.access_token) {
@@ -43,8 +40,8 @@ const LoginComponent = (props) => {
                             username : res.userName,
                             userType : res.userType
                         };
-                        localStorage.setItem("userInfo" , userInfo);
-                        res.userType ? props.history.push('/AcademyPanel') : setLoginCard("roleUser");
+                        localStorage.setItem("userInfo" , JSON.stringify(userInfo));
+                        res.userType ? window.location.href = '/AcademyPanel' : setLoginCard("roleUser");
                     } else {
                         toastr.error(res.message);
                         setState(prevState => ({ ...prevState, captcha: '' }));
@@ -99,6 +96,7 @@ const LoginComponent = (props) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
+        console.log(value);
         setState(prevState => ({ ...prevState, [name]: value }));
     }
     const handleRadio = (e) => {
@@ -118,8 +116,8 @@ const LoginComponent = (props) => {
         });
     }
 
-    const userRoleRegister = () => {
-
+    const userRoleRegister = (e) => {
+        e.preventDefault();
         fetchPost(`${Api.SetUserRole}?userRolesEnum=${state.userType}`, null).then(response => {
             if (response.success) {
                 let res = response.responseJSON;
@@ -267,10 +265,11 @@ const LoginComponent = (props) => {
                                         <div className={classes.knowledgeLogo}></div>
                                     </Grid>
                                     <Grid item md={6}>
-                                        <Form.Check
+                                    <Form.Check
                                             value="Student"
                                             onChange={handleRadio}
                                             type="radio"
+                                            checked={state.userType == "Student"}
                                             label="دانش پذیر"
                                             name="role"
                                             id="1"
@@ -282,10 +281,11 @@ const LoginComponent = (props) => {
                                         <div className={classes.teacherLogo}></div>
                                     </Grid>
                                     <Grid item md={6}>
-                                        <Form.Check
+                                    <Form.Check
                                             value="Teacher"
                                             onChange={handleRadio}
                                             type="radio"
+                                            checked={state.userType == "Teacher"}
                                             label="مدرس"
                                             name="role"
                                             id="2"
@@ -297,10 +297,11 @@ const LoginComponent = (props) => {
                                         <div className={classes.academicLogo}></div>
                                     </Grid>
                                     <Grid item md={6}>
-                                        <Form.Check
+                                    <Form.Check
                                             value="Academy"
                                             onChange={handleRadio}
                                             type="radio"
+                                            checked={state.userType == "Academy"}
                                             label=" آموزشگاه"
                                             name="role"
                                             id="3"

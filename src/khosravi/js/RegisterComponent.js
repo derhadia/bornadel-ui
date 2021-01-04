@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Form, InputGroup } from 'react-bootstrap';
 import { Grid } from '@material-ui/core';
@@ -6,7 +6,7 @@ import '../../../node_modules/animate.css/animate.min.css'
 import styles from '../jss';
 import './login.css';
 import './register.css';
-import { fetchPost } from '../../config/Utils';
+import { fetchGet, fetchPost } from '../../config/Utils';
 import Api from '../../constants/Api';
 import toastr from 'toastr';
 
@@ -17,8 +17,34 @@ const RegisterComponent = (props) => {
     const [state, setState] =
         useState({
             mobileOrEmail: '', password: '',
-            repeatPassword: '', captcha: '', confirmCode: '', userType: "Student"
+            repeatPassword: '', captcha: '', confirmCode: '', userType: "Student",
+            captcha: '',
+            question: '',
+            answer: 0
         })
+
+    const userRoles = {
+        "Student": 1,
+        "Teacher": 2,
+        "Academy": 3
+    };
+    useEffect(() => {
+        getCaptcha();
+    }, []);
+
+
+    const getCaptcha = () => {
+
+        fetchGet(`${Api.GetCaptcha}`).then(response => {
+            if (response.success) {
+                let res = response.responseJSON;
+                setState(prevState => ({
+                    ...prevState, question: ` = ${Object.keys(res.data)[0]}`,
+                    answer: res.data[Object.keys(res.data)[0]]
+                }))
+            }
+        });
+    }
 
     const registerUser = (e) => {
         e.preventDefault();
@@ -26,7 +52,7 @@ const RegisterComponent = (props) => {
             mobileOrEmail: state.mobileOrEmail,
             password: state.password,
             repeatPassword: state.repeatPassword,
-            captcha: ''
+            captcha: parseInt(state.captcha)
         }
         fetchPost(Api.RegisterUser, command).then(response => {
             let res = response.responseJSON;
@@ -44,14 +70,17 @@ const RegisterComponent = (props) => {
         e.preventDefault();
         fetchPost(`${Api.ConfirmMobileOrEmail}?mobileOrEmail=${state.mobileOrEmail}&ConfirmCode=${state.confirmCode}`, null).then(response => {
             if (response.success) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('userInfo');
                 let res = response.responseJSON;
                 if (res.access_token) {
                     toastr.success("عملیات با موفقیت انجام شد");
-                    let data = {
-                        userName : res.userName,
-                        token : res.access_token
+                    localStorage.setItem("token", res.access_token);
+                    let userInfo = {
+                        username: res.userName,
+                        userType: res.userType
                     };
-                    localStorage.setItem("data", data);
+                    localStorage.setItem("userInfo", JSON.stringify(userInfo));
                     res.userType ? props.history.push('/AcademyPanel') : setRegisterCard("roleUser");
                 } else {
                     toastr.error(res.message);
@@ -79,7 +108,12 @@ const RegisterComponent = (props) => {
             if (response.success) {
                 let res = response.responseJSON;
                 if (res.isSuccess) {
-                    props.history.push('/AcademyPanel');
+                    if(localStorage.getItem("userInfo")){
+                        let userInfo = JSON.parse(localStorage.getItem("userInfo"))
+                        userInfo.userType = userRoles[state.userType];
+                        localStorage.setItem("userInfo" , JSON.stringify(userInfo));
+                    }
+                    window.location.href = '/AcademyPanel'
                 } else {
                     toastr.error(!res.message ? "خطا در برقراری ارتباط با سرور" : res.message);
                 }
@@ -111,18 +145,21 @@ const RegisterComponent = (props) => {
                                         value={state.password} placeholder="کلمه عبور" onChange={handleChange} />
                                 </Form.Group>
                                 <Form.Group className="mb-0">
-                                <Form.Label> تکرار کلمه عبور :</Form.Label>
+                                    <Form.Label> تکرار کلمه عبور :</Form.Label>
                                     <Form.Control type="password" name="repeatPassword"
                                         placeholder="تکرار کلمه عبور "
                                         value={state.repeatPassword} onChange={handleChange} />
                                 </Form.Group>
                                 <Form.Group className="mb-1" >
-                                    <Grid container spacing={1} className="m-0">
+                                    <Grid container spacing={1} className="m-0 rtl">
                                         <Grid item md={6} className="p-0">
-                                            <Form.Control type="text" style={{ width: "135px" }} />
+                                            <Form.Label>جواب تصویر امنیتی :</Form.Label>
+                                            <Form.Control type="text" style={{ width: "134px" }} name="captcha" value={state.captcha} onChange={handleChange} />
                                         </Grid>
                                         <Grid item md={6} className="p-0">
-                                            <Form.Control type="text" style={{ width: "135px", backgroundColor: "#c7c7c7" }} />
+                                            <Grid item md={12} className={`${classes.questionCaptcha} d-flex justify-content-center`}>
+                                                {state.question}
+                                            </Grid>
                                         </Grid>
                                     </Grid>
                                 </Form.Group>
