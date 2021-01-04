@@ -7,7 +7,7 @@ export default function SingIN() {
 
     return (
         <>
-            <Grid container direction="column" className={classes.CourseLogoANDregisterContainer} item xs={3}>
+            <Grid container direction="column" className={classes.CourseLogoANDregisterContainer} item >
                 <Grid container direction="column" item className={classes.CourseLogoANDregisterBox}>
                     <Grid item className={classes.CourseLogoANDregisterShareLogo} ></Grid>
                     <span className={classes.CourseLogoANDregisterBellLogo} ></span>
