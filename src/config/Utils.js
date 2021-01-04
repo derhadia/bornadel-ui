@@ -1,12 +1,17 @@
-async function fetchPost(url, body = {}) {
+import toastr from 'toastr';
+
+let headers = {
+    "Content-Type": "application/json-patch+json"
+};
+async function fetchPost(url, body = {}, isAuth) {
+    if (isAuth) {
+        headers.Authorization = 'Bearer ' + localStorage.getItem('token');
+    }
     return new Promise((res) => {
         let status
         fetch(url, {
             method: 'POST',
-            headers: {
-                // 'Authorization': 'Bearer ' + localStorage.getItem('token'),
-                "Content-Type": "application/json-patch+json"
-            },
+            headers: headers,
             body: JSON.stringify(body)
         })
             .then((response) => {
@@ -14,11 +19,13 @@ async function fetchPost(url, body = {}) {
                 return response.json()
             })
             .then((responseJSON) => {
-                res({ responseJSON, status })
+                res({ responseJSON, status, success: true })
 
             })
             .catch(() => {
-                res({ responseJSON: [], status: 500 })
+                console.log("error shod");
+                toastr.error("خطای ارتباط با سرور")
+                res({ responseJSON: [], status: 500, success: false })
             })
     })
 }
@@ -39,10 +46,10 @@ async function fetchPostSendFile(url, body = {}) {
                 return response.json()
             })
             .then((responseJSON) => {
-                res({ responseJSON, status })
+                res({ responseJSON, status, success: true })
             })
             .catch(() => {
-                res({ responseJSON: [], status: 500 })
+                res({ responseJSON: [], status: 500, success: false })
             })
     })
 }
@@ -63,10 +70,10 @@ async function fetchPutSendFile(url, body = {}) {
                 return response.json()
             })
             .then((responseJSON) => {
-                res({ responseJSON, status })
+                res({ responseJSON, status, success: true })
             })
             .catch(() => {
-                res({ responseJSON: [], status: 500 })
+                res({ responseJSON: [], status: 500, success: false })
             })
     })
 }
@@ -88,10 +95,10 @@ async function fetchPut(url, body = {}) {
                 return response.json()
             })
             .then((responseJSON) => {
-                res({ responseJSON, status })
+                res({ responseJSON, status, success: true })
             })
             .catch(() => {
-                res({ responseJSON: [], status: 500 })
+                res({ responseJSON: [], status: 500, success: false })
             })
     })
 }
@@ -112,10 +119,10 @@ async function fetchDelete(url) {
                 return response.json()
             })
             .then((responseJSON) => {
-                res({ responseJSON, status })
+                res({ responseJSON, status, success: true })
             })
             .catch(() => {
-                res({ responseJSON: [], status: 500 })
+                res({ responseJSON: [], status: 500, success: false })
             })
     })
 }
@@ -136,10 +143,10 @@ async function fetchGet(url) {
                 return response.json()
             })
             .then((responseJSON) => {
-                res({ responseJSON, status })
+                res({ responseJSON, status, success: true })
             })
             .catch(() => {
-                res({ responseJSON: [], status: 500 })
+                res({ responseJSON: [], status: 500, success: false })
             })
     })
 }

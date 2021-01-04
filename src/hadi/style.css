@@ -37,6 +37,26 @@
     color: #00bfd6 !important
 }
 
+ .MuiTreeItem-content, .MuiFormControlLabel-root {
+    height: 35px;
+}
+
+.MuiButtonBase-root:hover, .MuiTypography-body1:hover,
+.MuiTreeItem-root.Mui-selected:focus > .MuiTreeItem-content .MuiTreeItem-label,
+.MuiTreeItem-root.Mui-selected > .MuiTreeItem-content .MuiTreeItem-label{
+    background-color: unset !important;
+}
+
+.treeLevel .MuiTypography-body1 {
+    font-size: 14px !important;
+}
+
+.MuiTreeItem-label {
+    padding-right: unset !important;
+}
+
+
+
 
 /*******************************pagination articles******************************/
 
@@ -76,6 +96,11 @@
     padding: unset;
 }
 
+.JDatePicker .day-items, .JDatePicker .JC-Title {
+    font-size: 14px;
+}
+
+
 
 /****************************draft*************************/
 
@@ -91,12 +116,13 @@
 .rdw-remove-wrapper, .rdw-history-wrapper,
 .rdw-inline-wrapper .rdw-option-wrapper:nth-child(4),
  .rdw-option-wrapper:nth-child(6),
-.rdw-option-wrapper:nth-child(7), .rdw-block-wrapper{
+.rdw-option-wrapper:nth-child(7), .rdw-block-wrapper,
+.rdw-editor-toolbar{
     display: none !important;
     border: none;
 }
 
-.rdw-editor-toolbar, .rdw-inline-wrapper
+.rdw-editor-toolbar, .rdw-inline-wrapper,
 .rdw-option-wrapper:nth-child(1),
 .rdw-option-wrapper:nth-child(2),
 .rdw-option-wrapper:nth-child(3),
@@ -115,7 +141,7 @@
 
 .rdw-editor-main {
     background-color: #fff;
-    height: 72px!important;
+    height: 100px!important;
     border: solid 1px #dcdcdc;
 }
 
@@ -134,14 +160,46 @@
 
 /********************************* Calender *****************************/
 
-.date-input-with-dialog-empty {
-    display: none !important;
-}
-
 .date-input-with-dialog-calendar {
-    left: 0.5em !important;
+    top: calc(50% - 0.9em) !important;
+    left: 2.5em !important;
 }
 
+.date-input-with-dialog-empty {
+    top: calc(50% - 0.9em) !important;
+    left: .3em !important;
+}
+
+.date-input-with-dialog-input {
+    height: 29px;
+    outline: none;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding-right: 4px;
+    font-family: "Yekan" !important;
+}
+
+.date-input-with-dialog-input-buttons {
+    width: 20px !important;
+    height: 20px !important;
+    max-height: unset !important;
+    padding: unset !important;
+    border: none !important;
+}
+
+.date-input-with-dialog-input-buttons:hover {
+    border: none !important;
+}
+
+.date-input-with-dialog-main {
+    height: unset !important;
+}
+
+@media screen and (max-width: 959px){
+    .JDatePicker {
+        z-index: 9999!important;
+    }
+}
 
 
 /*********************************other styles******************************/
@@ -160,16 +218,37 @@
     width: unset;
 }
 
-.datePicker {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.MuiButton-root-414 {
+    padding: 0 !important;
 }
 
-.datePicker .popo {
-    margin: 3px 0;
-    padding-right: 10px;
-    outline: none;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.comment button {
+    padding: 0 !important;
+}
+
+
+
+
+/**************************************mobile size***********************************/
+.MuiDialog-paper {
+    margin: 60px 0 0 !important;
+    width: 250px;
+    max-height: unset !important;
+    padding: 16px 16px 0 16px;
+}
+
+.MuiDialog-paper .MuiFormControl-root {
+    width: 100% !important;
+}
+
+.MuiDivider-inset {
+    margin-right: 0 !important;
+}
+
+.MuiRadio-colorSecondary.Mui-checked {
+    color: #fe243d !important;
+}
+
+.MuiDrawer-paper::-webkit-scrollbar {
+    width: 5px !important;
 }

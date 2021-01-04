@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {DatePicker,} from "react-advance-jalaali-datepicker";
+// import {DatePicker,} from "react-advance-jalaali-datepicker";
 import {ArticlesContext} from "../../../contexts/ArticlesContext";
 
 const DatePickerT = () => {
@@ -19,7 +19,7 @@ const DatePickerT = () => {
 
     return (
         <div className="datePicker">
-            <DatePicker
+            {/* <DatePicker
                 inputComponent={DatePickerInput}
                 placeholder="از تاریخ"
                 format="jYYYY/jMM/jDD"
@@ -34,7 +34,7 @@ const DatePickerT = () => {
                 onChange={handleChangeToDate}
                 id="datePicker"
                 preSelected=""
-            />
+            /> */}
         </div>
     );
 

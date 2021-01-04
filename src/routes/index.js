@@ -4,20 +4,29 @@ import Home from '../screens/Home/Home'
 import Courses from '../screens/Courses/Courses'
 import CourseDetail from '../screens/CourseDetail'
 import AcademyPanel from '../screens/AcademyPanel'
+
+import LoginComponent from '../khosravi/js/LoginComponent'
+import RegisterComponent from '../khosravi/js/RegisterComponent'
+
+
 import ArticlesList from "../screens/Articels/ArticlesList";
 import ArticleDetail from "../screens/ArticleDetails";
+import NewsList from "../screens/NewsList";
 
 export default function Index() {
-    
+
     return (
         <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="/login" component={LoginComponent} />
+            <Route path="/register" component={RegisterComponent} />
             <Route path="/Courses/:id/:title/:type" component={Courses} />
             <Route path="/Courses/:id" component={Courses} />
             <Route path="/CourseDetail/:id/:title" component={CourseDetail} />
             <Route path="/AcademyPanel" component={AcademyPanel} />
             <Route path="/ArticleList" component={ArticlesList} />
             <Route path="/ArticleDetail/:id" component={ArticleDetail} />
+            <Route path="/NewsList" component={NewsList} />
         </Switch>
     )
 }

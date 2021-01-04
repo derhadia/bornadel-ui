@@ -8,6 +8,7 @@ import Header from '../components/Header'
 import MasteLayoutContextProvider from '../contexts/MasteLayoutContext'
 import AcademyPanelContextProvider from '../contexts/AcademyPanelContext'
 import Footer from '../components/Footer'
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function MasterLayout() {
   const classes = useStyles();
@@ -16,6 +17,7 @@ export default function MasterLayout() {
     <AcademyPanelContextProvider>
       <MasteLayoutContextProvider>
         <Grid container direction="column">
+          <ScrollToTop />
           <Header />
           <main className={classes.main} >
             <Grid container justify="center" className={classes.Insidermain}>
@@ -31,4 +33,4 @@ export default function MasterLayout() {
 
 
 
-} 
+}

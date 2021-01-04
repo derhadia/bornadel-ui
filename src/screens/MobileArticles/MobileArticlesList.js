@@ -8,18 +8,29 @@ import Drawer from '@material-ui/core/Drawer';
 import ArticleBox from "../Articels/articleBox/ArticleBox";
 import DrawerFilter from "./DrawerFilter";
 import {ArticlesContext} from "../../contexts/ArticlesContext";
+import SortPopup from "../../components/SortPopup/SortPopup";
 
 
 
-const MobileArticlesList = ({handleFiltering}) => {
+const MobileArticlesList = ({handleFiltering, handleMostVisited, handleNewest}) => {
     const [state, setState] = useState({
         drawer: false,
     });
+    const [open, setOpen] = useState(false);
     const classes = useStyle();
 
     const {
          data, items, setIds, ids
     } = useContext(ArticlesContext);
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
 
     const toggleDrawer = (anchor, open) => (event) => {
         handleFiltering()
@@ -46,6 +57,7 @@ const MobileArticlesList = ({handleFiltering}) => {
                 setIds={setIds}
                 items={items}
                 handleFiltering={handleFiltering}
+                setState={setState}
             />
         </div>
     );
@@ -59,6 +71,18 @@ const MobileArticlesList = ({handleFiltering}) => {
                 >
                     جستجوی پیشرفته
                 </Button>
+                <Button
+                    className={`${classes.btnFilterMobile} ${classes.sortingIcon}`}
+                    onClick={handleClickOpen}
+                >
+                    مرتب سازی
+                </Button>
+                <SortPopup
+                    open={open}
+                    onClose={handleClose}
+                    handleNewest={handleNewest}
+                    handleMostVisited={handleMostVisited}
+                />
             </Grid>
             <Grid className={classes.routeFilter}>
                 <Typography className={classes.arrowLeftIcon}>لیست کلاسها</Typography>
@@ -73,11 +97,6 @@ const MobileArticlesList = ({handleFiltering}) => {
             </Grid>
             <Grid style={{padding: "10px", width: "100%"}}>
                 <div className={classes.redBoxArticle}/>
-            </Grid>
-            <Grid style={{justifyContent: "space-around", display: "flex"}} className={classes.headFilterMobile}>
-                <Grid className={classes.boxArticleMobile}/>
-                <Grid className={classes.boxArticleMobile}/>
-                <Grid className={classes.boxArticleMobile}/>
             </Grid>
             <Drawer
                 anchor={"right"}
