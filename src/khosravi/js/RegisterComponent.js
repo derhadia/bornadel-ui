@@ -48,23 +48,29 @@ const RegisterComponent = (props) => {
 
     const registerUser = (e) => {
         e.preventDefault();
-        const command = {
+        let command = {
             mobileOrEmail: state.mobileOrEmail,
             password: state.password,
             repeatPassword: state.repeatPassword,
             captcha: parseInt(state.captcha)
         }
-        fetchPost(Api.RegisterUser, command).then(response => {
-            let res = response.responseJSON;
-            if (response.success) {
-                if (res.isSuccess) {
-                    setRegisterCard("securityCode");
-                    toastr.success(res.data);
-                } else {
-                    toastr.error(res.message);
+        if (parseInt(state.captcha) === state.answer) {
+            fetchPost(Api.RegisterUser, command).then(response => {
+                let res = response.responseJSON;
+                if (response.success) {
+                    if (res.isSuccess) {
+                        setRegisterCard("securityCode");
+                        toastr.success(res.data);
+                    } else {
+                        toastr.error(res.message);
+                    }
                 }
-            }
-        });
+            });
+        } else {
+            toastr.error("جواب صحیح نمی باشد");
+            setState(prevState => ({ ...prevState, captcha: '' }));
+            getCaptcha();
+        }
     }
     const securityCodeFunc = (e) => {
         e.preventDefault();
@@ -108,10 +114,10 @@ const RegisterComponent = (props) => {
             if (response.success) {
                 let res = response.responseJSON;
                 if (res.isSuccess) {
-                    if(localStorage.getItem("userInfo")){
+                    if (localStorage.getItem("userInfo")) {
                         let userInfo = JSON.parse(localStorage.getItem("userInfo"))
                         userInfo.userType = userRoles[state.userType];
-                        localStorage.setItem("userInfo" , JSON.stringify(userInfo));
+                        localStorage.setItem("userInfo", JSON.stringify(userInfo));
                     }
                     window.location.href = '/AcademyPanel';
                 } else {
