@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from '../screens/Home/Home'
+import Home from '../screens/Home'
 import Courses from '../screens/Courses/Courses'
 import CourseDetail from '../screens/CourseDetail'
 import AcademyPanel from '../screens/AcademyPanel'
