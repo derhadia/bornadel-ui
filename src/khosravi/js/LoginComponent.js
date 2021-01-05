@@ -24,6 +24,12 @@ const LoginComponent = (props) => {
     const [loginCard, setLoginCard] = useState("login");
     const classes = styles();
 
+    const userRoles = {
+        "Student": 1,
+        "Teacher": 2,
+        "Academy": 3
+    };
+    
     useEffect(() => {
         getCaptcha();
     }, []);
@@ -122,7 +128,12 @@ const LoginComponent = (props) => {
             if (response.success) {
                 let res = response.responseJSON;
                 if (res.isSuccess) {
-                    props.history.push('/AcademyPanel');
+                    if(localStorage.getItem("userInfo")){
+                        let userInfo = JSON.parse(localStorage.getItem("userInfo"))
+                        userInfo.userType = userRoles[state.userType];
+                        localStorage.setItem("userInfo" , JSON.stringify(userInfo));
+                    }
+                    window.location.href = '/AcademyPanel';
                 } else {
                     toastr.error(res.message);
                 }

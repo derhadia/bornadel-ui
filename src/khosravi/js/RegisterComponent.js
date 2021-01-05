@@ -113,7 +113,7 @@ const RegisterComponent = (props) => {
                         userInfo.userType = userRoles[state.userType];
                         localStorage.setItem("userInfo" , JSON.stringify(userInfo));
                     }
-                    window.location.href = '/AcademyPanel'
+                    window.location.href = '/AcademyPanel';
                 } else {
                     toastr.error(!res.message ? "خطا در برقراری ارتباط با سرور" : res.message);
                 }
