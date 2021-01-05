@@ -29,7 +29,7 @@ const LoginComponent = (props) => {
         "Teacher": 2,
         "Academy": 3
     };
-    
+
     useEffect(() => {
         getCaptcha();
     }, []);
@@ -124,7 +124,7 @@ const LoginComponent = (props) => {
 
     const userRoleRegister = (e) => {
         e.preventDefault();
-        fetchPost(`${Api.SetUserRole}?userRolesEnum=${state.userType}`, null).then(response => {
+        fetchPost(`${Api.SetUserRole}?userRolesEnum=${state.userType}`, null, true).then(response => {
             if (response.success) {
                 let res = response.responseJSON;
                 if (res.isSuccess) {
