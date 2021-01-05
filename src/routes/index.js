@@ -12,6 +12,9 @@ import RegisterComponent from '../khosravi/js/RegisterComponent'
 import ArticlesList from "../screens/Articels/ArticlesList";
 import ArticleDetail from "../screens/ArticleDetails";
 import NewsList from "../screens/NewsList";
+import NewsDetail from "../screens/NewsDetail";
+import About from "../screens/About/About";
+import ContactUs from "../screens/ContactUs/ContactUs";
 
 export default function Index() {
 
@@ -27,6 +30,9 @@ export default function Index() {
             <Route path="/ArticleList" component={ArticlesList} />
             <Route path="/ArticleDetail/:id" component={ArticleDetail} />
             <Route path="/NewsList" component={NewsList} />
+            <Route path="/NewsDetail/:id" component={NewsDetail} />
+            <Route path="/About" component={About} />
+            <Route path="/ContactUs" component={ContactUs} />
         </Switch>
     )
 }

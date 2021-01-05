@@ -1,5 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Icons from '../assets/images/icon.svg'
+import Icons from '../assets/images/icon.svg';
+import IconsLogo from "../assets/images/iconfinal.svg"
 
 const useStyle = makeStyles((theme) => ({
     headBar: {
@@ -298,7 +299,11 @@ const useStyle = makeStyles((theme) => ({
         textAlign: "center",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        "&:hover": {
+            backgroundColor: "#2fc98e !important"
+        }
+
     },
     leftHeaderText: {
         width: 73,
@@ -414,7 +419,6 @@ const useStyle = makeStyles((theme) => ({
     },
     parentBoxComment: {
         marginTop: "37px",
-        alignItems: "center",
         [theme.breakpoints.down("md")]: {
             flexWrap: "nowrap"
         }
@@ -643,6 +647,139 @@ const useStyle = makeStyles((theme) => ({
             backgroundImage: `url(${Icons})`,
             backgroundPosition: "-569px -487px",
         },
+    },
+    bornadelLogo: {
+        width: 112,
+        height: 42,
+        cursor: "pointer",
+        backgroundSize: 1200,
+        backgroundImage: `url(${IconsLogo})`,
+        backgroundPosition: "-905px -441px",
+        margin: "55px 13px 70px 14px"
+    },
+    aboutWe: {
+        fontSize: 20,
+        padding: "0 19px",
+        textAlign: "justify",
+        marginBottom: 40,
+        width: "100%"
+    },
+    imgAbout: {
+        width: 328,
+        height: 218,
+        backgroundColor: "#ccc",
+        margin: "0 0 0 40px",
+        [theme.breakpoints.down("xs")]: {
+            width: "100%"
+        }
+    },
+    txtHeadContact: {
+        fontSize: 25.5,
+        color: "#3b3b3b",
+        borderBottom: "2px solid #2fc98e",
+        display: "inline-block",
+        paddingBottom: 7
+    },
+    txtTitleContact: {
+        fontSize: 25.5,
+        color: "#3b3b3b",
+        paddingTop: 30
+    },
+    addressContact: {
+        margin: "0 auto",
+        width: 421,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+    },
+    locationIcon: {
+        fontSize: 17,
+        color: "#5f5f5f",
+        display: "flex",
+        alignItems: "center",
+        "&::before" : {
+            content: `''`,
+            width: 20,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-729px -148px",
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 10.5,
+            width: "100%"
+        }
+    },
+    tellContactIcon: {
+        fontSize: 17,
+        color: "#5f5f5f",
+        display: "flex",
+        alignItems: "center",
+        direction: "rtl",
+        "&::after" : {
+            content: `''`,
+            width: 20,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-802px -150px",
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 10.5,
+        }
+    },
+    emailContactIcon: {
+        fontSize: 17,
+        color: "#5f5f5f",
+        display: "flex",
+        alignItems: "center",
+        "&::before" : {
+            content: `''`,
+            width: 20,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-655px -150px",
+        },
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 10.5,
+        }
+    },
+    inputContact: {
+        border: "1px solid #898989",
+        outline: "none",
+        borderRadius: 8,
+        width: "96%",
+        height: 56,
+    },
+    formContact: {
+        width: "100%",
+        display: "flex",
+        flexWrap: "wrap"
+    },
+    textareaContact: {
+        border: "1px solid #898989",
+        outline: "none",
+        borderRadius: 8,
+        width: "98%"
+    },
+    labelContact: {
+        color: "#3b3b3b",
+        fontSize: 19.5
+    },
+    btnContact: {
+        "&:hover": {
+            backgroundColor: "#2fc98e !important"
+        },
+        height: 35,
+        float: "right",
+        fontSize: 31
     }
 
 }))

@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.3",
     "react-slick": "^0.27.12",
+    "simple-react-google-maps": "^1.1.2",
     "slick-carousel": "^1.8.1",
     "swiper": "^6.4.5",
     "toastr": "^2.1.4"

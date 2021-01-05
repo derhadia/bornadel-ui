@@ -105,7 +105,7 @@ const ArticlesList = () => {
             .then(({responseJSON, status}) => {
             setData(responseJSON.data)
         });
-    },[activeClass, ids, item.fromDate, selectedTeacher, setData, state.toDate])
+    },[activeClass, ids, item.fromDateFormatted, selectedTeacher, setData, state.toDateFormatted])
 
     const handleWindowSize = () => setWidth(window.innerWidth);
 

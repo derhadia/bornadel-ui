@@ -1,13 +1,16 @@
 import React, {useState, useEffect, useContext, useCallback} from 'react';
 import {Grid, Typography} from "@material-ui/core";
 import useStyles from "../../hadi";
-import ArticleBox from "../Articels/articleBox/ArticleBox";
 import {fetchPost} from "../../config/Utils";
 import Apis from "../../constants/Api";
 import {NewsContext} from "../../contexts/NewsContext";
 import "../../hadi/style.css"
 import {Link} from "react-router-dom";
 import {convertToPersian} from "../../hadi/functions";
+import NewsBox from "./NewsBox";
+import moment from "jalali-moment";
+import MobileNewsList from "./MobileNewsList";
+import MobileArticlesList from "../MobileArticles/MobileArticlesList";
 
 
 
@@ -43,39 +46,25 @@ const NewsList = () => {
 
     useEffect(() => {
         let body = {
-            "teacher_ID_List": "",
-            "educationSubject_ID": "",
-            "date_From": "",
-            "date_To": ""
+            "news_ID": 0
         }
-        fetchPost(Apis.Get_ArticleGetAllWithFilters + `?sortTypeEnum=${1}`,body).then(({responseJSON, status}) => {
+        fetchPost(Apis.GetAllNews + "?approveEnum=approve",body).then(({responseJSON, status}) => {
             setData(responseJSON.data)
+            setItems(responseJSON.data)
         })
-    },[setData]);
+    },[setData, setItems]);
 
 
 
     const handleMostVisited = useCallback(() => {
-        let body = {
-            "teacher_ID_List": "",
-            "educationSubject_ID": "",
-            "date_From": "",
-            "date_To": ""
-        }
-        fetchPost(Apis.Get_ArticleGetAllWithFilters + `?sortTypeEnum=${1}`,body).then(({responseJSON, status}) => {
+        fetchPost(Apis.GetAllNewsWithSorting + "?sortTypeEnum=Mostvisited").then(({responseJSON, status}) => {
             setData(responseJSON.data)
         });
         setActiveClass(1)
     },[setData]);
 
     const handleNewest = useCallback(() => {
-        let body = {
-            "teacher_ID_List": "",
-            "educationSubject_ID": "",
-            "date_From": "",
-            "date_To": ""
-        }
-        fetchPost(Apis.Get_ArticleGetAllWithFilters + `?sortTypeEnum=${3}`,body).then(({responseJSON, status}) => {
+        fetchPost(Apis.GetAllNewsWithSorting + "?sortTypeEnum=Newest").then(({responseJSON, status}) => {
             setData(responseJSON.data)
         });
         setActiveClass(3)
@@ -83,35 +72,12 @@ const NewsList = () => {
 
 
 
-    const handleFiltering = useCallback(() => {
-        let body = {
-            "teacher_ID_List": selectedTeacher ? selectedTeacher.toString().replaceAll(",", ";") : "",
-            "educationSubject_ID": ids ? [...ids].toString().replaceAll(",", ";") : "",
-            "date_From": item.fromDateFormatted ? item.fromDateFormatted : "",
-            "date_To": state.toDateFormatted ? state.toDateFormatted : ""
-        }
-        fetchPost(Apis.Get_ArticleGetAllWithFilters + `?sortTypeEnum=${activeClass}`,body)
-            .then(({responseJSON, status}) => {
-                setData(responseJSON.data)
-            });
-    },[activeClass, ids, item.fromDateFormatted, selectedTeacher, setData, state.toDateFormatted])
-
     const handleWindowSize = () => setWidth(window.innerWidth);
 
     useEffect(() => {
         window.addEventListener("resize", handleWindowSize)
         return () => window.removeEventListener("resize", handleWindowSize)
     },[]);
-
-    useEffect(() => {
-        let body = {
-            "record_ID":0,
-            "record_Name":"",
-            "record_Type":0
-        }
-        fetchPost(Apis.Get_GetAllInClassRoomList, body)
-            .then(({responseJSON, status}) => setItems(responseJSON.data))
-    },[setItems])
 
     const isMobile = width < 960;
 
@@ -126,10 +92,151 @@ const NewsList = () => {
                         justify="center"
                         className={classes.ArticlesContainer}
                     >
-                        <Grid item className={classes.ArticlesContainerRight}>
+                        <Grid
+                            item
+                            className={classes.ArticlesContainerRight}
+                            md={4}
+                            sm={12}
+                            xs={12}
+                            lg={4}
+                            xl={4}
+                        >
+                            <Grid
+                                container
+                                item justify="center"
+                                className={classes.parentSideBox}
+                            >
+                                <Grid style={{width: "100%"}} md={12} item>
+                                    <div className={classes.boxDetail}/>
+                                </Grid>
+                                <Grid style={{width: "100%"}} md={12} item>
+                                    <div className={classes.boxDetail}/>
+                                </Grid>
+                            </Grid>
+                            <Grid style={{height: "100%"}} container className={classes.NewsContainer}>
+                                <Grid style={{borderBottom: "1px solid #b9b9b9", width: "100%"}}>
+                                    <Typography className={classes.ArticleHeaderText}>تازه های خبری</Typography>
+                                </Grid>
+                                {
+                                    items.map((item, index) => (
+                                        <Link
+                                            style={{color: "inherit"}}
+                                            to={{
+                                                pathname: `NewsDetail/${item.news_ID}/${item.news_title}`,
+                                                state: {item}
+                                            }}
+                                            key={index}
+                                        >
+                                            <Grid container>
+                                                <Grid>
+                                                    <Typography component="h3" variant="h3">
+                                                        {item.news_Title}
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    className={classes.detailNews}
+                                                >
+                                                    <Grid item style={{display: "flex", alignItems: "center"}}>
+                                                        <Typography className={classes.userStyle} >{item.fullName}</Typography>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Typography style={{color: "rgb(190,190,190)", fontSize: "12px"}}
+                                                        >
+                                                            {
+                                                                convertToPersian(moment((item.news_DateTime).substr(0,10), "DD-MM-YYYY").format("jYYYY/jMM/jDD"))
+                                                            }
+                                                        </Typography>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>
+                                                    </Grid>
+                                                </Grid>
+                                                <Grid>
+                                                    <Typography style={{fontSize: "14.5px", color: "#646464"}}>
+                                                        {item.news_Summary}
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>
+                                                    <Typography
+                                                        className={classes.multiArrow}
+                                                    >
+                                                        ادامه خبر
+                                                    </Typography>
+                                                </Grid>
+                                            </Grid>
+                                        </Link>
+                                    ))
+                                }
 
+                            </Grid>
+                            <Grid style={{height: "100%", marginTop: 21}} container className={classes.NewsContainer}>
+                                <Grid style={{borderBottom: "1px solid #b9b9b9", width: "100%"}}>
+                                    <Typography className={classes.ArticleHeaderText}>اخبار موسسات و آموزشگاه ها</Typography>
+                                </Grid>
+                                {
+                                    items.map((item, index) => (
+                                        <Link
+                                            style={{color: "inherit"}}
+                                            to={{
+                                                pathname: `NewsDetail/${item.news_ID}/${item.news_title}`,
+                                                state: {item}
+                                            }}
+                                            key={index}
+                                        >
+                                            <Grid container>
+                                                <Grid>
+                                                    <Typography component="h3" variant="h3">
+                                                        {item.news_Title}
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid
+                                                    container
+                                                    direction="row"
+                                                    className={classes.detailNews}
+                                                >
+                                                    <Grid item style={{display: "flex", alignItems: "center"}}>
+                                                        <Typography className={classes.userStyle} >{item.fullName}</Typography>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Typography style={{color: "rgb(190,190,190)", fontSize: "12px"}}
+                                                        >
+                                                            {
+                                                                convertToPersian(moment((item.news_DateTime).substr(0,10), "DD-MM-YYYY").format("jYYYY/jMM/jDD"))
+                                                            }
+                                                        </Typography>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>
+                                                    </Grid>
+                                                </Grid>
+                                                <Grid>
+                                                    <Typography style={{fontSize: "14.5px", color: "#646464"}}>
+                                                        {item.news_Summary}
+                                                    </Typography>
+                                                </Grid>
+                                                <Grid style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>
+                                                    <Typography
+                                                        className={classes.multiArrow}
+                                                    >
+                                                        ادامه خبر
+                                                    </Typography>
+                                                </Grid>
+                                            </Grid>
+                                        </Link>
+                                    ))
+                                }
+
+                            </Grid>
                         </Grid>
-                        <Grid item container direction="column" className={classes.ArticlesContainerLeft}>
+                        <Grid
+                            item
+                            container
+                            direction="column"
+                            className={classes.ArticlesContainerLeft}
+                            xl={8} lg={8} md={8} sm={12} xs={12}
+                        >
                             <Grid item className={classes.headBar}>
                                 <Grid className={classes.sortIcon}/>
                                 <Grid>مرتب سازی براساس:</Grid>
@@ -165,11 +272,12 @@ const NewsList = () => {
                             </Grid>
                             <Grid
                                 container
-                                style={{minHeight: "911px"}}
-                                item className={classes.NewsContainer}
+                                style={{minHeight: "2708px"}}
+                                item
+                                className={classes.NewsContainer}
                                 direction="column"
                             >
-                                <ArticleBox
+                                <NewsBox
                                     data={data}
                                 />
                             </Grid>
@@ -185,7 +293,10 @@ const NewsList = () => {
                             {/*</Grid>*/}
                         </Grid>
                     </Grid> :
-                    ""
+                    <MobileNewsList
+                        handleMostVisited={handleMostVisited}
+                        handleNewest={handleNewest}
+                    />
             }
         </>
     )}

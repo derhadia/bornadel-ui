@@ -36,4 +36,7 @@ export default {
     SetUserRole:`${BaseUrl}Users/SetUserRole`,
     GetCaptcha:`${BaseUrl}Users/GetCaptcha`,
     GetAllQuestion: `${BaseUrl}Question/GetAll`,
+    GetAllNews: `${BaseUrl}News/GetAll`,
+    GetAllNewsWithSorting: `${BaseUrl}News/GetAllNewsWithSorting`,
+    SendDataContact: `${BaseUrl}ContactUs/Insert`
 }
