@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from '../screens/Home/Home'
 import Courses from '../screens/Courses/Courses'
@@ -18,7 +18,20 @@ import ContactUs from "../screens/ContactUs/ContactUs";
 
 export default function Index() {
 
+    useEffect(() => {
+        console.log("54454445544544554154454545454554555454")
+    })
+     
     return (
+        // <ScrollToTop />
+        // <Header />
+        // <main className={classes.main} >
+        //   <Grid container justify="center" className={classes.Insidermain}>
+        //     <Index />
+        //   </Grid>
+        // </main>
+        // <Footer />
+
         <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/login" component={LoginComponent} />

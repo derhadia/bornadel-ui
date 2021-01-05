@@ -3,9 +3,6 @@ import {Button, Grid, Typography} from "@material-ui/core";
 import useStyles from "../../hadi";
 import {ThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import {Link, useHistory} from "react-router-dom";
-// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-// import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-// import Draft from "../ArticleDetails/draft/Draft";
 import Apis from "../../constants/Api";
 import {fetchPost} from "../../config/Utils";
 import {convertToPersian} from "../../hadi/functions"
@@ -99,12 +96,14 @@ export default function NewsDetail(props) {
                     </Grid>
                 </Grid>
                 <Grid item container className={classes.parentBoxComment}>
-                    <Grid item md={2} className={classes.parentYellowCircle}>
+                    <Grid item xl={2} lg={2} md={2} sm={2} className={classes.parentYellowCircle}>
                         <div className={classes.circleArticle}/>
                     </Grid>
-                    <Grid item md={10} style={{width: "100%"}}>
-                        {/*<Draft />*/}
-                        <Grid md={4} item className="comment">
+                    <Grid item xl={10} lg={10} md={10} sm={10} style={{width: "100%"}}>
+                        <Grid>
+                            <textarea className={classes.areaMsg} rows="10"/>
+                        </Grid>
+                        <Grid style={{width: "100%", textAlign: "center"}} item className="comment">
                             {/*<input className={classes.formControl} placeholder="نام و نام خانوادگی" type="text"/>*/}
                             {/*<input className={classes.formControl} placeholder="ایمیل" type="text"/>*/}
                             <ThemeProvider theme={theme}>

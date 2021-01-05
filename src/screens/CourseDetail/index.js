@@ -18,12 +18,93 @@ import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 export default function CourseDetail() {
     const classes = useStyles();
     let { id } = useParams()
-    let { setCourseDetailData, setWeekDay, setFiveLastCourse, setSimilarItem } = useContext(CourseDetailContext)
+    let { setComments,setQuestions,setDownloadLink, setAcademyTabData, setTeachrDocTabData, setTeachrDipTabData, setTeacherTabData, courseDetailData, setCourseDetailData, setWeekDay, setFiveLastCourse, setSimilarItem } = useContext(CourseDetailContext)
 
     useEffect(() => {
         fetchPost(Apis.Get_GetClassRoomDetail + "?ClassRoomId=" + id).then(({ responseJSON, status }) => {
             if (status === 200) {
                 setCourseDetailData(responseJSON.data[0])
+                console.log(responseJSON.data[0]);
+                
+                let TeacherBody = {
+                    
+                    "teacher_ID": responseJSON.data[0].teacher_ID,
+                    "teacher_Academy_Ref": 0,
+                    "teacher_AspNetUsers_Ref": 0
+                }
+                fetchPost(Apis.Get_TeacherGetAll, TeacherBody).then(({ responseJSON, status }) => {
+                    if (status === 200) {
+                        setTeacherTabData(responseJSON.data)
+                    }
+                })
+                let TeacherDipBody = {
+                    "teacherDiploma_ID": 0,
+                    "teacherDiploma_Teacher_Ref": responseJSON.data[0].teacher_ID
+                }
+                fetchPost(Apis.Get_TeacherDiplomaGetAll, TeacherDipBody).then(({ responseJSON, status }) => {
+                    if (status === 200) {
+                        setTeachrDipTabData(responseJSON.data)
+                    }
+                })
+                let TeacherDocBody = {
+                    "teacherDoc_ID": 0,
+                    "teacherDoc_Teacher_Ref": responseJSON.data[0].teacher_ID
+                }
+                fetchPost(Apis.Get_TeacherDocGetAll, TeacherDocBody).then(({ responseJSON, status }) => {
+                    if (status === 200) {
+                        setTeachrDocTabData(responseJSON.data)
+                    }
+                })
+                let acdemyBody = {
+                    "academy_ID": responseJSON.data[0].academy_ID,
+                    "academy_AspNetUsers_Ref": 0,
+                    "academy_Name": ""
+                }
+                if (responseJSON.data[0].academy_ID !== null && responseJSON.data[0].academy_ID !== 0) {
+                    fetchPost(Apis.Get_AcademyGetAll + "?approveEnum=Approve", acdemyBody).then(({ responseJSON, status }) => {
+                        if (status === 200) {
+                            setAcademyTabData(responseJSON.data)
+                        }
+                    })
+                }
+                let DownloadLink = {
+                    "classRoomDoc_ID": 0,
+                    "classRoomDoc_ClassRoom_Ref": responseJSON.data[0].ClassRoom_ID
+                }
+                fetchPost(Apis.Get_ClassRoomDoc + "?approveEnum=Approve", DownloadLink).then(({ responseJSON, status }) => {
+                    if (status === 200) {
+                        setDownloadLink(responseJSON.data)
+                    }
+                })
+                let QuestionBody = {
+                    "question_ID": 0,
+                    "question_Student_Ref": 0,
+                    "question_ClassRoom_Ref": responseJSON.data[0].ClassRoom_ID,
+                    "question_Academy_Ref": 0,
+                    "question_Teacher_Ref": 0,
+                    "question_Article_Ref": 0
+                }
+                fetchPost(Apis.Get_QuestionGetAll + "?approveEnum=Approve&archiveEnum=All&questionEnum=Question&haveAnswerEnum=All", QuestionBody).then(({ responseJSON, status }) => {
+                    if (status === 200) {
+                        setQuestions(responseJSON.data)
+                    }
+                })
+                let CommentBody = {
+                    "question_ID": 0,
+                    "question_Student_Ref": 0,
+                    "question_ClassRoom_Ref": responseJSON.data[0].classRoom_ID,
+                    "question_Academy_Ref": 0,
+                    "question_Teacher_Ref": 0,
+                    "question_Article_Ref": 0
+                }
+                
+                fetchPost(Apis.Get_QuestionGetAll + "?approveEnum=Approve&archiveEnum=All&questionEnum=NotQuestion&haveAnswerEnum=All", CommentBody).then(({ responseJSON, status }) => {
+                    if (status === 200) {
+                        console.log(responseJSON.data);
+                        setComments(responseJSON.data)
+                    }
+                })
+
                 fetchPost(Apis.Get_Get5PreviouseTeacherClassRoom + "?ClassRoomId=" + id + "&Teacher_ID=" + responseJSON.data[0].teacher_ID).then(({ responseJSON, status }) => {
                     setFiveLastCourse(responseJSON.data);
                 })
@@ -37,18 +118,25 @@ export default function CourseDetail() {
                 setSimilarItem([responseJSON.data])
             }
         })
+
     }, [id])
+
     return (
         <Grid container justify="center" className={classes.CourseDetailContainer}>
             <Grid item container direction="column" className={classes.CourseDetailBox}>
                 <Grid item container className={classes.CourseDetailTextcontainer}>
-                    <Typography className={classes.CourseDetailText}>طراحی بیت مپ با فتوشاپ</Typography>
+                    <Typography className={classes.CourseDetailText}>{courseDetailData && courseDetailData.classRoom_Subject}</Typography>
                 </Grid>
                 <Grid item container direction="row" alignItems="flex-start" className={classes.CourseDetailElements}>
-                    <Class />
-                    <Teacher />
-                    <Academy />
-                    <SingIN />
+                    <Grid container item xs={9} direction="column" className={classes.deskCourseDetail}>
+                        <Class />
+                        <Teacher />
+                        {courseDetailData && courseDetailData.academy_ID === null || courseDetailData.academy_ID === 0 ? null
+                            : <Academy />}
+                    </Grid>
+                    <Grid item xs={3}>
+                        <SingIN />
+                    </Grid>
                 </Grid >
             </Grid>
             <TeacherAcademyDetail />

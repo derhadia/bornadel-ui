@@ -413,13 +413,13 @@ const useStyle = makeStyles((theme) => ({
     parentYellowCircle: {
         display: "flex",
         justifyContent: "center",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("xs")]: {
             display: "none"
         }
     },
     parentBoxComment: {
         marginTop: "37px",
-        [theme.breakpoints.down("md")]: {
+        [theme.breakpoints.down("xs")]: {
             flexWrap: "nowrap"
         }
     },
@@ -657,7 +657,7 @@ const useStyle = makeStyles((theme) => ({
         backgroundPosition: "-905px -441px",
         margin: "55px 13px 70px 14px"
     },
-    aboutWe: {
+    aboutUs: {
         fontSize: 20,
         padding: "0 19px",
         textAlign: "justify",
@@ -780,6 +780,12 @@ const useStyle = makeStyles((theme) => ({
         height: 35,
         float: "right",
         fontSize: 31
+    },
+    areaMsg: {
+        width: "100%",
+        border: "none",
+        borderRadius: 8,
+        boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)"
     }
 
 }))

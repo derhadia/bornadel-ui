@@ -8,12 +8,8 @@ const MapContact = () => {
             <GoogleMaps
                 apiKey={"AIzaSyChZPizXo_3sk70Cm4yveOd0YfQtuxc7As"}
                 style={{ height: "50vh", width: "100%" }}
-                zoom={3}
-                center={{ lat: 35, lng: 51 }}
-                markers={{
-                    "lat": 35,
-                    "lng": 51
-                }}
+                zoom={18}
+                center={{ lat: 35.69439, lng: 51.42151 }}
             />
         </div>
     );
