@@ -20,6 +20,7 @@ export default function NewsDetail(props) {
     const history = useHistory();
     const [items, setItems] = useState([]);
     const [comments, setComments] = useState([]);
+    const [comment, setComment] = useState("");
 
     const data = props.location.state.data;
     const dataDetail = props.location.state.item;
@@ -42,10 +43,14 @@ export default function NewsDetail(props) {
 
     const handleSendComment = useCallback(() => {
         const logIn = localStorage.getItem("token")
-        if (!logIn) {
+        if (comment.length > 10 && !logIn) {
             history.push("/login")
         }
-    },[history])
+    },[comment.length, history]);
+
+    const handleChangeComment = event => {
+        setComment(event.target.value)
+    }
 
     return (
         <Grid
@@ -101,7 +106,13 @@ export default function NewsDetail(props) {
                     </Grid>
                     <Grid item xl={10} lg={10} md={10} sm={10} style={{width: "100%"}}>
                         <Grid>
-                            <textarea className={classes.areaMsg} rows="10"/>
+                            <textarea
+                                className={classes.areaMsg}
+                                rows="10"
+                                onChange={handleChangeComment}
+                                value={comment}
+                                maxLength="1000"
+                            />
                         </Grid>
                         <Grid style={{width: "100%", textAlign: "center"}} item className="comment">
                             {/*<input className={classes.formControl} placeholder="نام و نام خانوادگی" type="text"/>*/}
@@ -312,7 +323,7 @@ export default function NewsDetail(props) {
                                             <Typography className={classes.userStyle} >{item.fullName}</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography style={{color: "rgb(190,190,190)", fontSize: "12px"}}>
+                                            <Typography style={{color: "rgb(190,190,190)", fontSize: "12px", fontWeight: 700}}>
                                                 {
                                                     convertToPersian(moment((item.news_DateTime).substr(0,10), "DD-MM-YYYY").format("jYYYY/jMM/jDD"))
                                                 }

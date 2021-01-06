@@ -42,7 +42,7 @@ const NewsBox = memo(({data}) => {
                                     </Grid>
                                     <Grid item>
                                         <Typography
-                                            style={{color: "rgb(190, 190 ,190)", fontSize: "12px"}}
+                                            style={{color: "rgb(190, 190 ,190)", fontSize: "12px", fontWeight: 700}}
                                         >
                                             {
                                                 convertToPersian(moment((item.news_DateTime).substr(0,10), "DD-MM-YYYY").format("jYYYY/jMM/jDD"))

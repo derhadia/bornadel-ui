@@ -20,11 +20,12 @@ export default function ArticleDetail(props) {
     const history = useHistory();
     const [items, setItems] = useState([]);
     const [comments, setComments] = useState([]);
+    const [comment, setComment] = useState("");
 
     const data = props.location.state.data;
     const dataDetail = props.location.state.item;
 
-    const url = Apis.Get_AllQuestion
+    const url = Apis.GetAllQuestion
 
     useEffect(() => {
         let body = {
@@ -63,10 +64,14 @@ export default function ArticleDetail(props) {
 
     const handleSendComment = useCallback(() => {
         const logIn = localStorage.getItem("token")
-        if (!logIn) {
+        if (comment.length > 10 && !logIn) {
             history.push("/login")
         }
-    },[history])
+    },[comment.length, history]);
+
+    const handleChangeComment = event => {
+        setComment(event.target.value)
+    }
 
     return (
         <Grid
@@ -124,12 +129,20 @@ export default function ArticleDetail(props) {
                    </Grid>
                 </Grid>
                 <Grid item container className={classes.parentBoxComment}>
-                    <Grid item md={2} className={classes.parentYellowCircle}>
+                    <Grid item lg={2} md={2} sm={2} className={classes.parentYellowCircle}>
                         <div className={classes.circleArticle}/>
                     </Grid>
-                    <Grid item md={10} style={{width: "100%"}}>
-                        {/*<Draft />*/}
-                        <Grid md={4} item className="comment">
+                    <Grid item xl={10} lg={10} md={10} sm={10} style={{width: "100%"}}>
+                        <Grid>
+                            <textarea
+                                className={classes.areaMsg}
+                                rows="10"
+                                onChange={handleChangeComment}
+                                value={comment}
+                                maxLength="1000"
+                            />
+                        </Grid>
+                        <Grid style={{width: "100%", textAlign: "center"}} item className="comment">
                             {/*<input className={classes.formControl} placeholder="نام و نام خانوادگی" type="text"/>*/}
                             {/*<input className={classes.formControl} placeholder="ایمیل" type="text"/>*/}
                             <ThemeProvider theme={theme}>
@@ -338,7 +351,7 @@ export default function ArticleDetail(props) {
                                             <Typography className={classes.userStyle} >{item.teacher_FullName}</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography style={{color: "rgb(190,190,190)", fontSize: "12px"}}>{convertToPersian((item.article_DateTime).substr(0,10))}</Typography>
+                                            <Typography style={{color: "rgb(190,190,190)", fontSize: "12px", fontWeight: 700}}>{convertToPersian((item.article_DateTime).substr(0,10))}</Typography>
                                         </Grid>
                                         <Grid item>
                                             <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>

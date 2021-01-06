@@ -142,7 +142,7 @@ const NewsList = () => {
                                                         <Typography className={classes.userStyle} >{item.fullName}</Typography>
                                                     </Grid>
                                                     <Grid item>
-                                                        <Typography style={{color: "rgb(190,190,190)", fontSize: "12px"}}
+                                                        <Typography style={{color: "rgb(190,190,190)", fontSize: "12px", fontWeight: 700}}
                                                         >
                                                             {
                                                                 convertToPersian(moment((item.news_DateTime).substr(0,10), "DD-MM-YYYY").format("jYYYY/jMM/jDD"))

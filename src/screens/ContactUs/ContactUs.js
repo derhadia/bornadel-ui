@@ -4,6 +4,7 @@ import useStyle from "../../hadi";
 import MapContact from "./mapComponent/MapContact";
 import {fetchPost} from "../../config/Utils";
 import Api from "../../constants/Api";
+import toastr from "toastr"
 
 
 const ContactUs = () => {
@@ -12,22 +13,29 @@ const ContactUs = () => {
     const [tell, setTell] = useState("");
     const [subject, setSubject] = useState("");
     const [msg, setMsg] = useState("");
+    const [err, setErr] = useState("")
 
     const classes = useStyle();
 
     const handleName = event => setName(event.target.value);
 
-    const handleEmail = event => {
-        setEmail(event.target.value)
-    };
+    const handleEmail = event => setEmail(event.target.value);
 
     const handleSubject = event => setSubject(event.target.value);
 
-    const handleTell = event => setTell(event.target.value);
+    const handleTell = event => {
+        let reg = /^[0-9\b]+$/;
+        let val = event.target.value;
+        if (reg.test(val) || val === "") {
+            setTell(val)
+        }
+    };
 
     const handleMsg = event => setMsg(event.target.value);
 
     const handleSubmit = event => {
+        let regX = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+        let errMsg;
         event.preventDefault();
         const body = {
             "contactUs_ID": 0,
@@ -40,7 +48,22 @@ const ContactUs = () => {
             "contactUs_ArchiveAspNetUsers_Ref": 0
         }
 
-        fetchPost(Api.SendDataContact, body).then(res => console.log(res))
+        if (!subject || subject === "") {
+            errMsg = <span style={{color: "red", fontSize: "14px"}}>موضوع را وارد کنید</span>
+        }
+        if (!name) {
+            errMsg = <span style={{color: "red", fontSize: "14px"}}>نام و نام خانوادگی خود را وارد کنید</span>
+        }
+        if (email.length > 0 && !regX.test(email)) {
+            errMsg = <span style={{color: "red", fontSize: "14px"}}>ادرس پست الکترونیکی خود را به صورت صحیح وارد کنید</span>
+        }
+        if (tell.length > 0 && tell.length < 11) {
+            errMsg = <span style={{color: "red", fontSize: "14px"}}>شماره تلفن خود را به صورت صحیح وارد کنید</span>
+        }
+        setErr(errMsg)
+        if (!errMsg){
+            fetchPost(Api.SendDataContact, body).then(res => toastr.success(res.responseJSON.message))
+        }
     }
 
     return (
@@ -61,7 +84,7 @@ const ContactUs = () => {
                 <Grid style={{marginBottom: 110}} item xl={6} lg={6} md={6} sm={12} xs={12}>
                     <MapContact />
                 </Grid>
-                <Grid style={{width: 610, margin: "0 auto"}}>
+                <Grid style={{width: "90%", margin: "0 auto"}}>
                     <Divider />
                 </Grid>
                 <br/>
@@ -86,35 +109,51 @@ const ContactUs = () => {
                     <Grid container>
                         <form onSubmit={handleSubmit} className={classes.formContact}>
                             <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
-                                <label className={classes.labelContact} htmlFor="موضوع">موضوع</label>
+                                <label
+                                    className={classes.labelContact}
+                                    htmlFor="موضوع"
+                                >
+                                    موضوع
+                                </label>
                                 <input
                                     className={classes.inputContact}
                                     value={subject}
                                     onChange={handleSubject}
                                     type="text"
                                     name="موضوع"
-                                    required
+                                    maxLength="500"
                                 />
                             </Grid>
                             <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
-                                <label className={classes.labelContact} htmlFor="نام نام خانوادگی">نام نام خانوادگی</label>
+                                <label
+                                    className={classes.labelContact}
+                                    htmlFor="نام نام خانوادگی"
+                                >
+                                    نام نام خانوادگی
+                                </label>
                                 <input
                                     className={classes.inputContact}
                                     type="text"
                                     name="نام نام خانوادگی"
                                     value={name}
                                     onChange={handleName}
-                                    required
+                                    maxLength="100"
                                 />
                             </Grid>
                             <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
-                                <label className={classes.labelContact} htmlFor="ایمیل">ایمیل</label>
+                                <label
+                                    className={classes.labelContact}
+                                    htmlFor="ایمیل"
+                                >
+                                    ایمیل
+                                </label>
                                 <input
                                     className={classes.inputContact}
                                     value={email}
                                     onChange={handleEmail}
                                     type="text"
                                     name="ایمیل"
+                                    maxLength="100"
                                 />
                             </Grid>
                             <Grid item xl={6} lg={6} md={6} sm={6} xs={12}>
@@ -125,6 +164,7 @@ const ContactUs = () => {
                                     onChange={handleTell}
                                     type="text"
                                     name="شماره تماس"
+                                    maxLength="11"
                                 />
                             </Grid>
                             <Grid item xl={12} md={12} lg={12} xs={12} sm={12}>
@@ -135,7 +175,11 @@ const ContactUs = () => {
                                     onChange={handleMsg}
                                     name="متن پیام"
                                     rows={10}
+                                    maxLength="1000"
                                 />
+                            </Grid>
+                            <Grid style={{width: "100%", textAlign: "center", height: "30px"}}>
+                                {err}
                             </Grid>
                             <Grid style={{textAlign: "right", width: "98%"}}>
                                 <Button

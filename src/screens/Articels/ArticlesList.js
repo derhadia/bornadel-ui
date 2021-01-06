@@ -158,7 +158,7 @@ const ArticlesList = () => {
                                 item
                                 justify="center"
                                 className={classes.filterButtonContainer}
-                                style={{ position: fixed ? "static" : "fixed", top: "auto", bottom: 15 }}
+                                style={{ position: fixed ? "static" : "sticky", top: "auto", bottom: 15 }}
                             >
                                 <ThemeProvider theme={theme}>
                                     <Button

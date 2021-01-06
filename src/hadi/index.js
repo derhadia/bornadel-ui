@@ -197,10 +197,11 @@ const useStyle = makeStyles((theme) => ({
         }
     },
     tinyCircle: {
-        width: "27px",
-        height: "27px",
+        width: 40,
+        height: 40,
         display: "inline-block",
-        borderRadius: "50px"
+        borderRadius: "50px",
+        marginRight: 5
     },
     lineSpan: {
         borderLeft: "1px solid #dcdcdc",
@@ -275,14 +276,13 @@ const useStyle = makeStyles((theme) => ({
     filterButton: {
         backgroundColor: "#2ec88c",
         color: "#fff",
-        width: "80%",
+        width: "90%",
         height: "100%",
         "&:hover": {
             backgroundColor: "#2ec88c !important"
         }
     },
     filterButtonContainer: {
-        width: 191,
         height: 35,
         borderRadius: 4,
         marginTop: 20,
@@ -757,6 +757,7 @@ const useStyle = makeStyles((theme) => ({
         borderRadius: 8,
         width: "96%",
         height: 56,
+        fontSize: 14,
     },
     formContact: {
         width: "100%",
@@ -785,7 +786,8 @@ const useStyle = makeStyles((theme) => ({
         width: "100%",
         border: "none",
         borderRadius: 8,
-        boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)"
+        boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)",
+        outline: "none"
     }
 
 }))

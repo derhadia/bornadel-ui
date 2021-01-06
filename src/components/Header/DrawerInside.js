@@ -24,12 +24,20 @@ export default function DrawerInside() {
             <Collapse in={classListCollaps}>
                 <ClassListDrawer />
             </Collapse>
-            <Grid container alignItems="center" item className={`${classes.Mobilearticles} ${classes.MobileHeaderMenu}`}>مقالات</Grid>
-            <Grid container alignItems="center" item className={`${classes.Mobilenews} ${classes.MobileHeaderMenu}`}>اخبار</Grid>
+            <Grid container alignItems="center" item className={`${classes.Mobilearticles} ${classes.MobileHeaderMenu}`}>
+                <Link style={{color: "inherit"}} to="/ArticleList">مقالات</Link>
+            </Grid>
+            <Grid container alignItems="center" item className={`${classes.Mobilenews} ${classes.MobileHeaderMenu}`}>
+                <Link style={{color: "inherit"}} to="/NewsList">اخبار</Link>
+            </Grid>
             <Grid container alignItems="center" item className={`${classes.Mobileprovision} ${classes.MobileHeaderMenu}`}>قوانین سایت</Grid>
             <Grid container alignItems="center" item className={`${classes.MobilecommonQuestion} ${classes.MobileHeaderMenu}`}>سوالات متداول</Grid>
-            <Grid container alignItems="center" item className={`${classes.MobileAboutUs} ${classes.MobileHeaderMenu}`}>درباره ما</Grid>
-            <Grid container alignItems="center" item className={`${classes.MobilecontactUs} ${classes.MobileHeaderMenu}`}>تماس باما</Grid>
+            <Grid container alignItems="center" item className={`${classes.MobileAboutUs} ${classes.MobileHeaderMenu}`}>
+                <Link style={{color: "inherit"}} to="/About">درباره ما</Link>
+            </Grid>
+            <Grid container alignItems="center" item className={`${classes.MobilecontactUs} ${classes.MobileHeaderMenu}`}>
+                <Link style={{color: "inherit"}} to="ContactUs">تماس باما</Link>
+            </Grid>
         </Grid >
     )
 }
