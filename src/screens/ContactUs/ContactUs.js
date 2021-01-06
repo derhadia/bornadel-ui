@@ -50,15 +50,19 @@ const ContactUs = () => {
 
         if (!subject || subject === "") {
             errMsg = <span style={{color: "red", fontSize: "14px"}}>موضوع را وارد کنید</span>
+            toastr.error("موضوع را وارد کنید")
         }
         if (!name) {
             errMsg = <span style={{color: "red", fontSize: "14px"}}>نام و نام خانوادگی خود را وارد کنید</span>
+            toastr.error("نام و نام خانوادگی خود را وارد کنید")
         }
         if (email.length > 0 && !regX.test(email)) {
             errMsg = <span style={{color: "red", fontSize: "14px"}}>ادرس پست الکترونیکی خود را به صورت صحیح وارد کنید</span>
+            toastr.error("ادرس پست الکترونیکی خود را به صورت صحیح وارد کنید")
         }
         if (tell.length > 0 && tell.length < 11) {
             errMsg = <span style={{color: "red", fontSize: "14px"}}>شماره تلفن خود را به صورت صحیح وارد کنید</span>
+            toastr.error("شماره تلفن خود را به صورت صحیح وارد کنید")
         }
         setErr(errMsg)
         if (!errMsg){
@@ -186,9 +190,6 @@ const ContactUs = () => {
                                     rows={10}
                                     maxLength="1000"
                                 />
-                            </Grid>
-                            <Grid style={{width: "100%", textAlign: "center", height: "30px"}}>
-                                {err}
                             </Grid>
                             <Grid style={{textAlign: "right", width: "98%"}}>
                                 <Button

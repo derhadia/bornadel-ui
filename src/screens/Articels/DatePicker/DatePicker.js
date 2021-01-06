@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-// import {DateInput} from 'react-hichestan-datetimepicker';
+import {DateInput} from 'react-hichestan-datetimepicker';
 import {ArticlesContext} from "../../../contexts/ArticlesContext";
 import "../../../hadi/style.css"
 
@@ -10,7 +10,7 @@ const DatePicker = () => {
 
     return (
         <>
-            {/* <DateInput
+            <DateInput
                 value={item.fromDate}
                 defaultValue={undefined}
                 name={'fromDate'}
@@ -24,7 +24,7 @@ const DatePicker = () => {
                 name={'toDate'}
                 onChange={handleChangeDate}
                 style={{textAlign: 'right'}}
-                placeholder=" تا تاریخ" /> */}
+                placeholder=" تا تاریخ" />
         </>
     );
 
