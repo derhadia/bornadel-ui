@@ -62,7 +62,16 @@ const ContactUs = () => {
         }
         setErr(errMsg)
         if (!errMsg){
-            fetchPost(Api.SendDataContact, body).then(res => toastr.success(res.responseJSON.message))
+            fetchPost(Api.SendDataContact, body).then(res => {
+                if (res.data !== null) {
+                    toastr.success(res.responseJSON.message)
+                    setEmail("")
+                    setTell("")
+                    setName("")
+                    setMsg("")
+                    setSubject("")
+                }
+            })
         }
     };
 
