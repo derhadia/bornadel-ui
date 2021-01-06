@@ -64,7 +64,7 @@ const ContactUs = () => {
         if (!errMsg){
             fetchPost(Api.SendDataContact, body).then(res => toastr.success(res.responseJSON.message))
         }
-    }
+    };
 
     return (
         <Grid container className={classes.ArticlesContainer}>
