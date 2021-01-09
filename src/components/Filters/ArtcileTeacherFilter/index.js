@@ -8,7 +8,7 @@ export default function TeacherFilter() {
     let { teacher2, filteTeacher, setFilterTeacher, selectTH } = useContext(ArticlesContext)
 
     return (
-        <Grid item className={classes.teacherFilter}>
+        <Grid item className={classes.teacherFilter} style={{height: "unset"}}>
             <Typography className={classes.teacherFilterTitle}>تهیه کننده</Typography>
             <Grid item container wrap="nowrap" className={classes.inputGrid2}>
                 <Grid item className={classes.searchiconFilter}>
@@ -23,7 +23,13 @@ export default function TeacherFilter() {
                        }}
                 />
             </Grid>
-            <Grid container item direction="column" className={`${classes.teacherFilterBox} CustomScroll`}>
+            <Grid
+                container
+                item
+                direction="column"
+                className={`${classes.teacherFilterBox} CustomScroll`}
+                style={{maxHeight: "unset"}}
+            >
                 {filteTeacher && filteTeacher.length > 0 ? filteTeacher.map((data, index) => {
                     return (
                         <Grid key={index} item container className={classes.FormControllContainer} >

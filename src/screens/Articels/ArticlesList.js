@@ -105,7 +105,7 @@ const ArticlesList = () => {
             .then(({responseJSON, status}) => {
             setData(responseJSON.data)
         });
-    },[activeClass, ids, item.fromDate, selectedTeacher, setData, state.toDate])
+    },[activeClass, ids, item.fromDateFormatted, selectedTeacher, setData, state.toDateFormatted])
 
     const handleWindowSize = () => setWidth(window.innerWidth);
 
@@ -158,7 +158,7 @@ const ArticlesList = () => {
                                 item
                                 justify="center"
                                 className={classes.filterButtonContainer}
-                                style={{ position: fixed ? "static" : "fixed", top: "auto", bottom: 15 }}
+                                style={{ position: fixed ? "static" : "sticky", top: "auto", bottom: 15 }}
                             >
                                 <ThemeProvider theme={theme}>
                                     <Button
