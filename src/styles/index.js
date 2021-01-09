@@ -449,6 +449,7 @@ const useStyles = makeStyles((theme) => ({
     provision: {
         cursor: "pointer",
         padding: "0 15px",
+        color:"#000000",
         "&::before": {
             content: `''`,
             width: 20,
@@ -502,6 +503,7 @@ const useStyles = makeStyles((theme) => ({
     commonQuestion: {
         cursor: "pointer",
         padding: "0 15px",
+        color :"#000000",
         "&::before": {
             content: `''`,
             width: 21,

@@ -55,21 +55,21 @@ const RegisterComponent = (props) => {
             captcha: parseInt(state.captcha)
         }
         if (parseInt(state.captcha) === state.answer) {
-            fetchPost(Api.RegisterUser, command).then(response => {
-                let res = response.responseJSON;
-                if (response.success) {
-                    if (res.isSuccess) {
-                        setRegisterCard("securityCode");
-                        toastr.success(res.data);
-                    } else {
-                        toastr.error(res.message);
-                    }
+        fetchPost(Api.RegisterUser, command).then(response => {
+            let res = response.responseJSON;
+            if (response.success) {
+                if (res.isSuccess) {
+                    setRegisterCard("securityCode");
+                    toastr.success(res.data);
+                } else {
+                    toastr.error(res.message);
                 }
-            });
-        } else {
-            toastr.error("جواب صحیح نمی باشد");
-            setState(prevState => ({ ...prevState, captcha: '' }));
-            getCaptcha();
+            }
+        });
+    } else {
+        toastr.error("جواب صحیح نمی باشد");
+        setState(prevState => ({ ...prevState, captcha: '' }));
+        getCaptcha();
         }
     }
     const securityCodeFunc = (e) => {
@@ -114,10 +114,10 @@ const RegisterComponent = (props) => {
             if (response.success) {
                 let res = response.responseJSON;
                 if (res.isSuccess) {
-                    if (localStorage.getItem("userInfo")) {
+                    if(localStorage.getItem("userInfo")){
                         let userInfo = JSON.parse(localStorage.getItem("userInfo"))
                         userInfo.userType = userRoles[state.userType];
-                        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+                        localStorage.setItem("userInfo" , JSON.stringify(userInfo));
                     }
                     window.location.href = '/AcademyPanel';
                 } else {

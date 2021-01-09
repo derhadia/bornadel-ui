@@ -7,6 +7,9 @@ import AcademyPanel from '../screens/AcademyPanel'
 
 import LoginComponent from '../khosravi/js/LoginComponent'
 import RegisterComponent from '../khosravi/js/RegisterComponent'
+import ProvisionComponent from '../khosravi/js/ProvisionComponent'
+import CommonQuestionComponent from '../khosravi/js/CommonQuestionComponent'
+
 
 
 import ArticlesList from "../screens/Articels/ArticlesList";
@@ -33,6 +36,8 @@ export default function Index() {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={LoginComponent} />
             <Route path="/register" component={RegisterComponent} />
+            <Route path="/provision" component={ProvisionComponent} />
+            <Route path="/commonquestion" component={CommonQuestionComponent} />
             <Route path="/Courses/:id/:title/:type" component={Courses} />
             <Route path="/Courses/:id" component={Courses} />
             <Route path="/CourseDetail/:id/:title" component={CourseDetail} />

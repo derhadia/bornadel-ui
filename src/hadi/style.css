@@ -25,8 +25,11 @@
     margin: unset !important;
 }
 
+/* استایل ها نباید به این صورت تعریف شود چون روی باقی استایل ها تاثیر می گذارد 
+این مورد خیلی دقت شود */
 .MuiAccordionSummary-expandIcon .MuiSvgIcon-root {
-    color: #2fc98e
+    color: #2fc98e 
+
 }
 
 .MuiAccordionSummary-root.Mui-expanded {

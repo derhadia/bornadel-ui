@@ -2,6 +2,8 @@ import React, { useContext,useEffect } from 'react'
 import { MasteLayoutContext } from '../../contexts/MasteLayoutContext'
 import useStyles from '../../styles'
 import { Grid } from '@material-ui/core'
+import { Link } from 'react-router-dom'
+
 
 export default function Navbar() {
     const classes = useStyles();
@@ -37,15 +39,20 @@ export default function Navbar() {
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
                 >مقالات</Grid>
+               
                 <Grid item className={`${classes.news} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
                 >اخبار</Grid>
+                
                 <Grid item className={`${classes.provision} ${classes.headerMenu}`}
+                     component={Link} to="/provision"
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
                 >قوانین سایت</Grid>
+                
                 <Grid item className={`${classes.commonQuestion} ${classes.headerMenu}`}
+                component={Link} to="/commonquestion"
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
                 >سوالات متداول</Grid>

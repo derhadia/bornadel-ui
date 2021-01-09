@@ -35,5 +35,6 @@ export default {
     ForgetPassword:`${BaseUrl}Users/ForgetPassword`,
     SetUserRole:`${BaseUrl}Users/SetUserRole`,
     GetCaptcha:`${BaseUrl}Users/GetCaptcha`,
-    GetAllQuestion: `${BaseUrl}Question/GetAll`,
+    GetAllProvision:`${BaseUrl}Provision/GetAll`,
+    GetAllCommonQuestion:`${BaseUrl}CommonQuestion/GetAll`
 }

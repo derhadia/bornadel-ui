@@ -240,6 +240,7 @@ a:not([href]):not([class]) {
 }
 
 a:hover {
+  color:black;
   text-decoration: none;
 }
 
