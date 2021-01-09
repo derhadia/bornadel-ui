@@ -14,12 +14,11 @@ import x1 from '../../assets/images/1x.jpg'
 import x2 from '../../assets/images/2x.jpg'
 import x3 from '../../assets/images/3x.jpg'
 import comersial from '../../assets/images/comersial.jpg'
-import {Link} from "react-router-dom";
 
 
 
 
-export default function HomeDesk() {
+export default function Home() {
     const classes = useStyles();
     let { news, articles } = useContext(HomePageContext)
     const [BannerContainerHeight, setBannerContainerHeight] = useState(0)
@@ -32,11 +31,11 @@ export default function HomeDesk() {
         setBannerContainerWidth(BannerContainer.offsetWidth)
         setImageWidth(ImageWidthState.offsetWidth)
     }, [])
-
+    
 
 
     return (
-        <>
+        < >
             <Grid container justify="center">
                 <Grid container justify="center" className={classes.banneImages}>
                     <Grid item xs={3} container direction="column" justify="space-between" className={classes.ImagesIntopHome}
@@ -152,12 +151,10 @@ export default function HomeDesk() {
                         <Grid item xs={12} container direction="column" className={classes.ArticleContainer}>
                             <Grid container justify="space-between" item className={classes.ArticleHeader}>
                                 <Typography className={classes.ArticleHeaderText}>مقالات</Typography>
-                                <Link to="/ArticleList">
-                                    <Typography className={classes.ArticleHeaderText2}>همه
-                                        <span className={classes.articleNewsArrow} />
-                                        <span className={classes.articleNewsArrow} />
-                                    </Typography>
-                                </Link>
+                                <Typography className={classes.ArticleHeaderText2}>همه
+                            <span className={classes.articleNewsArrow} />
+                                    <span className={classes.articleNewsArrow} />
+                                </Typography>
                             </Grid>
                             <Grid container direction="column" justify="space-between" item className={classes.ArticleNewsContainer} >
                                 {
@@ -171,24 +168,9 @@ export default function HomeDesk() {
                                                     <img src={Apis.SHOWIMAGE + item.article_PhotoLink} style={{ display: "block", height: "100%", objectFit: "cover", width: "100%", }} />
                                                 </Grid>
                                                 <Grid  item className={classes.ArticleLeft}>
-                                                    <Link
-                                                        style={{color: "inherit"}}
-                                                        to={{
-                                                            pathname: `ArticleDetail/${item.article_ID}`,
-                                                            state: {item}
-                                                        }}
-                                                    >
-                                                        <Grid item className={classes.ArticleTitle}>{item.article_Title}</Grid>
-                                                        <Grid container><Typography className={classes.ArticleTextField}>{item.article_Summary}</Typography></Grid>
-                                                        <Grid container justify="flex-end">
-                                                            <Typography className={classes.ReadMore} >
-
-                                                                    ادامه مطلب
-                                                                    <span className={classes.threeArrow}></span>
-
-                                                            </Typography>
-                                                        </Grid>
-                                                    </Link>
+                                                    <Grid item className={classes.ArticleTitle}>{item.article_Title}</Grid>
+                                                    <Grid container><Typography className={classes.ArticleTextField}>{item.article_Summary}</Typography></Grid>
+                                                    <Grid container justify="flex-end"><Typography className={classes.ReadMore} >ادامه مطلب <span className={classes.threeArrow}></span></Typography></Grid>
                                                 </Grid>
                                             </Grid>
                                         )
