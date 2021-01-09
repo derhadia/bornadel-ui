@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from '../screens/Home/Home'
+import Home from '../screens/Home'
 import Courses from '../screens/Courses/Courses'
 import CourseDetail from '../screens/CourseDetail'
 import AcademyPanel from '../screens/AcademyPanel'
@@ -15,6 +15,9 @@ import CommonQuestionComponent from '../khosravi/js/CommonQuestionComponent'
 import ArticlesList from "../screens/Articels/ArticlesList";
 import ArticleDetail from "../screens/ArticleDetails";
 import NewsList from "../screens/NewsList";
+import NewsDetail from "../screens/NewsDetail";
+import About from "../screens/About/About";
+import ContactUs from "../screens/ContactUs/ContactUs";
 
 export default function Index() {
 
@@ -45,6 +48,9 @@ export default function Index() {
             <Route path="/ArticleList" component={ArticlesList} />
             <Route path="/ArticleDetail/:id" component={ArticleDetail} />
             <Route path="/NewsList" component={NewsList} />
+            <Route path="/NewsDetail/:id" component={NewsDetail} />
+            <Route path="/About" component={About} />
+            <Route path="/ContactUs" component={ContactUs} />
         </Switch>
     )
 }

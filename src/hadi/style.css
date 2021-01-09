@@ -255,3 +255,17 @@
 .MuiDrawer-paper::-webkit-scrollbar {
     width: 5px !important;
 }
+
+.newsNew {
+    height: 20px;
+    margin: 37px 13px 24px 44px;
+    padding: 4px 21px 5px 17px;
+    border-radius: 10px;
+    background-color: #646464;
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -29,6 +29,12 @@ export default {
     Get_Get5PreviouseTeacherClassRoom: BaseUrl + "ClassRoom/Get5PreviouseTeacherClassRoom",
     Get_GetSimilarClassRooms: BaseUrl + "ClassRoom/GetSimilarClassRooms",
     Get_ArticleGetAllWithFilters: BaseUrl + "Article/GetAllWithFilters",
+    Get_TeacherGetAll:BaseUrl+"Teacher/GetAll",
+    Get_TeacherDiplomaGetAll:BaseUrl+"TeacherDiploma/GetAll",
+    Get_TeacherDocGetAll:BaseUrl+"TeacherDoc/GetAll",
+    Get_AcademyGetAll:BaseUrl+"Academy/GetAll",
+    Get_QuestionGetAll:BaseUrl+"Question/GetAll",
+    Get_ClassRoomDoc:BaseUrl+"ClassRoomDoc/GetAll",
     RegisterUser : `${BaseUrl}Users/RegisterUser`,
     Login: `${BaseUrl}Users/Login`,
     ConfirmMobileOrEmail:`${BaseUrl}Users/ConfirmMobileOrEmail`,
@@ -36,5 +42,9 @@ export default {
     SetUserRole:`${BaseUrl}Users/SetUserRole`,
     GetCaptcha:`${BaseUrl}Users/GetCaptcha`,
     GetAllProvision:`${BaseUrl}Provision/GetAll`,
-    GetAllCommonQuestion:`${BaseUrl}CommonQuestion/GetAll`
+    GetAllCommonQuestion:`${BaseUrl}CommonQuestion/GetAll`,
+    GetAllQuestion: `${BaseUrl}Question/GetAll`,
+    GetAllNews: `${BaseUrl}News/GetAll`,
+    GetAllNewsWithSorting: `${BaseUrl}News/GetAllNewsWithSorting`,
+    SendDataContact: `${BaseUrl}ContactUs/Insert`
 }

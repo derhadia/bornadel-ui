@@ -2,8 +2,7 @@ import React, { useContext,useEffect } from 'react'
 import { MasteLayoutContext } from '../../contexts/MasteLayoutContext'
 import useStyles from '../../styles'
 import { Grid } from '@material-ui/core'
-import { Link } from 'react-router-dom'
-
+import {Link} from "react-router-dom";
 
 export default function Navbar() {
     const classes = useStyles();
@@ -38,13 +37,19 @@ export default function Navbar() {
                 <Grid item className={`${classes.articles} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
-                >مقالات</Grid>
-               
+                >
+                    <Link style={{color: "inherit"}} to="/ArticleList">
+                        مقالات
+                    </Link>
+                </Grid>
                 <Grid item className={`${classes.news} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
-                >اخبار</Grid>
-                
+                >
+                    <Link style={{color: "inherit"}} to="/NewsList">
+                        اخبار
+                    </Link>
+                </Grid>
                 <Grid item className={`${classes.provision} ${classes.headerMenu}`}
                      component={Link} to="/provision"
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
@@ -59,11 +64,19 @@ export default function Navbar() {
                 <Grid item className={`${classes.AboutUs} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={(e) => HandleUndeLineExit()}
-                >درباره ما</Grid>
+                >
+                    <Link style={{color: "inherit"}} to="/About">
+                        درباره ما
+                    </Link>
+                </Grid>
                 <Grid item className={`${classes.contactUs} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
-                >تماس باما</Grid>
+                >
+                    <Link style={{color: "inherit"}} to="/ContactUs">
+                        تماس باما
+                    </Link>
+                </Grid>
             </Grid>
         </Grid>
     )

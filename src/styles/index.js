@@ -971,11 +971,39 @@ const useStyles = makeStyles((theme) => ({
     ImagesIntopHome: {
         paddingLeft: 10
     },
+    homeMobileContainer:{
+        backgroundColor:"#fafafa"
+    },
+    bannerTopMobile:{
+        marginBottom:15
+    },
+    homeMobileHeader:{
+        backgroundColor:"#fff",
+        padding:"5px",
+        fontSize:13,
+        color:"#999999"
+    },
+    SearchMobileContainer:{
+        padding:"10px"
+    },
     BannerContainer: {
         paddingRight: 10,
         paddingLeft: 15,
         // width: window.innerWidth > 1676 ? 1376 : `calc(${window.innerWidth}px - 300px)`,
         height: window.innerHeight - 180
+    },
+    homeMobileImageBox:{
+        padding:"10px",
+        display:"flex",
+        justifyContent:"center",
+        flexDirection:"column"
+    },
+    threeImageBox:{
+        padding:"10px 15px"
+    },
+    imageRectBoxMobile:{
+        backgroundColor:"#f00",
+        borderRadius:10
     },
     education1: {
         position: "relative",
@@ -1034,6 +1062,30 @@ const useStyles = makeStyles((theme) => ({
         left: "10%",
         backgroundImage: `url(${Icons})`,
     },
+    educationButtonMobile1: {
+        borderRadius: 6,
+        width:"75%",
+        marginTop:15,
+        backgroundColor: "#0665b8",
+        position: "relative",
+        backgroundImage: `url(${Icons})`,
+    },
+    educationButtonMobile2: {
+        borderRadius: 6,
+        width:"75%",
+        marginTop:15,
+        backgroundColor: "#281b7d",
+        position: "relative",
+        backgroundImage: `url(${Icons})`,
+    },
+    educationButtonMobile3:{
+        borderRadius: 6,
+        width:"75%",
+        marginTop:15,
+        backgroundColor: "#6e3109",
+        position: "relative",
+        backgroundImage: `url(${Icons})`,
+    },
     educationButtonIcon1: {
         display: "inline-block",
         width: 10,
@@ -1061,6 +1113,16 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: `url(${Icons})`,
         backgroundSize: 725,
         backgroundPosition: "80px -680px",
+        position: "absolute",
+        right: 10
+    },
+    educationButtonMobileIcon: {
+        display: "inline-block",
+        width: 10,
+        height: 15,
+        backgroundImage: `url(${Icons})`,
+        backgroundSize: 725,
+        backgroundPosition: "-646px -78px",
         position: "absolute",
         right: 10
     },
