@@ -14,7 +14,7 @@ import x1 from '../../assets/images/1x.jpg'
 import x2 from '../../assets/images/2x.jpg'
 import x3 from '../../assets/images/3x.jpg'
 import comersial from '../../assets/images/comersial.jpg'
-
+//قثظش
 
 
 
