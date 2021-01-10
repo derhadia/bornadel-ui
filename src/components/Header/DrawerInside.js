@@ -43,8 +43,26 @@ export default function DrawerInside() {
                     اخبار
                 </Link>
             </Grid>
-            <Grid container alignItems="center" item className={`${classes.Mobileprovision} ${classes.MobileHeaderMenu}`}>قوانین سایت</Grid>
-            <Grid container alignItems="center" item className={`${classes.MobilecommonQuestion} ${classes.MobileHeaderMenu}`}>سوالات متداول</Grid>
+            <Grid container alignItems="center" item className={`${classes.Mobileprovision} ${classes.MobileHeaderMenu}`}>
+            <Link
+                    style={{color: "inherit"}}
+                    to="/provision"
+                    onClick={() => setMobileOpen(false)}
+                >
+                    قوانین سایت 
+                </Link>
+                 </Grid>
+
+            <Grid container alignItems="center" item className={`${classes.MobilecommonQuestion} ${classes.MobileHeaderMenu}`}>
+            <Link
+                    style={{color: "inherit"}}
+                    to="/commonquestion"
+                    onClick={() => setMobileOpen(false)}
+                >
+                    سوالات متداول 
+                </Link>
+                 </Grid>
+
             <Grid container alignItems="center" item className={`${classes.MobileAboutUs} ${classes.MobileHeaderMenu}`}>
                 <Link
                     style={{color: "inherit"}}

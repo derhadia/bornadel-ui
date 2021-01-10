@@ -34,13 +34,13 @@ const ProvisionComponent = () => {
 
     return (
         <>
-            <Grid container className="site-rule">
+            <Grid container  className="site-rule">
 
-                <Grid item md={12} className={classes.center}>
+                <Grid item md={12} sm={12} className={classes.center} style={{width:"100%"}}>
                     <h2>قوانین و مقررات سایت </h2><br />
                 </Grid>
 
-                <Grid item md={12} className="center">
+                <Grid item md={12} className="center" style={{width:"100%"}}>
                     <div className="Rectangle-15"></div>
                 </Grid>
 
@@ -55,19 +55,19 @@ const ProvisionComponent = () => {
                 {
                     state.provisionStudents.length > 0 ?
                         <Grid item md={12} className="mt-5">
-                            <Grid container>
+                            <Grid container className={classes.center}>
 
-                                <Grid item md={12} className="center">
+                                <Grid item md={12} className={classes.center}>
                                     <div className="title-role center">
                                         <label>قوانین و مقررات سایت برای دانشجو</label>
                                     </div>
                                 </Grid>
 
 
-                                <Grid item md={12} className="center">
+                                <Grid item md={12} className="center mb-5">
                                     <div className="card-role">
-                                        <Grid container>
-                                            <Grid item md={10}>
+                                        <Grid container className="mehr">
+                                            <Grid item md={10} className="flex-item-left">
                                                 <Grid container>
                                                     {
                                                         state.provisionStudents.map((item, index) => {
@@ -76,17 +76,17 @@ const ProvisionComponent = () => {
                                                                     <Grid item md={12}>
                                                                         <label className="role-title-color">ماده {index + 1} : </label>
                                                                     </Grid>
-                                                                    <Grid item md={12}>
+                                                                    <Grid item md={12} className="pr-2 pl-2" style={{textAlign:"justify"}}>
                                                                         <p>{item.provision_Description}</p>
                                                                     </Grid>
                                                                 </>
                                                             )
                                                         })
                                                     }
-                                                </Grid>
+                                                </Grid> 
                                             </Grid>
 
-                                            <Grid item md={2}>
+                                            <Grid item md={2}  className="flex-item-right">
                                                 <div className="pic"></div>
                                             </Grid>
                                         </Grid>

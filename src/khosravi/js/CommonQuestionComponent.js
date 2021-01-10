@@ -5,6 +5,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import styles from '../jss/question';
+import './provision.css';
 
 import { fetchPost } from '../../config/Utils';
 import Api from '../../constants/Api';
@@ -37,17 +38,19 @@ const CommonQuestionComponent = () => {
 
     return (
         <>
-            <Grid container className={classes.siteRole}>
+            <Grid container className="site-rule">
 
-                <Grid item md={12} className={classes.center}>
-                    <h2>سوالات متداول</h2><br />
+                
+            <Grid item md={12} sm={12} className={classes.center} style={{width:"100%"}}>
+                    <h2>سوالات متداول </h2><br />
                 </Grid>
 
-                <Grid item md={12} className={classes.center}>
-                    <div className={classes.rectangle15}></div>
+
+                <Grid item md={12} className="center" style={{width:"100%"}}>
+                    <div className="Rectangle-15"></div>
                 </Grid>
 
-                <Grid item md={12} className="p-5">
+                <Grid item md={12} className="p-5" style={{margin:"auto" , width:"100%"}}>
                     {
                         questions.map(item => {
                             return (
