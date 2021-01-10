@@ -12,6 +12,13 @@ const commonquestion =  makeStyles((theme) => ({
         justifyContent: "center",
         alignItems: "center"
     },
+    rectangle15: {
+        width: "132px",
+        height:" 1px",
+        margin: "15px 0px 25px 0px" , 
+        backgroundColor: "#a8a8a8"
+      }
+      
 
 }));
 export default commonquestion;

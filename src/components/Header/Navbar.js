@@ -51,16 +51,22 @@ export default function Navbar() {
                     </Link>
                 </Grid>
                 <Grid item className={`${classes.provision} ${classes.headerMenu}`}
-                     component={Link} to="/provision"
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
-                >قوانین سایت</Grid>
+                >  
+                 <Link style={{color: "inherit"}} to="/provision">
+                    قوانین سایت 
+                 </Link> 
+                </Grid>
                 
                 <Grid item className={`${classes.commonQuestion} ${classes.headerMenu}`}
-                component={Link} to="/commonquestion"
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
-                >سوالات متداول</Grid>
+                >
+                    <Link style={{color: "inherit"}} to="/commonquestion">
+                    سوالات متداول  
+                 </Link>  
+                </Grid>
                 <Grid item className={`${classes.AboutUs} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={(e) => HandleUndeLineExit()}

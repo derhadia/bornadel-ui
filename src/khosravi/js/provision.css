@@ -1,5 +1,4 @@
 
-
 .center {
     display: flex;
     justify-content: center;
@@ -10,21 +9,60 @@
     font-size: 26px;
     margin-top: 52px;
 }
-@media(max-width:576px){
-    .site-rule span {
-        font-size: 19px;
-        padding: 3px;
-        text-align: center;
-    }
-}
 .site-rule span {
     font-size: 19px;
     text-align: justify;
     padding: 0px 70px 15px 70px;
 }
+
+  .flex-item-left {
+    flex: 50%;
+  }
+  
+  .flex-item-right {
+    flex: 50%;}
+
+    .mehr {
+        display: flex;
+        flex-direction: row;
+      }
+    
+.title-role{
+    background-color: #898989;
+    border-radius: 24px;
+    height: 49px;
+    width: 424px;
+    color: #ffffff;
+    font-size: 27px;
+    position: absolute;
+}
+
+    @media only screen and (max-width : 767px) {
+        
+    .mehr {
+        flex-direction: column-reverse;
+      }
+    .site-rule span {
+        font-size: 19px;
+        padding: 0px 25px 0px 25px;
+        text-align: justify;
+    }
+    .title-role {
+        background-color: #898989;
+        border-radius: 24px;
+        height: 49px;
+        width: 271px;
+        color: #ffffff;
+        font-size: 17px;
+        position: absolute;
+    }
+   
+}
+
+
 .site-rule p {
     font-size: 19px;
-    padding: 10px 20px 10px 0px;
+    padding: 10px 20px 10px 20px;
     text-align: justify;
 }
 
@@ -34,19 +72,11 @@
 .Rectangle-15 {
     width: 132px;
     height: 1px;
-    margin: 31px 420px 35px 418px;
-    background-color: #a8a8a8;
+    margin: 15px 0px 25px 0px;   
+     background-color: #a8a8a8;
   }
   
-  .title-role{
-      background-color: #898989;
-      border-radius: 24px;
-      height: 49px;
-      width: 424px;
-      color: #ffffff;
-      font-size: 27px;
-      position: absolute;
-  }
+ 
  
 .card-role {
     background-color: #ffffff;
