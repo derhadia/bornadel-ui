@@ -10,9 +10,15 @@
     margin-top: 52px;
 }
 .site-rule span {
-    font-size: 19px;
+    font-size: 15px;
     text-align: justify;
     padding: 0px 70px 15px 70px;
+}
+
+.common-question span {
+    font-size: 15px;
+    text-align: justify;
+    padding: 0px;
 }
 
   .flex-item-left {
@@ -22,7 +28,7 @@
   .flex-item-right {
     flex: 50%;}
 
-    .mehr {
+    .direction-col {
         display: flex;
         flex-direction: row;
       }
@@ -39,11 +45,11 @@
 
     @media only screen and (max-width : 767px) {
         
-    .mehr {
+    .direction-col {
         flex-direction: column-reverse;
       }
     .site-rule span {
-        font-size: 19px;
+        font-size: 15px;
         padding: 0px 25px 0px 25px;
         text-align: justify;
     }
@@ -55,13 +61,12 @@
         color: #ffffff;
         font-size: 17px;
         position: absolute;
-    }
-   
+    } 
 }
 
 
 .site-rule p {
-    font-size: 19px;
+    font-size: 15px;
     padding: 10px 20px 10px 20px;
     text-align: justify;
 }

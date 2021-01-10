@@ -66,16 +66,13 @@ const ProvisionComponent = () => {
 
                                 <Grid item md={12} className="center mb-5">
                                     <div className="card-role">
-                                        <Grid container className="mehr">
+                                        <Grid container className="direction-col">
                                             <Grid item md={10} className="flex-item-left">
                                                 <Grid container>
                                                     {
                                                         state.provisionStudents.map((item, index) => {
                                                             return (
                                                                 <>
-                                                                    <Grid item md={12}>
-                                                                        <label className="role-title-color">ماده {index + 1} : </label>
-                                                                    </Grid>
                                                                     <Grid item md={12} className="pr-2 pl-2" style={{textAlign:"justify"}}>
                                                                         <p>{item.provision_Description}</p>
                                                                     </Grid>
@@ -100,27 +97,24 @@ const ProvisionComponent = () => {
                     state.provisionTeachers.length > 0 ?
 
                         <Grid item md={12} className="mt-5">
-                            <Grid container>
+                            <Grid container className={classes.center}>
 
-                                <Grid item md={12} className="center">
+                                <Grid item md={12} className={classes.center}>
                                     <div className="title-role center">
                                         <label>قوانین و مقررات سایت برای مدرس</label>
                                     </div>
                                 </Grid>
 
 
-                                <Grid item md={12} className="center">
+                                <Grid item md={12} className="center mb-5">
                                     <div className="card-role">
-                                        <Grid container>
-                                            <Grid item md={12}>
+                                        <Grid container className="direction-col">
+                                            <Grid item md={10} className="flex-item-left">
                                                 <Grid container>
                                                     {
                                                         state.provisionTeachers.map((item, index) => {
                                                             return (
                                                                 <>
-                                                                    <Grid item md={12}>
-                                                                        <label className="role-title-color">ماده {index + 1} : </label>
-                                                                    </Grid>
                                                                     <Grid item md={12}>
                                                                         <p>{item.provision_Description}</p>
                                                                     </Grid>
@@ -130,6 +124,11 @@ const ProvisionComponent = () => {
                                                     }
                                                 </Grid>
                                             </Grid>
+
+                                            <Grid item md={2}  className="flex-item-right">
+                                                <div className="pic"></div>
+                                            </Grid>
+
                                         </Grid>
                                     </div>
                                 </Grid>
@@ -139,29 +138,25 @@ const ProvisionComponent = () => {
                 {
                     state.provisionAcademies.length > 0 ?
 
-
                         <Grid item md={12} className="mt-5">
-                            <Grid container>
+                            <Grid container className={classes.center}>
 
-                                <Grid item md={12} className="center">
+                                <Grid item md={12} className={classes.center}>
                                     <div className="title-role center">
                                         <label>قوانین و مقررات سایت برای آموزشگاه</label>
                                     </div>
                                 </Grid>
 
 
-                                <Grid item md={12} className="center">
+                                <Grid item md={12} className="center mb-5">
                                     <div className="card-role">
-                                        <Grid container>
-                                            <Grid item md={12}>
+                                        <Grid container className="direction-col">
+                                            <Grid item md={10} className="flex-item-left">
                                                 <Grid container>
                                                     {
                                                         state.provisionAcademies.map((item, index) => {
                                                             return (
                                                                 <>
-                                                                    <Grid item md={12}>
-                                                                        <label className="role-title-color">ماده {index + 1} : </label>
-                                                                    </Grid>
                                                                     <Grid item md={12}>
                                                                         <p>{item.provision_Description}</p>
                                                                     </Grid>
@@ -171,6 +166,11 @@ const ProvisionComponent = () => {
                                                     }
                                                 </Grid>
                                             </Grid>
+
+                                            <Grid item md={2}  className="flex-item-right">
+                                                <div className="pic"></div>
+                                            </Grid>
+
                                         </Grid>
                                     </div>
                                 </Grid>

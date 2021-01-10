@@ -26,6 +26,7 @@ const styles = makeStyles( (theme) =>(
           accordionSummary :{
             borderRadius: "7px !important" ,
             boxShadow:" 0 0 20.2px 7.8px rgba(0, 0, 0, 0.07) !important",
+            marginTop:"30px"
           }
        
 

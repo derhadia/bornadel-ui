@@ -38,7 +38,7 @@ const CommonQuestionComponent = () => {
 
     return (
         <>
-            <Grid container className="site-rule">
+            <Grid container className="common-question">
 
                 
             <Grid item md={12} sm={12} className={classes.center} style={{width:"100%"}}>
@@ -63,7 +63,7 @@ const CommonQuestionComponent = () => {
                                     >
                                         <Typography className="pr-2">{item.commonQuestion_Question}</Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails>
+                                    <AccordionDetails style={{backgroundColor:"whitesmoke"}}>
                                         <Typography>
                                             {item.commonQuestion_Answer}
                                         </Typography>
