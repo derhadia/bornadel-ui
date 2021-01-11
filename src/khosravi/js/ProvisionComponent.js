@@ -125,7 +125,7 @@ const ProvisionComponent = () => {
                                                 </Grid>
                                             </Grid>
 
-                                            <Grid item md={2}  className="flex-item-right">
+                                            <Grid item md={2}  className="flex-item-right center">
                                                 <div className="pic"></div>
                                             </Grid>
 
@@ -167,7 +167,7 @@ const ProvisionComponent = () => {
                                                 </Grid>
                                             </Grid>
 
-                                            <Grid item md={2}  className="flex-item-right">
+                                            <Grid item md={2}  className="flex-item-right center">
                                                 <div className="pic"></div>
                                             </Grid>
 
