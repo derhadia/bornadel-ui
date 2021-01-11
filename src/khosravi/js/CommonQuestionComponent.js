@@ -40,17 +40,17 @@ const CommonQuestionComponent = () => {
         <>
             <Grid container className="common-question">
 
-                
-            <Grid item md={12} sm={12} className={classes.center} style={{width:"100%"}}>
+
+                <Grid item md={12} sm={12} className={classes.center} style={{ width: "100%" }}>
                     <h2>سوالات متداول </h2><br />
                 </Grid>
 
 
-                <Grid item md={12} className="center" style={{width:"100%"}}>
+                <Grid item md={12} className="center" style={{ width: "100%" }}>
                     <div className="Rectangle-15"></div>
                 </Grid>
 
-                <Grid item md={12} className="p-5" style={{margin:"auto" , width:"100%"}}>
+                <Grid item md={12} className="accordion-style" style={{ margin: "auto", width: "100%" }}>
                     {
                         questions.map(item => {
                             return (
@@ -63,7 +63,7 @@ const CommonQuestionComponent = () => {
                                     >
                                         <Typography className="pr-2">{item.commonQuestion_Question}</Typography>
                                     </AccordionSummary>
-                                    <AccordionDetails style={{backgroundColor:"whitesmoke"}}>
+                                    <AccordionDetails style={{ backgroundColor: "whitesmoke" }}>
                                         <Typography>
                                             {item.commonQuestion_Answer}
                                         </Typography>
