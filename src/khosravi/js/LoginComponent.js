@@ -47,7 +47,9 @@ const LoginComponent = (props) => {
                             userType : res.userType
                         };
                         localStorage.setItem("userInfo" , JSON.stringify(userInfo));
-                        res.userType ? window.location.href = '/AcademyPanel' : setLoginCard("roleUser");
+                        res.userType == 1 ? window.location.href = '/student' : 
+                        window.location.href = '/AcademyPanel'
+                        // setLoginCard("roleUser");
                     } else {
                         toastr.error(res.message);
                         setState(prevState => ({ ...prevState, captcha: '' }));

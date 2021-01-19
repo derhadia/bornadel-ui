@@ -9,6 +9,7 @@ import LoginComponent from '../khosravi/js/LoginComponent'
 import RegisterComponent from '../khosravi/js/RegisterComponent'
 import ProvisionComponent from '../khosravi/js/ProvisionComponent'
 import CommonQuestionComponent from '../khosravi/js/CommonQuestionComponent'
+import Student from '../khosravi/js/Student/StudentComponent'
 
 
 
@@ -18,13 +19,8 @@ import NewsList from "../screens/NewsList";
 import NewsDetail from "../screens/NewsDetail";
 import About from "../screens/About/About";
 import ContactUs from "../screens/ContactUs/ContactUs";
-
 export default function Index() {
 
-    useEffect(() => {
-        console.log("54454445544544554154454545454554555454")
-    })
-     
     return (
         // <ScrollToTop />
         // <Header />
@@ -51,6 +47,7 @@ export default function Index() {
             <Route path="/NewsDetail/:id" component={NewsDetail} />
             <Route path="/About" component={About} />
             <Route path="/ContactUs" component={ContactUs} />
+            <Route path="/student" component={Student} />
         </Switch>
     )
 }
