@@ -40,7 +40,7 @@ export default function SingIN({data: state}) {
                 <Grid container item className={classes.CourseLogoANDregisterButtonContainer}>
                     <Link
                         to={{
-                            pathname: `/Cart`,
+                            pathname: "/Cart",
                             state: {state},
                         }}
                     >
