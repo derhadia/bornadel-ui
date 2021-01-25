@@ -58,7 +58,8 @@ export default function NewsDetail(props) {
             justify="space-between"
             className={classes.ArticlesContainer}
         >
-            <Grid xl={8} lg={8} md={8} sm={12} xs={12} className={classes.ArticlesContainerRight} container item >
+            <Grid xl={8} lg={8} md={8} sm={12} xs={12}
+                  className={classes.ArticlesContainerRight} container item >
                 <Grid
                     item
                     container
@@ -323,7 +324,7 @@ export default function NewsDetail(props) {
                                             <Typography className={classes.userStyle} >{item.fullName}</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography style={{color: "rgb(190,190,190)", fontSize: "12px", fontWeight: 700}}>
+                                            <Typography style={{color: "rgb(120,120,120)", fontSize: "14px", fontWeight: 700}}>
                                                 {
                                                     convertToPersian(moment((item.news_DateTime).substr(0,10), "DD-MM-YYYY").format("jYYYY/jMM/jDD"))
                                                 }

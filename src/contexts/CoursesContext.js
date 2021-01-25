@@ -17,7 +17,9 @@ const CoursesContext = createContext({
     minTime: '',
     setMinTime: () => { },
     maxTime: '',
-    setMaxTime: () => { }
+    setMaxTime: () => { },
+    data: [],
+    setData: () => {}
 })
 export { CoursesContext }
 
@@ -48,6 +50,7 @@ export default function CoursesContextProvider({ children }) {
     const [maxValue, setMaxValue] = useState(100)
     const [nothingMessage, setnothingMessage] = useState(false)
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [data, setData] = useState([])
 
 
 
@@ -143,7 +146,8 @@ export default function CoursesContextProvider({ children }) {
             minTime, setMinTime, maxTime, setMaxTime, academy, setAcademy, filteAcademy, setFilterAcademy,
             selectedAcademy, setSelectedAcademy, checkedReadyClasses, setCheckedReadyClasses, selectLE,
             checkedDegreeSwith, setCheckedDegreeSwith, minValue, maxValue, levelData, selectAC, selectTH,
-            DeleteFilter, setLevelData, setTeacher1, setFilterAcademy, setDataPriceSort, mobileOpen, setMobileOpen
+            DeleteFilter, setLevelData, setTeacher1, setFilterAcademy, setDataPriceSort, mobileOpen, setMobileOpen,
+            data, setData
         }} >
             {children}
         </CoursesContext.Provider>

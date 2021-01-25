@@ -51,7 +51,20 @@ const useStyle = makeStyles((theme) => ({
         display: "block",
         [theme.breakpoints.down("md")]: {
             top: 356
+        },
+        [theme.breakpoints.down("xs")]: {
+            width: 80,
+            height: 80
         }
+    },
+    cirRect: {
+        width: 58,
+        height: 58,
+        margin: "0 5px 4px",
+        backgroundColor: "red",
+        borderRadius: "50%",
+        position: "absolute",
+        top: 53,
     },
     coursesIconCicle: {
         width: "100%",
@@ -352,7 +365,168 @@ const useStyle = makeStyles((theme) => ({
         flexDirection: "row-reverse",
         justifyContent: "flex-end"
     },
+    successMsg: {
+        fontSize: 29,
+        color: "#018d04",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 20
+        }
+    },
+    titleSuccess: {
+        fontSize: 22,
+        color: "#555555",
+        marginTop: 62,
+        marginBottom: 40,
+        textAlign: "left",
+        [theme.breakpoints.down("sm")]: {
+            textAlign: "center",
+            margin: "40px auto",
+            backgroundColor: "#555555",
+            color: "white",
+            borderRadius: "25px",
+            fontSize: 18,
+            width: "fitContent",
+            padding: "0 7px"
+        }
+    },
+    errorMsg: {
+        fontSize: 29,
+        color: "#ff0000",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 20
+        }
+    },
 
+    coursesComponentDetailItem: {
+        // width: 152,
+        margin: "0 auto",
+        padding: "7px 7px 5px",
+        borderRadius: 10,
+        boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.41)",
+        backgroundColor: "#ffffff",
+   },
+    coursesComponentContainer: {
+        padding: "0 0 12px",
+    },
+    coursesRect: {
+        // width: 138,
+        height: 83,
+        margin: "0 0 36px",
+        // padding: "6px 34px 40px 33px",
+        borderRadius: 10,
+        border: "solid 2px #c59428",
+        position: "relative",
+        display: "flex",
+        justifyContent: "center"
+    },
+    CoursesDetail: {
+        // border: "1px solid #d7d7d7",
+        borderTop: "none",
+        position: "relative",
+        height: "70%",
+        backgroundColor: "#fff",
+        borderBottomRightRadius: 6,
+        borderBottomLeftRadius: 6,
+    },
+    coursesText: {
+        textAlign: "center !important",
+        // marginTop: 37,
+        // fontFamily: "Swiss721BT",
+        fontWeight: 900,
+        fontSize: 14,
+        color: "#000000ab"
+    },
+    circleinRectContainer: {
+        width: 63,
+        height: 62,
+        margin: "0 3px 4px",
+        backgroundColor: "#fff",
+        borderRadius: "50%",
+        position: "absolute",
+        top: 50,
+        border: "2px solid #c59428",
+        clipPath: "Polygon(0% 0%,100% 0%,100% 50% ,0% 50%)",
+    },
+    circleinRect: {
+        width: "100%",
+        height: "100%",
+        backgroundColor: "red",
+        borderRadius: "50%",
+        position: "relative",
+    },
+    coursesIcon: {
+        width: 30,
+        height: 30,
+        position: "relative",
+        margin: "auto",
+        bottom: 210
+    },
+    Coursesteacher: {
+      margin: "0 auto"
+    },
+    CoursesTitle: {
+        fontFamily: "IRANSansNUMNumber",
+        fontSize: 15,
+        margin: "10px 0",
+        color: "#383b40",
+        height: 26,
+        borderRadius: 5,
+        textAlign: "center",
+    },
+    CoursesDateStart: {
+        marginBottom: 7,
+        textAlign: "center"
+    },
+    CoursesDateStartText1: {
+        fontSize: 13,
+        color: "#383b40",
+    },
+    CoursesPrice: {
+        marginBottom: 5
+    },
+    CoursesPriceText: {
+        fontWeight: 100,
+        color: "#000",
+        fontSize: 17
+    },
+    FarsiNumber1: {
+        display: "inline-block",
+        fontFamily: "IRANSansNUMNumber",
+        fontWeight: 700,
+        fontSize: 17
+    },
+    CoursesteacherText: {
+      textAlign: "center !important"
+    },
+    NextArrowCourseDetail: {
+        width: 30,
+        height: 50,
+        backgroundColor: "#fff",
+        boxShadow: "1.5px 0 4px 0 rgba(0,0,0,.15)",
+        position: "absolute",
+        left: 0,
+        top: 210,
+        borderTopRightRadius: 7,
+        borderBottomRightRadius: 7,
+        cursor: "pointer",
+        backgroundImage: `url(${Icons})`,
+        backgroundPosition: "-319px -212px"
+    },
+    PrevArrowCourseDetail: {
+        width: 30,
+        height: 50,
+        backgroundColor: "#fff",
+        boxShadow: "-1.5px 0 4px 0 rgba(0,0,0,.15)",
+        position: "absolute",
+        right: 0,
+        top: 210,
+        borderTopLeftRadius: 7,
+        borderBottomLeftRadius: 7,
+        cursor: "pointer",
+        backgroundImage: `url(${Icons})`,
+        backgroundPosition: "-267px -212px"
+
+    },
     // style for mobile size
 
     headFilterMobile: {
@@ -448,7 +622,24 @@ const useStyle = makeStyles((theme) => ({
         width: "100%",
         height: 145
     },
+    titleSuccessPurchase: {
+        color: "#282828",
+        fontSize: 22,
+        display: "flex",
+        alignItems: "center",
+        [theme.breakpoints.down("xs")]: {
+            fontSize: 14
+        }
+    },
+    offersFailed: {
+        width: 110,
+        height: 21,
+        margin: "48px auto 18px",
+        textAlign: "center",
+        borderRadius: 10.2,
+        border: "solid 1px #c59428"
 
+},
 
     // icons
 
@@ -751,6 +942,128 @@ const useStyle = makeStyles((theme) => ({
             fontSize: 10.5,
         }
     },
+    vectorIcon: {
+        "&::before": {
+            content: `''`,
+            width: 34,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-372px -653px",
+        }
+    },
+    teachSuccessIcon: {
+        fontSize: 17,
+        color: "#282828",
+        display: "flex",
+        alignItems: "center",
+        "&::before": {
+            content: `''`,
+            width: 34,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-449px -653px",
+        },
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 13,
+            color: "#424242"
+        }
+    },
+    timeSuccessIcon: {
+        fontSize: 17,
+        color: "#282828",
+        display: "flex",
+        alignItems: "center",
+        "&::before": {
+            content: `''`,
+            width: 34,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-526px -653px",
+        },
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 13,
+            color: "#424242",
+            margin: "8px 0"
+        }
+    },
+    priceIcon: {
+        fontSize: 17,
+        color: "#282828",
+        display: "flex",
+        alignItems: "center",
+       "&::before": {
+           content: `''`,
+           width: 34,
+           height: 35,
+           display: "inline-block",
+           position: "relative",
+           border: "none",
+           backgroundImage: `url(${Icons})`,
+           backgroundPosition: "-1177px -410px"
+       } ,
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 13,
+            color: "#424242",
+            margin: "8px 0"
+        }
+    },
+    hourSuccessIcon: {
+        fontSize: 17,
+        color: "#282828",
+        display: "flex",
+        alignItems: "center",
+        "&::before": {
+            content: `''`,
+            width: 34,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-526px -653px",
+        },
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 13,
+            color: "#424242"
+        }
+    },
+    calenderSuccessIcon: {
+        fontSize: 17,
+        color: "#282828",
+        display: "flex",
+        alignItems: "center",
+        "&::before": {
+            content: `''`,
+            width: 34,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-603px -653px",
+        }
+    },
+        trashIcon: {
+            "&::before": {
+            content: `''`,
+            width: 34,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${IconsLogo})`,
+            backgroundPosition: "-372px -653px",
+        }
+    },
     inputContact: {
         border: "1px solid #898989",
         outline: "none",
@@ -758,6 +1071,21 @@ const useStyle = makeStyles((theme) => ({
         width: "96%",
         height: 56,
         fontSize: 14,
+    },
+    cartIcon: {
+        width: 34,
+        height: 34,
+        cursor: "pointer",
+        backgroundSize: 1200,
+        backgroundImage: `url(${Icons})`,
+        backgroundPosition: "-115px -40px"
+    },
+    trashIconBlue: {
+        width: 34,
+        height: 34,
+        cursor: "pointer",
+        backgroundImage: `url(${Icons})`,
+        backgroundPosition: "-293px -654px",
     },
     formContact: {
         width: "100%",

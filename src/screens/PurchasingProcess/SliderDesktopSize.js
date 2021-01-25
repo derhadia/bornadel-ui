@@ -2,11 +2,10 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Grid, Typography } from '@material-ui/core'
 import useStyles from '../../styles'
 import Apis from '../../constants/Api'
-import { CourseDetailContext } from '../../contexts/CourseDetailContext'
 import CoursesComponent from '../../components/CoursesComponent/CoursesComponent'
 
-export default function SimilarItem() {
-    let { similarItem } = useContext(CourseDetailContext)
+export default function SliderDesktop({similarItem}) {
+
     const classes = useStyles();
     const [sliderWidth, setSliderWidth] = useState(0)
     const count = window.innerWidth > 1220 ? 6 : window.innerWidth > 1030 ? 5 : 4
@@ -14,11 +13,11 @@ export default function SimilarItem() {
     const a = similarItem[0] ? Math.floor(similarItem[0].length / count) : 0
     const b = similarItem[0] ? similarItem[0].length % count : 0
     const [x, setX] = useState(1)
+
     useEffect(() => {
         let SliderContainer = document.getElementById('SliderContainer')
         setSliderWidth(SliderContainer.offsetWidth);
     }, [])
-
 
 
     let ChangeTRS = (condition) => {
@@ -46,7 +45,9 @@ export default function SimilarItem() {
             }
             setTrs((prev) => setTrs(prev - count))
         }
-    }
+    };
+
+
     return (
         <Grid container className={classes.SimilarItemContainer}>
             <Grid container>
@@ -55,30 +56,30 @@ export default function SimilarItem() {
             <Grid container style={{ width: "100%" }} id="SliderContainer" >
                 <Grid container item style={{ overflow: "hidden" }}>
                     <Grid item container className={classes.ReceneViewSlider} wrap="nowrap"
-                        style={{ transform: `translateX(${trs * (Math.ceil(sliderWidth / count))}px)`, transition: "all 2s" }}>
+                          style={{ transform: `translateX(${trs * (Math.ceil(sliderWidth / count))}px)`, transition: "all 2s" }}>
                         {
                             similarItem && similarItem.length > 0 ? similarItem[0].map((data, index) => {
-                                return (
-                                    <Grid container item justify="center" key={index} className={classes.sliderItem}
-                                        style={{ minWidth: Math.ceil(Math.ceil(sliderWidth) / count) }} >
-                                        <CoursesComponent
-                                            data={data}
-                                            id={data.classRoom_ID}
-                                            teacherName={data.teacher_Name + ' ' + data.teacher_LastName}
-                                            title={data.classRoom_Subject}
-                                            date={data.classRoom_DateTime}
-                                            photoIconLink={Apis.SHOWIMAGE + data.educationSubject_IconeLink}
-                                            price={data.classRoom_Price}
-                                            LastPrice={data.last_Price}
-                                            Discoun={data.classRoom_Discount}
-                                            maxWidth={166}
-                                            dir="rtl"
-                                            deadLine={data.active}
-                                            teacherLink={Apis.SHOWIMAGE + data.teacher_PhotoLink}
-                                            educationSubject={data.educationSubject_Name} />
-                                    </Grid>
-                                )
-                            })
+                                    return (
+                                        <Grid container item justify="center" key={index} className={classes.sliderItem}
+                                              style={{ minWidth: Math.ceil(Math.ceil(sliderWidth) / count) }} >
+                                            <CoursesComponent
+                                                data={data}
+                                                id={data.classRoom_ID}
+                                                teacherName={data.teacher_Name + ' ' + data.teacher_LastName}
+                                                title={data.classRoom_Subject}
+                                                date={data.classRoom_DateTime}
+                                                photoIconLink={Apis.SHOWIMAGE + data.educationSubject_IconeLink}
+                                                price={data.classRoom_Price}
+                                                LastPrice={data.last_Price}
+                                                Discoun={data.classRoom_Discount}
+                                                maxWidth={166}
+                                                dir="rtl"
+                                                deadLine={data.active}
+                                                teacherLink={Apis.SHOWIMAGE + data.teacher_PhotoLink}
+                                                educationSubject={data.educationSubject_Name} />
+                                        </Grid>
+                                    )
+                                })
                                 : null
                         }
                     </Grid>

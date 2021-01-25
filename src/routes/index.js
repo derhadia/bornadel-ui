@@ -18,13 +18,16 @@ import NewsList from "../screens/NewsList";
 import NewsDetail from "../screens/NewsDetail";
 import About from "../screens/About/About";
 import ContactUs from "../screens/ContactUs/ContactUs";
+import SuccessfulPurchase from "../screens/PurchasingProcess/SuccessfulPurchase";
+import PurchaseFailed from "../screens/PurchasingProcess/PurchaseFailed";
+import Cart from "../screens/PurchasingProcess/Cart/Cart";
 
 export default function Index() {
 
     useEffect(() => {
         console.log("54454445544544554154454545454554555454")
     })
-     
+
     return (
         // <ScrollToTop />
         // <Header />
@@ -51,6 +54,9 @@ export default function Index() {
             <Route path="/NewsDetail/:id" component={NewsDetail} />
             <Route path="/About" component={About} />
             <Route path="/ContactUs" component={ContactUs} />
+            <Route path="/SuccessfulPurchase" component={SuccessfulPurchase} />
+            <Route path="/FailedPurchase" component={PurchaseFailed} />
+            <Route path="/Cart" component={Cart} />
         </Switch>
     )
 }

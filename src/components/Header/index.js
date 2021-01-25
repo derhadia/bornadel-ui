@@ -19,7 +19,6 @@ import { AccountCircleOutlined, ExitToAppOutlined } from '@material-ui/icons';
 
 
 export default function Header(props) {
-    console.log(props);
     const classes = useStyles();
     const [username, setUsername] = useState('');
     const [open, setOpen] = React.useState(false);
@@ -36,6 +35,7 @@ export default function Header(props) {
         }
     }, []);
 
+    const data = JSON.parse(localStorage.getItem("itemsArray"))
 
     const handleCloseDropDwonList = event => {
         setOpen(false);
@@ -114,6 +114,8 @@ export default function Header(props) {
                                         <MenuItem value={30}>خروج</MenuItem>
                                     </Select>*/}
                                     <Button classes={{ outlined: classes.basketIconBtn }} variant="outlined">
+                                        <span style={{color: "red", fontWeight: "bolder"}}>{data ? data.length : ""}</span>
+
                                     </Button> 
                                 </Grid>
                             </Grid>
