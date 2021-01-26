@@ -13,6 +13,7 @@ import DatePicker from "./DatePicker/DatePicker";
 import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
 import {green} from "@material-ui/core/colors";
 import "../../hadi/style.css"
+import animateScrollTo from "animated-scroll-to";
 
 
 const theme = createMuiTheme({
@@ -95,6 +96,15 @@ const ArticlesList = () => {
 
 
     const handleFiltering = useCallback(() => {
+
+
+        let Options = {
+            speed: 100,
+            maxDuration: 3000,
+            minDuration: 2000,
+
+        }
+        animateScrollTo(0, Options);
         let body = {
             "teacher_ID_List": selectedTeacher ? selectedTeacher.toString().replaceAll(",", ";") : "",
             "educationSubject_ID": ids ? [...ids].toString().replaceAll(",", ";") : "",

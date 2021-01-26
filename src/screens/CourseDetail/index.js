@@ -25,9 +25,9 @@ export default function CourseDetail() {
             if (status === 200) {
                 setCourseDetailData(responseJSON.data[0])
                 console.log(responseJSON.data[0]);
-                
+
                 let TeacherBody = {
-                    
+
                     "teacher_ID": responseJSON.data[0].teacher_ID,
                     "teacher_Academy_Ref": 0,
                     "teacher_AspNetUsers_Ref": 0
@@ -97,7 +97,7 @@ export default function CourseDetail() {
                     "question_Teacher_Ref": 0,
                     "question_Article_Ref": 0
                 }
-                
+
                 fetchPost(Apis.Get_QuestionGetAll + "?approveEnum=Approve&archiveEnum=All&questionEnum=NotQuestion&haveAnswerEnum=All", CommentBody).then(({ responseJSON, status }) => {
                     if (status === 200) {
                         console.log(responseJSON.data);
@@ -135,7 +135,7 @@ export default function CourseDetail() {
                             : <Academy />}
                     </Grid>
                     <Grid item xs={3}>
-                        <SingIN />
+                        <SingIN data={courseDetailData} />
                     </Grid>
                 </Grid >
             </Grid>

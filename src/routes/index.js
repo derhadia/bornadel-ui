@@ -9,7 +9,6 @@ import LoginComponent from '../khosravi/js/LoginComponent'
 import RegisterComponent from '../khosravi/js/RegisterComponent'
 import ProvisionComponent from '../khosravi/js/ProvisionComponent'
 import CommonQuestionComponent from '../khosravi/js/CommonQuestionComponent'
-import Student from '../khosravi/js/Student/StudentComponent'
 
 
 import ArticlesList from "../screens/Articels/ArticlesList";
@@ -18,10 +17,15 @@ import NewsList from "../screens/NewsList";
 import NewsDetail from "../screens/NewsDetail";
 import About from "../screens/About/About";
 import ContactUs from "../screens/ContactUs/ContactUs";
-
-
+import Cart from "../screens/PurchasingProcess/Cart/Cart";
+import PurchaseFailed from "../screens/PurchasingProcess/PurchaseFailed";
+import SuccessfulPurchase from "../screens/PurchasingProcess/SuccessfulPurchase";
 export default function Index() {
 
+    useEffect(() => {
+        console.log("54454445544544554154454545454554555454")
+    })
+     
     return (
         // <ScrollToTop />
         // <Header />
@@ -48,7 +52,9 @@ export default function Index() {
             <Route path="/NewsDetail/:id" component={NewsDetail} />
             <Route path="/About" component={About} />
             <Route path="/ContactUs" component={ContactUs} />
-            <Route path="/student" component={Student} />
+            <Route path="/Cart" component={Cart} />
+            <Route path="/PurchaseFailed" component={PurchaseFailed} />
+            <Route path="/SuccessfulPurchase" component={SuccessfulPurchase} />
         </Switch>
     )
 }

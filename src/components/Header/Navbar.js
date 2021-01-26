@@ -34,22 +34,22 @@ export default function Navbar() {
                     لیست کلاسها
                 {/* <div style={{position:"absolute",width:"30px",height:25,backgroundColor:"#f00"}}></div> */}
                 </Grid>
-                <Grid item className={`${classes.articles} ${classes.headerMenu}`}
-                    onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
-                    onMouseLeave={() => HandleUndeLineExit()}
-                >
-                    <Link style={{color: "inherit"}} to="/ArticleList">
+                <Link style={{color: "inherit"}} to="/ArticleList">
+                    <Grid item className={`${classes.articles} ${classes.headerMenu}`}
+                        onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
+                        onMouseLeave={() => HandleUndeLineExit()}
+                    >
                         مقالات
-                    </Link>
-                </Grid>
-                <Grid item className={`${classes.news} ${classes.headerMenu}`}
-                    onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
-                    onMouseLeave={() => HandleUndeLineExit()}
-                >
-                    <Link style={{color: "inherit"}} to="/NewsList">
+                    </Grid>
+                </Link>
+                <Link style={{color: "inherit"}} to="/NewsList">
+                    <Grid item className={`${classes.news} ${classes.headerMenu}`}
+                        onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
+                        onMouseLeave={() => HandleUndeLineExit()}
+                    >
                         اخبار
-                    </Link>
-                </Grid>
+                    </Grid>
+                </Link>
                 <Grid item className={`${classes.provision} ${classes.headerMenu}`}
                     onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
                     onMouseLeave={() => HandleUndeLineExit()}
@@ -67,22 +67,22 @@ export default function Navbar() {
                     سوالات متداول  
                  </Link>  
                 </Grid>
-                <Grid item className={`${classes.AboutUs} ${classes.headerMenu}`}
-                    onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
-                    onMouseLeave={(e) => HandleUndeLineExit()}
-                >
-                    <Link style={{color: "inherit"}} to="/About">
+                <Link style={{color: "inherit"}} to="/About">
+                    <Grid item className={`${classes.AboutUs} ${classes.headerMenu}`}
+                        onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
+                        onMouseLeave={(e) => HandleUndeLineExit()}
+                    >
                         درباره ما
-                    </Link>
-                </Grid>
-                <Grid item className={`${classes.contactUs} ${classes.headerMenu}`}
-                    onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
-                    onMouseLeave={() => HandleUndeLineExit()}
-                >
-                    <Link style={{color: "inherit"}} to="/ContactUs">
+                    </Grid>
+                </Link>
+                <Link style={{color: "inherit"}} to="/ContactUs">
+                    <Grid item className={`${classes.contactUs} ${classes.headerMenu}`}
+                        onMouseEnter={(e) => { HandelUndeiLineEnter(e) }}
+                        onMouseLeave={() => HandleUndeLineExit()}
+                    >
                         تماس باما
-                    </Link>
-                </Grid>
+                    </Grid>
+                </Link>
             </Grid>
         </Grid>
     )

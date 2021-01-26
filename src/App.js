@@ -1,5 +1,6 @@
 import React from 'react'
 import '../node_modules/bootstrap-v4-rtl/dist/css/bootstrap.min.css'
+import "./assets/styles/index.css";
 import Rtl from './components/RTL'
 import ThemeProvider from './components/ThemeProvider'
 import { BrowserRouter } from 'react-router-dom'

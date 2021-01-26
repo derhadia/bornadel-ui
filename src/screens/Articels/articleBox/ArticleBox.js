@@ -41,7 +41,7 @@ const ArticleBox = memo(({data}) => {
                                             <Typography className={classes.userStyle} >{item.teacher_FullName}</Typography>
                                         </Grid>
                                         <Grid item>
-                                            <Typography style={{color: "rgb(190, 190 ,190)", fontSize: "12px", fontWeight: 700}}>{convertToPersian((item.article_DateTime).substr(0,10))}</Typography>
+                                            <Typography style={{color: "rgb(120, 120 ,120)", fontSize: "14px", fontWeight: 700}}>{convertToPersian((item.article_DateTime).substr(0,10))}</Typography>
                                         </Grid>
                                         <Grid item>
                                             <Typography className={classes.shareIcon}>اشتراک گذاری </Typography>
