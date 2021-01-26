@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Home from '../screens/Home'
 import Courses from '../screens/Courses/Courses'
@@ -12,13 +12,14 @@ import CommonQuestionComponent from '../khosravi/js/CommonQuestionComponent'
 import Student from '../khosravi/js/Student/StudentComponent'
 
 
-
 import ArticlesList from "../screens/Articels/ArticlesList";
 import ArticleDetail from "../screens/ArticleDetails";
 import NewsList from "../screens/NewsList";
 import NewsDetail from "../screens/NewsDetail";
 import About from "../screens/About/About";
 import ContactUs from "../screens/ContactUs/ContactUs";
+
+
 export default function Index() {
 
     return (

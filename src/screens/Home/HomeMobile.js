@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import useStyles from '../../styles'
 import SearchBox from '../../components/Header/SearchBox'
 import BannerHomeMobileSlider from '../../components/BannerHomeMobileSlider/BannerHomeMobileSlider'
+
+
 export default function HomeMobile() {
     const classes = useStyles()
     const [imgeBox, setImgeBox] = useState()

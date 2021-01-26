@@ -83,8 +83,9 @@ const RegisterComponent = (props) => {
                     toastr.success("عملیات با موفقیت انجام شد");
                     localStorage.setItem("token", res.access_token);
                     let userInfo = {
-                        username: res.userName,
-                        userType: res.userType
+                        username : res.userName,
+                        userType : res.userType,
+                        userId : res.userId
                     };
                     localStorage.setItem("userInfo", JSON.stringify(userInfo));
                     res.userType ? props.history.push('/AcademyPanel') : setRegisterCard("roleUser");
