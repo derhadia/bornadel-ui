@@ -11,9 +11,17 @@ import {Link} from "react-router-dom";
 
 const Cart = () => {
     const classes = useStyle();
-    const [similarItem, setSimilarItem] = useState([]);
     let [price, setPrice] = useState(null);
-    let [discount, setDiscount] = useState(null)
+    let [discount, setDiscount] = useState(null);
+    const [similarItem, setSimilarItem] = useState([])
+
+    // useEffect(() => {
+    //     fetchPost(Apis.Get_GetSimilarClassRooms + "?ClassRoomId=1").then(({ responseJSON, status }) => {
+    //         if (status === 200) {
+    //             setSimilarItem([responseJSON.data])
+    //         }
+    //     })
+    // },[])
 
 
     const [width, setWidth] = useState(window.innerWidth);
@@ -131,7 +139,7 @@ const Cart = () => {
                                                         </Grid>
                                                         <Grid style={{display: "flex", alignItems: "center"}}>
                                                             <Grid className={classes.trashIcon} item xl={2} lg={2} md={2} />
-                                                            <Grid onClick={() => removeItem(item.classRoom_ID)} style={{fontSize: 13, color: "#424242", cursor: "pointer"}} item xl={8} lg={8} md={8}>
+                                                            <Grid onClick={() => removeItem(item.classRoom_ID)} style={{fontSize: 13, color: "red", cursor: "pointer", fontWeight: "bold"}} item xl={8} lg={8} md={8}>
                                                                حذف
                                                             </Grid>
                                                         </Grid>
@@ -199,6 +207,7 @@ const Cart = () => {
                         price={price}
                         discount={discount}
                         removeItem={removeItem}
+                        similarItem={similarItem}
                     />
             }
         </>

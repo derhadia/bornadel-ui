@@ -4,8 +4,9 @@ import useStyle from "../../../hadi";
 import Apis from "../../../constants/Api";
 import {convertToPersian, separate} from "../../../hadi/functions";
 import {Link} from "react-router-dom";
+import SwiperCoverflow from "../SwiperCoverflow";
 
-const CartMobileSize = ({state, discount, price, removeItem}) => {
+const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
     const classes = useStyle();
 
 
@@ -85,12 +86,18 @@ const CartMobileSize = ({state, discount, price, removeItem}) => {
                     <Grid style={{color: "#ff4242", fontSize: 13.5, fontWeight: "bold"}}>{discount ? convertToPersian(separate(discount.toString())) : "۰"} تومان</Grid>
                 </Grid>
             </Grid>
-            <Grid style={{position: "fixed", marginRight: 20, bottom: 0, backgroundColor: "white", width: "100%", display: "flex", right: 0, alignItems: "center"}}>
+            <Grid className={classes.btnFixedMobile}>
                 <Link to="/SuccessfulPurchase" className={classes.btnCartMobile}>ادامه فرایند خرید</Link>
                 <Grid style={{display: "flex", width: "100%", marginBottom: 10, flexDirection: "column", alignItems: "center"}}>
                     <Grid style={{color: "#4c4c4c", fontSize: 13.5, fontWeight: "bold"}}>جمع سبد خرید</Grid>
                     <Grid style={{color: "#4c4c4c", fontSize: 13.5, fontWeight: "bold"}}>{price ? convertToPersian(separate(price.toString())) : ""} تومان</Grid>
                 </Grid>
+            </Grid>
+            <Grid className={classes.offersFailed}>
+                پیشنهادات ویژه
+            </Grid>
+            <Grid className="SwiperCoverflow" container>
+                <SwiperCoverflow similarItem={similarItem} />
             </Grid>
         </Grid>
     );

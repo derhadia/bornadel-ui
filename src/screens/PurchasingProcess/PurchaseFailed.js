@@ -45,7 +45,7 @@ const PurchaseFailed = () => {
                             پیشنهادات ویژه
                         </Grid>
                         <Grid className="SwiperCoverflow" container>
-                            <SwiperCoverflow />
+                            <SwiperCoverflow similarItem={similarItem} />
                         </Grid>
                     </>
             }

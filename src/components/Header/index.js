@@ -115,7 +115,7 @@ export default function Header(props) {
                                         <MenuItem value={20}>پروفایل</MenuItem>
                                         <MenuItem value={30}>خروج</MenuItem>
                                     </Select>*/}
-                                    <Link to="/SuccessfulPurchase">
+                                    <Link to="/Cart">
                                         <Button classes={{ outlined: classes.basketIconBtn }} variant="outlined">
                                             <span style={{color: "red", fontWeight: "bolder", fontSize: 23}}>{data ? convertToPersian(data.length.toString()) : ""}</span>
                                         </Button>

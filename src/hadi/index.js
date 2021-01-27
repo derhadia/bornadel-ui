@@ -76,7 +76,6 @@ const useStyle = makeStyles((theme) => ({
         width: 58,
         height: 58,
         margin: "0 5px 4px",
-        backgroundColor: "red",
         borderRadius: "50%",
         position: "absolute",
         top: 53,
@@ -438,7 +437,7 @@ const useStyle = makeStyles((theme) => ({
         margin: "0 0 36px",
         // padding: "6px 34px 40px 33px",
         borderRadius: 10,
-        border: "solid 2px #c59428",
+        border: "solid 1px #c59428",
         position: "relative",
         display: "flex",
         justifyContent: "center"
@@ -628,19 +627,20 @@ const useStyle = makeStyles((theme) => ({
     },
     CoursesTitle: {
         fontFamily: "IRANSansNUMNumber",
-        fontSize: 17.5,
+        fontSize: 10,
         margin: "10px 0",
         color: "#383b40",
         height: 26,
         borderRadius: 5,
         textAlign: "center",
+        fontWeight: "bold"
     },
     CoursesDateStart: {
         marginBottom: 7,
         textAlign: "center"
     },
     CoursesDateStartText1: {
-        fontSize: 13,
+        fontSize: 10.5,
         color: "#383b40",
     },
     CoursesPrice: {
@@ -654,11 +654,13 @@ const useStyle = makeStyles((theme) => ({
     FarsiNumber1: {
         display: "inline-block",
         fontFamily: "IRANSansNUMNumber",
-        fontWeight: 700,
-        fontSize: 17
+        fontWeight: "bold",
+        fontSize: 11.5
     },
     CoursesteacherText: {
-      textAlign: "center !important"
+      textAlign: "center !important",
+        color: "#424750",
+        fontSize: 10
     },
     NextArrowCourseDetail: {
         width: 30,
@@ -801,8 +803,21 @@ const useStyle = makeStyles((theme) => ({
         textAlign: "center",
         borderRadius: 10.2,
         border: "solid 1px #c59428",
-        fontSize: 12
+        fontSize: 12,
+        lineHeight: "21px"
 },
+    btnFixedMobile: {
+        position: "fixed",
+        marginRight: 20,
+        bottom: 0,
+        backgroundColor: "white",
+        width: "100%",
+        display: "flex",
+        right: 0,
+        alignItems: "center",
+        zIndex: "99999",
+        left: 0
+    },
 
     // icons
 
