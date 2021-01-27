@@ -9,6 +9,7 @@ import LoginComponent from '../khosravi/js/LoginComponent'
 import RegisterComponent from '../khosravi/js/RegisterComponent'
 import ProvisionComponent from '../khosravi/js/ProvisionComponent'
 import CommonQuestionComponent from '../khosravi/js/CommonQuestionComponent'
+import Student from '../khosravi/js/Student/StudentComponent'
 
 
 import ArticlesList from "../screens/Articels/ArticlesList";
@@ -55,6 +56,8 @@ export default function Index() {
             <Route path="/Cart" component={Cart} />
             <Route path="/PurchaseFailed" component={PurchaseFailed} />
             <Route path="/SuccessfulPurchase" component={SuccessfulPurchase} />
+            <Route path="/student" component={Student} />
+
         </Switch>
     )
 }

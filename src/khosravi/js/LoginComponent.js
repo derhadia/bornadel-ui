@@ -41,6 +41,7 @@ const LoginComponent = (props) => {
             fetchPost(`${Api.Login}?mobileOrEmail=${state.mobileOrEmail}&pass=${state.password}&Captcha=${parseInt(state.captcha)}`, null).then(response => {
                 if (response.success) {
                     let res = response.responseJSON;
+                    console.log(response);
                     if (res.access_token) {
                         localStorage.setItem("token", res.access_token);
                         let userInfo = {
@@ -49,8 +50,9 @@ const LoginComponent = (props) => {
                             userId : res.userId
                         };
                         localStorage.setItem("userInfo" , JSON.stringify(userInfo));
-                        res.userType == 1 ? window.location.href = '/student' : 
-                        window.location.href = '/AcademyPanel'
+
+                        res.userType == 1 ? window.location.href = '/student':
+                        window.location.href = '/AcademyPanel';
                         // setLoginCard("roleUser");
                     } else {
                         toastr.error(res.message);
