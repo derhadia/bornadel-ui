@@ -16,6 +16,7 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuList from '@material-ui/core/MenuList';
 import { AccountCircleOutlined, ExitToAppOutlined } from '@material-ui/icons';
+import {convertToPersian} from "../../hadi/functions";
 
 
 export default function Header(props) {
@@ -113,10 +114,12 @@ export default function Header(props) {
                                         <MenuItem value={20}>پروفایل</MenuItem>
                                         <MenuItem value={30}>خروج</MenuItem>
                                     </Select>*/}
-                                    <Button classes={{ outlined: classes.basketIconBtn }} variant="outlined">
-                                        <span style={{color: "red", fontWeight: "bolder"}}>{data ? data.length : ""}</span>
+                                    <Link to="/SuccessfulPurchase">
+                                        <Button classes={{ outlined: classes.basketIconBtn }} variant="outlined">
+                                            <span style={{color: "red", fontWeight: "bolder", fontSize: 23}}>{data ? convertToPersian(data.length.toString()) : ""}</span>
+                                        </Button>
+                                    </Link>
 
-                                    </Button> 
                                 </Grid>
                             </Grid>
                         </Grid>

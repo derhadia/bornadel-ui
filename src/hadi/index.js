@@ -40,6 +40,21 @@ const useStyle = makeStyles((theme) => ({
             height: "unset !important"
         }
     },
+    SuccessContainer: {
+        borderRadius: 8,
+        padding: 13,
+        backgroundColor: "#fff",
+        boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)",
+        flexDirection: "column",
+        alignItems: "center",
+        [theme.breakpoints.down("md")]: {
+            height: "unset !important"
+        },
+        width: "100%",
+        display: "flex",
+        marginBottom: 38,
+        minHeight: "unset"
+    },
     circleinRect2: {
         width: 102,
         height: 102,
@@ -369,13 +384,14 @@ const useStyle = makeStyles((theme) => ({
         fontSize: 29,
         color: "#018d04",
         [theme.breakpoints.down("sm")]: {
-            fontSize: 20
+            fontSize: 16
         }
     },
     titleSuccess: {
         fontSize: 22,
         color: "#555555",
         marginTop: 62,
+        fontWeight: "bold",
         marginBottom: 40,
         textAlign: "left",
         [theme.breakpoints.down("sm")]: {
@@ -384,16 +400,24 @@ const useStyle = makeStyles((theme) => ({
             backgroundColor: "#555555",
             color: "white",
             borderRadius: "25px",
-            fontSize: 18,
+            fontSize: 13.5,
             width: "fitContent",
             padding: "0 7px"
         }
+    },
+    eduName: {
+        justifyContent: "center",
+        color: "#282828",
+        fontSize: 21,
+        display: "flex",
+        alignItems: "center",
+        fontWeight: 900
     },
     errorMsg: {
         fontSize: 29,
         color: "#ff0000",
         [theme.breakpoints.down("sm")]: {
-            fontSize: 20
+            fontSize: 13.5
         }
     },
 
@@ -419,6 +443,123 @@ const useStyle = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center"
     },
+    desCartBox: {
+        fontSize: 12.5,
+        color: "#8d8f91",
+        fontWeight: "bold",
+        marginTop: 15
+    },
+    addToCart: {
+        display: "flex",
+        justifyContent: "space-between",
+        width: "100%",
+        marginBottom: 10
+    },
+    hrCart: {
+        width: "100%",
+        color: "#dbdbdb",
+        margin: "10px 0",
+        borderColor: "#dbdbdb"
+    },
+    cartPayment: {
+        padding: "18px 19px 35px 19px",
+        backgroundColor: "white",
+        borderRadius: 14
+    },
+    cartDiscount: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        height: "70%"
+    },
+    discountCourses: {
+        display: "flex",
+        justifyContent: "space-between",
+        width: "100%",
+        margin: "10px 0"
+    },
+    btnCartBox: {
+        backgroundColor: "#ff2626",
+        color: "white",
+        textAlign: "center",
+        width: "100%",
+        borderRadius: 8,
+        fontSize: 17,
+        fontWeight: "bold",
+        "&:hover": {
+            color: "white"
+        }
+    },
+    rightSideCartMobile: {
+        marginBottom: 20,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-end"
+    },
+    eduSubjectMobile: {
+        fontSize: 14,
+        color: "#424242",
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        fontWeight: "bold"
+    },
+    deleteCartMobile: {
+        display: "flex",
+        alignItems: "center",
+        color: "#1dc3f1",
+        fontSize: 14.5
+    },
+    subjectMobileCart: {
+        maxWidth: "100%",
+        justifyContent: "center",
+        color: "#282828",
+        fontSize: 13,
+        display: "flex",
+        alignItems: "center",
+        fontWeight: "bold"
+    },
+    parentCartMobile: {
+        padding: "18px 15px 35px 15px",
+        backgroundColor: "white",
+        borderRadius: 14
+    },
+    btnCartMobile: {
+        backgroundColor: "#ff2626",
+        color: "white",
+        width: "40%",
+        borderRadius: 8,
+        fontSize: 17,
+        height: 50,
+        textAlign: "center",
+        lineHeight: "50px",
+        right: 0
+    },
+    itemCartMobile: {
+        display: "flex",
+        width: "100%",
+        borderBottom: "2px solid #ccc",
+        marginBottom: "20"
+    },
+    btnMobileTop: {
+        fontSize: 13.5,
+        fontWeight: "bold",
+        width: 125,
+        height: 40,
+        backgroundColor: "#555555",
+        color: "white",
+        borderRadius: 11.5,
+        display: "flex",
+        alignItems: "center"
+    },
+    cartBtnMobileTop: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: 23,
+        marginBottom: 48
+    },
     CoursesDetail: {
         // border: "1px solid #d7d7d7",
         borderTop: "none",
@@ -433,8 +574,29 @@ const useStyle = makeStyles((theme) => ({
         // marginTop: 37,
         // fontFamily: "Swiss721BT",
         fontWeight: 900,
-        fontSize: 14,
+        fontSize: 15.5,
         color: "#000000ab"
+    },
+    cartBox: {
+        color: "#8d8f91",
+        fontSize: 13.5,
+        fontWeight: "bold"
+    },
+    subjectCart: {
+        maxWidth: "100%",
+        justifyContent: "center",
+        color: "#282828",
+        fontSize: 17.5,
+        display: "flex",
+        alignItems: "center",
+        fontWeight: 900
+    },
+    cart: {
+        backgroundColor: "white",
+        padding: "23px 41px",
+        flexDirection: "column",
+        borderRadius: 14,
+        width: "100%"
     },
     circleinRectContainer: {
         width: 63,
@@ -466,7 +628,7 @@ const useStyle = makeStyles((theme) => ({
     },
     CoursesTitle: {
         fontFamily: "IRANSansNUMNumber",
-        fontSize: 15,
+        fontSize: 17.5,
         margin: "10px 0",
         color: "#383b40",
         height: 26,
@@ -624,8 +786,9 @@ const useStyle = makeStyles((theme) => ({
     },
     titleSuccessPurchase: {
         color: "#282828",
-        fontSize: 22,
+        fontSize: 16,
         display: "flex",
+        fontWeight: "bold",
         alignItems: "center",
         [theme.breakpoints.down("xs")]: {
             fontSize: 14
@@ -637,8 +800,8 @@ const useStyle = makeStyles((theme) => ({
         margin: "48px auto 18px",
         textAlign: "center",
         borderRadius: 10.2,
-        border: "solid 1px #c59428"
-
+        border: "solid 1px #c59428",
+        fontSize: 12
 },
 
     // icons
@@ -953,6 +1116,46 @@ const useStyle = makeStyles((theme) => ({
             backgroundImage: `url(${Icons})`,
             backgroundPosition: "-372px -653px",
         }
+    },
+    SimilarItemHeaderFailed: {
+        fontSize: 23.5,
+        marginBottom: 25,
+        width: "100%",
+        borderBottom: "1px solid #d7d7d7",
+    },
+    vectorIconMobile: {
+        fontSize: 14,
+        color: "#282828",
+        display: "flex",
+        alignItems: "center",
+        fontWeight: "bold",
+        "&::before": {
+            content: `''`,
+            width: 34,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-372px -653px",
+        }
+    },
+    dailyMobile: {
+        display: "flex",
+        width: "100%",
+        alignItems: "center",
+        flexWrap: "wrap"
+    },
+    dailyDesktop: {
+        fontSize: 17,
+        color: "#424242",
+        display: "flex",
+        flexWrap: "wrap"
+    },
+    dailyPartMobile: {
+        fontSize: 13,
+        color: "#424242",
+        marginLeft: 10
     },
     teachSuccessIcon: {
         fontSize: 17,

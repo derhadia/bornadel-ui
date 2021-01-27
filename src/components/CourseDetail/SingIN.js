@@ -1,11 +1,12 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import { Grid, Button } from '@material-ui/core';
 import useStyles from '../../styles';
 import {Link, useHistory} from "react-router-dom";
 import {CoursesContext} from "../../contexts/CoursesContext";
+import {find} from 'lodash';
 
 export default function SingIN({data: state}) {
-    const {coursesData, data, setData} = useContext(CoursesContext)
+    const {setData} = useContext(CoursesContext)
     const classes = useStyles();
 
     const history = useHistory();
@@ -15,12 +16,18 @@ export default function SingIN({data: state}) {
     let oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
 
 
+    const id = find(oldItems, ["classRoom_ID", state.classRoom_ID])
+
+
+
     const addItem = item => {
-       oldItems.push(item)
+        if (!id) {
+            oldItems.push(item)
+        }
+
         localStorage.setItem('itemsArray', JSON.stringify(oldItems));
        setData(JSON.parse(localStorage.getItem("itemsArray")))
     }
-
 
 
 
