@@ -1,0 +1,32 @@
+
+
+ .row{
+     margin-left: 0px !important;
+     margin-right: 0px !important;
+ }
+
+.color-style {
+    background-color: #33d599;
+    height: auto;
+
+}
+
+.profile-style .col-form-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width:500px){
+    .btn-profile-style {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .profile-style .col-form-label {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+    }
+
+}

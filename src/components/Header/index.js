@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Grid, Button, Hidden, MenuItem } from '@material-ui/core'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import useStyles from '../../styles'
 import Menu from '../Menu'
 import Drawer from '@material-ui/core/Drawer';
@@ -23,6 +23,7 @@ export default function Header(props) {
     const classes = useStyles();
     const [username, setUsername] = useState('');
     const [open, setOpen] = React.useState(false);
+    const history = useHistory();
 
     const { mobileOpen, setMobileOpen, DeleteFilter } = useContext(CoursesContext)
     const handleDrawerToggle = () => {
@@ -31,7 +32,6 @@ export default function Header(props) {
     useEffect(() => {
         const container = window !== undefined ? () => window().document.body : undefined;
         if(localStorage.getItem("userInfo")){
-            console.log(JSON.parse(localStorage.getItem("userInfo")).username);
             setUsername(JSON.parse(localStorage.getItem("userInfo")).username);
         }
     }, []);
@@ -49,8 +49,9 @@ export default function Header(props) {
     const exit = () => {
             localStorage.removeItem('token');
             localStorage.removeItem('userInfo');
-            // props.history.push('/login');
+            //history.push('/login');
             window.location.href = '/login';
+            
     }
 
     return (

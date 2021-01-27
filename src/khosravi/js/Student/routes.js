@@ -2,7 +2,6 @@ import ProfileComponent from "./Profile/ProfileComponent";
 import CourseHistoryComponent from "./CourseHistory/CourseHistoryComponent";
 import QuestionsComponent from "./Questions/QuestionsComponent";
 import TicketsComponent from "./Tickets/TicketsComponent";
-import StudentComponent from './StudentComponent';
 
 const Routes = [
 

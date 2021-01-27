@@ -8,6 +8,7 @@ import './login.css'
 import { fetchGet, fetchPost } from '../../config/Utils';
 import Api from '../../constants/Api';
 import toastr from 'toastr';
+import { SetToken } from './core/axiosHelper';
 
 
 const LoginComponent = (props) => {
@@ -40,25 +41,25 @@ const LoginComponent = (props) => {
             fetchPost(`${Api.Login}?mobileOrEmail=${state.mobileOrEmail}&pass=${state.password}&Captcha=${parseInt(state.captcha)}`, null).then(response => {
                 if (response.success) {
                     let res = response.responseJSON;
+                    console.log(response);
                     if (res.access_token) {
                         localStorage.setItem("token", res.access_token);
                         let userInfo = {
                             username : res.userName,
-                            userType : res.userType
+                            userType : res.userType,
+                            userId : res.userId
                         };
                         localStorage.setItem("userInfo" , JSON.stringify(userInfo));
-                        res.userType == 1 ? window.location.href = '/student' : 
-                        window.location.href = '/AcademyPanel'
+
+                        res.userType == 1 ? window.location.href = '/student':
+                        window.location.href = '/AcademyPanel';
                         // setLoginCard("roleUser");
                     } else {
                         toastr.error(res.message);
                         setState(prevState => ({ ...prevState, captcha: '' }));
-                        getCaptcha();
+                        getCaptcha(); 
                     }
-
-
                 }
-
             })
         } else {
             toastr.error("جواب صحیح نمی باشد");
@@ -104,7 +105,6 @@ const LoginComponent = (props) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log(value);
         setState(prevState => ({ ...prevState, [name]: value }));
     }
     const handleRadio = (e) => {
@@ -142,7 +142,6 @@ const LoginComponent = (props) => {
             }
         });
     }
-
 
     const register = () => {
         props.history.push("/register");
