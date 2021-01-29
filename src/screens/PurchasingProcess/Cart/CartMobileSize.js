@@ -9,6 +9,7 @@ import SwiperCoverflow from "../SwiperCoverflow";
 const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
     const classes = useStyle();
 
+    const calculatePrice = price - discount
 
     return (
         <Grid
@@ -30,7 +31,7 @@ const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
                                     <Grid className={classes.subjectMobileCart} item xl={6} lg={6} md={6}>
                                         {item.classRoom_Subject}
                                     </Grid>
-                                    <Grid item xs={6} sm={6} style={{display: "flex", justifyContent: "center"}}>
+                                    <Grid item xs={6} sm={6} style={{display: "flex", justifyContent: "center", maxWidth: "100%"}}>
                                         <Grid style={{top: "unset"}} className={classes.circleinRect2}>
                                             <img style={{width: "100%", height: "100%"}} src={Apis.SHOWIMAGE + item.teacher_PhotoLink} alt=""/>
                                         </Grid>
@@ -79,7 +80,7 @@ const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
             <Grid container style={{padding: "18px 19px 35px 19px", backgroundColor: "white", borderRadius: 14, marginTop: 37}}>
                 <Grid style={{display: "flex", justifyContent: "space-between", width: "100%"}}>
                     <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold"}}>قیمت دوره ها ({state ? convertToPersian(state.length.toString()) : "۰"})</Grid>
-                    <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold"}}>{price ? convertToPersian(separate(price.toString())) : ""}</Grid>
+                    <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold"}}>{calculatePrice ? convertToPersian(separate(calculatePrice.toString())) : ""}</Grid>
                 </Grid>
                 <Grid style={{display: "flex", justifyContent: "space-between", width: "100%", margin: "10px 0"}}>
                     <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold"}}>تخفیف کالا ها</Grid>
@@ -88,7 +89,7 @@ const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
             </Grid>
             <Grid className={classes.btnFixedMobile}>
                 <Link to="/SuccessfulPurchase" className={classes.btnCartMobile}>ادامه فرایند خرید</Link>
-                <Grid style={{display: "flex", width: "100%", marginBottom: 10, flexDirection: "column", alignItems: "center"}}>
+                <Grid style={{display: "flex", width: "100%", marginBottom: 10, flexDirection: "column", alignItems: "flex-end"}}>
                     <Grid style={{color: "#4c4c4c", fontSize: 13.5, fontWeight: "bold"}}>جمع سبد خرید</Grid>
                     <Grid style={{color: "#4c4c4c", fontSize: 13.5, fontWeight: "bold"}}>{price ? convertToPersian(separate(price.toString())) : ""} تومان</Grid>
                 </Grid>

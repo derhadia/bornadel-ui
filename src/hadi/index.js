@@ -633,18 +633,27 @@ const useStyle = makeStyles((theme) => ({
         height: 26,
         borderRadius: 5,
         textAlign: "center",
-        fontWeight: "bold"
+        fontWeight: "bold",
+        [theme.breakpoints.down("xs")]: {
+            margin: 0
+        }
     },
     CoursesDateStart: {
         marginBottom: 7,
-        textAlign: "center"
+        textAlign: "center",
+        [theme.breakpoints.down("xs")]: {
+            marginBottom: 0
+        }
     },
     CoursesDateStartText1: {
         fontSize: 10.5,
         color: "#383b40",
     },
     CoursesPrice: {
-        marginBottom: 5
+        marginBottom: 5,
+        [theme.breakpoints.down("xs")]: {
+            marginBottom: 0
+        }
     },
     CoursesPriceText: {
         fontWeight: 100,
@@ -816,7 +825,8 @@ const useStyle = makeStyles((theme) => ({
         right: 0,
         alignItems: "center",
         zIndex: "99999",
-        left: 0
+        left: 0,
+        padding: "0 30px"
     },
 
     // icons
