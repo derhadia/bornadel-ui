@@ -380,7 +380,7 @@ const useStyle = makeStyles((theme) => ({
         justifyContent: "flex-end"
     },
     successMsg: {
-        fontSize: 29,
+        fontSize: 24,
         color: "#018d04",
         [theme.breakpoints.down("sm")]: {
             fontSize: 16
@@ -413,7 +413,7 @@ const useStyle = makeStyles((theme) => ({
         fontWeight: 900
     },
     errorMsg: {
-        fontSize: 29,
+        fontSize: 24,
         color: "#ff0000",
         [theme.breakpoints.down("sm")]: {
             fontSize: 13.5

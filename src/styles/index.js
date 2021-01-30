@@ -50,7 +50,8 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: 5,
+        paddingTop: 2,
+        fontFamily: "IRANSansNUMNumber"
     },
     badgeCartMobile: {
         backgroundColor: "#ff0000",
