@@ -20,6 +20,7 @@ import {convertToPersian} from "../../hadi/functions";
 
 
 export default function Header(props) {
+
     const classes = useStyles();
     const [username, setUsername] = useState('');
     const [open, setOpen] = React.useState(false);
@@ -50,9 +51,12 @@ export default function Header(props) {
             localStorage.removeItem('token');
             localStorage.removeItem('userInfo');
             //history.push('/login');
-            window.location.href = '/login';
-            
+            window.location.href = '/login';       
     }
+    const profile = () =>{
+            history.push('/student/profile');
+
+        }
 
     return (
         <>
@@ -97,7 +101,7 @@ export default function Header(props) {
                                                     <ClickAwayListener onClickAway={handleCloseDropDwonList}>
                                                         <MenuList>
                                                             <MenuItem> {username}</MenuItem>
-                                                            <MenuItem> <AccountCircleOutlined /> اطلاعات کاربر</MenuItem>
+                                                            <MenuItem onClick={profile} > <AccountCircleOutlined /> اطلاعات کاربر</MenuItem>
 
                                                             <MenuItem className={classes.menuNavbar} onClick={exit}>
                                                                 <ExitToAppOutlined /> خروج</MenuItem>

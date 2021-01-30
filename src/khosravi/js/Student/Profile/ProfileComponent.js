@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import ProfileService from './ProfileService';
 import ModalProfilePassword from './ModalProfilePassword';
 import toastr from 'toastr';
+import { DateInput } from 'react-hichestan-datetimepicker';
 
 
 const ProfileComponent = () => {
@@ -34,6 +35,7 @@ const ProfileComponent = () => {
         let userInfo = localStorage.getItem("userInfo");
         if (userInfo) {
             userInfo = JSON.parse(userInfo);
+            console.log(userInfo.userId);
             setState(prevState => ({ ...prevState, studentId: userInfo.userId }));
         } else {
             window.location.href = '/login';
@@ -52,6 +54,7 @@ const ProfileComponent = () => {
         }
         ProfileService.getProfile(command, response => {
             if (response.success) {
+                console.log(response);
                 let res = response.data[0];
                 setState(prevState => ({
                     ...prevState,
@@ -86,8 +89,6 @@ const ProfileComponent = () => {
             student_BirthDate: state.birthDate,
             student_CertificateNo: state.certificateNo
         };
-        console.log(command);
-
         ProfileService.updateProfile(command , (response) => {
             if(response.success){
                 toastr.success("پروفایل با موفقیت ویرایش شد");
@@ -165,12 +166,19 @@ const ProfileComponent = () => {
                                         تاریخ تولد
                                     </Form.Label>
                                     <Col md={9} xs={12} className="p-0">
-                                        <Form.Control
+                                    <DateInput
+                value={state.birthDate}
+                defaultValue={undefined}
+                name='birthDate'
+                onChange={handleChange}
+                style={{textAlign: 'right'}}
+               />
+                                        {/* <Form.Control
                                             type="text"
                                             name="birthDate"
                                             value={state.birthDate}
                                             onChange={handleChange}
-                                        />
+                                        /> */}
                                     </Col>
                                 </Form.Group>
                             </Col>

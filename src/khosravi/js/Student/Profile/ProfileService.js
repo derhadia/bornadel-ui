@@ -19,7 +19,6 @@ const ProfileService = {
     },
     changePassword :(command ,then) => {
         let url  = `${api.changePasswordApi}?${command}`;
-        Post(url,null, then);
-    }
+        Post(url,null, then);    }
 }
 export default ProfileService;
