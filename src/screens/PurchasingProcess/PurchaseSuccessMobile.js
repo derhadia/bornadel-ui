@@ -16,8 +16,8 @@ const PurchaseSuccessMobile = ({oldItems, apis}) => {
                             <Grid item sm={8} xs={8}>
                                 <Grid className={classes.vectorIconMobile}>{item.classRoom_Subject}</Grid>
                                 <Grid className={classes.teachSuccessIcon}>مدرس : {item.teacher_FullName}</Grid>
-                                <Grid className={classes.timeSuccessIcon}>زمان شروع : {item.classRoom_DateTime}</Grid>
-                                <Grid className={classes.hourSuccessIcon}>{item.classRoom_StartTime}  الی {item.classRoom_EndTime}</Grid>
+                                <Grid style={{fontFamily: "IRANSansNUMNumber"}} className={classes.timeSuccessIcon}>زمان شروع : {item.classRoom_DateTime}</Grid>
+                                <Grid style={{fontFamily: "IRANSansNUMNumber"}} className={classes.hourSuccessIcon}>{item.classRoom_StartTime}  الی {item.classRoom_EndTime}</Grid>
                             </Grid>
                             <Grid item sm={4} xs={4} style={{display: "flex", flexDirection: "column", alignItems: "center"}}>
                                 <Grid className={classes.titleSuccessPurchase} item xl={6} lg={6} md={6}>

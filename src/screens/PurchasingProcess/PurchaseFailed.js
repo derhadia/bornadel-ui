@@ -6,6 +6,7 @@ import SliderDesktop from "./SliderDesktopSize";
 import SwiperCoverflow from "./SwiperCoverflow";
 import {fetchPost} from "../../config/Utils";
 import Apis from "../../constants/Api";
+import {convertToPersian} from "../../hadi/functions";
 
 const PurchaseFailed = () => {
     const classes = useStyle();
@@ -35,7 +36,7 @@ const PurchaseFailed = () => {
                 className={classes.NewsContainer}
                 style={{width: "100%", display: "flex", minHeight: "unset"}}
             >
-                <p className={classes.errorMsg}>متاسفانه پرداخت شما ناموفق بود . شماره سفارش DKC156798</p>
+                <p style={{fontFamily: "IRANSansNUMNumber"}} className={classes.errorMsg}>متاسفانه پرداخت شما ناموفق بود . شماره سفارش {convertToPersian("DKC156798")}</p>
             </Grid>
             {
                 !isMobile ?
