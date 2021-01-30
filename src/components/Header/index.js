@@ -117,7 +117,9 @@ export default function Header(props) {
                                     </Select>*/}
                                     <Link to="/Cart">
                                         <Button classes={{ outlined: classes.basketIconBtn }} variant="outlined">
-                                            <span style={{color: "red", fontWeight: "bolder", fontSize: 23}}>{data ? convertToPersian(data.length.toString()) : ""}</span>
+                                            <span className={classes.badgeCart} style={data.length > 0 ? {display: "flex"} : {display: "none"}}>
+                                                <span>{data ? convertToPersian(data.length.toString()) : ""}</span>
+                                            </span>
                                         </Button>
                                     </Link>
 
@@ -154,7 +156,11 @@ export default function Header(props) {
                         <Grid className={classes.MobileVerticalLine} ></Grid>
                         <Link to="/Cart">
                             <Grid className={classes.MobilebasketIconBtn} >
-                                <span style={{color: "red", fontWeight: "bolder", fontSize: 23}}>{data ? convertToPersian(data.length.toString()) : ""}</span>
+                                <span className={classes.badgeCartMobile} style={data.length > 0 ? {display: "flex"} : {display: "none"}}>
+                                    <span>
+                                        {data ? convertToPersian(data.length.toString()) : ""}
+                                    </span>
+                                </span>
                             </Grid>
                         </Link>
                     </Grid>

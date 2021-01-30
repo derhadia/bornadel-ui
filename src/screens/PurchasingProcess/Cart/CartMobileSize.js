@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Grid} from "@material-ui/core";
+import {Button, Grid, Typography} from "@material-ui/core";
 import useStyle from "../../../hadi";
 import Apis from "../../../constants/Api";
 import {convertToPersian, separate} from "../../../hadi/functions";
@@ -58,18 +58,48 @@ const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
                                     </Grid>
                                     <Grid style={{display: "flex", alignItems: "center"}}>
                                         <Grid className={classes.timeSuccessIcon} item xs={2} sm={2} />
-                                        <Grid style={{fontSize: 13, color: "#424242"}} item xs={10} sm={10} >
+                                        <Grid style={{fontSize: 13, color: "#424242", fontFamily: "IRANSansNUMNumber"}} item xs={10} sm={10} >
                                             زمان شروع : {convertToPersian(item.classRoom_DateTime)}
                                         </Grid>
                                     </Grid>
                                     <Grid style={{display: "flex", alignItems: "center"}}>
+                                        <Grid
+                                            className={classes.priceIcon}
+                                            item
+                                            xs={2}
+                                            sm={2}
+                                            style={item.classRoom_Discount === 0 ? {display: "none"} : {display: "block"}}
+                                        />
+                                        <Grid
+                                            item
+                                            container
+                                            justify="center"
+                                            alignItems="center"
+                                            className={classes.CoursesDiscount}
+                                            style={item.classRoom_Discount === 0 ? {display: "none"} : {display: "flex", justifyContent: "flex-end", flexDirection: "row-reverse"}}
+                                        >
+                                                <span className={classes.DiscountRect}>
+                                                    <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={`${classes.DiscountRectText} ${classes.FarsiNumber}`}>
+                                                        %{convertToPersian(separate(item.classRoom_Discount.toString()))}
+                                                    </Typography>
+                                                </span>
+                                            <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={`${classes.DiscountText} ${classes.FarsiNumber}`}>{convertToPersian(separate(item.classRoom_Price))} تومان</Typography>
+                                        </Grid>
+                                    </Grid>
+                                    <Grid
+                                        style={{justifyContent: "flex-start"}}
+                                        item
+                                        container
+                                        justify="center"
+                                        alignItems="center"
+                                        className={classes.CoursesPrice}
+                                    >
                                         <Grid className={classes.priceIcon} item xs={2} sm={2} />
-                                        <Grid style={{color: "#282828", fontSize: 14, fontWeight: "bold", marginLeft: 20}}>
-                                            {convertToPersian(separate(item.classRoom_Price.toString()))} تومان
-                                        </Grid>
-                                        <Grid style={{color: "#ff4242", fontSize: 9.5, fontWeight: "bold"}}>
-                                            تخفیف {convertToPersian(separate(item.classRoom_Discount))} تومان
-                                        </Grid>
+                                        <Typography className={classes.CoursesPriceText}>
+                                            <Typography className={classes.FarsiNumber1}>
+                                                {convertToPersian(separate(item.last_Price))} تومان
+                                            </Typography>
+                                        </Typography>
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -79,19 +109,19 @@ const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
             </Grid>
             <Grid container style={{padding: "18px 19px 35px 19px", backgroundColor: "white", borderRadius: 14, marginTop: 37}}>
                 <Grid style={{display: "flex", justifyContent: "space-between", width: "100%"}}>
-                    <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold"}}>قیمت دوره ها ({state ? convertToPersian(state.length.toString()) : "۰"})</Grid>
-                    <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold"}}>{calculatePrice ? convertToPersian(separate(calculatePrice.toString())) : ""}</Grid>
+                    <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold", fontFamily: "IRANSansNUMNumber"}}>قیمت دوره ها ({state ? convertToPersian(state.length.toString()) : "۰"})</Grid>
+                    <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold", fontFamily: "IRANSansNUMNumber"}}>{price ? convertToPersian(separate(price.toString())) : ""}</Grid>
                 </Grid>
                 <Grid style={{display: "flex", justifyContent: "space-between", width: "100%", margin: "10px 0"}}>
-                    <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold"}}>تخفیف کالا ها</Grid>
-                    <Grid style={{color: "#ff4242", fontSize: 13.5, fontWeight: "bold"}}>{discount ? convertToPersian(separate(discount.toString())) : "۰"} تومان</Grid>
+                    <Grid style={{color: "#8d8f91", fontSize: 13.5, fontWeight: "bold"}}>تخفیف دوره ها</Grid>
+                    <Grid style={{color: "#ff4242", fontSize: 13.5, fontWeight: "bold", fontFamily: "IRANSansNUMNumber"}}>{discount ? convertToPersian(separate(discount.toString())) : "۰"} تومان</Grid>
                 </Grid>
             </Grid>
             <Grid className={classes.btnFixedMobile}>
                 <Link to="/SuccessfulPurchase" className={classes.btnCartMobile}>ادامه فرایند خرید</Link>
                 <Grid style={{display: "flex", width: "100%", marginBottom: 10, flexDirection: "column", alignItems: "flex-end"}}>
                     <Grid style={{color: "#4c4c4c", fontSize: 13.5, fontWeight: "bold"}}>جمع سبد خرید</Grid>
-                    <Grid style={{color: "#4c4c4c", fontSize: 13.5, fontWeight: "bold"}}>{price ? convertToPersian(separate(price.toString())) : ""} تومان</Grid>
+                    <Grid style={{color: "#4c4c4c", fontSize: 13.5, fontWeight: "bold", fontFamily: "IRANSansNUMNumber"}}>{calculatePrice ? convertToPersian(separate(calculatePrice.toString())) : ""} تومان</Grid>
                 </Grid>
             </Grid>
             <Grid className={classes.offersFailed}>
