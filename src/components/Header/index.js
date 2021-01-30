@@ -156,7 +156,11 @@ export default function Header(props) {
                     <Grid container justify="flex-end" item xs={4} >
                         <Grid component={Link} to="/login" className={classes.MobileLoginBtn} ></Grid>
                         <Grid className={classes.MobileVerticalLine} ></Grid>
-                        <Grid className={classes.MobilebasketIconBtn} ></Grid>
+                        <Link to="/Cart">
+                            <Grid className={classes.MobilebasketIconBtn} >
+                                <span style={{color: "red", fontWeight: "bolder", fontSize: 23}}>{data ? convertToPersian(data.length.toString()) : ""}</span>
+                            </Grid>
+                        </Link>
                     </Grid>
 
                 </Grid>

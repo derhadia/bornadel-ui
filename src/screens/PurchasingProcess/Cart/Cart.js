@@ -60,6 +60,9 @@ const Cart = () => {
 
 
 
+    const calculatePrice = price - discount
+
+
 
 
 
@@ -183,7 +186,7 @@ const Cart = () => {
                                     <hr className={classes.hrCart}/>
                                     <Grid className={classes.addToCart}>
                                         <Grid className={classes.cartBox} style={{color: "#4c4c4c"}}>جمع سبد خرید</Grid>
-                                        <Grid className={classes.cartBox} style={{color: "#4c4c4c"}}>{price ? convertToPersian(separate(price.toString())) : ""} تومان</Grid>
+                                        <Grid className={classes.cartBox} style={{color: "#4c4c4c"}}>{calculatePrice ? convertToPersian(separate(calculatePrice.toString())) : ""} تومان</Grid>
                                     </Grid>
                                     <Link to="/SuccessfulPurchase" className={classes.btnCartBox}>ادامه فرایند خرید</Link>
                                 </Grid>
