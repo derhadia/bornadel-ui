@@ -3,7 +3,7 @@ import axios from 'axios';
 import toastr from 'toastr';
 import url from '../constants/urlSetting';
 
-let token = "", header = {};
+let token = "", header = {'Content-type': 'application/json-patch+json'};
 
 /*<-----------AddHeder------->*/
 export function AddHeader(key, value) {
@@ -21,8 +21,9 @@ export function Post(customUrl, data, then, isAuth = true, responseType = 'json'
 /*<-----------GET------->*/
 export function Get(customUrl, params, then, isAuth = true, responseType = 'json') {
 
-    if (isAuth) { 
+    if (isAuth) {
         ApiRequestAuthorized(customUrl, 'GET', null, params, responseType, then);
+
     }
     else {
         ApiRequestUnauthorized(customUrl, 'GET', null, params, responseType, then)
@@ -41,13 +42,11 @@ export function Delete(customUrl, params, then, isAuth = true, responseType = 'j
 };
 /*<-----------Put------->*/
 export function Put(customUrl, data, then, isAuth = true, responseType = 'json') {
-
     if (isAuth) {
-        ApiRequestAuthorized(customUrl, 'PUT', null, data, responseType, then);
-
+        ApiRequestAuthorized(customUrl, 'Put', data, null, responseType, then);
     }
     else {
-        ApiRequestUnauthorized(customUrl, 'PUT', null, data, responseType, then)
+        ApiRequestUnauthorized(customUrl, 'Put', data, null, responseType, then)
     }
 };
 
@@ -61,11 +60,23 @@ function ApiRequestUnauthorized(customUrl, method, data, params, responseType, t
         data: data,
         params: params
     };
-    axios(options).then(responseFunction).then(then).catch(errorUnauthorized);
+    axios(options).then(response => responseFunction(response, then)).catch((error) => errorUnauthorized(error, then));
 };
 /*------errorUnauthorized------*/
-function errorUnauthorized(error) {
-    toastr.error("خطا در برقراری ارتباط با سرور");
+function errorUnauthorized(error, then) {
+    if (error.response) {
+        if (error.response.status === 401) {
+            toastr.error("عدم دسترسی به سرور");
+            localStorage.removeItem("authentication");
+            window.location.href = '/login'
+        } else if (error.response.status === 400) {
+            toastr.error((error.response.data && error.response.data.message) ? error.response.data.message : "داده ارسالی صحیح نمی باشد");
+            then({ suucess: false });
+        } else {
+            toastr.error("خطای برقراری ارتباط با سرور");
+            then({ suucess: false });
+        }
+    }
 };
 
 
@@ -82,25 +93,33 @@ function ApiRequestAuthorized(customUrl, method, data, params, responseType, the
         data: data,
         params: params
     };
-    axios(options).then(responseFunction).then(then).catch(errorAuthorized);
+    axios(options).then(response => responseFunction(response, then)).catch((error) => errorAuthorized(error, then));
 };
 
-function responseFunction(response) {
-    return new Promise((resolve, reject) => {
+function responseFunction(response, then) {
         if (response.status === 200) {
             var res = response.data;
             res.success = true;
-            resolve(response.data);
+            then(response.data);
         }
-    })
 };
 
 /*------errorAuthorized------*/
-function errorAuthorized(error) {
-    if (error.response && error.response.status === 401) {
-        toastr.error("عدم دسترسی به سرور");
-        localStorage.removeItem("token");
-        window.location.href = '/login'
+function errorAuthorized(error, then) {
+    if (error.response) {
+        if (error.response.status === 401) {
+            toastr.error("عدم دسترسی به سرور");
+            localStorage.removeItem("authentication");
+            window.location.href = '/login'
+        } else if (error.response.status === 400) {
+            toastr.error((error.response.data && error.response.data.message) ? error.response.data.message : "داده ارسالی صحیح نمی باشد");
+            then({ success: false });
+        } else {
+            toastr.error("خطای برقراری ارتباط با سرور");
+            if (then) {
+                then({ success: false });
+            }
+        }
     }
 
 };

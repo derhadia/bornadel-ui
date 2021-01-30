@@ -12,9 +12,8 @@ export default function Student(props) {
     
     useEffect(() => {
         let token = localStorage.getItem("token");
-        console.log(token);
+ 
         if(token && token != ''){
-            console.log(token);
             SetToken(token);
             setAuth(token);
         }else{
