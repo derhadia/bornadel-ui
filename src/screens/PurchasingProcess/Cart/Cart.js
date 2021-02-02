@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Divider, Grid} from "@material-ui/core";
+import {Button, Divider, Grid, Typography} from "@material-ui/core";
 import useStyle from "../../../hadi";
 import {fetchPost} from "../../../config/Utils";
 import Apis from "../../../constants/Api";
@@ -14,15 +14,6 @@ const Cart = () => {
     let [price, setPrice] = useState(null);
     let [discount, setDiscount] = useState(null);
     const [similarItem, setSimilarItem] = useState([])
-
-    // useEffect(() => {
-    //     fetchPost(Apis.Get_GetSimilarClassRooms + "?ClassRoomId=1").then(({ responseJSON, status }) => {
-    //         if (status === 200) {
-    //             setSimilarItem([responseJSON.data])
-    //         }
-    //     })
-    // },[])
-
 
     const [width, setWidth] = useState(window.innerWidth);
     useEffect(() => {
@@ -53,14 +44,17 @@ const Cart = () => {
                 }
             for (let i = 0; i < json.length; i++)
             if (json[i].classRoom_Discount){
-                setDiscount(discount += json[i].classRoom_Discount)
+                setDiscount(discount += json[i].classRoom_Discount / 100 * json[i].classRoom_Price)
             }
         }
     },[])
 
 
 
+
     const calculatePrice = price - discount
+
+
 
 
 
@@ -136,7 +130,7 @@ const Cart = () => {
                                                         </Grid>
                                                         <Grid style={{display: "flex", alignItems: "center"}}>
                                                             <Grid className={classes.timeSuccessIcon} item xl={2} lg={2} md={2}/>
-                                                            <Grid style={{fontSize: 15, color: "#424242"}} item xl={8} lg={8} md={8}>
+                                                            <Grid style={{fontSize: 15, color: "#424242", fontFamily: "IRANSansNUMNumber"}} item xl={8} lg={8} md={8}>
                                                                 زمان شروع : {convertToPersian(item.classRoom_DateTime)}
                                                             </Grid>
                                                         </Grid>
@@ -148,11 +142,34 @@ const Cart = () => {
                                                         </Grid>
                                                     </Grid>
                                                     <Grid className={classes.cartDiscount} item xl={3} lg={3} md={3}>
-                                                        <Grid style={{color: "#ff4242", fontSize: 13.5, fontWeight: "bold"}}>
-                                                            تخفیف {convertToPersian(item.classRoom_Discount.toString())} تومان
+                                                        <Grid style={{display: "flex", alignItems: "center"}}>
+                                                            <Grid
+                                                                item
+                                                                container
+                                                                justify="center"
+                                                                alignItems="center"
+                                                                className={classes.CoursesDiscount}
+                                                                style={item.classRoom_Discount === 0 ? {display: "none"} : {display: "flex", justifyContent: "flex-end", flexDirection: "row-reverse"}}
+                                                            >
+                                                            <span className={classes.DiscountRect}>
+                                                                <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={`${classes.DiscountRectText} ${classes.FarsiNumber}`}>%{convertToPersian(separate(item.classRoom_Discount.toString()))}</Typography>
+                                                            </span>
+                                                                <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={`${classes.DiscountText} ${classes.FarsiNumber}`}>{convertToPersian(separate(item.classRoom_Price))} تومان</Typography>
+                                                            </Grid>
                                                         </Grid>
-                                                        <Grid style={{color: "#282828", fontSize: 18, fontWeight: "bold"}}>
-                                                            {convertToPersian(separate(item.classRoom_Price.toString()))} تومان
+                                                        <Grid
+                                                            style={{justifyContent: "flex-start"}}
+                                                            item
+                                                            container
+                                                            justify="center"
+                                                            alignItems="center"
+                                                            className={classes.CoursesPrice}
+                                                        >
+                                                            <Typography className={classes.CoursesPriceText}>
+                                                                <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={classes.FarsiNumber1}>
+                                                                    {convertToPersian(separate(item.last_Price))} تومان
+                                                                </Typography>
+                                                            </Typography>
                                                         </Grid>
                                                     </Grid>
                                                 </Grid>
@@ -176,17 +193,17 @@ const Cart = () => {
                             >
                                 <Grid container className={classes.cartPayment}>
                                     <Grid style={{display: "flex", justifyContent: "space-between", width: "100%"}}>
-                                        <Grid className={classes.cartBox}>قیمت دوره ها ({data ? convertToPersian(data.length.toString()) : "۰"})</Grid>
-                                        <Grid className={classes.cartBox}>{price ? convertToPersian(separate(price.toString())) : ""}</Grid>
+                                        <Grid className={classes.cartBox} style={{fontFamily: "IRANSansNUMNumber"}}>قیمت دوره ها ({data ? convertToPersian(data.length.toString()) : "۰"})</Grid>
+                                        <Grid className={classes.cartBox} style={{fontFamily: "IRANSansNUMNumber"}}>{price ? convertToPersian(separate(price.toString())) : ""}</Grid>
                                     </Grid>
                                     <Grid className={classes.discountCourses}>
-                                        <Grid className={classes.cartBox}>تخفیف کالا ها</Grid>
-                                        <Grid className={classes.cartBox} style={{color: "#ff4242"}}>{discount ? convertToPersian(separate(discount.toString())) : "۰"} تومان</Grid>
+                                        <Grid className={classes.cartBox}>تخفیف دوره ها</Grid>
+                                        <Grid className={classes.cartBox} style={{color: "#ff4242", fontFamily: "IRANSansNUMNumber"}}>{discount ? convertToPersian(separate(discount.toString())) : "۰"} تومان</Grid>
                                     </Grid>
                                     <hr className={classes.hrCart}/>
                                     <Grid className={classes.addToCart}>
                                         <Grid className={classes.cartBox} style={{color: "#4c4c4c"}}>جمع سبد خرید</Grid>
-                                        <Grid className={classes.cartBox} style={{color: "#4c4c4c"}}>{calculatePrice ? convertToPersian(separate(calculatePrice.toString())) : ""} تومان</Grid>
+                                        <Grid className={classes.cartBox} style={{color: "#4c4c4c", fontFamily: "IRANSansNUMNumber"}}>{calculatePrice ? convertToPersian(separate(calculatePrice.toString())) : ""} تومان</Grid>
                                     </Grid>
                                     <Link to="/SuccessfulPurchase" className={classes.btnCartBox}>ادامه فرایند خرید</Link>
                                 </Grid>

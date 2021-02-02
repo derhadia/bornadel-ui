@@ -26,7 +26,7 @@ const SuccessfulPurchase = () => {
                 className={classes.NewsContainer}
                 style={{width: "100%", display: "flex", minHeight: "unset"}}
             >
-                <p className={classes.successMsg}>پرداخت شما با موفقیت انجام شد . کدپیگیری : 56854</p>
+                <p style={{fontFamily: "IRANSansNUMNumber"}} className={classes.successMsg}>پرداخت شما با موفقیت انجام شد . کدپیگیری : {convertToPersian("56854")}</p>
             </Grid>
             <Grid style={{width: "100%", textAlign: "center", display: "flex"}}>
                 <Grid className={classes.titleSuccess}>
@@ -72,7 +72,7 @@ const SuccessfulPurchase = () => {
                                         </Grid>
                                         <Grid style={{display: "flex", alignItems: "center"}}>
                                             <Grid className={classes.timeSuccessIcon} item xl={2} lg={2} md={2}/>
-                                            <Grid style={{fontSize: 15, color: "#424242"}} item xl={8} lg={8} md={8}>
+                                            <Grid style={{fontSize: 15, color: "#424242", fontFamily: "IRANSansNUMNumber"}} item xl={8} lg={8} md={8}>
                                                 زمان شروع : {convertToPersian(item.classRoom_DateTime)}
                                             </Grid>
                                         </Grid>
@@ -80,7 +80,7 @@ const SuccessfulPurchase = () => {
                                     <Grid item xl={4} lg={4} md={4} sm={12} xs={12}>
                                         <Grid style={{display: "flex", alignItems: "center"}}>
                                             <Grid className={classes.hourSuccessIcon} item xl={2} lg={2} md={2}/>
-                                            <Grid style={{fontSize: 15, color: "#424242"}} item xl={8} lg={8} md={8}>
+                                            <Grid style={{fontSize: 15, color: "#424242", fontFamily: "IRANSansNUMNumber"}} item xl={8} lg={8} md={8}>
                                                 {convertToPersian(item.classRoom_StartTime)}  الی {convertToPersian(item.classRoom_EndTime)}
                                             </Grid>
                                         </Grid>

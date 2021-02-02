@@ -36,6 +36,39 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 5,
         position: "relative",
     },
+    badgeCart: {
+        backgroundColor: "#ff0000",
+        lineHeight: 16,
+        fontSize: 15.5,
+        height: 16,
+        width: 16,
+        borderRadius: "50%",
+        color: "white",
+        position: "absolute",
+        bottom: 20,
+        left: 0,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: 2,
+        fontFamily: "IRANSansNUMNumber"
+    },
+    badgeCartMobile: {
+        backgroundColor: "#ff0000",
+        lineHeight: 16,
+        fontSize: 15.5,
+        height: 16,
+        width: 16,
+        borderRadius: "50%",
+        color: "white",
+        position: "absolute",
+        top: 15,
+        right: 40,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: 2,
+    },
     Bornadellogo: {
         width: 42,
         height: 42,
@@ -665,6 +698,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "center",
         alignItems: "flex-end",
+        fontFamily: "IRANSansNUMNumber"
     },
     MobileLoginBtn: {
         padding: 0,
@@ -954,7 +988,7 @@ const useStyles = makeStyles((theme) => ({
     // -----------------------------------------------------------------------------------------
     main: {
         width: "100%",
-        paddingTop: window.innerWidth > 959 ? 108 : 0,
+        paddingTop: window.screen.width > 959 ? 108 : 0,
         backgroundColor: "#f5f5f5"
     },
     Insidermain: {

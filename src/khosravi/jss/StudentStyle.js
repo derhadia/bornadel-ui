@@ -205,7 +205,37 @@ const styles = makeStyles((theme) => ({
             backgroundPosition: "-67px -422px",
         },
     },
-    
+    ProfileIcon:{
+        backgroundSize:1300,
+        backgroundImage:`url(${Icons})`,
+        backgroundPosition:"-438px -1074px",
+        width:30,
+        height:30,
+    },
+    HistoryIcon:{
+        backgroundSize:1300,
+        backgroundImage:`url(${Icons})`,
+        backgroundPosition:"-546px -1074px",
+        width:30,
+        height:30,
+    },
+    QuestionIcon:{
+        backgroundSize:1300,
+        backgroundImage:`url(${Icons})`,
+        backgroundPosition:"-871px -1074px",
+        width:30,
+        height:30, 
+    },
+    TicketIcon:{
+        backgroundSize:1300,
+        backgroundImage:`url(${Icons})`,
+        backgroundPosition:"-980px -1074px",
+        width:30,
+        height:30,
+    },
+    ArrowIcon:{
+        fontSize:30,
+    }
  
 }));
 export default styles;

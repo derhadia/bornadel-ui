@@ -44,9 +44,9 @@ const SwiperCoverflow = ({similarItem}) => {
             <Slider {...setting}>
                 {
                     similarItem && similarItem.length > 0 ? similarItem[0].map((item, index) => (
-                        <Link onClick={() => { setCourseDetailData(item) }} to={`/CourseDetail/${item.classRoom_ID}/${item.classRoom_Subject}`} key={index} className={index === slideIndex ? "slide activeSlide" : "slide"}>
+                        <Link onClick={() => setCourseDetailData(item)} to={index === slideIndex ?`/CourseDetail/${item.classRoom_ID}/${item.classRoom_Subject}` : "/Cart"} key={index} className={index === slideIndex ? "slide activeSlide" : "slide"}>
                             <Grid className={`${classes.coursesComponentDetailItem} slideCover`}>
-                                <Grid style={{border: "1px solid #ccc", borderRadius: 12}}>
+                                <Grid style={{border: ".5px solid #ccc", borderRadius: 12, borderTop: "unset"}}>
                                     <Grid className={classes.coursesComponentContainer}>
                                         <Grid className={classes.coursesRect}>
                                             <Grid>
@@ -66,19 +66,23 @@ const SwiperCoverflow = ({similarItem}) => {
                                             <Grid item className={classes.CoursesDateStart}>
                                                 <Typography component="span" className={classes.CoursesDateStartText1}>
                                                     زمان شروع :
-                                                    <Typography component="span" style={{fontSize: 10.5}} className={classes.FarsiNumber}>
+                                                    <Typography component="span" style={{fontSize: 10.5, fontFamily: "IRANSansNUMNumber"}} className={classes.FarsiNumber}>
                                                         {convertToPersian(item.classRoom_DateTime)}
                                                     </Typography>
                                                 </Typography>
                                             </Grid>
-                                            <Grid style={{textAlign: "center", color: "#424750"}}>
-                                                {convertToPersian(separate(item.classRoom_Discount.toString()))}
+                                            <Grid item container justify="center" alignItems="center" className={classes.CoursesDiscount} style={item.classRoom_Discount === 0 ? {display: "none"} : {display: "flex"}}>
+                                                <span className={classes.DiscountRect}>
+                                                    <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={`${classes.DiscountRectText} ${classes.FarsiNumber}`}>%{convertToPersian(separate(item.classRoom_Discount.toString()))}</Typography>
+                                                </span>
+                                                <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={`${classes.DiscountText} ${classes.FarsiNumber}`}>{convertToPersian(separate(item.classRoom_Price))} تومان</Typography>
                                             </Grid>
                                             <Grid item container justify="center" alignItems="center" className={classes.CoursesPrice}>
-                                                <Typography className={classes.CoursesPriceText}>
-                                                    <Typography className={classes.FarsiNumber1}>{convertToPersian(separate(item.classRoom_Price))} تومان
-                                                    </Typography>
-                                                </Typography>
+                                                <div className={classes.CoursesPriceText}>
+                                                    <div style={{fontFamily: "IRANSansNUMNumber", display: "flex", flexDirection: "row-reverse", width: 75, justifyContent: "space-around"}} className={classes.FarsiNumber1}>
+                                                        <span> {convertToPersian(separate(item.last_Price))} </span><span> تومان </span>
+                                                    </div>
+                                                </div>
                                             </Grid>
                                         </Grid>
                                     </Grid>

@@ -380,7 +380,7 @@ const useStyle = makeStyles((theme) => ({
         justifyContent: "flex-end"
     },
     successMsg: {
-        fontSize: 29,
+        fontSize: 24,
         color: "#018d04",
         [theme.breakpoints.down("sm")]: {
             fontSize: 16
@@ -413,7 +413,7 @@ const useStyle = makeStyles((theme) => ({
         fontWeight: 900
     },
     errorMsg: {
-        fontSize: 29,
+        fontSize: 24,
         color: "#ff0000",
         [theme.breakpoints.down("sm")]: {
             fontSize: 13.5
@@ -423,7 +423,7 @@ const useStyle = makeStyles((theme) => ({
     coursesComponentDetailItem: {
         // width: 152,
         margin: "0 auto",
-        padding: "7px 7px 5px",
+        padding: "5px 7px 5px",
         borderRadius: 10,
         boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.41)",
         backgroundColor: "#ffffff",
@@ -433,13 +433,37 @@ const useStyle = makeStyles((theme) => ({
     },
     coursesRect: {
         // width: 138,
-        height: 83,
+        height: 82,
         margin: "0 0 36px",
         // padding: "6px 34px 40px 33px",
-        borderRadius: 10,
+        borderRadius: 12,
         border: "solid 1px #c59428",
         position: "relative",
         display: "flex",
+        justifyContent: "center"
+    },
+    DiscountText: {
+        fontSize: 11,
+        color: "#8f8f8f",
+        textDecoration: "line-through",
+    },
+    DiscountRectText: {
+        textAlign: "center",
+        lineHeight: "10px",
+        color: "#ffffff"
+    },
+    DiscountRect: {
+        marginLeft: 5,
+        width: 29,
+        height: 14,
+        borderTopLeftRadius: 7,
+        backgroundColor: "#ff0029",
+        position: "relative",
+        bottom: 2,
+        textAlign: "center",
+        lineHeight: "19px",
+        display: "flex",
+        alignItems: "center",
         justifyContent: "center"
     },
     desCartBox: {
@@ -469,7 +493,7 @@ const useStyle = makeStyles((theme) => ({
         display: "flex",
         flexDirection: "column",
         justifyContent: "flex-end",
-        height: "70%"
+        height: "100%"
     },
     discountCourses: {
         display: "flex",
@@ -533,7 +557,10 @@ const useStyle = makeStyles((theme) => ({
         height: 50,
         textAlign: "center",
         lineHeight: "50px",
-        right: 0
+        right: 0,
+        "&:hover": {
+            color: "white"
+        }
     },
     itemCartMobile: {
         display: "flex",
@@ -605,7 +632,7 @@ const useStyle = makeStyles((theme) => ({
         borderRadius: "50%",
         position: "absolute",
         top: 50,
-        border: "2px solid #c59428",
+        border: "1px solid #c59428",
         clipPath: "Polygon(0% 0%,100% 0%,100% 50% ,0% 50%)",
     },
     circleinRect: {
@@ -649,12 +676,12 @@ const useStyle = makeStyles((theme) => ({
         fontSize: 10.5,
         color: "#383b40",
     },
-    CoursesPrice: {
-        marginBottom: 5,
-        [theme.breakpoints.down("xs")]: {
-            marginBottom: 0
-        }
-    },
+    // CoursesPrice: {
+    //     marginBottom: 5,
+    //     [theme.breakpoints.down("xs")]: {
+    //         marginBottom: 0
+    //     }
+    // },
     CoursesPriceText: {
         fontWeight: 100,
         color: "#000",
@@ -1241,7 +1268,7 @@ const useStyle = makeStyles((theme) => ({
         [theme.breakpoints.down("sm")]: {
             fontSize: 13,
             color: "#424242",
-            margin: "8px 0"
+            // margin: "8px 0"
         }
     },
     hourSuccessIcon: {
