@@ -81,7 +81,7 @@ export default function Student(props) {
                                     <Grid xs={12} sm={12} className="d-flex justify-content-center align-items-center mt-4">
                                         <Grid xs={11} sm={11} className="panel-menu d-flex justify-content-between align-items-center"
                                         onClick={() => changeState('/student/profile')}>
-                                            <Grid item xs={3} sm={3} className="d-flex mr-4">
+                                            <Grid item xs={5} sm={3} className="d-flex mr-4">
                                                 <span className={classes.ProfileIcon}></span>
                                                 <span>پروفایل</span>
                                             </Grid>
@@ -94,7 +94,7 @@ export default function Student(props) {
                                     <Grid xs={12} sm={12} className="d-flex justify-content-center align-items-center mt-4">
                                         <Grid xs={11} sm={11} className="panel-menu d-flex justify-content-between align-items-center"
                                             onClick={() => changeState('/student/courseHistory')}>
-                                            <Grid item xs={3} sm={3} className="d-flex mr-4">
+                                            <Grid item xs={5} sm={3} className="d-flex mr-4">
                                                 <span className={classes.HistoryIcon}></span>
                                                 <span>سوابق دوره ها</span>
                                             </Grid>
@@ -107,7 +107,7 @@ export default function Student(props) {
                                     <Grid xs={12} sm={12} className="d-flex justify-content-center align-items-center mt-4">
                                         <Grid xs={11} sm={11} className="panel-menu d-flex justify-content-between align-items-center"
                                         onClick={() => changeState('/student/questions')}>
-                                            <Grid item xs={4} sm={4} className="d-flex mr-4">
+                                            <Grid item xs={7} sm={4} className="d-flex mr-4">
                                                 <span className={classes.QuestionIcon}></span>
                                                 <span>پرسش ها و کامنت ها</span>
                                             </Grid>
@@ -120,7 +120,7 @@ export default function Student(props) {
                                     <Grid xs={12} sm={12} className="d-flex justify-content-center align-items-center mt-4 mb-5">
                                         <Grid xs={11} sm={11} className="panel-menu d-flex justify-content-between align-items-center"
                                         onClick={() => changeState('/student/tickets')}>
-                                            <Grid item xs={3} sm={3} className="d-flex mr-4">
+                                            <Grid item xs={5} sm={3} className="d-flex mr-4">
                                                 <span className={classes.TicketIcon}></span>
                                                 <span>تیکت ها</span>
                                             </Grid>

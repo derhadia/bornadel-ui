@@ -33,7 +33,7 @@ export default function Teacher() {
                                 return (
                                     <Grid key={index}>
                                         <Typography className={classes.CourseDetailteacherFiveCourse}>{data.classRoom_Subject}</Typography>
-                                        <span className={classes.CourseDetailClassNameTitle}>{index === fiveLastCourse.length - 1 ? "" : "/"}</span>
+                                        <span className={classes.CourseDetailClassNameTitle}/>
                                     </Grid >
                                 )
                             }) : null}
