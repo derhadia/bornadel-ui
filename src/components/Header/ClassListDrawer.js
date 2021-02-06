@@ -33,9 +33,8 @@ export default function DrawerInside() {
             {
                 firstlayout && firstlayout.map((item, index) => {
                     return (
-                        <>
+                        <Grid style={{width: "100%"}} key={index}>
                             <Grid
-                                key={index}
                                 container
                                 item
                                 justify="flex-start"
@@ -52,7 +51,7 @@ export default function DrawerInside() {
                                 <span className={activeFirstCollapse === index ? classes.MobilearrowUpMenuItem : classes.MobilearrowDownMenuItem}></span>
                             </Grid>
                             <Collapse in={activeFirstCollapse === index} className={classes.backgroundCollapse}>
-                                <Grid container justify="flex-start" alignItems="center" onClick={() => setMobileOpen(false)}>
+                                <Grid  container justify="space-between" alignItems="center" onClick={() => setMobileOpen(false)}>
                                     <Typography component={Link} to={`/Courses/${item.educationSubject_ID}`} className={classes.MobileMenuItemText}>
                                         همه موارد این دسته
                                     </Typography>
@@ -98,7 +97,7 @@ export default function DrawerInside() {
                                     })
                                 }
                             </Collapse>
-                        </>
+                        </Grid>
                     )
                 })
             }

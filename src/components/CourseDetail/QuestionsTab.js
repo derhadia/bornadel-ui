@@ -1,12 +1,15 @@
-import { Button, Grid } from '@material-ui/core'
-import React, { useContext } from 'react'
-import { CourseDetailContext } from '../../contexts/CourseDetailContext'
-import useStyles from '../../styles'
-import defaultImage from '../../assets/images/defaultImage.png'
+import {Button, Grid, Typography} from '@material-ui/core';
+import React, {useContext, useState} from 'react';
+import { CourseDetailContext } from '../../contexts/CourseDetailContext';
+import useStyles from '../../styles';
+import defaultImage from '../../assets/images/defaultImage.png';
+import {convertToPersian} from "../../hadi/functions";
 
-export default function QuestionsTab() {
+export default function QuestionsTab({handleSendQuestion, setQuestion, question}) {
     const classes = useStyles()
     let { questions } = useContext(CourseDetailContext)
+
+    const handleChange = event => setQuestion(event.target.value)
 
     return (
         <Grid container className={classes.questionContainer}>
@@ -15,9 +18,9 @@ export default function QuestionsTab() {
 
                 </Grid>
                 <Grid item className={classes.typingRect} >
-                    <textarea className={classes.typingFieldBox} placeholder="متن..." />
+                    <textarea onChange={handleChange} value={question} className={classes.typingFieldBox} placeholder="متن..." />
                     <Grid container justify="flex-end" className={classes.sendQuestion}>
-                        <Button variant="contained" color="primary" className={classes.sendQuestions} >ارسال پرسش</Button>
+                        <Button onClick={handleSendQuestion} variant="contained" color="primary" className={classes.sendQuestions} >ارسال پرسش</Button>
                     </Grid>
                 </Grid>
             </Grid>
@@ -28,16 +31,20 @@ export default function QuestionsTab() {
                             <Grid container className={classes.questions}>
                                 <Grid item className={classes.questionsTextContainer}>
                                     <Grid item className={classes.userImageQues2}>
-                                        <img className={classes.imageProfile} src={defaultImage} />
+                                        <img className={classes.imageProfile} src={defaultImage} alt="" />
                                     </Grid>
                                     <Grid item className={classes.questionsTextRect}>
                                         <span className={classes.questionWriter}>{item.student_FullName}</span>
                                         <Grid className={classes.questionContent}>
                                             {item.question_Description}
                                         </Grid>
-                                        <Grid container >
-                                            <Grid item className={classes.questionDate}>تاریخ  {item.question_DateTime}</Grid>
-                                            {/* <Grid item className={classes.}></Grid> */}
+                                        <Grid container style={{justifyContent: "space-between"}}>
+                                            <Grid item className={classes.questionDate}>تاریخ  {convertToPersian(item.question_DateTime)}</Grid>
+                                             <Grid item style={{display: "flex", alignItems: "center"}}>
+                                                 <Typography className={`${classes.typoComment} ${classes.thumbUp}`}>{convertToPersian(item.question_Like.toString())}</Typography>
+                                                 <span className={classes.lineSpan}/>
+                                                 <Typography className={`${classes.typoComment} ${classes.thumbDown}`}>{convertToPersian(item.question_DisLike.toString())}</Typography>
+                                             </Grid>
                                         </Grid>
                                     </Grid>
                                 </Grid>
@@ -58,9 +65,13 @@ export default function QuestionsTab() {
                                                     <Grid className={classes.questionContent}>
                                                         {item2.question_Description}
                                                     </Grid>
-                                                    <Grid container >
-                                                        <Grid item className={classes.questionDate}>تاریخ  {item2.question_DateTime}</Grid>
-                                                        {/* <Grid item className={classes.}></Grid> */}
+                                                    <Grid container style={{justifyContent: "space-between"}}>
+                                                        <Grid item className={classes.questionDate}>تاریخ  {convertToPersian(item2.question_DateTime)}</Grid>
+                                                        <Grid item style={{display: "flex", alignItems: "center"}}>
+                                                            <Typography className={`${classes.typoComment} ${classes.thumbUp}`}>{convertToPersian(item2.question_Like.toString())}</Typography>
+                                                            <span className={classes.lineSpan}/>
+                                                            <Typography className={`${classes.typoComment} ${classes.thumbDown}`}>{convertToPersian(item2.question_DisLike.toString())}</Typography>
+                                                        </Grid>
                                                     </Grid>
                                                 </Grid>
                                             </Grid>
