@@ -4,7 +4,7 @@ import SideBarStyle from '../jss/SideBarStyle';
 import StudentStyle from '../jss/StudentStyle';
 import { Grid } from '@material-ui/core';
 
-export default function SideBar(props) {
+export default function SideBar({fullName}) {
     const classes = SideBarStyle();
     const classesPanel = StudentStyle();
 
@@ -14,7 +14,7 @@ export default function SideBar(props) {
         <>
             <Grid container item direction="column" id="sidebar" alignItems="flex-start" className={classes.SideBarContainer}>
                 <Grid container justify="center" item>
-                    <Grid container item justify="center" className={classes.SideBarProfile}><h5>سعید فلاح زاده</h5></Grid>
+                    <Grid container item justify="center" className={classes.SideBarProfile}><h5>{fullName}</h5></Grid>
                 </Grid>
                 <Grid component={Link} to="/student/profile" container item
                     onClick={() => setActiveMenu(1)}

@@ -15,6 +15,10 @@
     url('../fonts/Rage/RageItalic.svg') format('svg');
 }
 
+.makeStyles-questionCaptcha-416 {
+  margin-right: 10px !important;
+}
+
 
 :root {
   --pinkish-grey: #bababa;

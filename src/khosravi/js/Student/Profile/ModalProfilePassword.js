@@ -2,10 +2,12 @@
 import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
+import { Grid } from '@material-ui/core'
 import Form from 'react-bootstrap/Form'
-import ProfileService from './ProfileService';
+import ProfileService from './ProfileService'
 import './modal.css'
 import toastr from 'toastr';
+
 
 const ModalResetPassword = () => {
   const [state, setState] = useState({
@@ -64,9 +66,19 @@ const ModalResetPassword = () => {
 
       <Modal show={show} onHide={handleClose}>
 
-        <Modal.Header closeButton>
-          <Modal.Title> <Button style={{ backgroundColor: "#cccccc", height: "auto", color: "#000000" }}>تغییر رمز عبور</Button></Modal.Title>
-        </Modal.Header>
+        <Grid container>
+          <Grid item md={12} sm={12} className="close-modal">
+            <Modal.Header closeButton>
+              <Modal.Title> </Modal.Title>
+            </Modal.Header>
+          </Grid>
+
+          <Grid item md={12} sm={12} className="center">
+            <Modal.Header >
+              <Modal.Title> <Button style={{ backgroundColor: "#cccccc", width:"141px", height: "27px", borderRadius:"5px" , color: "#000000", fontSize:"17.5px" ,padding: "0px 24px 0px" }}>تغییر رمز عبور</Button></Modal.Title>
+            </Modal.Header>
+          </Grid>
+        </Grid>
 
 
         <Modal.Body>
@@ -94,10 +106,10 @@ const ModalResetPassword = () => {
 
 
         <Modal.Footer>
-          <label onClick={changePassword} style={{ backgroundColor: "#33d698", color: "white", cursor: "pointer" }} className="pt-1 pb-1 pr-2 pl-2">
+          <label onClick={changePassword} className="confirm-btn pt-1 pb-1 pr-2 pl-2">
             تایید
             </label>
-          <label onClick={handleClose} style={{ color: "red", cursor: "pointer" }}>
+          <label onClick={handleClose} className="cancel-btn">
             انصراف
             </label>
         </Modal.Footer>
