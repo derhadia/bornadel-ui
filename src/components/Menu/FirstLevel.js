@@ -3,6 +3,7 @@ import {  Grid, Typography } from '@material-ui/core'
 import useStyles from '../../styles'
 import { MasteLayoutContext } from '../../contexts/MasteLayoutContext'
 import { Link } from 'react-router-dom';
+import Apis from "../../constants/Api"
 
 export default function FirstLevel() {
     const classes = useStyles();
@@ -35,7 +36,7 @@ export default function FirstLevel() {
                                 }}
                                 onMouseLeave={() => { setSecondLevelShow(false) }}
                             >
-                                <img className={classes.MenuItemLogo} src={item.educationSubject_IconeLink} />
+                                <img className={classes.MenuItemLogo} src={Apis.SHOWIMAGE + item.educationSubject_IconeLink} />
                                 <Typography className={classes.MenuItemText}>{item.educationSubject_Name}</Typography>
                                 <span className={classes.arrowMenuItem}></span>
                             </Grid>

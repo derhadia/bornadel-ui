@@ -25,7 +25,7 @@ const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
             </Grid>
             <Grid container className={classes.parentCartMobile}>
                 {
-                    state.map((item, index) => (
+                    state ? state.map((item, index) => (
                         <Grid key={index} className={classes.itemCartMobile}>
                                 <Grid item sm={3} xs={3} className={classes.rightSideCartMobile}>
                                     <Grid className={classes.subjectMobileCart} item xl={6} lg={6} md={6}>
@@ -103,7 +103,7 @@ const CartMobileSize = ({state, discount, price, removeItem, similarItem}) => {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                    ))
+                    )) : ""
                 }
 
             </Grid>

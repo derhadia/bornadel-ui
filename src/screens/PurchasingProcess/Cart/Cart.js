@@ -49,17 +49,7 @@ const Cart = () => {
         }
     },[])
 
-
-
-
     const calculatePrice = price - discount
-
-
-
-
-
-
-
 
     const handleWindowSize = () => setWidth(window.innerWidth);
 
@@ -69,12 +59,6 @@ const Cart = () => {
     },[]);
 
     const isMobile = width < 960;
-
-
-
-
-
-
 
     return (
         <>
@@ -152,9 +136,9 @@ const Cart = () => {
                                                                 style={item.classRoom_Discount === 0 ? {display: "none"} : {display: "flex", justifyContent: "flex-end", flexDirection: "row-reverse"}}
                                                             >
                                                             <span className={classes.DiscountRect}>
-                                                                <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={`${classes.DiscountRectText} ${classes.FarsiNumber}`}>%{convertToPersian(separate(item.classRoom_Discount.toString()))}</Typography>
+                                                                <Typography style={{fontFamily: "IRANSansNUMNumber", fontSize: 10}} className={`${classes.DiscountRectText} ${classes.FarsiNumber}`}>%{convertToPersian(separate(item.classRoom_Discount.toString()))}</Typography>
                                                             </span>
-                                                                <Typography style={{fontFamily: "IRANSansNUMNumber"}} className={`${classes.DiscountText} ${classes.FarsiNumber}`}>{convertToPersian(separate(item.classRoom_Price))} تومان</Typography>
+                                                                <Typography style={{fontFamily: "IRANSansNUMNumber", fontSize: 10}} className={`${classes.DiscountText} ${classes.FarsiNumber}`}>{convertToPersian(separate(item.classRoom_Price))} تومان</Typography>
                                                             </Grid>
                                                         </Grid>
                                                         <Grid

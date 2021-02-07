@@ -46,8 +46,8 @@ const SwiperCoverflow = ({similarItem}) => {
                     similarItem && similarItem.length > 0 ? similarItem[0].map((item, index) => (
                         <Link onClick={() => setCourseDetailData(item)} to={index === slideIndex ?`/CourseDetail/${item.classRoom_ID}/${item.classRoom_Subject}` : "/Cart"} key={index} className={index === slideIndex ? "slide activeSlide" : "slide"}>
                             <Grid className={`${classes.coursesComponentDetailItem} slideCover`}>
-                                <Grid style={{border: ".5px solid #ccc", borderRadius: 12, borderTop: "unset"}}>
-                                    <Grid className={classes.coursesComponentContainer}>
+                                <Grid style={{border: ".5px solid #ccc", borderRadius: 12, borderTop: "unset", height: 240}}>
+                                    {/*<Grid className={classes.coursesComponentContainer}>*/}
                                         <Grid className={classes.coursesRect}>
                                             <Grid>
                                                 <img style={{width: 20, height: 23}} src={Apis.SHOWIMAGE + item.educationSubject_IconeLink} alt=""/>
@@ -85,7 +85,7 @@ const SwiperCoverflow = ({similarItem}) => {
                                                 </div>
                                             </Grid>
                                         </Grid>
-                                    </Grid>
+                                    {/*</Grid>*/}
                                 </Grid>
 
                             </Grid>
