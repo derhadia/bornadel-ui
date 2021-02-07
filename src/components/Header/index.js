@@ -54,6 +54,7 @@ export default function Header(props) {
         window.location.href = '/login';
     }
     const profile = () => {
+        setOpen(false);
         history.push('/student/profile');
 
     }

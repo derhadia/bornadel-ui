@@ -107,9 +107,22 @@ const ProfileComponent = () => {
         history.push('/student');
     }
 
-    const handleCheckNmber = (event) =>{
+    
+
+    const handleCheckText = (event) =>{
+        console.log(event.key);
         const regex = /^\d+$/;
-        if(!regex.test(event.key)){
+        if(regex.test(event.key)){
+            event.preventDefault();
+            return false;
+        }
+        return true;
+    }
+
+    const handleCheckNmber = (event) =>{
+        console.log(event.key);
+        const regex = /^\d+$/;
+        if(!regex.test(event.key) && event.key !== 'Backspace'){
             event.preventDefault();
             return false;
         }
@@ -152,7 +165,7 @@ const ProfileComponent = () => {
                                             name="name"
                                             value={state.name}
                                             onChange={handleChange}
-                                           
+                                            onKeyDown={handleCheckText}         
                                         />
                                     </Col>
                                 </Form.Group>
@@ -170,6 +183,7 @@ const ProfileComponent = () => {
                                             name="lastName"
                                             value={state.lastName}
                                             onChange={handleChange}
+                                            onKeyDown={handleCheckText}         
                                         />
                                     </Col>
                                 </Form.Group>
@@ -219,10 +233,11 @@ const ProfileComponent = () => {
                                     </Form.Label>
                                     <Col lg={9} md={9} xs={12} className="p-0">
                                         <Form.Control
-                                            type="number"
+                                            type="text"
                                             name="certificateNo"
                                             value={state.certificateNo}
                                             onChange={handleChange}
+                                            onKeyDown={handleCheckNmber}
                                         />
                                     </Col>
                                 </Form.Group>
@@ -236,10 +251,11 @@ const ProfileComponent = () => {
                                     </Form.Label>
                                     <Col lg={9} md={9} xs={12} className="p-0">
                                         <Form.Control
-                                            type="number"
+                                            type="text"
                                             name="mobile"
                                             value={state.mobile}
                                             onChange={handleChange}
+                                            onKeyDown={handleCheckNmber}
                                         />
                                     </Col>
                                 </Form.Group>
@@ -266,14 +282,15 @@ const ProfileComponent = () => {
                             <Col lg={4} md={4} xs={12} className="p-0">
                                 <Form.Group as={Row}>
                                     <Form.Label column lg={3} md={3} xs={12} className="p-0">
-                                        شماره کارت بانکی
+                                     کارت بانکی
                                     </Form.Label>
                                     <Col lg={9} md={9} xs={12} className="p-0">
                                         <Form.Control
-                                            type="number"
+                                            type="text"
                                             name="bankAccount"
                                             value={state.bankAccount}
                                             onChange={handleChange}
+                                            onKeyDown={handleCheckNmber}
                                         />
                                     </Col>
                                 </Form.Group>
@@ -287,10 +304,11 @@ const ProfileComponent = () => {
                                     </Form.Label>
                                     <Col lg={9} md={9} xs={12} className="p-0">
                                         <Form.Control
-                                            type="number"
+                                            type="text"
                                             name="phone"
                                             value={state.phone}
                                             onChange={handleChange}
+                                            onKeyDown={handleCheckNmber}
                                         />
                                     </Col>
                                 </Form.Group>
@@ -308,6 +326,7 @@ const ProfileComponent = () => {
                                             name="address"
                                             value={state.address}
                                             onChange={handleChange}
+                                            onKeyDown={handleCheckText}         
                                         />
                                     </Col>
                                 </Form.Group>
