@@ -2280,6 +2280,9 @@ const useStyles = makeStyles((theme) => ({
     },
     CourseDetailElements: {
         minHeight: 280,
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column-reverse"
+        }
     },
     CourseDetailText: {
         fontSize: 22,
@@ -2288,16 +2291,40 @@ const useStyles = makeStyles((theme) => ({
     TabDatas: {
 
     },
+    coursePartDetailMobile: {
+      [theme.breakpoints.down("sm")]: {
+          width: "100%",
+          margin: "0 auto"
+      }
+    },
+    CourseDetailTextcontainer: {
+      [theme.breakpoints.down("sm")]: {
+          order: 1,
+          justifyContent: "center"
+      }
+    },
     teacherImageTabs: {
         width: 120,
         height: 140,
         borderRadius: 6,
-        margin: "20px 40px 20px 80px"
+        margin: "20px 0",
+        marginRight: 28,
+        [theme.breakpoints.down("sm")]: {
+            margin: 0
+        }
     },
     teacherImageTabsItem: {
         width: "100%",
         height: "100%",
         borderRadius: 6
+    },
+    teacherTabContainer: {
+        padding: "0 79px",
+      [theme.breakpoints.down("sm")]: {
+          justifyContent: "center",
+          flexDirection: "column",
+          marginTop: 30
+      }
     },
     teacherNameTabs: {
         fontSize: 19,
@@ -2330,8 +2357,17 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 140,
         borderRadius: 30,
         textAlign: "center",
-        margin: "42px 25px 25px 67px"
-
+        marginBottom: 20,
+        [theme.breakpoints.down("sm")]: {
+            margin: "20px 0",
+            fontSize: 18
+        }
+    },
+    teacherEvidence: {
+        padding: "20px 79px",
+        [theme.breakpoints.down("sm")]: {
+            justifyContent: "center"
+        }
     },
     doplomaText: {
         marginLeft: "67px",
@@ -2359,10 +2395,17 @@ const useStyles = makeStyles((theme) => ({
         color: "#ddd"
     },
     academyManagerName: {
-        fontSize: 19
+        fontSize: 18,
+        [theme.breakpoints.down("sm")]: {
+            width: "100%"
+        }
     },
     academyManagementTab: {
-        padding: "15px 30px"
+        padding: "15px 79px",
+        [theme.breakpoints.down("sm")]: {
+            padding: "15px 0",
+            textAlign: "center"
+        }
     },
     academyManagerNameText: {
         fontSize: 19,
@@ -2383,7 +2426,8 @@ const useStyles = makeStyles((theme) => ({
         height: 91,
         borderRadius: "100%",
         backgroundColor: "#0f0",
-        border: "1px solid #00134c"
+        border: "1px solid #00134c",
+        marginRight: 20
     },
     userImageQues2: {
         width: 60,
@@ -2400,10 +2444,9 @@ const useStyles = makeStyles((theme) => ({
     },
     typingFieldBox: {
         resize: "none",
-        marginLeft: 20,
         border: "1px solid #dcdcdc",
         height: 150,
-        width: "68%",
+        width: "100%",
         padding: "10px 15px",
         outline: "none",
         "&::placeholder": {
@@ -2429,12 +2472,18 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     sendQuestion: {
-        width: "68%"
+
     },
     sendQuestions: {
         height: 40,
         fontSize: 20,
-        marginLeft: 20
+        marginLeft: 20,
+        "&:hover": {
+            backgroundColor: "#2fc98d !important"
+        },
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 14
+        }
     },
     questions: {
         marginTop: 70
@@ -2449,25 +2498,34 @@ const useStyles = makeStyles((theme) => ({
         marginTop:30
     },
     questionsTextContainer: {
-        maxWidth: "60%",
+        maxWidth: "70%",
         border: "1px solid #dcdcdc",
         padding: 15,
         display: "flex",
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+        borderRadius: 7,
+        [theme.breakpoints.down("sm")]: {
+            maxWidth: "100%"
+        }
     },
     commentTextContainer: {
-        maxWidth: "60%",
+        maxWidth: "70%",
         border: "1px solid #dcdcdc",
         padding: 15,
         display: "flex",
-        backgroundColor: "#fff"
+        backgroundColor: "#fff",
+
     },
     answerTextContainer: {
-        maxWidth: "60%",
+        maxWidth: "70%",
         border: "1px solid #dcdcdc",
         padding: 15,
         display: "flex",
-        backgroundColor: "#fffcdf"
+        backgroundColor: "#fffcdf",
+        borderRadius: 7,
+        [theme.breakpoints.down("sm")]: {
+            maxWidth: "100%"
+        }
     },
     questionWriter: {
         color: "#03126d"
@@ -2480,7 +2538,8 @@ const useStyles = makeStyles((theme) => ({
     questionDate: {
         color: '#b0b0b0',
         fontSize: 16,
-        marginTop: 30
+        marginTop: 30,
+        fontFamily: "IRANSansNUMNumber",
     },
     CourseDetailClassTitle: {
         backgroundColor: "#2f6c81",
@@ -2508,7 +2567,10 @@ const useStyles = makeStyles((theme) => ({
     CourseDetailClassNameTitle6: {
         fontSize: 16,
         color: "#000",
-        paddingLeft: 15
+        paddingLeft: 15,
+        [theme.breakpoints.down("sm")]: {
+            paddingLeft: 0
+        }
     },
     CourseDetailClassNameContainer: {
         marginLeft: "15px",
@@ -2520,7 +2582,10 @@ const useStyles = makeStyles((theme) => ({
     },
     CourseDetailClassNameContainer2: {
         marginBottom: 10,
-        marginLeft: 20
+        marginLeft: 20,
+        [theme.breakpoints.down("sm")]: {
+            marginLeft: 0
+        }
     },
     CourseDetailClassNameContainer3: {
         marginBottom: 10,
@@ -2530,6 +2595,7 @@ const useStyles = makeStyles((theme) => ({
     },
     classBorderBottom: {
         borderBottom: "1px solid #b4b4b4",
+        justifyContent: "space-between"
     },
     CourseDetailClassName: {
         fontSize: 12,
@@ -2549,7 +2615,11 @@ const useStyles = makeStyles((theme) => ({
     CourseDetailteacherNameContainer8: {
         marginTop: 20,
         flexWrap: "nowrap",
-        borderBottom: "1px solid #b4b4b4"
+        fontFamily: "IRANSansNUMNumber",
+        borderBottom: "1px solid #b4b4b4",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column"
+        }
     },
     CourseDetailteacherNameContainer9: {
         marginTop: 20,
@@ -2559,7 +2629,16 @@ const useStyles = makeStyles((theme) => ({
     CourseDetailteacherNameContainer5: {
         paddingLeft: 20,
         marginTop: "20px",
+        [theme.breakpoints.down("sm")]: {
+            paddingLeft: 0
+        }
 
+    },
+    teacherDetail: {
+      justifyContent: "space-between",
+      [theme.breakpoints.down("sm")]: {
+          flexDirection: "column"
+      }
     },
     CourseDetailClassSUMhousrs: {
         marginTop: 20
@@ -2568,8 +2647,10 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 0,
         marginBottom: 10,
         display: "flex",
-        flexWrap: "wrap"
-
+        flexWrap: "wrap",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column"
+        }
     },
     CourseDetailteacherNameTitle: {
         fontSize: 16,
@@ -2601,7 +2682,10 @@ const useStyles = makeStyles((theme) => ({
         cursor: "pointer",
         fontSize: 16,
         paddingLeft: 20,
-        paddingRight: 20
+        paddingRight: 20,
+        [theme.breakpoints.down("sm")]: {
+            paddingLeft: 0
+        }
     },
     verticalLine: {
         maxWidth: 1,
@@ -2644,22 +2728,28 @@ const useStyles = makeStyles((theme) => ({
         marginRight: 15
     },
     CourseLogoANDregisterBox: {
-        width: 230,
+        // width: 230,
         position: "relative",
-        height: 240,
+        height: 295,
         borderRadius: 7,
         backgroundColor: "#f2f2f2",
     },
     CourseLogoANDregisterButton: {
-        texAlign: "center",
-        width: 229,
+        textAlign: "center",
+        width: "100%",
         height: 29,
         marginTop: 10,
+        "&:hover": {
+            backgroundColor: "#2fc98e !important"
+        }
+    },
+    linkBtnHover: {
+        width: "100%"
     },
     CourseLogoANDregisterCircle: {
         display: "inline-block",
-        width: 110,
-        height: 110,
+        width: 138,
+        height: 138,
         backgroundColor: "#b4b4b4",
         borderRadius: "50%",
         margin: "auto",
@@ -2674,11 +2764,16 @@ const useStyles = makeStyles((theme) => ({
         margin: "auto",
         marginBottom: 13,
     },
+    teacherIcon: {
+        width: 20,
+        height: 19,
+        backgroundImage: `url(${Icons})`,
+        backgroundPosition: "-204px -251px",
+    },
     CourseLogoANDregisterLogo: {
         display: "inline-block",
         width: 30,
         height: 30,
-        backgroundColor: "#b4b4b4",
         margin: "auto",
         marginBottom: 0,
     },
@@ -2725,12 +2820,14 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "217px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "673px 391px",
         },
 
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     CourseDetailAcademyDetail: {
         width: 140,
@@ -2751,11 +2848,13 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "270px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "744px 391px",
         },
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     CourseDetailِDownloadDetail: {
         width: 150,
@@ -2776,18 +2875,29 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "328px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "818px 391px",
         },
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     ExtraWidth: {
         height: 35,
         backgroundColor: "#fafafa",
         border: "1px solid #dfdfdf",
         display: "flex",
-        flex: 1
+        flex: 1,
+        [theme.breakpoints.down("sm")]: {
+            display: "none"
+        }
+    },
+    ExtraWidthComment: {
+        height: 35,
+        backgroundColor: "#fafafa",
+        border: "1px solid #dfdfdf",
+        display: "flex",
     },
     ActiveTeacher: {
         width: 130,
@@ -2806,14 +2916,16 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "217px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "304px 391px",
         },
         backgroundColor: "#fff",
         border: "none",
         borderTop: "1px solid #2fc98e",
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     ActiveAcademy: {
         width: 140,
@@ -2832,14 +2944,16 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "270px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "375px 391px",
         },
         backgroundColor: "#fff",
         border: "none",
         borderTop: "1px solid #2fc98e",
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     ActiveDownload: {
         width: 150,
@@ -2858,14 +2972,16 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "328px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "456px 391px",
         },
         backgroundColor: "#fff",
         border: "none",
         MozuserSelect: "none",
         userSelect: "none",
         borderTop: "1px solid #2fc98e",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     CourseDetailQuestion: {
         width: 130,
@@ -2886,12 +3002,13 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "217px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "520px 391px",
         },
-
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     CourseDetailComent: {
         width: 130,
@@ -2912,12 +3029,14 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "217px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "597px 391px",
         },
 
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     ActiveQuestion: {
         width: 130,
@@ -2936,14 +3055,16 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "217px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "153px 391px",
         },
         backgroundColor: "#fff",
         border: "none",
         borderTop: "1px solid #2fc98e",
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     ActiveComent: {
         width: 130,
@@ -2962,14 +3083,16 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "217px 57px",
-            backgroundSize: 1000
+            backgroundPosition: "227px 391px",
         },
         backgroundColor: "#fff",
         border: "none",
         borderTop: "1px solid #2fc98e",
         MozuserSelect: "none",
         userSelect: "none",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 11
+        }
     },
     SimilarItemContainer: {
         backgroundColor: "#fff",
@@ -2992,7 +3115,52 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 20,
     },
 
+    typoComment: {
+        color: "#dcdcdc",
+        fontSize: "13px",
+        [theme.breakpoints.only("md")]: {
+            fontSize: 12
+        }
+    },
+    lineSpan: {
+        borderLeft: "1px solid #dcdcdc",
+        height: "20px",
+        marginTop: "10px"
+    },
 
+    thumbUp: {
+        cursor: "pointer",
+        padding: "0 10px",
+        "&::before": {
+            content: `''`,
+            top: 4,
+            width: 30,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-704px -565px",
+        },
+        fontFamily: "IRANSansNUMNumber",
+    },
+    thumbDown: {
+        cursor: "pointer",
+        padding: "0 10px",
+        "&::before": {
+            content: `''`,
+            top: 10,
+            marginLeft: 5,
+            width: 30,
+            height: 35,
+            display: "inline-block",
+            position: "relative",
+            border: "none",
+            backgroundImage: `url(${Icons})`,
+            backgroundPosition: "-615px -565px",
+        },
+        fontFamily: "IRANSansNUMNumber",
+    },
 
 
 

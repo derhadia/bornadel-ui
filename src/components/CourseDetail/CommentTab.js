@@ -1,20 +1,24 @@
 import { Button, Grid } from '@material-ui/core'
-import React, { useContext } from 'react'
+import React, {useContext, useState} from 'react'
 import useStyles from '../../styles'
 import defaultImage from '../../assets/images/defaultImage.png'
 import { CourseDetailContext } from '../../contexts/CourseDetailContext'
-export default function CommentTab() {
+export default function CommentTab({handleSendComment, comment, setComment}) {
     const classes = useStyles()
-    let { comments } = useContext(CourseDetailContext)
+
+    let { comments } = useContext(CourseDetailContext);
+
+    const handleChange = event => setComment(event.target.value)
+
     return (
         <Grid container className={classes.commentContainer}>
             <Grid container item className={classes.typingClass} >
                 <Grid item className={classes.userImageQues}>
                 </Grid>
                 <Grid item className={classes.typingRect} >
-                    <textarea className={classes.typingFieldBox} placeholder="متن..." />
+                    <textarea onChange={handleChange} value={comment} className={classes.typingFieldBox} placeholder="متن..." />
                     <Grid container justify="flex-end" className={classes.sendQuestion}>
-                        <Button variant="contained" color="primary" className={classes.sendQuestions} >ارسال نظر</Button>
+                        <Button onClick={handleSendComment} variant="contained" color="primary" className={classes.sendQuestions} >ارسال نظر</Button>
                     </Grid>
                 </Grid>
             </Grid>

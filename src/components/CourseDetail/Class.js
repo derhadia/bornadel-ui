@@ -22,7 +22,7 @@ export default function Class() {
                             return (
                                 <Grid key={index}>
                                     <span  className={classes.CourseDetailClassNameTitle1}>{data}</span>
-                                    <span className={classes.CourseDetailClassNameTitle1}>/ </span>
+                                    {/*<span className={classes.CourseDetailClassNameTitle1}>/ </span>*/}
                                 </ Grid>
                             )
                         })
@@ -37,9 +37,8 @@ export default function Class() {
                             <span className={classes.CourseDetailClassNameNUM}> {courseDetailData.classRoom_DateTime} </span>
                         </Grid>
                         <Grid item className={classes.CourseDetailteacherNameContainer2}>
-                            <span className={classes.CourseDetailClassNameTitle6}> مجموع ساعات کلاس :</span>
-                            <span className={classes.CourseDetailClassNameNUM}> {courseDetailData.classRoom_SumTime}</span>
-                            <span className={classes.CourseDetailClassName4}>ساعت</span>
+                            <span className={classes.CourseDetailClassNameTitle6}> مجموع ساعات کلاس : <span className={classes.CourseDetailClassNameNUM}> {courseDetailData.classRoom_SumTime} ساعت</span></span>
+
                         </Grid>
                         <Grid item className={classes.CourseDetailClassNameContainer2}>
                             <span className={classes.CourseDetailClassNameTitle}> تعداد جلسات :</span>

@@ -113,7 +113,7 @@ const NewsList = () => {
                                     <div className={classes.boxDetail}/>
                                 </Grid>
                             </Grid>
-                            <Grid style={{height: "100%"}} container className={classes.NewsContainer}>
+                            <Grid style={{height: "100%", flexDirection: "unset"}} container className={classes.NewsContainer}>
                                 <Grid style={{borderBottom: "1px solid #b9b9b9", width: "100%"}}>
                                     <Typography className={classes.ArticleHeaderText}>تازه های خبری</Typography>
                                 </Grid>
