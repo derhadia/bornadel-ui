@@ -41,7 +41,6 @@ const LoginComponent = (props) => {
             fetchPost(`${Api.Login}?mobileOrEmail=${state.mobileOrEmail}&pass=${state.password}&Captcha=${parseInt(state.captcha)}`, null).then(response => {
                 if (response.success) {
                     let res = response.responseJSON;
-                    console.log(response);
                     if (res.access_token) {
                         localStorage.setItem("token", res.access_token);
                         let userInfo = {

@@ -21,7 +21,6 @@ export default {
     Get_GetAllSearchClassRoomList: BaseUrl + "ClassRoom/GetAllSearchClassRoomList",
     Get_GetAllInClassRoomList: BaseUrl + "EducationSubject/GetAllInClassRoomList",
     Get_GetAllClassroomLevel: BaseUrl + "ClassRoomLevel/GetAll",
-    Get_GetAllClassroomLevel: BaseUrl + "ClassRoomLevel/GetAll",
     Get_GetAllTeacher: BaseUrl + "Teacher/GetAll",
     Get_GetAllAcademy: BaseUrl + "Academy/GetAll",
     Get_GetClassRoomDetail: BaseUrl + "ClassRoom/GetClassRoomDetail",

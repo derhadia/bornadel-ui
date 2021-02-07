@@ -10,11 +10,11 @@ export default function CircleMenu(titleArraynew, idArraynew) {
         fetchPost("https://api.bornadel.com/api/v1/EducationSubject/GetAllCircleMainMenuHomePage").then(({ responseJSON, status }) => {
             if (status === 200) {
                 titleArray = (responseJSON.data ? responseJSON.data.map((item, index) => {
-                    return ([item.namE_0, item.namE_1, item.namE_2, item.namE_3, item.namE_4, item.namE_5, item.namE_6, item.namE_7, item.namE_8])
+                    return ([item.namE_0, item.namE_1, item.namE_2, item.namE_3, item.namE_4, item.namE_5, item.namE_6, item.namE_7, item.namE_8, item.iD_9])
                 }) : null)
                 fetchPost("https://api.bornadel.com/api/v1/EducationSubject/GetAllCircleSubMenuHomePage").then(({ responseJSON, status }) => {
                     idArray = (responseJSON.data ? responseJSON.data.map((item, index) => {
-                        return ([0, item.iD_0, item.iD_1, item.iD_2, item.iD_3, item.iD_4, item.iD_5, item.iD_6, item.iD_7, item.iD_8])
+                        return ([0, item.iD_0, item.iD_1, item.iD_2, item.iD_3, item.iD_4, item.iD_5, item.iD_6, item.iD_7, item.iD_8, item.iD_9])
                     }) : null)
                     afterDownCallBack(titleArray, idArray)
                 })

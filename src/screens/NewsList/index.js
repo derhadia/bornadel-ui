@@ -122,7 +122,7 @@ const NewsList = () => {
                                         <Link
                                             style={{color: "inherit"}}
                                             to={{
-                                                pathname: `NewsDetail/${item.news_ID}/${item.news_title}`,
+                                                pathname: `NewsDetail/${item.news_ID}`,
                                                 state: {item}
                                             }}
                                             key={index}

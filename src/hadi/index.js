@@ -40,6 +40,33 @@ const useStyle = makeStyles((theme) => ({
             height: "unset !important"
         }
     },
+    articleSlideMobile: {
+        width: 261,
+        // margin: "18px 18px 34px 2px",
+        padding: "6px 16px 14px 15px",
+        borderRadius: 9,
+        // boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.41)",
+        backgroundColor: "#ffffff",
+        height: "fit-content"
+    },
+    imgSlideMobile: {
+        width: 52,
+        height: 52,
+        margin: "5px 91px 10px 67px",
+        borderRadius: 5,
+        backgroundColor: "#ff0033",
+        position: "relative"
+    },
+    circleImgSlideMobile: {
+        width: 26,
+        height: 26,
+        margin: "14px 1px 22px 53px",
+        border: "solid 2px #ffffff",
+        borderRadius: "50%",
+        position: "absolute",
+        left: 52,
+        top: 7
+    },
     SuccessContainer: {
         borderRadius: 8,
         padding: 13,
@@ -427,6 +454,7 @@ const useStyle = makeStyles((theme) => ({
         borderRadius: 10,
         boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.41)",
         backgroundColor: "#ffffff",
+        height: 250
    },
     coursesComponentContainer: {
         padding: "0 0 12px",
@@ -454,7 +482,7 @@ const useStyle = makeStyles((theme) => ({
     },
     DiscountRect: {
         marginLeft: 5,
-        width: 29,
+        width: 23,
         height: 14,
         borderTopLeftRadius: 7,
         backgroundColor: "#ff0029",
@@ -590,10 +618,13 @@ const useStyle = makeStyles((theme) => ({
         // border: "1px solid #d7d7d7",
         borderTop: "none",
         position: "relative",
-        height: "70%",
+        height: "48%",
         backgroundColor: "#fff",
         borderBottomRightRadius: 6,
         borderBottomLeftRadius: 6,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around"
     },
     coursesText: {
         textAlign: "center !important",

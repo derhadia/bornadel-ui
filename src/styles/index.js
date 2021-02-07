@@ -1031,7 +1031,10 @@ const useStyles = makeStyles((theme) => ({
         padding:"10px",
         display:"flex",
         justifyContent:"center",
-        flexDirection:"column"
+        flexDirection:"column",
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        height: 152
     },
     threeImageBox:{
         padding:"10px 15px"
@@ -1099,26 +1102,23 @@ const useStyles = makeStyles((theme) => ({
     },
     educationButtonMobile1: {
         borderRadius: 6,
-        width:"75%",
-        marginTop:15,
         backgroundColor: "#0665b8",
-        position: "relative",
+        top: "84%",
+        position: "absolute",
         backgroundImage: `url(${Icons})`,
     },
     educationButtonMobile2: {
         borderRadius: 6,
-        width:"75%",
-        marginTop:15,
         backgroundColor: "#281b7d",
-        position: "relative",
+        position: "absolute",
+        top: "84%",
         backgroundImage: `url(${Icons})`,
     },
     educationButtonMobile3:{
         borderRadius: 6,
-        width:"75%",
-        marginTop:15,
+        top: "84%",
         backgroundColor: "#6e3109",
-        position: "relative",
+        position: "absolute",
         backgroundImage: `url(${Icons})`,
     },
     educationButtonIcon1: {
@@ -1800,6 +1800,33 @@ const useStyles = makeStyles((theme) => ({
     },
     NewsTitle: {
         fontSize: 11,
+    },
+    academyPartMobile: {
+        display: "flex",
+        justifyContent: "center",
+        padding: "0 15px",
+        margin: "20px 0"
+    },
+    offersFailed: {
+        width: 110,
+        height: 21,
+        margin: "48px auto 18px",
+        textAlign: "center",
+        borderRadius: 10.2,
+        border: "solid 1px #c59428",
+        fontSize: 12,
+        lineHeight: "21px"
+    },
+    titleAcademyMobile: {
+        width: 109,
+        height: 21,
+        margin: "37px 5px 18px 3px",
+        padding: "5px 12px 5px 14px",
+        borderRadius: "10.1px",
+        backgroundColor: "#c59428",
+        color: "white",
+        display: "flex",
+        alignItems: "center"
     },
     // ======================================Courses page=======================================
 
