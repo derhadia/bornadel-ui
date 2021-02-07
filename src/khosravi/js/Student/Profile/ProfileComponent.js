@@ -107,12 +107,21 @@ const ProfileComponent = () => {
         history.push('/student');
     }
 
+    const handleCheckNmber = (event) =>{
+        const regex = /^\d+$/;
+        if(!regex.test(event.key)){
+            event.preventDefault();
+            return false;
+        }
+        return true;
+    }
+
     return (
         <>
             <Hidden mdUp>
                 <Grid item sm={12} xs={12} className="header-menu d-flex align-items-center mt-3">
-                    <Grid item sm={6} xs={6} className="d-flex justify-content-center align-items-center">
-                        <Grid item sm={5} xs={5} className="d-flex align-items-center"
+                    <Grid item sm={6} xs={8} className="d-flex justify-content-center align-items-center">
+                        <Grid item sm={6} xs={8} className="d-flex align-items-center"
                         onClick={changeState}>
                             <ArrowRightAltIcon className={`${classes.ArrowIcon} ml-2 mt-2`} />
                             <span className={classes.ProfileIcon}></span>
@@ -124,7 +133,7 @@ const ProfileComponent = () => {
 
             <Row className="profile-style p-3" >
                 <Col lg={12} md={12} className="btn-profile-style pt-3 pr-4 mb-4">
-                    <Button className="color-style ml-5" onClick={editProfile}>ویرایش پروفایل</Button>
+                    <Button className="color-style ml-5" onClick={editProfile} type="submit">ویرایش پروفایل</Button>
                     <ModalProfilePassword className="color-style mr-5"></ModalProfilePassword>
                 </Col>
 
@@ -143,6 +152,7 @@ const ProfileComponent = () => {
                                             name="name"
                                             value={state.name}
                                             onChange={handleChange}
+                                           
                                         />
                                     </Col>
                                 </Form.Group>
@@ -173,10 +183,11 @@ const ProfileComponent = () => {
                                     </Form.Label>
                                     <Col lg={9} md={9} xs={12} className="p-0">
                                         <Form.Control
-                                            type="number"
+                                            type="text"
                                             name="nationalCode"
                                             value={state.nationalCode}
                                             onChange={handleChange}
+                                            onKeyDown={handleCheckNmber}
                                         />
                                     </Col>
                                 </Form.Group>

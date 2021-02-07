@@ -987,14 +987,17 @@ const useStyles = makeStyles((theme) => ({
     //                                      main Style
     // -----------------------------------------------------------------------------------------
     main: {
+        '@media (min-width: 800px)': {
+            paddingTop: 108,
+        },
         width: "100%",
-        paddingTop: window.screen.width > 959 ? 108 : 0,
         backgroundColor: "#f5f5f5"
     },
     Insidermain: {
         // maxWidth: "1366px",
         margin: "auto",
     },
+    
 
 
     //=====================================home page==================================================
@@ -3553,7 +3556,8 @@ const useStyles = makeStyles((theme) => ({
     },
     menuDropdown:{
         top:'53px !important',
-        right:'30px !important'
+        right:'30px !important',
+        zIndex:10000
     }
 
 }));

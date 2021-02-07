@@ -10,12 +10,14 @@ import { Form } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 import RadioButtonUncheckedRoundedIcon from '@material-ui/icons/RadioButtonUncheckedRounded';
+import ProfileService from './Profile/ProfileService';
 
 
 export default function Student(props) {
     const [auth, setAuth] = useState('')
     const classes = StudentStyle();
     const [search, setSearch] = useState('');
+    const [fullName , setFullName] = useState('');
 
     const location = useLocation();
     const history = useHistory();
@@ -26,6 +28,10 @@ export default function Student(props) {
         if (token && token != '') {
             SetToken(token);
             setAuth(token);
+            let userInfo = localStorage.getItem("userInfo");
+            if (userInfo) {
+                getPerson(JSON.parse(userInfo).userId);
+            }
         } else {
             window.location.href = '/login';
         }
@@ -35,10 +41,23 @@ export default function Student(props) {
         setSearch(e.target.value);
     };
 
-    const changeState = (pathName) =>{
+    const changeState = (pathName) => {
         history.push(pathName);
     }
 
+    const getPerson = (studentId) => {
+        let command = {
+            student_ID: studentId
+        }
+        ProfileService.getProfile(command, response => {
+            if (response.success) {
+                let res = response.data[0];
+                setFullName(
+                    `${res.student_Name} ${res.student_LastName}`
+                );
+            }
+        })
+    }
     return (
         <>
             {
@@ -47,7 +66,7 @@ export default function Student(props) {
                     <Grid container direction="row">
                         <Hidden mdDown>
                             <Grid item md={2} lg={2}>
-                                <SideBar />
+                                <SideBar  fullName={fullName} />
                             </Grid>
                         </Hidden>
                         <Hidden mdUp>
@@ -76,11 +95,11 @@ export default function Student(props) {
 
                                 <Hidden mdUp>
                                     <Grid sm={12} xs={12} className="d-flex justify-content-center align-items-center">
-                                        <Grid xs={6} sm={6} className="user-title d-flex justify-content-center">سعید فلاح زاده</Grid>
+                                        <Grid xs={6} sm={6} className="user-title d-flex justify-content-center">{fullName}</Grid>
                                     </Grid>
                                     <Grid xs={12} sm={12} className="d-flex justify-content-center align-items-center mt-4">
                                         <Grid xs={11} sm={11} className="panel-menu d-flex justify-content-between align-items-center"
-                                        onClick={() => changeState('/student/profile')}>
+                                            onClick={() => changeState('/student/profile')}>
                                             <Grid item xs={5} sm={3} className="d-flex mr-4">
                                                 <span className={classes.ProfileIcon}></span>
                                                 <span>پروفایل</span>
@@ -106,7 +125,7 @@ export default function Student(props) {
                                     </Grid>
                                     <Grid xs={12} sm={12} className="d-flex justify-content-center align-items-center mt-4">
                                         <Grid xs={11} sm={11} className="panel-menu d-flex justify-content-between align-items-center"
-                                        onClick={() => changeState('/student/questions')}>
+                                            onClick={() => changeState('/student/questions')}>
                                             <Grid item xs={7} sm={4} className="d-flex mr-4">
                                                 <span className={classes.QuestionIcon}></span>
                                                 <span>پرسش ها و کامنت ها</span>
@@ -119,7 +138,7 @@ export default function Student(props) {
                                     </Grid>
                                     <Grid xs={12} sm={12} className="d-flex justify-content-center align-items-center mt-4 mb-5">
                                         <Grid xs={11} sm={11} className="panel-menu d-flex justify-content-between align-items-center"
-                                        onClick={() => changeState('/student/tickets')}>
+                                            onClick={() => changeState('/student/tickets')}>
                                             <Grid item xs={5} sm={3} className="d-flex mr-4">
                                                 <span className={classes.TicketIcon}></span>
                                                 <span>تیکت ها</span>
@@ -137,20 +156,20 @@ export default function Student(props) {
                         </Grid>
                         <Grid item md={10} xs={12}>
                             <Grid container >
-                                {/* <Hidden smDown> */}
-                                <Grid item md={12} xs={12} alignItems="center" justify="space-between" className={classes.StudentAppBar}>
-                                    <Grid container alignItems="center" justify="center" item>
-                                        <Grid item className={classes.StudentScoreContainer}>
+                                <Hidden smDown>
+                                    <Grid item md={12} xs={12} alignItems="center" justify="space-between" className={classes.StudentAppBar}>
+                                        <Grid container alignItems="center" justify="center" item>
+                                            <Grid item className={classes.StudentScoreContainer}>
 
-                                        </Grid>
-                                        <Grid container item justify="flex-end" className={classes.StudentAppBarICONContainer}>
-                                            <Grid item className={classes.StudentAppBarICON1}></Grid>
-                                            <Grid item className={classes.StudentAppBarICON2}></Grid>
-                                            <Grid item className={classes.StudentAppBarICON3}></Grid>
+                                            </Grid>
+                                            <Grid container item justify="flex-end" className={classes.StudentAppBarICONContainer}>
+                                                <Grid item className={classes.StudentAppBarICON1}></Grid>
+                                                <Grid item className={classes.StudentAppBarICON2}></Grid>
+                                                <Grid item className={classes.StudentAppBarICON3}></Grid>
+                                            </Grid>
                                         </Grid>
                                     </Grid>
-                                </Grid>
-                                {/* </Hidden> */}
+                                </Hidden>
 
 
                                 <Grid item md={12} xs={12}>

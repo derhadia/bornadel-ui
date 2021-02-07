@@ -1,8 +1,38 @@
 
 .modal-header .close {
-    padding: 0px !important;
-    margin: 0rem -8rem -1rem auto !important;
+    padding: 10px !important;
+    /* margin: 0rem -8rem -1rem auto !important; */
 }
-.modal-title {
-margin: auto;
+.close-modal .modal-title {
+margin: 0;
 }
+.modal-header {
+    border-bottom: 0px !important;
+    padding: 2px 2px !important;
+}
+
+
+.confirm-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18.5px;
+    border-radius: 3px;
+    background-color: #33d698;
+    color: white;
+    cursor: pointer;
+    width: 106px;
+    height: 26px;
+}
+.cancel-btn {
+    color: #ff0909;
+    font-size: 18.5px;
+    cursor: pointer;
+}
+.modal-content {
+    border-radius: 15px;
+    border: 1px solid #48494d;
+    padding: 18px 17px 9px 32px;
+}
+
+

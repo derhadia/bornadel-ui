@@ -16,7 +16,7 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuList from '@material-ui/core/MenuList';
 import { AccountCircleOutlined, ExitToAppOutlined } from '@material-ui/icons';
-import {convertToPersian} from "../../hadi/functions";
+import { convertToPersian } from "../../hadi/functions";
 
 
 export default function Header(props) {
@@ -32,7 +32,7 @@ export default function Header(props) {
     };
     useEffect(() => {
         const container = window !== undefined ? () => window().document.body : undefined;
-        if(localStorage.getItem("userInfo")){
+        if (localStorage.getItem("userInfo")) {
             setUsername(JSON.parse(localStorage.getItem("userInfo")).username);
         }
     }, []);
@@ -48,15 +48,15 @@ export default function Header(props) {
     };
 
     const exit = () => {
-            localStorage.removeItem('token');
-            localStorage.removeItem('userInfo');
-            //history.push('/login');
-            window.location.href = '/login';       
+        localStorage.removeItem('token');
+        localStorage.removeItem('userInfo');
+        //history.push('/login');
+        window.location.href = '/login';
     }
-    const profile = () =>{
-            history.push('/student/profile');
+    const profile = () => {
+        history.push('/student/profile');
 
-        }
+    }
 
     return (
         <>
@@ -121,7 +121,7 @@ export default function Header(props) {
                                     </Select>*/}
                                     <Link to="/Cart">
                                         <Button classes={{ outlined: classes.basketIconBtn }} variant="outlined">
-                                            <span className={ data ? classes.badgeCart : null} style={data ? (data.length > 0 ? {display: "flex"} : {display: "none"}) : null}>
+                                            <span className={data ? classes.badgeCart : null} style={data ? (data.length > 0 ? { display: "flex" } : { display: "none" }) : null}>
                                                 <span>{data ? convertToPersian(data.length.toString()) : null}</span>
                                             </span>
                                         </Button>
@@ -155,8 +155,35 @@ export default function Header(props) {
                         <Grid item className={classes.MobileBornadellogo} component={Link} to="/" onClick={() => DeleteFilter()}></Grid>
 
                     </Grid>
+                    
                     <Grid container justify="flex-end" item xs={4} >
-                        <Grid component={Link} to="/login" className={classes.MobileLoginBtn} ></Grid>
+                    <Button
+                        className={classes.profileBtn}
+                        onClick={handleToggle}>
+                        <span className={classes.profileIcon}></span>
+                    </Button>
+                    <Popper className={classes.menuDropdown} open={open} transition disablePortal>
+                        {({ TransitionProps, placement }) => (
+                            <Grow
+                                {...TransitionProps}
+                                id="menu-list-grow"
+                                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                            >
+                                <Paper>
+                                    <ClickAwayListener onClickAway={handleCloseDropDwonList}>
+                                        <MenuList>
+                                            <MenuItem> {username}</MenuItem>
+                                            <MenuItem onClick={profile} > <AccountCircleOutlined /> اطلاعات کاربر</MenuItem>
+
+                                            <MenuItem className={classes.menuNavbar} onClick={exit}>
+                                                <ExitToAppOutlined /> خروج</MenuItem>
+                                        </MenuList>
+                                    </ClickAwayListener>
+                                </Paper>
+                            </Grow>
+                        )}
+                    </Popper>
+                        {/* <Grid component={Link} to="/login" className={classes.MobileLoginBtn} ></Grid> */}
                         <Grid className={classes.MobileVerticalLine} ></Grid>
                         <Link to="/Cart">
                             <Grid className={classes.MobilebasketIconBtn} >
@@ -167,7 +194,7 @@ export default function Header(props) {
                                 </span>
                             </Grid>
                         </Link>
-                    </Grid>
+                    </Grid> 
 
                 </Grid>
             </Hidden>
