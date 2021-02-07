@@ -1107,22 +1107,19 @@ const useStyles = makeStyles((theme) => ({
     educationButtonMobile1: {
         borderRadius: 6,
         backgroundColor: "#0665b8",
-        bottom: 80,
-        position: "absolute",
+        top: 100,
         backgroundImage: `url(${Icons})`,
     },
     educationButtonMobile2: {
         borderRadius: 6,
         backgroundColor: "#281b7d",
-        position: "absolute",
-        bottom: 80,
+        top: 100,
         backgroundImage: `url(${Icons})`,
     },
     educationButtonMobile3:{
         borderRadius: 6,
-        bottom: 80,
+        top: 100,
         backgroundColor: "#6e3109",
-        position: "absolute",
         backgroundImage: `url(${Icons})`,
     },
     educationButtonIcon1: {
