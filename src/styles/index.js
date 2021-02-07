@@ -1037,7 +1037,8 @@ const useStyles = makeStyles((theme) => ({
         flexDirection:"column",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        height: 152
+        height: 152,
+        borderRadius: 8
     },
     threeImageBox:{
         padding:"10px 15px"
@@ -1106,7 +1107,7 @@ const useStyles = makeStyles((theme) => ({
     educationButtonMobile1: {
         borderRadius: 6,
         backgroundColor: "#0665b8",
-        top: "84%",
+        bottom: 80,
         position: "absolute",
         backgroundImage: `url(${Icons})`,
     },
@@ -1114,12 +1115,12 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: 6,
         backgroundColor: "#281b7d",
         position: "absolute",
-        top: "84%",
+        bottom: 80,
         backgroundImage: `url(${Icons})`,
     },
     educationButtonMobile3:{
         borderRadius: 6,
-        top: "84%",
+        bottom: 80,
         backgroundColor: "#6e3109",
         position: "absolute",
         backgroundImage: `url(${Icons})`,

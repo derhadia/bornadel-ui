@@ -56,9 +56,9 @@ export default function HomeMobile() {
             </Grid>
             <Grid container justify="center" className={classes.threeImageBox}>
                 <Grid item xs={4}>
-                    <Grid className={classes.homeMobileImageBox} style={{backgroundImage: `url(${imgEdu})`}}>
+                    <Grid className={classes.homeMobileImageBox} style={{backgroundImage: `url(${imgEdu})`, marginLeft: 3}}>
                         <Grid container justify="center">
-                            <Link style={{display: "flex", justifyContent: "center"}} to="/register">
+                            <Link style={{display: "flex", justifyContent: "center"}} to="/register/Student">
                                 <Button variant="contained" className={classes.educationButtonMobile1} >
                                     <Typography className={classes.SignInText}>ثبت نام</Typography>
                                     <span className={classes.educationButtonMobileIcon}/>
@@ -68,9 +68,9 @@ export default function HomeMobile() {
                     </Grid>
                 </Grid>
                 <Grid item xs={4}>
-                    <Grid className={classes.homeMobileImageBox} style={{backgroundImage: `url(${imgTeach})`, margin: "0 6px"}}>
+                    <Grid className={classes.homeMobileImageBox} style={{backgroundImage: `url(${imgTeach})`, margin: "0 3px"}}>
                         <Grid container justify="center">
-                            <Link style={{display: "flex", justifyContent: "center"}} to="/register">
+                            <Link style={{display: "flex", justifyContent: "center"}} to="/register/Teacher">
                                 <Button variant="contained" className={classes.educationButtonMobile2} >
                                     <Typography className={classes.SignInText}>ثبت نام</Typography>
                                     <span className={classes.educationButtonMobileIcon}/>
@@ -80,9 +80,9 @@ export default function HomeMobile() {
                     </Grid>
                 </Grid>
                 <Grid item xs={4}>
-                    <Grid className={classes.homeMobileImageBox} style={{backgroundImage: `url(${imgAcademy})`}}>
+                    <Grid className={classes.homeMobileImageBox} style={{backgroundImage: `url(${imgAcademy})`, marginRight: 3}}>
                         <Grid container justify="center">
-                            <Link style={{display: "flex", justifyContent: "center"}} to="/register">
+                            <Link style={{display: "flex", justifyContent: "center"}} to="/register/Academy">
                                 <Button variant="contained" className={classes.educationButtonMobile3} >
                                     <Typography className={classes.SignInText}>ثبت نام</Typography>
                                     <span className={classes.educationButtonMobileIcon}/>

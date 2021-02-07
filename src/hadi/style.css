@@ -331,12 +331,22 @@
 }
 
 .arrow.next {
-    top: 46%;
+    top: 125px;
     right: 0;
 }
 
 .arrow.prev {
-    top: 46%;
+    top: 125px;
+    left: 0;
+}
+
+.coverflowAcademy .arrow.next {
+    top: 100px;
+    right: 0;
+}
+
+.coverflowAcademy .arrow.prev {
+    top: 100px;
     left: 0;
 }
 
@@ -398,7 +408,7 @@
 }
 
 .slick-slider {
-    height: 75%;
+    height: 290px;
 }
 
 .coverflowAcademy .slick-slider {
@@ -432,12 +442,12 @@
 }
 
 .sliderArticle .arrow.prev {
-    top: 42%;
+    top: 105px;
     left: -32px;
 }
 
 .sliderArticle .arrow.next {
-    top: 42%;
+    top: 105px;
     right: -32px;
 }
 

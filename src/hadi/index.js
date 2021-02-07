@@ -43,7 +43,7 @@ const useStyle = makeStyles((theme) => ({
     articleSlideMobile: {
         width: 261,
         // margin: "18px 18px 34px 2px",
-        padding: "6px 16px 14px 15px",
+        padding: "6px 15px 14px 15px",
         borderRadius: 9,
         // boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.41)",
         backgroundColor: "#ffffff",
@@ -52,9 +52,7 @@ const useStyle = makeStyles((theme) => ({
     imgSlideMobile: {
         width: 52,
         height: 52,
-        margin: "5px 91px 10px 67px",
         borderRadius: 5,
-        backgroundColor: "#ff0033",
         position: "relative"
     },
     circleImgSlideMobile: {
@@ -64,8 +62,8 @@ const useStyle = makeStyles((theme) => ({
         border: "solid 2px #ffffff",
         borderRadius: "50%",
         position: "absolute",
-        left: 52,
-        top: 7
+        left: "-19px",
+        top: 0
     },
     SuccessContainer: {
         borderRadius: 8,

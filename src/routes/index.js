@@ -41,6 +41,7 @@ export default function Index() {
             <Route exact path="/" component={Home} />
             <Route path="/login" component={LoginComponent} />
             <Route path="/register" component={RegisterComponent} />
+            <Route path="/register/:role" component={RegisterComponent} />
             <Route path="/provision" component={ProvisionComponent} />
             <Route path="/commonquestion" component={CommonQuestionComponent} />
             <Route path="/Courses/:id/:title/:type" component={Courses} />

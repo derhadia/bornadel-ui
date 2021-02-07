@@ -49,7 +49,7 @@ const SwiperArticleMobile = ({articles}) => {
                         <Grid style={{width: "100%"}} container justify="center" className={classes.articleSlideMobile}>
                             <Grid style={{position: "relative"}}>
                                 <img className={classes.imgSlideMobile} src={Apis.SHOWIMAGE + (item.article_PhotoLink || item.news_PhotoLink)} alt=""/>
-                                <img className={classes.circleImgSlideMobile} src={Apis.SHOWIMAGE + (item.teacher_PhotoLink || item.news_PhotoLink)} alt=""/>
+                                <img style={!item.teacher_PhotoLink ? {display: "none"} : {display: "inherit"}} className={classes.circleImgSlideMobile} src={Apis.SHOWIMAGE + item.teacher_PhotoLink} alt=""/>
                             </Grid>
                             <Grid style={{fontSize: 14, fontWeight: "bold", textAlign: "center", color: "#1d1d1d"}}>{item.article_Title || item.news_Title}</Grid>
                             <hr style={{width: 218, borderTop: "1px solid #c59428"}}/>
