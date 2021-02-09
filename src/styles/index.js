@@ -2250,7 +2250,9 @@ const useStyles = makeStyles((theme) => ({
 
     },
     coursesComponentDetail: {
-        paddingTop: 15
+        paddingTop: 15,
+        display: "flex",
+        justifyContent: "center"
     },
     coursesComponentDetailItem: {
         paddingBottom: 15,
