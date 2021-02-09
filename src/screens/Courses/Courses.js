@@ -18,41 +18,46 @@ import { CoursesContext } from '../../contexts/CoursesContext'
 import { useParams } from "react-router-dom";
 import Apis from '../../constants/Api'
 import animateScrollTo from 'animated-scroll-to';
+import Drawer from "@material-ui/core/Drawer";
+import CourseMobile from "./CourseMobile";
 
 
 export default function Courses() {
     const classes = useStyles()
-    const [widthAllcourses, setWidthAllcourses] = useState(0)
-    const [applyFilterPosirion, setApplyFilterPosirion] = useState(0)
-    const [apllyFilterWidth, setApllyFilterWidth] = useState(0)
-    const [fixed, setFixed] = useState(false)
-    const [nothingData, setNothingData] = useState(false)
-    let { coursesData, setCoursesData, page, itemPerPage, minPrice, maxPrice, minTime,
+    const [widthAllcourses, setWidthAllcourses] = useState(0);
+    const [applyFilterPosirion, setApplyFilterPosirion] = useState(0);
+    const [apllyFilterWidth, setApllyFilterWidth] = useState(0);
+    const [fixed, setFixed] = useState(false);
+    const [nothingData, setNothingData] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
+    let {
+        coursesData, setCoursesData, page, itemPerPage, minPrice, maxPrice, minTime,
         maxTime, selectedTeacher, selectedAcademy, checkedDegreeSwith, sortType
         , checkedReadyClasses, level, nothingMessage, setnothingMessage,
-        setAcademy, setLevelData, setTeacher1, setFilterAcademy ,setDataPriceSort} = useContext(CoursesContext)
+        setAcademy, setLevelData, setTeacher1, setFilterAcademy, setDataPriceSort
+    } = useContext(CoursesContext)
 
-    let { id, title, type } = useParams()
+    let {id, title, type} = useParams()
 
-    useEffect(() => {
-        let CoursesContainer = document.querySelector('#CoursesContainer')
-        setWidthAllcourses(CoursesContainer.offsetWidth)
-        let FilterConteiner = document.querySelector('#CoursesContainerRight')
-        let filterButtun = document.querySelector('#filterButtun')
-        let CoursesContainerLeft = document.querySelector('#CoursesContainerLeft')
-        setApllyFilterWidth(FilterConteiner.offsetWidth-20)
-        setApplyFilterPosirion((FilterConteiner.offsetWidth-20)/2)
-        window.addEventListener('scroll', (e) => {
-            if (window.pageYOffset + window.innerHeight - 110 === 1590 || window.pageYOffset + window.innerHeight - 110 > 1590) {
-                setFixed(true)
-                return
-            }
-            if (window.pageYOffset + window.innerHeight - 110 < 1600) {
-                setFixed(false)
-                return
-            }
-        })
-    }, [])
+    // useEffect(() => {
+    //     let CoursesContainer = document.querySelector('#CoursesContainer')
+    //     setWidthAllcourses(CoursesContainer.offsetWidth)
+    //     let FilterConteiner = document.querySelector('#CoursesContainerRight')
+    //     let filterButtun = document.querySelector('#filterButtun')
+    //     let CoursesContainerLeft = document.querySelector('#CoursesContainerLeft')
+    //     setApllyFilterWidth(FilterConteiner.offsetWidth - 20)
+    //     setApplyFilterPosirion((FilterConteiner.offsetWidth - 20) / 2)
+    //     window.addEventListener('scroll', (e) => {
+    //         if (window.pageYOffset + window.innerHeight - 110 === 1590 || window.pageYOffset + window.innerHeight - 110 > 1590) {
+    //             setFixed(true)
+    //             return
+    //         }
+    //         if (window.pageYOffset + window.innerHeight - 110 < 1600) {
+    //             setFixed(false)
+    //             return
+    //         }
+    //     })
+    // }, [])
 
 
     useEffect(() => {
@@ -72,7 +77,7 @@ export default function Courses() {
             "haveDocument": checkedDegreeSwith,
             "isActive": checkedReadyClasses
         }
-        fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
+        fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({responseJSON, status}) => {
             if (status === 200) {
                 responseJSON.data.length === 0 ? setNothingData(true) : setNothingData(false)
                 setCoursesData(responseJSON.data)
@@ -97,10 +102,12 @@ export default function Courses() {
             "haveDocument": false,
             "isActive": false
         }
-        fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
+        fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({responseJSON, status}) => {
             if (status == 200) {
                 responseJSON.data.length === 0 ? setNothingData(true) : setNothingData(false)
-                setDataPriceSort(responseJSON.data.length > 0 ? responseJSON.data.map((item) => { return item.last_Price ? item.last_Price : item.classRoom_Price }) : "")
+                setDataPriceSort(responseJSON.data.length > 0 ? responseJSON.data.map((item) => {
+                    return item.last_Price ? item.last_Price : item.classRoom_Price
+                }) : "")
 
                 setCoursesData(responseJSON.data)
             }
@@ -108,7 +115,7 @@ export default function Courses() {
         let body1 = {
             "classRoomLevel_ID": 0
         }
-        fetchPost(Apis.Get_GetAllClassroomLevel, body1).then(({ responseJSON, status }) => {
+        fetchPost(Apis.Get_GetAllClassroomLevel, body1).then(({responseJSON, status}) => {
             setLevelData(responseJSON.data)
         })
         let body2 = {
@@ -116,7 +123,7 @@ export default function Courses() {
             "teacher_Academy_Ref": 0,
             "teacher_AspNetUsers_Ref": 0
         }
-        fetchPost(Apis.Get_GetAllTeacher, body2).then(({ responseJSON, status }) => {
+        fetchPost(Apis.Get_GetAllTeacher, body2).then(({responseJSON, status}) => {
             setTeacher1(responseJSON.data)
             // setFilterTeacher(responseJSON.data)
         })
@@ -125,8 +132,8 @@ export default function Courses() {
             "academy_AspNetUsers_Ref": 0,
             "academy_Name": ""
         }
-        let approveEnum = 1
-        fetchPost(Apis.Get_GetAllAcademy + "?approveEnum=" + approveEnum, body3).then(({ responseJSON, status }) => {
+        let approveEnum = 2
+        fetchPost(Apis.Get_GetAllAcademy + "?approveEnum=" + approveEnum, body3).then(({responseJSON, status}) => {
             setAcademy(responseJSON.data)
             setFilterAcademy(responseJSON.data)
         })
@@ -166,7 +173,7 @@ export default function Courses() {
             "haveDocument": checkedDegreeSwith,
             "isActive": checkedReadyClasses
         }
-        fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({ responseJSON, status }) => {
+        fetchPost(Apis.Get_GetAllSearchClassRoomList, body).then(({responseJSON, status}) => {
             if (status === 200) {
                 setCoursesData(responseJSON.data)
                 responseJSON.data.length === 0 ? setNothingData(true) : setNothingData(false)
@@ -174,128 +181,103 @@ export default function Courses() {
             }
         })
     }
+
+    const handleWindowSize = () => setWidth(window.innerWidth);
+
+    useEffect(() => {
+        window.addEventListener("resize", handleWindowSize)
+        return () => window.removeEventListener("resize", handleWindowSize)
+    },[]);
+
+    const isMobile = width < 960;
+
     return (
-        <Grid container className={classes.CoursesContainer}>
-            <Grid item container direction="column" className={classes.CoursesContainerRight}>
-                <Grid item container direction="column" id="CoursesContainerRight">
-                    <GroupFilter />
-                    <LevelFilter />
-                    <TeacherFilter />
-                    <StartHoursFilter />
-                    <PriceFilter />
-                    <AcademyFilter />
-                    <ReadyClassesSwitch />
-                    <DegreeSwith />
-                    <Grid item
-                        container
-                        justify="center"
-                        className={classes.filterButtunContainer}
-                        style={{width:apllyFilterWidth>0&&apllyFilterWidth}}
-                        style={{ position: fixed ? "static" : "sticky", top: "auto", bottom: 15, }}
-                    >
-                        <Button variant="contained"
-                            color="primary"
-                            id="filterButtun"
-                            className={classes.filterButtun}
-                            // style={{right:applyFilterPosirion>0&&applyFilterPosirion,
-                            // width:window.innerWidth<1280?150:null}}
-                            onClick={() => ApplyFilter()}
+        <>
+            {
+                !isMobile ?
+                    <Grid container className={classes.CoursesContainer}>
+                        <Grid item container direction="column" className={classes.CoursesContainerRight}>
+                            <Grid item container direction="column" id="CoursesContainerRight">
+                                <GroupFilter/>
+                                <LevelFilter/>
+                                <TeacherFilter/>
+                                <StartHoursFilter/>
+                                <PriceFilter/>
+                                <AcademyFilter/>
+                                <ReadyClassesSwitch/>
+                                <DegreeSwith/>
+                                <Grid item
+                                      container
+                                      justify="center"
+                                      className={classes.filterButtunContainer}
+                                      style={{width: apllyFilterWidth > 0 && apllyFilterWidth}}
+                                      style={{position: fixed ? "static" : "sticky", top: "auto", bottom: 15,}}
+                                >
+                                    <Button variant="contained"
+                                            color="primary"
+                                            id="filterButtun"
+                                            className={classes.filterButtun}
+                                        // style={{right:applyFilterPosirion>0&&applyFilterPosirion,
+                                        // width:window.innerWidth<1280?150:null}}
+                                            onClick={() => ApplyFilter()}
 
-                        >
-                            اعمال فیلتر ها
-                    </Button>
-                    </Grid>
-                </Grid>
-            </Grid>
-            <Grid item direction="column" id="CoursesContainerLeft" className={classes.CoursesContainerLeft} >
-                <Grid item container id="CoursesContainer" className={classes.CoursesContainerLeftHeader} >
-                    <LeftHeaderFilter />
-                </Grid>
-                <Grid item container className={classes.coursesComponentDetail}>
-                    {
-                        coursesData && coursesData.length > 0 ?
-                            coursesData.slice((page - 1) * itemPerPage, (page - 1) * itemPerPage + itemPerPage).map((data, index) => {
-                                return (
-                                    <Grid item
-                                        alignItems="center" className={classes.coursesComponentDetailItem}
-                                        style={{
-                                            marginLeft:
-                                                window.innerWidth > 1530 && (index + 1) % 6 === 0 ? 0 :
-                                                    window.innerWidth > 1530 && (index + 1) % 6 !== 0 ? (((widthAllcourses) - (6 * 180)) / 5) / 2 :
-                                                        widthAllcourses === 1025 && (index + 1) % 5 === 0 ? 0 :
-                                                            widthAllcourses === 1025 && (index + 1) % 5 !== 0 ? 15 :
-                                                                window.innerWidth > 1360 && (index + 1) % 5 === 0 ? 0 :
-                                                                    window.innerWidth > 1360 && (index + 1) % 5 !== 0 ? (((widthAllcourses) - (900)) / 4) / 2 :
-                                                                        window.innerWidth > 1300 && window.innerWidth < 1361 && (index + 1) % 5 === 0 ? 0 :
-                                                                            window.innerWidth > 1300 && window.innerWidth < 1361 && (index + 1) % 5 !== 0 ? (((widthAllcourses) - (5 * 180)) / 4) / 2 :
-                                                                                window.innerWidth > 1264 && window.innerWidth < 1301 && (index + 1) % 5 === 0 ? 0 :
-                                                                                    window.innerWidth > 1264 && window.innerWidth < 1301 && (index + 1) % 5 !== 0 ? (((widthAllcourses) - (5 * 180)) / 4) / 2 :
-                                                                                        window.innerWidth > 1020 && window.innerWidth < 1265 && (index + 1) % 4 === 0 ? 0 :
-                                                                                            window.innerWidth > 1020 && window.innerWidth < 1265 && (index + 1) % 4 !== 0 ? (((widthAllcourses) - (4 * 166)) / 3) / 2 :
-                                                                                                window.innerWidth > 820 && window.innerWidth < 1021 && (index + 1) % 3 === 0 ? 0 :
-                                                                                                    window.innerWidth > 820 && window.innerWidth < 1021 && (index + 1) % 3 !== 0 ? (((widthAllcourses) - (3 * 166)) / 2) / 2 :
-                                                                                                        window.innerWidth > 600 && window.innerWidth < 821 && (index + 1) % 2 === 0 ? 0 :
-                                                                                                            (((widthAllcourses) - (2 * 166)) / 1) / 2
-
-
-                                            ,
-
-                                            marginRight:
-                                                window.innerWidth > 1530 && index % 6 === 0 ? 0 :
-                                                    window.innerWidth > 1530 && index % 6 !== 0 ? (((widthAllcourses) - (6 * 180)) / 5) / 2 :
-                                                        widthAllcourses === 1025 && index % 5 === 0 ? 0 :
-                                                            widthAllcourses === 1025 && index % 5 !== 0 ? 16 :
-                                                                window.innerWidth > 1360 && index % 5 === 0 ? 0 :
-                                                                    window.innerWidth > 1360 && index % 5 !== 0 ? Math.floor((((widthAllcourses) - (900)) / 4) / 2) :
-                                                                        window.innerWidth > 1300 && window.innerWidth < 1361 && index % 5 === 0 ? 0 :
-                                                                            window.innerWidth > 1300 && window.innerWidth < 1361 && index % 5 !== 0 ? Math.floor((((widthAllcourses) - (5 * 180)) / 4) / 2) :
-                                                                                window.innerWidth > 1264 && window.innerWidth < 1301 && index % 5 === 0 ? 0 :
-                                                                                    window.innerWidth > 1254 && window.innerWidth < 1301 && index % 5 !== 0 ? Math.floor((((widthAllcourses) - (5 * 180)) / 4) / 2) :
-                                                                                        window.innerWidth > 1020 && window.innerWidth < 1265 && index % 4 === 0 ? 0 :
-                                                                                            window.innerWidth > 1020 && window.innerWidth < 1265 && index % 4 !== 0 ? ((((widthAllcourses) - (4 * 166)) / 3) / 2) :
-                                                                                                window.innerWidth > 820 && window.innerWidth < 1021 && index % 3 === 0 ? 0 :
-                                                                                                    window.innerWidth > 820 && window.innerWidth < 1021 && index % 3 !== 0 ? (((widthAllcourses) - (3 * 166)) / 2) / 2 :
-                                                                                                        window.innerWidth > 600 && window.innerWidth < 821 && index % 2 === 0 ? 0 :
-                                                                                                            (((widthAllcourses) - (2 * 166)) / 1) / 2
-
-
-
-                                        }}
                                     >
-                                        <CoursesComponent
-                                            data={data}
-                                            id={data.classRoom_ID}
-                                            teacherName={data.teacher_Name + ' ' + data.teacher_LastName}
-                                            title={data.classRoom_Subject} date={data.classRoom_DateTime}
-                                            photoIconLink={Apis.SHOWIMAGE + data.educationSubject_IconeLink}
-                                            price={data.classRoom_Price}
-                                            LastPrice={data.last_Price}
-                                            Discoun={data.classRoom_Discount}
-                                            minWidth={180}
-                                            maxWidth={180}
-                                            dir="rtl"
-                                            deadLine={data.active}
-                                            teacherLink={Apis.SHOWIMAGE + data.teacher_PhotoLink}
-                                            educationSubject={data.educationSubject_Name}
-                                        />
-                                    </Grid>
-                                )
-                            })
-                            :
-                            nothingData ?
-                                <Grid item container justify="center" alignItems="center" className={classes.nothingMessage} >دوره ای وجود ندارد</Grid>
-                                : null
-                    }
-
-                    {coursesData && coursesData.length > 0 ?
-                        <Grid item container justify="center" alignItems="center" className={classes.CoursesContainerLeftHeader} >
-                            <MyPagination />
+                                        اعمال فیلتر ها
+                                    </Button>
+                                </Grid>
+                            </Grid>
                         </Grid>
-                        : null
-                    }
+                        <Grid item direction="column" id="CoursesContainerLeft" className={classes.CoursesContainerLeft}>
+                            <Grid item container id="CoursesContainer" className={classes.CoursesContainerLeftHeader}>
+                                <LeftHeaderFilter/>
+                            </Grid>
+                            <Grid item container className={classes.coursesComponentDetail}>
+                                {
+                                    coursesData && coursesData.length > 0 ?
+                                        coursesData.slice((page - 1) * itemPerPage, (page - 1) * itemPerPage + itemPerPage).map((data, index) => {
+                                            return (
+                                                <Grid item alignItems="center" className={classes.coursesComponentDetailItem}>
+                                                    <CoursesComponent
+                                                        data={data}
+                                                        id={data.classRoom_ID}
+                                                        teacherName={data.teacher_Name + ' ' + data.teacher_LastName}
+                                                        title={data.classRoom_Subject} date={data.classRoom_DateTime}
+                                                        photoIconLink={Apis.SHOWIMAGE + data.educationSubject_IconeLink}
+                                                        price={data.classRoom_Price}
+                                                        LastPrice={data.last_Price}
+                                                        Discoun={data.classRoom_Discount}
+                                                        minWidth={180}
+                                                        maxWidth={180}
+                                                        dir="rtl"
+                                                        deadLine={data.active}
+                                                        teacherLink={Apis.SHOWIMAGE + data.teacher_PhotoLink}
+                                                        educationSubject={data.educationSubject_Name}
+                                                    />
+                                                </Grid>
+                                            )
+                                        })
+                                        :
+                                        nothingData ?
+                                            <Grid item container justify="center" alignItems="center"
+                                                  className={classes.nothingMessage}>دوره ای وجود ندارد</Grid>
+                                            : null
+                                }
 
-                </Grid>
-            </Grid>
-        </Grid >
+                                {coursesData && coursesData.length > 0 ?
+                                    <Grid item container justify="center" alignItems="center"
+                                          className={classes.CoursesContainerLeftHeader}>
+                                        <MyPagination/>
+                                    </Grid>
+                                    : null
+                                }
+
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    :
+                    <CourseMobile coursesData={coursesData} filter={ApplyFilter}/>
+            }
+        </>
+
     )
 }

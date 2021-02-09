@@ -39,16 +39,16 @@ export default function BannerMobileSliderHome() {
                 containerClass="swiper-container-bannerHome"
                 wrapperClass="swiper-wrap-bannerHome  ">
                 <div style={{height:"100%"}} >
-                    <img src={banner1} style={{ width: "100%", height:"100%",borderRadius:7 }} />
+                    <img src={banner1} style={{ width: "100%", height:"100%",borderRadius:7 }} alt="" />
                 </div>
                 <div style={{height:"100%"}}>
-                    <img src={banner2} style={{ width: "100%", height:"100%",borderRadius:7 }} />
+                    <img src={banner2} style={{ width: "100%", height:"100%",borderRadius:7 }} alt="" />
                 </div>
                 <div style={{height:"100%"}}>
-                    <img src={banner3} style={{ width: "100%", height:"100%",borderRadius:7 }} />
+                    <img src={banner3} style={{ width: "100%", height:"100%",borderRadius:7 }} alt="" />
                 </div>
                 <div style={{height:"100%"}}>
-                    <img src={banner4} style={{ width: "100%", height:"100%",borderRadius:7 }} />
+                    <img src={banner4} style={{ width: "100%", height:"100%",borderRadius:7 }} alt="" />
                 </div>
             </SwiperId>
            </Grid>

@@ -30,21 +30,24 @@ export default function CoursesComponent({ data, id, teacherName, educationSubje
     let newDate = date&&date.length>0?date.substr(0, 11):""
     return (
         <Grid item xs={12}
-            className={classes.coursesComponentContainer}
+            className={`${classes.coursesComponentContainer} item`}
             style={{ maxWidth: maxWidth, minWidth: 180 }}
             onClick={() => { setCourseDetailData(data) }}
             component={Link} to={`/CourseDetail/${id}/${title}`}>
 
             <Grid item className={classes.CoursesRect} style={{ border: deadLine === 2 ? "1px solid #d7d7d7" : "1px solid #c59428", backgroundColor: deadLine === 2 ? "#d7d7d7" : "#fff" }} >
-                <Grid item className={classes.coursesTextContainer}><Typography className={classes.coursesText}>{educationSubject}</Typography></Grid>
+                <Grid item className={classes.coursesTextContainer}>
+                    <Typography className={classes.coursesText}>{educationSubject}</Typography>
+                </Grid>
+                <span className={classes.fixRectCard}/>
                 <Grid item className={classes.circleinRectContainer} style={{ border: deadLine === 2 ? "1px solid #d7d7d7" : "1px solid #c59428", }} >
-                    <Grid item className={classes.circleinRect} ></Grid>
+                    <Grid item className={classes.circleinRect} />
                 </Grid>
                 <Grid item className={classes.circleinRect2}>
-                    <img src={teacherLink} className={classes.coursesIconCicle} />
+                    <img src={teacherLink} className={classes.coursesIconCicle} alt=""/>
                 </Grid>
                 <Grid item className={classes.coursesIcon}>
-                    <img src={photoIconLink} className={classes.coursesIconRect} />
+                    <img src={photoIconLink} className={classes.coursesIconRect} alt="" />
                 </Grid>
             </Grid>
             <Grid item container alignItems="center" direction="column" className={classes.CoursesDetail}>

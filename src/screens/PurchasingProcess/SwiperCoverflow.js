@@ -9,7 +9,7 @@ import {CourseDetailContext} from "../../contexts/CourseDetailContext";
 
 
 
-const SwiperCoverflow = ({similarItem}) => {
+const SwiperCoverflow = ({similarItem, home}) => {
     const classes = useStyle();
     let { setCourseDetailData } = useContext(CourseDetailContext)
 
@@ -44,15 +44,22 @@ const SwiperCoverflow = ({similarItem}) => {
             <Slider {...setting}>
                 {
                     similarItem && similarItem.length > 0 ? similarItem[0].map((item, index) => (
-                        <Link onClick={() => setCourseDetailData(item)} to={index === slideIndex ?`/CourseDetail/${item.classRoom_ID}/${item.classRoom_Subject}` : "/Cart"} key={index} className={index === slideIndex ? "slide activeSlide" : "slide"}>
+                        <Link
+                            onClick={() => setCourseDetailData(item)}
+                            to={index === slideIndex ?`/CourseDetail/${item.classRoom_ID}/${item.classRoom_Subject}` : (home ? "/" : "/Cart")}
+                            key={index}
+                            className={index === slideIndex ? "slide activeSlide" : "slide"}
+                        >
                             <Grid className={`${classes.coursesComponentDetailItem} slideCover`}>
                                 <Grid style={{border: ".5px solid #ccc", borderRadius: 12, borderTop: "unset", height: 240}}>
                                     {/*<Grid className={classes.coursesComponentContainer}>*/}
                                         <Grid className={classes.coursesRect}>
+                                            <span className={classes.fixRectCard}/>
                                             <Grid>
                                                 <img style={{width: 20, height: 23}} src={Apis.SHOWIMAGE + item.educationSubject_IconeLink} alt=""/>
                                                 <Typography style={{fontSize: 13}} className={classes.coursesText}>{item.educationSubject_Name}</Typography>
                                             </Grid>
+
                                             <Grid className={classes.circleinRectContainer}/>
                                             <Grid className={classes.cirRect}>
                                                 <img style={{width: "100%", height: "100%", borderRadius: "50%"}} src={Apis.SHOWIMAGE + item.teacher_PhotoLink} alt=""/>

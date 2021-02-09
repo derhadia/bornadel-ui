@@ -50,7 +50,7 @@ export default function CoursesContextProvider({ children }) {
     const [maxValue, setMaxValue] = useState(100)
     const [nothingMessage, setnothingMessage] = useState(false)
     const [mobileOpen, setMobileOpen] = useState(false);
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
 
 
 

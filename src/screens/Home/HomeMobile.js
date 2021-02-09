@@ -19,7 +19,8 @@ export default function HomeMobile() {
     const classes = useStyles()
     const [similarItem, setSimilarItem] = useState([]);
     const [articles, setArticles] = useState([]);
-    const [news, setNews] = useState([])
+    const [news, setNews] = useState([]);
+    const [home] = useState(true)
 
 
 
@@ -104,7 +105,7 @@ export default function HomeMobile() {
                     پیشنهادات ویژه
                 </Grid>
                 <Grid className="SwiperCoverflow homeMobile" container style={{padding: "0 15px", height: 309}}>
-                    <SwiperCoverflow similarItem={similarItem} />
+                    <SwiperCoverflow home={home} similarItem={similarItem} />
                 </Grid>
             </Grid>
             <Grid container>
@@ -112,7 +113,7 @@ export default function HomeMobile() {
                     بازدید های اخیر شما
                 </Grid>
                 <Grid className="SwiperCoverflow homeMobile" container style={{padding: "0 15px", height: 309}}>
-                    <SwiperCoverflow similarItem={similarItem} />
+                    <SwiperCoverflow home={home} similarItem={similarItem} />
                 </Grid>
             </Grid>
             <Grid className="sliderArticle" container justify="center">

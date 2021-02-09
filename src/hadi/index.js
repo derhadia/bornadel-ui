@@ -452,7 +452,11 @@ const useStyle = makeStyles((theme) => ({
         borderRadius: 10,
         boxShadow: "0 0 10px 0 rgba(0, 0, 0, 0.41)",
         backgroundColor: "#ffffff",
-        height: 250
+        height: 250,
+        [theme.breakpoints.down("sm")]: {
+            margin: "31px auto",
+            height: "unset"
+        }
    },
     coursesComponentContainer: {
         padding: "0 0 12px",
@@ -477,6 +481,58 @@ const useStyle = makeStyles((theme) => ({
         textAlign: "center",
         lineHeight: "10px",
         color: "#ffffff"
+    },
+    levelCourseMobile: {
+        width: "100%",
+        display: "flex",
+        backgroundColor: "white",
+        border: "1px solid #b4b4b4",
+        borderRadius: 5,
+        padding: "18px 20px",
+        flexDirection: "column"
+    },
+    CheckBox: {
+        width: 19,
+        height: 18,
+        position: "relative",
+        marginRight: "10px"
+    },
+    checkboxSpan: {
+        cursor: "pointer",
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        top: 0,
+        left: 0,
+        borderRadius: 4,
+        background: "#fff",
+        border: "1px solid #d8d8d8",
+
+    },
+    ActivecheckboxSpan: {
+        cursor: "pointer",
+        position: "absolute",
+        width: "100%",
+        height: "100%",
+        top: 0,
+        left: 0,
+        borderRadius: 4,
+        border: "1px solid #d8d8d8",
+        backgroundColor: "#00bfd6",
+        "&::before": {
+            content: `''`,
+            position: "absolute",
+            left: 2,
+            top: 2,
+            color: "#fff",
+            fontSize: 11,
+            width: 12,
+            height: 7,
+            border: "2px solid #fff",
+            borderLeft: "none",
+            borderTop: "none",
+            transform: "rotate(45deg)"
+        }
     },
     DiscountRect: {
         marginLeft: 5,
@@ -812,6 +868,15 @@ const useStyle = makeStyles((theme) => ({
         color: "white",
         position: "fixed",
         bottom: 1,
+    },
+    fixRectCard: {
+        height: 85,
+        display: "block",
+        margin: "0 auto",
+        backgroundColor: "white",
+        position: "absolute",
+        top: 45,
+        width: 63,
     },
     parentYellowCircle: {
         display: "flex",
