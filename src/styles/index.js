@@ -2587,10 +2587,13 @@ const useStyles = makeStyles((theme) => ({
         color: "#ffff",
         padding: "0 14px",
         borderTopRightRadius: 15,
-        width: 75,
+        width: 100,
         height: 33,
         fontSize: 19,
-        textAlign: "center"
+        textAlign: "center",
+        "&:hover": {
+            backgroundColor: "#2f6c81 !important"
+        }
     },
     CourseDetailClassName4: {
         fontSize: 16,
@@ -2752,10 +2755,13 @@ const useStyles = makeStyles((theme) => ({
         color: "#ffff",
         padding: "0 14px",
         borderTopRightRadius: 15,
-        width: 95,
+        width: 100,
         height: 33,
         fontSize: 19,
-        textAlign: "center"
+        textAlign: "center",
+        "&:hover": {
+            backgroundColor: "#2f6c81 !important"
+        }
     },
     CourseDetailَAcademyImage: {
         display: "inline-block",
@@ -2813,7 +2819,7 @@ const useStyles = makeStyles((theme) => ({
     },
     CourseLogoANDregisterLogo: {
         display: "inline-block",
-        width: 30,
+        width: 45,
         height: 30,
         margin: "auto",
         marginBottom: 0,
@@ -2861,7 +2867,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "673px 391px",
+            backgroundPosition: "386px 223px",
+            backgroundSize: 800
         },
 
         MozuserSelect: "none",
@@ -2889,7 +2896,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "744px 391px",
+            backgroundPosition: "428px 223px",
+            backgroundSize: 800
         },
         MozuserSelect: "none",
         userSelect: "none",
@@ -2916,7 +2924,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "818px 391px",
+            backgroundPosition: "469px 223px",
+            backgroundSize: 800
         },
         MozuserSelect: "none",
         userSelect: "none",
@@ -2957,7 +2966,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "304px 391px",
+            backgroundPosition: "176px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",
@@ -2985,7 +2995,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "375px 391px",
+            backgroundPosition: "218px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",
@@ -3013,7 +3024,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "456px 391px",
+            backgroundPosition: "263px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",
@@ -3043,7 +3055,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "520px 391px",
+            backgroundPosition: "302px 223px",
+            backgroundSize: 800
         },
         MozuserSelect: "none",
         userSelect: "none",
@@ -3070,7 +3083,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "597px 391px",
+            backgroundPosition: "342px 223px",
+            backgroundSize: 800
         },
 
         MozuserSelect: "none",
@@ -3096,7 +3110,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "153px 391px",
+            backgroundPosition: "92px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",
@@ -3124,7 +3139,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "227px 391px",
+            backgroundPosition: "132px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",

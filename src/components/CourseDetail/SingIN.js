@@ -30,11 +30,6 @@ export default function SingIN({data: state}) {
        setData(JSON.parse(localStorage.getItem("itemsArray")))
     }
 
-
-
-
-
-
     return (
         <>
             <Grid container direction="column" className={classes.CourseLogoANDregisterContainer} item >
@@ -45,7 +40,7 @@ export default function SingIN({data: state}) {
                         <img style={{width: "100%"}} src={Apis.SHOWIMAGE + state.educationSubject_IconeLink} alt=""/>
                     </Grid>
                     <span className={classes.CourseLogoANDregisterTitle} >Adobe Photosope CC</span>
-                    <span  className={classes.CourseLogoANDregisterCircle}/>
+                    <img  alt="" src={Apis.SHOWIMAGE + state.teacher_PhotoLink} className={classes.CourseLogoANDregisterCircle}/>
                 </Grid>
                 <Grid container item className={classes.CourseLogoANDregisterButtonContainer}>
                     <Link
