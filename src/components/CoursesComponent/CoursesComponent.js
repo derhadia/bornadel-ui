@@ -39,7 +39,7 @@ export default function CoursesComponent({ data, id, teacherName, educationSubje
                 <Grid item className={classes.coursesTextContainer}>
                     <Typography className={classes.coursesText}>{educationSubject}</Typography>
                 </Grid>
-                <span className={classes.fixRectCard}/>
+                <span className={classes.fixRectCard} style={deadLine === 2 ? {borderTopLeftRadius: "56%", borderTopRightRadius: "56%"} : null}/>
                 <Grid item className={classes.circleinRectContainer} style={{ border: deadLine === 2 ? "1px solid #d7d7d7" : "1px solid #c59428", }} >
                     <Grid item className={classes.circleinRect} />
                 </Grid>

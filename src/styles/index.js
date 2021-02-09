@@ -1853,8 +1853,6 @@ const useStyles = makeStyles((theme) => ({
         maxWidth: "100%",
         minHeight: 200,
         borderRadius: 8,
-        padding: "12px 10px",
-        maxHeight: 200,
         backgroundColor: "#fff",
         marginBottom: 15,
         padding: "10px 10px",
@@ -1898,7 +1896,7 @@ const useStyles = makeStyles((theme) => ({
     levelFilter: {
         minWidth: "100%",
         maxWidth: "100%",
-        height: 270,
+        height: "fit-content",
         borderRadius: 8,
         padding: "10px 10px",
         backgroundColor: "#fff",
