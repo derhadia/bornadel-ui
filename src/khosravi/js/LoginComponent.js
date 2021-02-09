@@ -50,8 +50,8 @@ const LoginComponent = (props) => {
                         };
                         localStorage.setItem("userInfo" , JSON.stringify(userInfo));
 
-                        // res.userType == 1 ? window.location.href = '/student':
-                        // window.location.href = '/AcademyPanel';
+                        res.userType == 1 ? window.location.href = '/student':
+                        window.location.href = '/AcademyPanel';
                         // setLoginCard("roleUser");
                     } else {
                         toastr.error(res.message);
