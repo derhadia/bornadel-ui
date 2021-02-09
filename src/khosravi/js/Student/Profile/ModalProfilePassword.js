@@ -45,9 +45,9 @@ const ModalResetPassword = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("userInfo");
       }
-      //  else {
-      //   toastr.error(response.message);
-      // }
+       else {
+        toastr.error(response.message);
+      }
 
     })
   }
