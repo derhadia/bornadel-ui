@@ -163,7 +163,7 @@ const RegisterComponent = (props) => {
                                             <Form.Label>جواب تصویر امنیتی :</Form.Label>
                                             <Form.Control type="text" style={{ width: "134px" }} name="captcha" value={state.captcha} onChange={handleChange} />
                                         </Grid>
-                                        <Grid item md={6} className="pr-2">
+                                        <Grid item md={6} className="p-0">
                                             <Grid item md={12} className={`${classes.questionCaptcha} d-flex justify-content-center`}>
                                                 {state.question}
                                             </Grid>
