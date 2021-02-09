@@ -78,6 +78,35 @@ export default function SortPopup(props) {
                             label="جدید ترین"
                             onClick={handleNew}
                         />
+                        {
+                            props.course ?
+                                <>
+                                    <Divider style={{margin: "10px 0"}} variant="inset" component="li" />
+                                    <FormControlLabel
+                                        style={{fontSize: "13.5px", color: "#464646", fontWeight: "bold"}}
+                                        value="new"
+                                        control={<Radio />}
+                                        label="پرفروش ترین"
+                                        onClick={handleNew}
+                                    />
+                                    <Divider style={{margin: "10px 0"}} variant="inset" component="li" />
+                                    <FormControlLabel
+                                        style={{fontSize: "13.5px", color: "#464646", fontWeight: "bold"}}
+                                        value="new"
+                                        control={<Radio />}
+                                        label="گرانترین"
+                                        onClick={handleNew}
+                                    />
+                                    <Divider style={{margin: "10px 0"}} variant="inset" component="li" />
+                                    <FormControlLabel
+                                        style={{fontSize: "13.5px", color: "#464646", fontWeight: "bold"}}
+                                        value="new"
+                                        control={<Radio />}
+                                        label="ارزان ترین"
+                                        onClick={handleNew}
+                                    />
+                                </> : ""
+                        }
                     </RadioGroup>
                 </FormControl>
             </List>

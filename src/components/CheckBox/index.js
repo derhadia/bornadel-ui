@@ -8,10 +8,12 @@ export default function Checkbox({ id, name,setItem }) {
     const [active, setActive] = useState(false)
    
     return (
-        <Grid container alignItems="center" onClick={() => { 
-            setActive(!active) 
-            setItem(active,id)
-            }} item>
+        <Grid
+            container
+            alignItems="center"
+            onClick={() => {setActive(!active); setItem(active,id)}}
+            item
+        >
             <Grid item className={classes.CheckBox}>
                 <span className={active ? classes.ActivecheckboxSpan : classes.checkboxSpan} ></span>
             </Grid>

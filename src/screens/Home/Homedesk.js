@@ -117,10 +117,10 @@ export default function HomeDesk() {
                 </Grid>
             </Grid>
             {/* =======================================Banner Under BestAcademy================================================ */}
-            <Grid container item justify="center" style={{ width: "100%" }}>
+            <Grid container item justify="center">
                 <Grid container className={classes.BannerUnderBestAcademyContainer}>
                     <Grid item className={classes.BannerUnderBestAcademy}>
-                        <img src={comersial} className={classes.BannerUnderBestAcademyImage} />
+                        <img src={comersial} className={classes.BannerUnderBestAcademyImage} alt="" />
                     </Grid>
                 </Grid>
             </Grid>
@@ -130,7 +130,13 @@ export default function HomeDesk() {
                 <Grid container justify="space-between" item className={classes.homeCursesComponent}>
                     <Grid item sm={10}>
                         <Grid item sm={12} container direction="column" className={classes.CursesComponentContainer}>
-                            <Grid item ><Grid item className={classes.HeaderCursesComponentContainer}><Typography className={classes.HeaderCursesComponentText}>بازدید های اخیر شما</Typography></Grid></Grid>
+                            <Grid item  style={{ width: "100%" }}>
+                                <Grid item className={classes.HeaderCursesComponentContainer}>
+                                    <Typography className={classes.HeaderCursesComponentText}>
+                                        بازدید های اخیر شما
+                                    </Typography>
+                                </Grid>
+                            </Grid>
                             <RecentView />
                         </Grid>
                     </Grid>

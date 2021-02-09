@@ -1377,10 +1377,10 @@ const useStyles = makeStyles((theme) => ({
         height: 475,
         paddingTop: 10,
         paddingBottom: 15,
-        maxWidth: "1282px",
+        // maxWidth: "1282px",
     },
     CursesComponentContainer: {
-        // minWidth: 700,
+        minWidth: "100%",
         height: 445,
         backgroundColor: "#ffff",
         paddingRight: 12,
@@ -1389,8 +1389,9 @@ const useStyles = makeStyles((theme) => ({
         overflow: "hidden",
         borderRadius: 8,
         boxShadow: "0 2px 4px 0 rgba(0,0,0,.1)",
-        maxWidth: window.innerWidth - 320
-
+        // maxWidth: window.innerWidth - 320,
+        display: "flex",
+        flexDirection: "row"
     },
     HeaderCursesComponentContainer: {
         height: 46,
@@ -1399,6 +1400,9 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: 12,
         marginBottom: 25,
         borderBottom: "2px solid #cccccc"
+    },
+    titleRecentView: {
+        width: "100%"
     },
     HeaderCursesComponentContainer2: {
         height: 46,
@@ -1522,18 +1526,21 @@ const useStyles = makeStyles((theme) => ({
         position: "relative",
         zIndex: 2
     },
-    CoursesContainer: {
-        display: "flex",
-        justifyContent: "center"
-    },
     circleinRectContainer: {
-        width: 85,
+        width: 84,
         height: 85,
         borderRadius: "50%",
         margin: "auto",
         position: "relative",
-        top: -4,
+        top: -89,
         clipPath: "Polygon(0% 0%,100% 0%,100% 50% ,0% 50%)"
+    },
+    fixRectCard: {
+        width: 85,
+        height: 85,
+        display: "block",
+        margin: "0 auto",
+        backgroundColor: "white"
     },
     circleinRect: {
         width: "100%",
@@ -1550,7 +1557,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "50%",
         margin: "auto",
         position: "relative",
-        bottom: 81,
+        bottom: 169,
         overflow: "hidden"
     },
     coursesIconCicle: {
@@ -1562,7 +1569,7 @@ const useStyles = makeStyles((theme) => ({
         height: 30,
         position: "relative",
         margin: "auto",
-        bottom: 210
+        bottom: 296
     },
     coursesIconRect: {
         width: "100%",
@@ -1627,6 +1634,9 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: "37px",
         marginTop: 10,
         marginBottom: 10,
+        "&:hover": {
+            backgroundColor: "#ff0029 !important"
+        }
     },
     DiscounText: {
         fontSize: 11,
@@ -1835,14 +1845,14 @@ const useStyles = makeStyles((theme) => ({
         padding: "25px 30px 35px 30px ",
         backgroundColor: "#f5f5f5",
         // maxWidth: 1366
+        display: "flex",
+        justifyContent: "center"
     },
     groupFilter: {
         minWidth: "100%",
         maxWidth: "100%",
         minHeight: 200,
         borderRadius: 8,
-        padding: "12px 10px",
-        maxHeight: 200,
         backgroundColor: "#fff",
         marginBottom: 15,
         padding: "10px 10px",
@@ -1886,7 +1896,7 @@ const useStyles = makeStyles((theme) => ({
     levelFilter: {
         minWidth: "100%",
         maxWidth: "100%",
-        height: 270,
+        height: "fit-content",
         borderRadius: 8,
         padding: "10px 10px",
         backgroundColor: "#fff",
@@ -2105,27 +2115,29 @@ const useStyles = makeStyles((theme) => ({
         minWidth: "100%",
         maxWidth: "100%",
         height: 350,
-        borderRadius: 4,
         padding: "12px 10px",
         backgroundColor: "#fff",
         marginBottom: 15,
         border: "1px solid #dedede",
         borderRadius: 8,
-
+        overflow: "scroll"
     },
     AcademyFilterTitle: {
         fontSize: 14,
         fontWeight: 700,
         color: "#424750"
     },
+    handleBtnFilter: {
+        width: "100%",
+        backgroundColor: "#fe243d",
+        color: "white",
+        position: "fixed",
+        bottom: 1,
+    },
     AcademyFilterBpx: {
-        minHeight: 215,
-        maxHeight: 230,
         marginTop: 15,
         padding: "5px 3px",
-        // border: "1px solid #d8d8d8",
         borderRadius: 5,
-        overflowY: "scroll",
         "&::-webkit-scrollbar-thumb": {
             backgroundColor: "#424750",
             width: "13px",
@@ -2236,12 +2248,16 @@ const useStyles = makeStyles((theme) => ({
 
     },
     coursesComponentDetail: {
-        paddingTop: 15
+        paddingTop: 15,
+        display: "flex",
+        justifyContent: "center"
     },
     coursesComponentDetailItem: {
         paddingBottom: 15,
         minWidth: window.innerWidth > 1680 ? 200 : window.innerWidth > 1360 ? 180 : window.innerWidth > 1265 && window.innerWidth < 1361 ? 180 :
-            window.innerWidth > 1100 && window.innerWidth < 1266 ? 166 : window.innerWidth > 1022 && window.innerWidth < 1101 ? 166 : 166
+            window.innerWidth > 1100 && window.innerWidth < 1266 ? 166 : window.innerWidth > 1022 && window.innerWidth < 1101 ? 166 : 166,
+        margin: "0 15px",
+
     },
     leftheaderIcon: {
         width: 27,
@@ -2571,10 +2587,13 @@ const useStyles = makeStyles((theme) => ({
         color: "#ffff",
         padding: "0 14px",
         borderTopRightRadius: 15,
-        width: 75,
+        width: 100,
         height: 33,
         fontSize: 19,
-        textAlign: "center"
+        textAlign: "center",
+        "&:hover": {
+            backgroundColor: "#2f6c81 !important"
+        }
     },
     CourseDetailClassName4: {
         fontSize: 16,
@@ -2736,10 +2755,13 @@ const useStyles = makeStyles((theme) => ({
         color: "#ffff",
         padding: "0 14px",
         borderTopRightRadius: 15,
-        width: 95,
+        width: 100,
         height: 33,
         fontSize: 19,
-        textAlign: "center"
+        textAlign: "center",
+        "&:hover": {
+            backgroundColor: "#2f6c81 !important"
+        }
     },
     CourseDetailَAcademyImage: {
         display: "inline-block",
@@ -2797,7 +2819,7 @@ const useStyles = makeStyles((theme) => ({
     },
     CourseLogoANDregisterLogo: {
         display: "inline-block",
-        width: 30,
+        width: 45,
         height: 30,
         margin: "auto",
         marginBottom: 0,
@@ -2845,7 +2867,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "673px 391px",
+            backgroundPosition: "386px 223px",
+            backgroundSize: 800
         },
 
         MozuserSelect: "none",
@@ -2873,7 +2896,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "744px 391px",
+            backgroundPosition: "428px 223px",
+            backgroundSize: 800
         },
         MozuserSelect: "none",
         userSelect: "none",
@@ -2900,7 +2924,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "818px 391px",
+            backgroundPosition: "469px 223px",
+            backgroundSize: 800
         },
         MozuserSelect: "none",
         userSelect: "none",
@@ -2941,7 +2966,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "304px 391px",
+            backgroundPosition: "176px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",
@@ -2969,7 +2995,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "375px 391px",
+            backgroundPosition: "218px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",
@@ -2997,7 +3024,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "456px 391px",
+            backgroundPosition: "263px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",
@@ -3027,7 +3055,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "520px 391px",
+            backgroundPosition: "302px 223px",
+            backgroundSize: 800
         },
         MozuserSelect: "none",
         userSelect: "none",
@@ -3054,7 +3083,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "597px 391px",
+            backgroundPosition: "342px 223px",
+            backgroundSize: 800
         },
 
         MozuserSelect: "none",
@@ -3080,7 +3110,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "153px 391px",
+            backgroundPosition: "92px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",
@@ -3108,7 +3139,8 @@ const useStyles = makeStyles((theme) => ({
             top: 6,
             marginRight: 7,
             backgroundImage: `url(${Icons})`,
-            backgroundPosition: "227px 391px",
+            backgroundPosition: "132px 223px",
+            backgroundSize: 800
         },
         backgroundColor: "#fff",
         border: "none",

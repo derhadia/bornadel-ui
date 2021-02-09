@@ -9,8 +9,8 @@ export default function LeftHeaderFilter() {
     const [activeClass, setActiveClass] = useState(1)
     let { cheapest, mostExpensive, newest, setSortType } = useContext(CoursesContext)
     return (
-        <Grid container alignItems="center">
-            <Grid item className={classes.leftheaderIcon}></Grid>
+        <Grid container alignItems="center" style={{height: 29}}>
+            <Grid item className={classes.leftheaderIcon}/>
             <Grid item ><Typography className={classes.leftheaderTitle}>مرتب سازی براساس :</Typography></Grid>
             <Grid item onClick={() => {
                 setSortType(1)

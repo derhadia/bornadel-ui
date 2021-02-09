@@ -408,7 +408,16 @@
 }
 
 .slick-slider {
-    height: 290px;
+    height: 100%;
+}
+
+.sliderDesktop .slick-slider {
+    width: 100%;
+}
+
+.sliderDesktop .slick-slide {
+    width: 180px !important;
+    margin: 0 12px;
 }
 
 .coverflowAcademy .slick-slider {
@@ -455,3 +464,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+@media only screen and (max-width: 960px){
+    .MuiDialog-scrollPaper {
+        margin-top: 160px;
+    }
+}
+
